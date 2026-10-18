@@ -1,0 +1,65 @@
+name: Karimnagar Business Hunter - Persistent Daily Run (8:00 AM IST)
+
+on:
+  schedule:
+    # 02:30 UTC is exactly 08:00 AM Asia/Kolkata (IST)
+    - cron: '30 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "daily-hunter"
+  cancel-in-progress: false
+
+jobs:
+  hunt_and_deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout Hunter Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js Runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run Test Suite Verification
+        run: npm test
+
+      - name: Execute Autonomous Karimnagar Hunter Pipeline
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-2.5-flash
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: meta-llama/llama-3.3-70b-instruct:free
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GITHUB_OWNER: ${{ github.repository_owner }}
+          GITHUB_DEMO_REPO: karimnagar-business-demos
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node src/cli.js hunt
+
+      - name: Persist Updated History and Leads
+        run: |
+          git config --global user.name "Karimnagar Hunter AI Bot"
+          git config --global user.email "bot@karimnagar-hunter.ai"
+          git add data/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(data): record persistent daily hunt run [skip ci]" && git push)
+
+      - name: Upload Daily Run Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-hunter-reports
+          path: |
+            data/latest_telegram_report.txt
+            data/discovered_leads.json
+            data/hunter_runs.json

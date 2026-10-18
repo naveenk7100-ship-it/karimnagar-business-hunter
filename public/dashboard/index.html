@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karimnagar Business Hunter AI — Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header Bar -->
+  <header class="top-nav">
+    <div class="brand">
+      <div class="logo-icon">🦅</div>
+      <div>
+        <div class="brand-title">Karimnagar Business Hunter AI</div>
+        <div class="brand-sub">Autonomous Lead Discovery • Custom 3D Websites • GitHub Pages • Telegram</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="schedule-pill">
+        <span class="pulse-dot"></span>
+        <span>Daily Run: <strong>8:00 AM IST</strong></span>
+      </div>
+      <button id="btn-trigger-hunt" class="btn-action">
+        <span id="btn-icon">⚡</span>
+        <span id="btn-text">Trigger Daily Hunt</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Metric Summary Cards -->
+  <main class="container">
+    <section class="metrics-row">
+      <div class="metric-card">
+        <div class="metric-label">Processed Leads</div>
+        <div class="metric-val" id="m-processed">0</div>
+        <div class="metric-sub">Deduplicated & tracked</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Live Demos Published</div>
+        <div class="metric-val text-blue" id="m-demos">0</div>
+        <div class="metric-sub">GitHub Pages active</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">QA Pass Rate</div>
+        <div class="metric-val text-emerald" id="m-qa">100%</div>
+        <div class="metric-sub">Real audited checks</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Telegram Reporting</div>
+        <div class="metric-val" id="m-telegram">Ready</div>
+        <div class="metric-sub" id="m-telegram-sub">Configured for 8 AM</div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs-bar">
+      <button class="tab-btn active" data-tab="leads">🎯 Discovered Leads</button>
+      <button class="tab-btn" data-tab="preview">🌐 Live Demo Preview</button>
+      <button class="tab-btn" data-tab="outreach">💬 WhatsApp Outreach Drafts</button>
+      <button class="tab-btn" data-tab="runs">📜 Run History & Audit</button>
+      <button class="tab-btn" data-tab="diagnostics">⚙️ System Diagnostics</button>
+    </div>
+
+    <!-- TAB 1: Discovered Leads -->
+    <section id="tab-leads" class="tab-content active">
+      <div class="card-box">
+        <div class="card-header">
+          <h2>Verified Karimnagar Business Leads</h2>
+          <span class="badge" id="leads-count-badge">0 Candidates</span>
+        </div>
+        <div class="table-wrap">
+          <table class="leads-table">
+            <thead>
+              <tr>
+                <th>Business Name</th>
+                <th>Category</th>
+                <th>Location / Landmark</th>
+                <th>Verified Gap</th>
+                <th>Score</th>
+                <th>Source</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="leads-tbody">
+              <tr><td colspan="7" class="text-center py-4">Loading leads...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: Demo Previewer -->
+    <section id="tab-preview" class="tab-content">
+      <div class="card-box">
+        <div class="preview-controls">
+          <div class="select-lead-wrap">
+            <label for="demo-select">Select Demo:</label>
+            <select id="demo-select" class="form-select"></select>
+          </div>
+          <div class="viewport-toggle">
+            <button class="btn-vp active" id="vp-desktop">🖥️ Desktop (100%)</button>
+            <button class="btn-vp" id="vp-mobile">📱 Mobile (375px)</button>
+          </div>
+          <a id="demo-ext-link" href="#" target="_blank" class="btn-secondary">Open New Tab ↗</a>
+        </div>
+        <div class="iframe-container" id="iframe-wrap">
+          <iframe id="demo-iframe" src="about:blank" title="Demo Preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: WhatsApp Outreach Drafts -->
+    <section id="tab-outreach" class="tab-content">
+      <div class="card-box">
+        <div class="card-header">
+          <h2>Personalized Customer Outreach Drafts (Awaiting Approval)</h2>
+          <span class="badge-warning">Human Approval Required</span>
+        </div>
+        <div id="outreach-list" class="outreach-grid">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: Run History -->
+    <section id="tab-runs" class="tab-content">
+      <div class="card-box">
+        <div class="card-header">
+          <h2>Autonomous Run History & Audit Logs</h2>
+          <button id="btn-refresh-runs" class="btn-secondary">Refresh</button>
+        </div>
+        <div id="runs-list" class="runs-container">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: System Diagnostics -->
+    <section id="tab-diagnostics" class="tab-content">
+      <div class="card-box">
+        <div class="card-header">
+          <h2>Provider Health & System Status</h2>
+          <button id="btn-refresh-diag" class="btn-secondary">Re-check Now</button>
+        </div>
+        <div id="diag-cards" class="diag-grid">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="toast">Message copied to clipboard!</div>
+
+  <script src="app.js"></script>
+</body>
+</html>

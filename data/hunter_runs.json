@@ -1,0 +1,39 @@
+[
+  {
+    "id": "run_1792312677841",
+    "timestamp": "2026-10-18T08:37:57.841Z",
+    "timestampIST": "18/10/2026, 2:07:57 pm",
+    "durationMs": 57806,
+    "totalDiscovered": 6,
+    "processedCount": 3,
+    "errorCount": 0,
+    "telegramDelivered": false,
+    "leads": [
+      {
+        "name": "Hair Lounge Salon & Tattoo Studio",
+        "slug": "hair-lounge-salon-tattoos",
+        "category": "Salons & Tattoo Studios",
+        "qaScore": 100,
+        "demoUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/hair-lounge-salon-tattoos/",
+        "deploymentState": "BUILDING"
+      },
+      {
+        "name": "Star Fitness Gym AC",
+        "slug": "star-fitness-gym-karimnagar",
+        "category": "Gyms & Fitness Centres",
+        "qaScore": 100,
+        "demoUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/star-fitness-gym-karimnagar/",
+        "deploymentState": "BUILDING"
+      },
+      {
+        "name": "Yashika Photography Studio",
+        "slug": "yashika-photography-karimnagar",
+        "category": "Wedding & Event Photography",
+        "qaScore": 100,
+        "demoUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/yashika-photography-karimnagar/",
+        "deploymentState": "BUILDING"
+      }
+    ],
+    "errors": []
+  }
+]

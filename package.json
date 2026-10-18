@@ -1,0 +1,27 @@
+{
+  "name": "karimnagar-business-hunter",
+  "version": "1.0.0",
+  "description": "Autonomous AI system discovering local Karimnagar businesses, building bespoke 3D/animated concept websites, running rigorous QA, deploying to GitHub Pages, and reporting via Telegram.",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "hunt": "node src/cli.js hunt",
+    "test": "node --test tests/*.test.js",
+    "check:providers": "node src/cli.js check-providers",
+    "check:telegram": "node src/cli.js check-telegram",
+    "check:github": "node src/cli.js check-github",
+    "check:osm": "node src/cli.js check-osm"
+  },
+  "keywords": [
+    "karimnagar",
+    "business-hunter",
+    "ai-agent",
+    "website-generator",
+    "github-pages",
+    "telegram-bot"
+  ],
+  "author": "Naveen",
+  "license": "MIT"
+}

@@ -1,0 +1,95 @@
+{
+  "processedLeads": [
+    {
+      "id": "prior_vasantha-family-salon-karimnagar",
+      "name": "Vasantha Family Salon",
+      "slug": "vasantha-family-salon-karimnagar",
+      "phone": "",
+      "category": "Salons & Spas",
+      "processedAt": "2026-10-18T08:31:45.557Z",
+      "demoUrl": "https://naveenk7100-ship-it.github.io/vasantha-family-salon-karimnagar/"
+    },
+    {
+      "id": "prior_the-brands-factory-demo",
+      "name": "The Brands Factory",
+      "slug": "the-brands-factory-demo",
+      "phone": "",
+      "category": "Fashion & Retail",
+      "processedAt": "2026-10-18T08:31:45.564Z",
+      "demoUrl": "https://naveenk7100-ship-it.github.io/the-brands-factory-demo/"
+    },
+    {
+      "id": "prior_damro-furniture-demo",
+      "name": "Damro Furniture",
+      "slug": "damro-furniture-demo",
+      "phone": "",
+      "category": "Furniture",
+      "processedAt": "2026-10-18T08:31:45.568Z",
+      "demoUrl": "https://naveenk7100-ship-it.github.io/damro-furniture-demo/"
+    },
+    {
+      "id": "prior_la-delicious-bakery-cafe-demo",
+      "name": "La Delicious Bakery Cafe",
+      "slug": "la-delicious-bakery-cafe-demo",
+      "phone": "",
+      "category": "Bakeries & Cafes",
+      "processedAt": "2026-10-18T08:31:45.574Z",
+      "demoUrl": "https://naveenk7100-ship-it.github.io/la-delicious-bakery-cafe-demo/"
+    },
+    {
+      "id": "prior_fitness-first-gym-demo",
+      "name": "Fitness First Gym",
+      "slug": "fitness-first-gym-demo",
+      "phone": "",
+      "category": "Gyms",
+      "processedAt": "2026-10-18T08:31:45.579Z",
+      "demoUrl": "https://naveenk7100-ship-it.github.io/fitness-first-gym-demo/"
+    },
+    {
+      "id": "prior_anjani-wedding-photography-demo",
+      "name": "Anjani Wedding Photography",
+      "slug": "anjani-wedding-photography-demo",
+      "phone": "",
+      "category": "Photography",
+      "processedAt": "2026-10-18T08:31:45.583Z",
+      "demoUrl": "https://naveenk7100-ship-it.github.io/anjani-wedding-photography-demo/"
+    },
+    {
+      "id": "prior_shambhavi-boutique",
+      "name": "Shambhavi Boutique",
+      "slug": "shambhavi-boutique",
+      "phone": "",
+      "category": "Boutiques",
+      "processedAt": "2026-10-18T08:31:45.589Z",
+      "demoUrl": "https://naveenk7100-ship-it.github.io/shambhavi-boutique/"
+    },
+    {
+      "id": "knr-sal-01",
+      "name": "Hair Lounge Salon & Tattoo Studio",
+      "slug": "hair-lounge-salon-tattoos",
+      "phone": "+91 98492 14389",
+      "category": "Salons & Tattoo Studios",
+      "processedAt": "2026-10-18T08:37:19.662Z",
+      "demoUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/hair-lounge-salon-tattoos/"
+    },
+    {
+      "id": "knr-gym-01",
+      "name": "Star Fitness Gym AC",
+      "slug": "star-fitness-gym-karimnagar",
+      "phone": "+91 79933 55445",
+      "category": "Gyms & Fitness Centres",
+      "processedAt": "2026-10-18T08:37:37.616Z",
+      "demoUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/star-fitness-gym-karimnagar/"
+    },
+    {
+      "id": "knr-pho-01",
+      "name": "Yashika Photography Studio",
+      "slug": "yashika-photography-karimnagar",
+      "phone": "+91 99894 37210",
+      "category": "Wedding & Event Photography",
+      "processedAt": "2026-10-18T08:37:57.834Z",
+      "demoUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/yashika-photography-karimnagar/"
+    }
+  ],
+  "blacklistedSlugs": []
+}
