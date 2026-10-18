@@ -1,5 +1,42 @@
 [
   {
+    "id": "run_1792314744695",
+    "timestamp": "2026-10-18T09:12:24.695Z",
+    "timestampIST": "18/10/2026, 2:42:24 pm",
+    "durationMs": 38812,
+    "totalDiscovered": 3,
+    "processedCount": 3,
+    "errorCount": 0,
+    "telegramDelivered": true,
+    "leads": [
+      {
+        "name": "Pavan Furniture World",
+        "slug": "pavan-furniture-world",
+        "category": "Furniture & Interior Stores",
+        "qaScore": 100,
+        "demoUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/pavan-furniture-world/",
+        "deploymentState": "BUILDING"
+      },
+      {
+        "name": "Sri Chaitanya Junior & Coaching College",
+        "slug": "sri-chaitanya-coaching-karimnagar",
+        "category": "Educational Coaching Centres",
+        "qaScore": 100,
+        "demoUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/sri-chaitanya-coaching-karimnagar/",
+        "deploymentState": "BUILDING"
+      },
+      {
+        "name": "Peacock Multi-Cuisine Family Restaurant",
+        "slug": "peacock-restaurant-karimnagar",
+        "category": "Restaurants & Dining",
+        "qaScore": 100,
+        "demoUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/peacock-restaurant-karimnagar/",
+        "deploymentState": "BUILDING"
+      }
+    ],
+    "errors": []
+  },
+  {
     "id": "run_1792312677841",
     "timestamp": "2026-10-18T08:37:57.841Z",
     "timestampIST": "18/10/2026, 2:07:57 pm",

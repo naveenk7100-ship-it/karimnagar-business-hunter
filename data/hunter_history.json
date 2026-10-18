@@ -89,6 +89,33 @@
       "category": "Wedding & Event Photography",
       "processedAt": "2026-10-18T08:37:57.834Z",
       "demoUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/yashika-photography-karimnagar/"
+    },
+    {
+      "id": "knr-fur-01",
+      "name": "Pavan Furniture World",
+      "slug": "pavan-furniture-world",
+      "phone": "+91 94401 22390",
+      "category": "Furniture & Interior Stores",
+      "processedAt": "2026-10-18T09:11:59.688Z",
+      "demoUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/pavan-furniture-world/"
+    },
+    {
+      "id": "knr-coa-01",
+      "name": "Sri Chaitanya Junior & Coaching College",
+      "slug": "sri-chaitanya-coaching-karimnagar",
+      "phone": "+91 87822 41900",
+      "category": "Educational Coaching Centres",
+      "processedAt": "2026-10-18T09:12:11.618Z",
+      "demoUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/sri-chaitanya-coaching-karimnagar/"
+    },
+    {
+      "id": "knr-res-01",
+      "name": "Peacock Multi-Cuisine Family Restaurant",
+      "slug": "peacock-restaurant-karimnagar",
+      "phone": "+91 87822 65432",
+      "category": "Restaurants & Dining",
+      "processedAt": "2026-10-18T09:12:23.943Z",
+      "demoUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/peacock-restaurant-karimnagar/"
     }
   ],
   "blacklistedSlugs": []
