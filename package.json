@@ -23,5 +23,8 @@
     "telegram-bot"
   ],
   "author": "Naveen",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@deepseek-ai/dsh": "^0.2.0-rc.2"
+  }
 }

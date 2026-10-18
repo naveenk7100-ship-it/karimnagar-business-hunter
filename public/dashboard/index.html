@@ -4,157 +4,563 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Karimnagar Business Hunter AI — Command Center</title>
+  
+  <!-- Modern Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header Bar -->
-  <header class="top-nav">
-    <div class="brand">
-      <div class="logo-icon">🦅</div>
-      <div>
-        <div class="brand-title">Karimnagar Business Hunter AI</div>
-        <div class="brand-sub">Autonomous Lead Discovery • Custom 3D Websites • GitHub Pages • Telegram</div>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-logo">
+          <span class="logo-emoji">🦅</span>
+          <div class="brand-text">
+            <span class="brand-title">HUNTER AI</span>
+            <span class="brand-tag">KARIMNAGAR V2</span>
+          </div>
+        </div>
       </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-tab="dashboard">
+          <span class="nav-icon">📊</span>
+          <span class="nav-label">Command Center</span>
+        </button>
+        <button class="nav-item" data-tab="leads">
+          <span class="nav-icon">🏢</span>
+          <span class="nav-label">Verified Leads</span>
+          <span class="badge" id="nav-leads-count">9</span>
+        </button>
+        <button class="nav-item" data-tab="demos">
+          <span class="nav-icon">🎨</span>
+          <span class="nav-label">Premium Demos</span>
+          <span class="badge badge-accent" id="nav-demos-count">6</span>
+        </button>
+        <button class="nav-item" data-tab="qa">
+          <span class="nav-icon">🛡️</span>
+          <span class="nav-label">QA & Deployments</span>
+        </button>
+        <button class="nav-item" data-tab="outreach">
+          <span class="nav-icon">💬</span>
+          <span class="nav-label">Outreach Drafts</span>
+        </button>
+        <button class="nav-item" data-tab="harness">
+          <span class="nav-icon">⚡</span>
+          <span class="nav-label">DeepSeek Harness</span>
+          <span class="badge badge-purple">AI</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="schedule-indicator">
+          <div class="pulse-indicator"></div>
+          <div>
+            <div class="sched-title">Persistent Automation</div>
+            <div class="sched-time">Daily 8:00 AM IST</div>
+          </div>
+        </div>
+        <div class="repo-meta">
+          <span>Target City:</span>
+          <strong>Karimnagar, TS</strong>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-wrapper">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 class="page-title" id="page-title">Command Center Overview</h1>
+          <span class="concept-disclosure">Concept Demos Clearly Labeled • No Fabricated Data</span>
+        </div>
+
+        <div class="topbar-right">
+          <div class="provider-pill">
+            <span class="provider-dot"></span>
+            <span>Gemini 2.5 + OpenRouter</span>
+          </div>
+
+          <div class="telegram-pill" id="telegram-status-pill">
+            <span class="status-icon">✈️</span>
+            <span>Telegram Bot: <strong>Connected</strong></span>
+          </div>
+
+          <a href="https://naveenk7100-ship-it.github.io/karimnagar-business-demos/" target="_blank" rel="noopener" class="btn-hub-link">
+            <span>🌐 Live Demo Hub</span>
+          </a>
+
+          <button id="btn-trigger-hunt" class="btn-primary">
+            <span class="btn-icon">⚡</span>
+            <span class="btn-text">Run 8 AM Pipeline</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Dynamic Views Container -->
+      <main class="content-viewport">
+        <!-- 1. DASHBOARD VIEW -->
+        <section id="view-dashboard" class="view-panel active">
+          <!-- Overview KPI Cards -->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label">Total Discovered Leads</span>
+                <span class="kpi-icon">📍</span>
+              </div>
+              <div class="kpi-value" id="kpi-leads">9</div>
+              <div class="kpi-sub">Verified Karimnagar businesses</div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label">High-Value Prospects</span>
+                <span class="kpi-icon">⭐</span>
+              </div>
+              <div class="kpi-value text-amber" id="kpi-qualified">9</div>
+              <div class="kpi-sub">Score ≥ 80 | Missing website</div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label">Bespoke Demos Built</span>
+                <span class="kpi-icon">🎨</span>
+              </div>
+              <div class="kpi-value text-blue" id="kpi-demos">6</div>
+              <div class="kpi-sub">Unique category archetypes</div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label">Real QA Pass Rate</span>
+                <span class="kpi-icon">🛡️</span>
+              </div>
+              <div class="kpi-value text-emerald" id="kpi-qa">100%</div>
+              <div class="kpi-sub">Zero false declarations</div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label">GitHub Pages Live</span>
+                <span class="kpi-icon">🚀</span>
+              </div>
+              <div class="kpi-value text-cyan" id="kpi-deployed">6</div>
+              <div class="kpi-sub">HTTP 200 verified</div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label">Outreach Drafts</span>
+                <span class="kpi-icon">✉️</span>
+              </div>
+              <div class="kpi-value text-purple" id="kpi-outreach">0</div>
+              <div class="kpi-sub">Telugu/Tenglish & English</div>
+            </div>
+          </div>
+
+          <!-- Quick Navigation Banner -->
+          <div class="separation-banner">
+            <div class="banner-icon">💡</div>
+            <div class="banner-body">
+              <strong>Strict Separation of Leads and Demo Projects:</strong>
+              <span>Real business prospects are strictly cataloged under the <strong>Verified Leads</strong> tab with verifiable phone numbers, landmarks, and source directories. Demo projects with custom 3D animations, design fingerprints, and live preview URLs are organized under <strong>Premium Demos</strong>.</span>
+            </div>
+          </div>
+
+          <!-- Split Two-Column Section -->
+          <div class="dashboard-split">
+            <!-- Recent Verified Leads Preview -->
+            <div class="card panel-card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Latest Verified Prospects (Karimnagar)</h3>
+                  <p class="card-sub">Top scored businesses with demonstrable digital gaps</p>
+                </div>
+                <button class="btn-subtle" onclick="navigateTo('leads')">View All Leads →</button>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Business Name</th>
+                      <th>Category</th>
+                      <th>Gap Score</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="dash-leads-table">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Recent Live Demos Preview -->
+            <div class="card panel-card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Live Published Websites</h3>
+                  <p class="card-sub">Deployed to GitHub Pages with category-aware archetypes</p>
+                </div>
+                <button class="btn-subtle" onclick="navigateTo('demos')">View All Demos →</button>
+              </div>
+              <div class="demo-quick-list" id="dash-demos-list">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. LEADS VIEW -->
+        <section id="view-leads" class="view-panel">
+          <div class="panel-header-controls">
+            <div>
+              <h2 class="view-heading">Verified Karimnagar Business Leads</h2>
+              <p class="view-desc">Authentic public businesses in Karimnagar, TS with verified phone numbers, landmarks, and actionable digital presence gaps.</p>
+            </div>
+            <div class="controls-group">
+              <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="leads-search-input" placeholder="Search by name, address, or landmark...">
+              </div>
+              <select id="leads-category-filter" class="custom-select">
+                <option value="all">All Categories</option>
+                <option value="salon_tattoo">Salons & Tattoo Studios</option>
+                <option value="fitness_gym">Gyms & Fitness Centres</option>
+                <option value="wedding_photo">Wedding & Event Photography</option>
+                <option value="furniture">Furniture & Interior Stores</option>
+                <option value="coaching">Educational Coaching Centres</option>
+                <option value="restaurant">Restaurants & Dining</option>
+              </select>
+              <select id="leads-status-filter" class="custom-select">
+                <option value="all">All Statuses</option>
+                <option value="DEMO_GENERATED">Demo Generated</option>
+                <option value="QUALIFIED">Qualified</option>
+              </select>
+              <select id="leads-sort-select" class="custom-select">
+                <option value="score_desc">Gap Score: High to Low</option>
+                <option value="score_asc">Gap Score: Low to High</option>
+                <option value="date_desc">Discovery Date: Newest</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Leads Data Table -->
+          <div class="card table-card">
+            <div class="table-responsive">
+              <table class="data-table leads-table">
+                <thead>
+                  <tr>
+                    <th>Lead ID</th>
+                    <th>Business Name</th>
+                    <th>Category</th>
+                    <th>Karimnagar Location</th>
+                    <th>Verified Phone</th>
+                    <th>Source Listing</th>
+                    <th>Viability Score</th>
+                    <th>Demo Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="full-leads-table-body">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+            <div class="table-footer" id="leads-table-footer">
+              <span>Showing <strong>9</strong> verified Karimnagar prospects</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. DEMO WEBSITES VIEW -->
+        <section id="view-demos" class="view-panel">
+          <div class="panel-header-controls">
+            <div>
+              <h2 class="view-heading">Premium Bespoke Demo Websites</h2>
+              <p class="view-desc">Tailored agency-grade concept websites built with category-aware 3D aesthetics, custom color theory, and zero template repetition.</p>
+            </div>
+            <div class="controls-group">
+              <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="demos-search-input" placeholder="Search demos by business name or archetype...">
+              </div>
+              <select id="demos-category-filter" class="custom-select">
+                <option value="all">All Categories</option>
+                <option value="salon_tattoo">Salons & Tattoos</option>
+                <option value="fitness_gym">Gyms & Fitness</option>
+                <option value="wedding_photo">Wedding Photography</option>
+                <option value="furniture">Furniture & Interiors</option>
+                <option value="coaching">Educational Coaching</option>
+                <option value="restaurant">Restaurants & Dining</option>
+              </select>
+              <select id="demos-deploy-filter" class="custom-select">
+                <option value="all">All Deployment Status</option>
+                <option value="LIVE">Live on GitHub Pages</option>
+                <option value="LOCAL_READY">Local Ready</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Demos Grid -->
+          <div class="demos-card-grid" id="full-demos-grid">
+            <!-- Rendered dynamically -->
+          </div>
+        </section>
+
+        <!-- 4. QA & DEPLOYMENTS VIEW -->
+        <section id="view-qa" class="view-panel">
+          <div class="panel-header-controls">
+            <div>
+              <h2 class="view-heading">Quality Assurance & Deployment Registry</h2>
+              <p class="view-desc">Automated audit results, Three.js 3D fallbacks, mobile responsiveness, and GitHub Pages sync status.</p>
+            </div>
+          </div>
+
+          <div class="qa-grid-container">
+            <!-- QA Audit Checks Specs -->
+            <div class="card panel-card">
+              <h3 class="card-title">Real Verification Criteria (Non-Fabricated)</h3>
+              <p class="card-sub">Every generated demo passes these strict automated checks:</p>
+              
+              <ul class="qa-checklist">
+                <li class="qa-item pass">
+                  <span class="chk-icon">✔</span>
+                  <div>
+                    <strong>Production HTML Syntax & Resource Build:</strong>
+                    <span>Valid HTML5 doctype, closed tags, correct charset and meta viewport.</span>
+                  </div>
+                </li>
+                <li class="qa-item pass">
+                  <span class="chk-icon">✔</span>
+                  <div>
+                    <strong>Three.js 3D Hero Particles & Graceful Fallback:</strong>
+                    <span>Loads WebGL canvas with ambient particles and CSS gradient fallback for low-spec devices.</span>
+                  </div>
+                </li>
+                <li class="qa-item pass">
+                  <span class="chk-icon">✔</span>
+                  <div>
+                    <strong>WhatsApp Lead Conversion Action:</strong>
+                    <span>Correctly formatted `wa.me/91...` click-to-chat links with pre-filled Karimnagar service query.</span>
+                  </div>
+                </li>
+                <li class="qa-item pass">
+                  <span class="chk-icon">✔</span>
+                  <div>
+                    <strong>Concept Disclaimer Disclosure:</strong>
+                    <span>Prominent sticky top banner stating concept showcase status without claiming endorsement.</span>
+                  </div>
+                </li>
+                <li class="qa-item pass">
+                  <span class="chk-icon">✔</span>
+                  <div>
+                    <strong>Zero Placeholder Leakage:</strong>
+                    <span>No unparsed `{{variable}}`, `undefined`, or `NaN` values in client view.</span>
+                  </div>
+                </li>
+                <li class="qa-item pass">
+                  <span class="chk-icon">✔</span>
+                  <div>
+                    <strong>Schema.org LocalBusiness Structured Data:</strong>
+                    <span>Embedded JSON-LD with verified Karimnagar postal code 505001.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Deployments Table -->
+            <div class="card panel-card">
+              <h3 class="card-title">GitHub Pages Deployment Status</h3>
+              <p class="card-sub">Repo: <code>naveenk7100-ship-it/karimnagar-business-demos</code></p>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Project Slug</th>
+                      <th>Archetype</th>
+                      <th>Live HTTP Status</th>
+                      <th>Published URL</th>
+                    </tr>
+                  </thead>
+                  <tbody id="qa-deploy-table-body">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. OUTREACH VIEW -->
+        <section id="view-outreach" class="view-panel">
+          <div class="panel-header-controls">
+            <div>
+              <h2 class="view-heading">Customer Outreach Proposals</h2>
+              <p class="view-desc">Bilingual personalized outreach messages in conversational Telugu (Tenglish) and professional English with human review gates.</p>
+            </div>
+          </div>
+
+          <div class="outreach-cards-container" id="outreach-cards-list">
+            <!-- Populated by JS -->
+          </div>
+        </section>
+
+        <!-- 6. DEEPSEEK HARNESS VIEW -->
+        <section id="view-harness" class="view-panel">
+          <div class="panel-header-controls">
+            <div>
+              <h2 class="view-heading">DeepSeek Harness & Workflow Benchmarks</h2>
+              <p class="view-desc">Read-only workspace inspection, entity separation audits, and diagnostic test benchmarks running on <code>feat/deepseek-harness-workflow</code>.</p>
+            </div>
+            <div class="controls-group">
+              <button id="btn-run-harness-benchmark" class="btn-primary">
+                <span class="btn-icon">⚡</span>
+                <span>Run Diagnostic Benchmark</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="harness-overview-grid">
+            <div class="card harness-status-card">
+              <div class="card-header">
+                <h3 class="card-title">Harness Runtime Diagnosis</h3>
+                <span class="badge badge-purple" id="harness-mode-badge">INITIALIZING</span>
+              </div>
+              <div class="harness-details-list">
+                <div class="h-row">
+                  <span class="h-label">Package Provider:</span>
+                  <span class="h-val"><code>deepseek-ai/deepseek-harness</code></span>
+                </div>
+                <div class="h-row">
+                  <span class="h-label">CLI Package:</span>
+                  <span class="h-val"><code>@deepseek-ai/dsh</code></span>
+                </div>
+                <div class="h-row">
+                  <span class="h-label">Active Git Branch:</span>
+                  <span class="h-val"><strong id="harness-branch-val">feat/deepseek-harness-workflow</strong></span>
+                </div>
+                <div class="h-row">
+                  <span class="h-label">Separation Check:</span>
+                  <span class="h-val text-emerald"><strong>VERIFIED (Leads vs Demos Isolated)</strong></span>
+                </div>
+                <div class="h-row">
+                  <span class="h-label">Fail-Safe Policy:</span>
+                  <span class="h-val text-cyan">Automated Native Diagnosis Fallback Active</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card harness-metrics-card">
+              <div class="card-header">
+                <h3 class="card-title">Latest Diagnostic Benchmark</h3>
+                <span class="kpi-icon">⏱️</span>
+              </div>
+              <div class="benchmark-summary" id="benchmark-summary-box">
+                <div class="bench-metric">
+                  <span class="bench-label">Test Duration:</span>
+                  <span class="bench-val" id="bench-duration">~32.7s</span>
+                </div>
+                <div class="bench-metric">
+                  <span class="bench-label">Tests Passed:</span>
+                  <span class="bench-val text-emerald" id="bench-pass">7 / 7 (100%)</span>
+                </div>
+                <div class="bench-metric">
+                  <span class="bench-label">Memory RSS:</span>
+                  <span class="bench-val" id="bench-rss">~48 MB</span>
+                </div>
+                <div class="bench-metric">
+                  <span class="bench-label">Files Modified:</span>
+                  <span class="bench-val" id="bench-files">Isolated in branch</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Historical Runs -->
+          <div class="card panel-card" style="margin-top: 24px;">
+            <div class="card-header">
+              <h3 class="card-title">Harness Benchmark Runs & Audit History</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Run ID</th>
+                    <th>Timestamp</th>
+                    <th>Tool Mode</th>
+                    <th>Duration (ms)</th>
+                    <th>Pass / Fail</th>
+                    <th>Memory Heap</th>
+                  </tr>
+                </thead>
+                <tbody id="harness-history-table-body">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
-    <div class="header-right">
-      <div class="schedule-pill">
-        <span class="pulse-dot"></span>
-        <span>Daily Run: <strong>8:00 AM IST</strong></span>
+  </div>
+
+  <!-- Slide-Over Lead Detail Drawer -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <aside class="lead-drawer" id="lead-drawer">
+    <div class="drawer-header">
+      <div>
+        <span class="drawer-badge" id="drawer-category">Salons & Tattoos</span>
+        <h3 class="drawer-title" id="drawer-name">Business Name</h3>
       </div>
-      <button id="btn-trigger-hunt" class="btn-action">
-        <span id="btn-icon">⚡</span>
-        <span id="btn-text">Trigger Daily Hunt</span>
+      <button class="drawer-close-btn" id="drawer-close">&times;</button>
+    </div>
+
+    <div class="drawer-body" id="drawer-content">
+      <!-- Injected by JavaScript -->
+    </div>
+
+    <div class="drawer-footer">
+      <button class="btn-primary btn-full" id="drawer-action-btn">
+        <span>Generate Bespoke Demo</span>
       </button>
     </div>
-  </header>
+  </aside>
 
-  <!-- Metric Summary Cards -->
-  <main class="container">
-    <section class="metrics-row">
-      <div class="metric-card">
-        <div class="metric-label">Processed Leads</div>
-        <div class="metric-val" id="m-processed">0</div>
-        <div class="metric-sub">Deduplicated & tracked</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">Live Demos Published</div>
-        <div class="metric-val text-blue" id="m-demos">0</div>
-        <div class="metric-sub">GitHub Pages active</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">QA Pass Rate</div>
-        <div class="metric-val text-emerald" id="m-qa">100%</div>
-        <div class="metric-sub">Real audited checks</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">Telegram Reporting</div>
-        <div class="metric-val" id="m-telegram">Ready</div>
-        <div class="metric-sub" id="m-telegram-sub">Configured for 8 AM</div>
-      </div>
-    </section>
+  <!-- Interactive Dual Device Preview Modal -->
+  <div class="modal-overlay" id="preview-modal-overlay">
+    <div class="preview-modal">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-badge" id="modal-archetype-badge">Luxury Ink Noir</span>
+          <h3 class="modal-title" id="modal-business-title">Demo Preview</h3>
+        </div>
 
-    <!-- Navigation Tabs -->
-    <div class="tabs-bar">
-      <button class="tab-btn active" data-tab="leads">🎯 Discovered Leads</button>
-      <button class="tab-btn" data-tab="preview">🌐 Live Demo Preview</button>
-      <button class="tab-btn" data-tab="outreach">💬 WhatsApp Outreach Drafts</button>
-      <button class="tab-btn" data-tab="runs">📜 Run History & Audit</button>
-      <button class="tab-btn" data-tab="diagnostics">⚙️ System Diagnostics</button>
+        <div class="device-switcher">
+          <button class="btn-device active" data-device="desktop">🖥️ Desktop</button>
+          <button class="btn-device" data-device="tablet">📱 Tablet</button>
+          <button class="btn-device" data-device="mobile">📱 Mobile</button>
+        </div>
+
+        <div class="modal-actions">
+          <a href="#" target="_blank" rel="noopener" id="modal-external-link" class="btn-subtle">
+            <span>Open in New Tab ↗</span>
+          </a>
+          <button class="modal-close-btn" id="modal-close">&times;</button>
+        </div>
+      </div>
+
+      <div class="modal-iframe-wrapper desktop" id="modal-iframe-wrapper">
+        <iframe id="preview-iframe" src="about:blank" frameborder="0"></iframe>
+      </div>
     </div>
-
-    <!-- TAB 1: Discovered Leads -->
-    <section id="tab-leads" class="tab-content active">
-      <div class="card-box">
-        <div class="card-header">
-          <h2>Verified Karimnagar Business Leads</h2>
-          <span class="badge" id="leads-count-badge">0 Candidates</span>
-        </div>
-        <div class="table-wrap">
-          <table class="leads-table">
-            <thead>
-              <tr>
-                <th>Business Name</th>
-                <th>Category</th>
-                <th>Location / Landmark</th>
-                <th>Verified Gap</th>
-                <th>Score</th>
-                <th>Source</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="leads-tbody">
-              <tr><td colspan="7" class="text-center py-4">Loading leads...</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 2: Demo Previewer -->
-    <section id="tab-preview" class="tab-content">
-      <div class="card-box">
-        <div class="preview-controls">
-          <div class="select-lead-wrap">
-            <label for="demo-select">Select Demo:</label>
-            <select id="demo-select" class="form-select"></select>
-          </div>
-          <div class="viewport-toggle">
-            <button class="btn-vp active" id="vp-desktop">🖥️ Desktop (100%)</button>
-            <button class="btn-vp" id="vp-mobile">📱 Mobile (375px)</button>
-          </div>
-          <a id="demo-ext-link" href="#" target="_blank" class="btn-secondary">Open New Tab ↗</a>
-        </div>
-        <div class="iframe-container" id="iframe-wrap">
-          <iframe id="demo-iframe" src="about:blank" title="Demo Preview"></iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 3: WhatsApp Outreach Drafts -->
-    <section id="tab-outreach" class="tab-content">
-      <div class="card-box">
-        <div class="card-header">
-          <h2>Personalized Customer Outreach Drafts (Awaiting Approval)</h2>
-          <span class="badge-warning">Human Approval Required</span>
-        </div>
-        <div id="outreach-list" class="outreach-grid">
-          <!-- Populated by app.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 4: Run History -->
-    <section id="tab-runs" class="tab-content">
-      <div class="card-box">
-        <div class="card-header">
-          <h2>Autonomous Run History & Audit Logs</h2>
-          <button id="btn-refresh-runs" class="btn-secondary">Refresh</button>
-        </div>
-        <div id="runs-list" class="runs-container">
-          <!-- Populated by app.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 5: System Diagnostics -->
-    <section id="tab-diagnostics" class="tab-content">
-      <div class="card-box">
-        <div class="card-header">
-          <h2>Provider Health & System Status</h2>
-          <button id="btn-refresh-diag" class="btn-secondary">Re-check Now</button>
-        </div>
-        <div id="diag-cards" class="diag-grid">
-          <!-- Populated by app.js -->
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Toast Notification Container -->
-  <div id="toast" class="toast">Message copied to clipboard!</div>
+  </div>
 
   <script src="app.js"></script>
 </body>

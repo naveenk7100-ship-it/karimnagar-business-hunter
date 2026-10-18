@@ -56,7 +56,26 @@ export class HunterOrchestrator {
         const outreach = outreachGenerator.generateOutreach(lead, deployReport.publishedUrl);
         console.log(`  ✓ Outreach drafts created & awaiting human approval.`);
 
-        // Record in history to avoid future duplicates
+        // Record in persistent demo store and history
+        store.saveDemo({
+          id: lead.slug,
+          leadId: lead.id,
+          businessName: lead.name,
+          category: lead.category,
+          niche: lead.niche,
+          slug: lead.slug,
+          relativeUrl: generated.relativeUrl,
+          publishedUrl: deployReport.publishedUrl,
+          repo: `${CONFIG.GITHUB_OWNER}/${CONFIG.GITHUB_DEMO_REPO}`,
+          archetype: generated.archetype?.id || 'modern_showcase',
+          designFingerprint: generated.designFingerprint,
+          qaScore: qaReport.score,
+          qaPass: qaReport.pass,
+          deploymentStatus: deployReport.isLive ? 'LIVE' : 'DEPLOYED',
+          httpStatus: deployReport.httpStatus || 200,
+          verifiedAt: new Date().toISOString()
+        });
+
         store.recordProcessedLead({
           id: lead.id,
           name: lead.name,

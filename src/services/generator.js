@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { CONFIG } from '../config.js';
 import { aiService } from './ai.js';
+import { store } from './store.js';
+import { designEngine } from './designEngine.js';
 
 export class WebsiteGenerator {
   /**
@@ -22,11 +24,27 @@ export class WebsiteGenerator {
       fs.copyFileSync(targetFile, versionFile);
     }
 
+    // Compute category-aware archetype and design fingerprint
+    const existingDemos = typeof store.getDemos === 'function' ? store.getDemos() : [];
+    const existingFingerprints = existingDemos.map(d => d.designFingerprint).filter(Boolean);
+    const { archetype, fingerprint } = designEngine.createDesignFingerprint(lead, existingFingerprints);
+
     // Generate tailored design blueprint using AI / heuristic engine
     const blueprint = await aiService.generateDesignBlueprint(lead);
 
+    const mergedBlueprint = {
+      ...blueprint,
+      primaryColor: fingerprint.primaryColor,
+      accentColor: fingerprint.accentColor,
+      bgDark: fingerprint.bgDark,
+      fontFamily: fingerprint.fontHeading,
+      fontBody: fingerprint.fontBody,
+      archetype,
+      fingerprint
+    };
+
     // Build the standalone HTML document
-    const html = this._buildHtml(lead, blueprint);
+    const html = this._buildHtml(lead, mergedBlueprint);
 
     // Write file
     fs.writeFileSync(targetFile, html, 'utf8');
@@ -35,7 +53,9 @@ export class WebsiteGenerator {
       slug: lead.slug,
       filePath: targetFile,
       relativeUrl: `/demos/${lead.slug}/index.html`,
-      theme: blueprint.theme,
+      theme: mergedBlueprint.theme || archetype.name,
+      archetype,
+      designFingerprint: fingerprint,
       generatedAt: new Date().toISOString()
     };
   }
@@ -75,7 +95,7 @@ export class WebsiteGenerator {
   <!-- Google Fonts Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=${encodeURIComponent(font)}:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=${bp.archetype?.typography?.googleFontQuery ? bp.archetype.typography.googleFontQuery : encodeURIComponent(font) + ':wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700'}&display=swap" rel="stylesheet">
   
   <!-- Three.js for 3D Hero Particles -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -105,16 +125,16 @@ export class WebsiteGenerator {
 
   <style>
     :root {
-      --bg: ${bgDark};
-      --surface: ${surfaceDark};
-      --surface-hover: #222530;
+      --bg: ${bp.bgDark || bgDark};
+      --surface: ${bp.archetype?.theme?.surfaceDark || surfaceDark};
+      --surface-hover: ${bp.archetype?.theme?.surfaceHover || '#222530'};
       --primary: ${primary};
       --accent: ${accent};
       --text: #f3f4f6;
       --text-muted: #9ca3af;
-      --border: rgba(255, 255, 255, 0.08);
-      --font-heading: '${font}', sans-serif;
-      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --border: ${bp.archetype?.theme?.border || 'rgba(255, 255, 255, 0.08)'};
+      --font-heading: '${font}', ${bp.archetype?.typography?.headingFallback || 'sans-serif'};
+      --font-body: '${bp.fontBody || 'Plus Jakarta Sans'}', sans-serif;
       --radius: 14px;
       --shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
