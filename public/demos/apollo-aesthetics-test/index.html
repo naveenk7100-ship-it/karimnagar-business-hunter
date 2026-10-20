@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Apollo Aesthetics Studio | Salons, Spas &amp; Tattoo Studios in Karimnagar, Telangana</title>
   <meta name="description" content="Discover Apollo Aesthetics Studio in Karimnagar, Telangana. Experience bespoke haircuts, bridal makeovers, and medical-grade custom tattoo artistry in a hygienic luxury studio at Tower Circle.">
   
@@ -45,40 +45,57 @@
 
   <style>
     :root {
-      --bg: #0d0d11;
-      --surface: #16151f;
-      --surface-hover: #1f1e2b;
+      --bg: #09090c;
+      --surface: #14141b;
+      --surface-hover: #1d1d28;
       --primary: #c29d59;
       --accent: #e02868;
-      --text: #f3f4f6;
-      --text-muted: #9ca3af;
-      --border: rgba(194, 157, 89, 0.2);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: rgba(194, 157, 89, 0.22);
       --font-heading: 'Cinzel Decorative', Cinzel, Georgia, serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
       --radius: 14px;
-      --shadow: 0 10px 30px rgba(0,0,0,0.5);
+      --shadow: 0 12px 36px rgba(0,0,0,0.45);
+      --header-height: 72px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
     body {
       background-color: var(--bg);
       color: var(--text);
       font-family: var(--font-body);
       line-height: 1.6;
       overflow-x: hidden;
+      width: 100%;
     }
 
-    /* Navigation */
+    /* Sticky Site Header */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(13, 15, 20, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+    }
     nav {
       max-width: 1200px;
+      width: 100%;
       margin: 0 auto;
-      padding: 18px 24px;
+      padding: 0 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
-      z-index: 20;
     }
     .brand {
       font-family: var(--font-heading);
@@ -89,6 +106,7 @@
       align-items: center;
       gap: 10px;
       text-decoration: none;
+      letter-spacing: -0.3px;
     }
     .brand-badge {
       font-size: 0.65rem;
@@ -97,6 +115,9 @@
       padding: 3px 8px;
       border-radius: 20px;
       border: 1px solid var(--border);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
     .nav-links { display: flex; gap: 24px; align-items: center; }
     .nav-links a {
@@ -104,7 +125,7 @@
       text-decoration: none;
       font-size: 0.95rem;
       font-weight: 500;
-      transition: color 0.2s;
+      transition: color 0.2s ease;
     }
     .nav-links a:hover { color: #fff; }
     .btn-nav {
@@ -115,23 +136,28 @@
       border-radius: 30px;
       text-decoration: none;
       font-size: 0.9rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
     .btn-nav:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 15px rgba(255,255,255,0.2);
     }
 
-    /* Hero Section with Photographic Backdrop and 3D Canvas */
+    /* Hero Section with Photographic Depth and Dynamic Viewport Alignment */
     .hero {
       position: relative;
-      min-height: 85vh;
+      min-height: calc(100vh - var(--header-height));
+      min-height: calc(100dvh - var(--header-height));
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 90px 24px 80px;
+      padding: clamp(48px, 6vh, 84px) 24px;
       overflow: hidden;
+      box-sizing: border-box;
       background: linear-gradient(180deg, rgba(13, 15, 20, 0.82) 0%, rgba(13, 15, 20, 0.94) 100%),
                   url('https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
     }
@@ -142,13 +168,14 @@
       width: 100%;
       height: 100%;
       z-index: 1;
-      opacity: 0.55;
+      opacity: 0.5;
       pointer-events: none;
     }
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 860px;
+      max-width: 880px;
+      width: 100%;
       margin: 0 auto;
     }
     .hero-badge {
@@ -160,12 +187,14 @@
       padding: 6px 16px;
       border-radius: 30px;
       margin-bottom: 20px;
-      font-weight: 600;
+      font-weight: 700;
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      letter-spacing: 0.5px;
     }
     .hero h1 {
       font-family: var(--font-heading);
-      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-size: clamp(2.2rem, 4vw + 1rem, 3.8rem);
       line-height: 1.15;
       font-weight: 800;
       margin-bottom: 20px;
@@ -173,9 +202,11 @@
       background: linear-gradient(180deg, #ffffff 40%, rgba(255,255,255,0.7) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      word-break: break-word;
     }
     .hero p {
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-size: clamp(1rem, 1.2vw + 0.6rem, 1.25rem);
+      line-height: 1.6;
       color: var(--text-muted);
       margin-bottom: 36px;
       max-width: 680px;
@@ -199,10 +230,10 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .btn-primary:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
     }
     .btn-secondary {
@@ -215,15 +246,23 @@
       font-size: 1.05rem;
       border: 1px solid var(--border);
       backdrop-filter: blur(10px);
-      transition: background 0.2s;
+      -webkit-backdrop-filter: blur(10px);
+      transition: background 0.2s ease, transform 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
-    .btn-secondary:hover { background: rgba(255, 255, 255, 0.12); }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-2px);
+    }
 
     /* Section Styles */
     section {
       max-width: 1200px;
       margin: 0 auto;
       padding: 80px 24px;
+      box-sizing: border-box;
     }
     .section-header {
       text-align: center;
@@ -240,15 +279,17 @@
     }
     .section-title {
       font-family: var(--font-heading);
-      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-size: clamp(1.8rem, 3vw + 0.8rem, 2.6rem);
+      line-height: 1.25;
       font-weight: 800;
       color: #fff;
+      letter-spacing: -0.3px;
     }
 
     /* Photographic Showcase Gallery */
     .grid-gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
       gap: 28px;
     }
     .card-gallery {
@@ -262,13 +303,13 @@
     }
     .card-gallery:hover {
       transform: translateY(-6px);
-      border-color: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      border-color: rgba(255, 255, 255, 0.22);
+      box-shadow: var(--shadow);
     }
     .gallery-img-wrap {
       position: relative;
       width: 100%;
-      height: 220px;
+      aspect-ratio: 16 / 10;
       overflow: hidden;
       background: #111;
     }
@@ -276,6 +317,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
+      display: block;
       transition: transform 0.4s ease;
     }
     .card-gallery:hover .gallery-img-wrap img {
@@ -285,7 +328,7 @@
       position: absolute;
       top: 12px;
       right: 12px;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.78);
       color: var(--primary);
       border: 1px solid var(--border);
       padding: 4px 10px;
@@ -293,9 +336,11 @@
       font-size: 0.75rem;
       font-weight: 700;
       backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      letter-spacing: 0.5px;
     }
     .gallery-info {
-      padding: 20px 22px;
+      padding: 22px;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -309,13 +354,13 @@
     .gallery-info p {
       color: var(--text-muted);
       font-size: 0.9rem;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     /* Advantages Grid */
     .grid-advantages {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
       gap: 24px;
     }
     .card-advantage {
@@ -323,10 +368,10 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 32px 28px;
-      transition: transform 0.3s, border-color 0.3s;
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
     .card-advantage:hover {
-      transform: translateY(-6px);
+      transform: translateY(-4px);
       border-color: rgba(255, 255, 255, 0.2);
     }
     .card-advantage h3 {
@@ -338,12 +383,13 @@
     .card-advantage p {
       color: var(--text-muted);
       font-size: 0.95rem;
+      line-height: 1.6;
     }
 
     /* Services Grid */
     .grid-services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
       gap: 24px;
     }
     .card-service {
@@ -354,7 +400,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: background 0.2s, transform 0.2s;
+      transition: background 0.2s ease, transform 0.2s ease;
     }
     .card-service:hover {
       background: var(--surface-hover);
@@ -378,6 +424,7 @@
       color: var(--text-muted);
       font-size: 0.9rem;
       margin-bottom: 20px;
+      line-height: 1.55;
     }
     .service-footer {
       display: flex;
@@ -397,9 +444,9 @@
       padding: 6px 14px;
       border-radius: 20px;
       text-decoration: none;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 600;
-      transition: background 0.2s;
+      transition: background 0.2s ease;
     }
     .btn-book-sm:hover { background: var(--primary); color: #000; }
 
@@ -408,7 +455,7 @@
       background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.08));
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 40px;
+      padding: clamp(28px, 4vw, 42px);
       margin: 40px 0;
       display: flex;
       flex-wrap: wrap;
@@ -418,7 +465,7 @@
     }
     .interactive-card h3 {
       font-family: var(--font-heading);
-      font-size: 1.8rem;
+      font-size: clamp(1.4rem, 2vw + 0.8rem, 1.8rem);
       color: #fff;
       margin-bottom: 10px;
     }
@@ -435,16 +482,18 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 20px 24px;
+      padding: 22px 26px;
     }
     .faq-item h4 {
       font-size: 1.05rem;
       color: #fff;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      line-height: 1.4;
     }
     .faq-item p {
       color: var(--text-muted);
       font-size: 0.95rem;
+      line-height: 1.6;
     }
 
     /* Verified Location & Map Section */
@@ -452,7 +501,7 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 32px;
+      padding: clamp(24px, 4vw, 36px);
       display: flex;
       flex-wrap: wrap;
       gap: 24px;
@@ -469,22 +518,26 @@
       color: var(--text-muted);
       font-size: 0.95rem;
       max-width: 500px;
+      line-height: 1.55;
     }
 
     /* Footer */
     footer {
       border-top: 1px solid var(--border);
-      padding: 60px 24px 100px;
+      padding: 60px 24px calc(60px + env(safe-area-inset-bottom, 0px));
       text-align: center;
       color: var(--text-muted);
       font-size: 0.9rem;
     }
+    footer p {
+      margin-bottom: 8px;
+    }
 
-    /* Floating WhatsApp Button */
+    /* Floating WhatsApp Button (Desktop) */
     .floating-wa {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
+      bottom: 28px;
+      right: 28px;
       background: #25d366;
       color: #fff;
       width: 56px;
@@ -496,30 +549,39 @@
       box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
       z-index: 99;
       text-decoration: none;
-      transition: transform 0.2s;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .floating-wa:hover { transform: scale(1.1); }
+    .floating-wa:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.55);
+    }
     .floating-wa svg { width: 30px; height: 30px; fill: currentColor; }
 
     /* Mobile Bottom Action Bar */
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .grid-gallery { grid-template-columns: 1fr; }
+      .floating-wa { display: none !important; } /* Hide redundant floating circle on mobile to prevent overlapping */
+      body {
+        padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+      }
       .mobile-action-bar {
         position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
-        background: rgba(13, 13, 17, 0.96);
+        background: rgba(13, 15, 20, 0.95);
         border-top: 1px solid var(--border);
         display: flex;
-        z-index: 98;
-        backdrop-filter: blur(12px);
+        z-index: 1000;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
       }
       .mobile-action-bar a {
         flex: 1;
         text-align: center;
-        padding: 14px 8px;
+        padding: 12px 6px;
         color: #fff;
         text-decoration: none;
         font-size: 0.85rem;
@@ -527,7 +589,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 4px;
+        gap: 3px;
         border-right: 1px solid var(--border);
       }
       .mobile-action-bar a:last-child { border-right: none; }
@@ -536,123 +598,134 @@
         color: #000;
         font-weight: 700;
       }
-      .floating-wa { bottom: 76px; }
-      body { padding-bottom: 60px; }
+    }
+
+    /* Motion Accessibility: Respect Reduced Motion Preferences */
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header & Navigation -->
-  <nav>
-    <a href="#hero" class="brand">
-      <span>Apollo Aesthetics Studio</span>
-      <span class="brand-badge">Karimnagar</span>
-    </a>
-    <div class="nav-links">
-      <a href="#advantages">Why Us</a>
-      <a href="#gallery">Showcase</a>
-      <a href="#services">Services</a>
-      <a href="#faq">FAQ</a>
-      <a href="#location">Find Us</a>
-      <a href="https://wa.me/919849012345?text=Hi%20Apollo%20Aesthetics%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." target="_blank" rel="noopener noreferrer" class="btn-nav">WhatsApp Booking</a>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <canvas id="three-canvas" aria-hidden="true"></canvas>
-    <div class="hero-content">
-      <div class="hero-badge">★ 4.8 Premium Salon &amp; Certified Ink Studio</div>
-      <h1>Luxury Hair Artistry &amp; Precision Fine-Line Tattoos in Karimnagar</h1>
-      <p>Experience bespoke haircuts, bridal makeovers, and medical-grade custom tattoo artistry in a hygienic luxury studio at Tower Circle.</p>
-      <div class="hero-ctas">
-        <a href="https://wa.me/919849012345?text=Hi%20Apollo%20Aesthetics%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." target="_blank" rel="noopener noreferrer" class="btn-primary">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          Book VIP Slot on WhatsApp
-        </a>
-        <a href="tel:919849012345" class="btn-secondary">
-          📞 Call +91 98490 12345
-        </a>
+  <!-- Sticky Header & Navigation -->
+  <header class="site-header">
+    <nav>
+      <a href="#hero" class="brand">
+        <span>Apollo Aesthetics Studio</span>
+        <span class="brand-badge">Karimnagar</span>
+      </a>
+      <div class="nav-links">
+        <a href="#advantages">Why Us</a>
+        <a href="#gallery">Showcase</a>
+        <a href="#services">Services</a>
+        <a href="#faq">FAQ</a>
+        <a href="#location">Find Us</a>
+        <a href="https://wa.me/919849012345?text=Hi%20Apollo%20Aesthetics%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." target="_blank" rel="noopener noreferrer" class="btn-nav">WhatsApp Booking</a>
       </div>
-    </div>
-  </section>
+    </nav>
+  </header>
 
-  <!-- Advantages / Highlights Section -->
-  <section id="advantages">
-    <div class="section-header">
-      <span class="section-tag">Distinctive Quality</span>
-      <h2 class="section-title">Built for Karimnagar's Best</h2>
-    </div>
-    <div class="grid-advantages">
-      
-        <div class="card-advantage">
-          <h3>100% Hospital-Grade Sterilization</h3>
-          <p>Single-use sterilized needle cartridges unsealed right before your eyes, with medical autoclave hygiene.</p>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <canvas id="three-canvas" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <div class="hero-badge">★ 4.8 Premium Salon &amp; Certified Ink Studio</div>
+        <h1>Luxury Hair Artistry &amp; Precision Fine-Line Tattoos in Karimnagar</h1>
+        <p>Experience bespoke haircuts, bridal makeovers, and medical-grade custom tattoo artistry in a hygienic luxury studio at Tower Circle.</p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/919849012345?text=Hi%20Apollo%20Aesthetics%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." target="_blank" rel="noopener noreferrer" class="btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            Book VIP Slot on WhatsApp
+          </a>
+          <a href="tel:919849012345" class="btn-secondary">
+            📞 Call +91 98490 12345
+          </a>
         </div>
-      
-        <div class="card-advantage">
-          <h3>Certified Hair Stylists &amp; Tattoo Artists</h3>
-          <p>Trained artists specializing in precision fades, international hair therapies, and custom fine-line ink.</p>
-        </div>
-      
-        <div class="card-advantage">
-          <h3>Private Consultation &amp; Bridal Suites</h3>
-          <p>Relaxed, fully air-conditioned private rooms designed for intimate bridal grooming and focused tattoo sessions.</p>
-        </div>
-      
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <!-- Curated Category Photography Showcase -->
-  <section id="gallery">
-    <div class="section-header">
-      <span class="section-tag">Salons, Spas &amp; Tattoo Studios Visual Showcase</span>
-      <h2 class="section-title">Verified Portfolio & Standards</h2>
-      <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Authentic glimpses into our daily work, facilities, and signature service quality in Karimnagar.</p>
-    </div>
-    <div class="grid-gallery">
-      
-        <div class="card-gallery">
-          <div class="gallery-img-wrap">
-            <img src="https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format&fit=crop&w=600&q=80" alt="Neo-Traditional &amp; Custom Realism" loading="lazy" width="600" height="400">
-            <span class="gallery-tag">Custom Flash</span>
+    <!-- Advantages / Highlights Section -->
+    <section id="advantages">
+      <div class="section-header">
+        <span class="section-tag">Distinctive Quality</span>
+        <h2 class="section-title">Built for Karimnagar's Best</h2>
+      </div>
+      <div class="grid-advantages">
+        
+          <div class="card-advantage">
+            <h3>100% Hospital-Grade Sterilization</h3>
+            <p>Single-use sterilized needle cartridges unsealed right before your eyes, with medical autoclave hygiene.</p>
           </div>
-          <div class="gallery-info">
-            <h4>Neo-Traditional &amp; Custom Realism</h4>
-            <p>Intricate custom design sketches tailored to your anatomy and personal narrative.</p>
+        
+          <div class="card-advantage">
+            <h3>Certified Hair Stylists &amp; Tattoo Artists</h3>
+            <p>Trained artists specializing in precision fades, international hair therapies, and custom fine-line ink.</p>
           </div>
-        </div>
-      
-        <div class="card-gallery">
-          <div class="gallery-img-wrap">
-            <img src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?auto=format&fit=crop&w=600&q=80" alt="Fine-Line Geometric Sleeve Art" loading="lazy" width="600" height="400">
-            <span class="gallery-tag">Blackwork</span>
+        
+          <div class="card-advantage">
+            <h3>Private Consultation &amp; Bridal Suites</h3>
+            <p>Relaxed, fully air-conditioned private rooms designed for intimate bridal grooming and focused tattoo sessions.</p>
           </div>
-          <div class="gallery-info">
-            <h4>Fine-Line Geometric Sleeve Art</h4>
-            <p>Sharp, precision-executed geometric lines with balanced negative space.</p>
-          </div>
-        </div>
-      
-        <div class="card-gallery">
-          <div class="gallery-img-wrap">
-            <img src="https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?auto=format&fit=crop&w=600&q=80" alt="High-Detail Shading &amp; Portrait Ink" loading="lazy" width="600" height="400">
-            <span class="gallery-tag">Realism</span>
-          </div>
-          <div class="gallery-info">
-            <h4>High-Detail Shading &amp; Portrait Ink</h4>
-            <p>Smooth gradients, high-contrast black and grey shading with hospital-grade pigments.</p>
-          </div>
-        </div>
-      
-    </div>
-  </section>
+        
+      </div>
+    </section>
 
-  <!-- Bespoke Interactive Micro-Component Section -->
-  
+    <!-- Curated Category Photography Showcase -->
+    <section id="gallery">
+      <div class="section-header">
+        <span class="section-tag">Salons, Spas &amp; Tattoo Studios Visual Showcase</span>
+        <h2 class="section-title">Verified Portfolio & Standards</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Authentic glimpses into our daily work, facilities, and signature service quality in Karimnagar.</p>
+      </div>
+      <div class="grid-gallery">
+        
+          <div class="card-gallery">
+            <div class="gallery-img-wrap">
+              <img src="https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format&fit=crop&w=600&q=80" alt="Neo-Traditional &amp; Custom Realism" loading="lazy" width="600" height="375">
+              <span class="gallery-tag">Custom Flash</span>
+            </div>
+            <div class="gallery-info">
+              <h4>Neo-Traditional &amp; Custom Realism</h4>
+              <p>Intricate custom design sketches tailored to your anatomy and personal narrative.</p>
+            </div>
+          </div>
+        
+          <div class="card-gallery">
+            <div class="gallery-img-wrap">
+              <img src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?auto=format&fit=crop&w=600&q=80" alt="Fine-Line Geometric Sleeve Art" loading="lazy" width="600" height="375">
+              <span class="gallery-tag">Blackwork</span>
+            </div>
+            <div class="gallery-info">
+              <h4>Fine-Line Geometric Sleeve Art</h4>
+              <p>Sharp, precision-executed geometric lines with balanced negative space.</p>
+            </div>
+          </div>
+        
+          <div class="card-gallery">
+            <div class="gallery-img-wrap">
+              <img src="https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?auto=format&fit=crop&w=600&q=80" alt="High-Detail Shading &amp; Portrait Ink" loading="lazy" width="600" height="375">
+              <span class="gallery-tag">Realism</span>
+            </div>
+            <div class="gallery-info">
+              <h4>High-Detail Shading &amp; Portrait Ink</h4>
+              <p>Smooth gradients, high-contrast black and grey shading with hospital-grade pigments.</p>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- Bespoke Interactive Micro-Component Section -->
+    
     <!-- Clinical Hygiene & Flash Consultation -->
-    <section id="hygiene-protocol" style="background: rgba(194, 157, 89, 0.04); border-top: 1px solid rgba(194, 157, 89, 0.2); border-bottom: 1px solid rgba(194, 157, 89, 0.2);">
+    <section id="hygiene-protocol" class="micro-component-section" style="background: rgba(194, 157, 89, 0.04); border-top: 1px solid rgba(194, 157, 89, 0.2); border-bottom: 1px solid rgba(194, 157, 89, 0.2);">
       <div class="section-header">
         <span class="section-tag" style="color: #c29d59;">Clinical Standards</span>
         <h2 class="section-title">Strict Medical-Grade Hygiene & Safety Protocol</h2>
@@ -690,125 +763,127 @@
     </section>
     
 
-  <!-- Services Showcase -->
-  <section id="services">
-    <div class="section-header">
-      <span class="section-tag">Popular Offerings</span>
-      <h2 class="section-title">Signature Offerings & Transparent Pricing</h2>
-    </div>
-    <div class="grid-services">
-      
-        <div class="card-service">
-          <div>
-            <div class="service-cat">Hair Artistry</div>
-            <h4>Signature Haircut &amp; Beard Architecture</h4>
-            <p>Consultation, scalp massage, precision style cut, and hot towel finish.</p>
-          </div>
-          <div class="service-footer">
-            <span class="service-price">₹499*</span>
-            <a href="https://wa.me/919849012345?text=Hi%20Apollo%20Aesthetics%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20Signature%20Haircut%20%26%20Beard%20Architecture" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
-          </div>
-        </div>
-      
-        <div class="card-service">
-          <div>
-            <div class="service-cat">Tattoo Art</div>
-            <h4>Custom Tattoo &amp; Fine Line Ink</h4>
-            <p>Custom 3D flash preview, single-use needle cartridge, medical-grade aftercare protocol.</p>
-          </div>
-          <div class="service-footer">
-            <span class="service-price">From ₹1,200*</span>
-            <a href="https://wa.me/919849012345?text=Hi%20Apollo%20Aesthetics%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20Custom%20Tattoo%20%26%20Fine%20Line%20Ink" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
-          </div>
-        </div>
-      
-        <div class="card-service">
-          <div>
-            <div class="service-cat">Therapies</div>
-            <h4>Keratin &amp; Botox Hair Spa Therapy</h4>
-            <p>Intense moisture restoration and frizz control for long-lasting silky smooth hair.</p>
-          </div>
-          <div class="service-footer">
-            <span class="service-price">₹1,999*</span>
-            <a href="https://wa.me/919849012345?text=Hi%20Apollo%20Aesthetics%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20Keratin%20%26%20Botox%20Hair%20Spa%20Therapy" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
-          </div>
-        </div>
-      
-        <div class="card-service">
-          <div>
-            <div class="service-cat">Makeovers</div>
-            <h4>HD Bridal &amp; Groom Package</h4>
-            <p>Pre-wedding skin facial, premium styling, beard grooming, and photo-ready finish.</p>
-          </div>
-          <div class="service-footer">
-            <span class="service-price">Enquire for Muhurtham</span>
-            <a href="https://wa.me/919849012345?text=Hi%20Apollo%20Aesthetics%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20HD%20Bridal%20%26%20Groom%20Package" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
-          </div>
-        </div>
-      
-    </div>
-  </section>
-
-  <!-- Interactive Callout -->
-  <section>
-    <div class="interactive-card">
-      <div>
-        <h3>Need custom requirements or personalized assistance?</h3>
-        <p style="color: var(--text-muted); max-width: 500px;">Direct WhatsApp consultation connects you immediately with our team in Karimnagar.</p>
+    <!-- Services Showcase -->
+    <section id="services">
+      <div class="section-header">
+        <span class="section-tag">Popular Offerings</span>
+        <h2 class="section-title">Signature Offerings & Transparent Pricing</h2>
       </div>
-      <a href="https://wa.me/919849012345?text=Hi%20Apollo%20Aesthetics%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." target="_blank" rel="noopener noreferrer" class="btn-primary">Chat with Us Now</a>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section id="faq">
-    <div class="section-header">
-      <span class="section-tag">Common Enquiries</span>
-      <h2 class="section-title">Frequently Asked Questions</h2>
-    </div>
-    <div class="faq-list">
-      
-        <div class="faq-item">
-          <h4>Where are you located in Karimnagar?</h4>
-          <p>We are located at Near Tower Circle, Karimnagar, Telangana 505001. Walk-ins and appointments are both welcomed!</p>
-        </div>
-      
-        <div class="faq-item">
-          <h4>Is tattoo equipment sterilized and safe?</h4>
-          <p>Yes, 100% single-use sterilized needle cartridges opened directly in front of clients, adhering to strict hygiene guidelines.</p>
-        </div>
-      
-    </div>
-  </section>
-
-  <!-- Verified Location & Contact Section -->
-  <section id="location">
-    <div class="section-header">
-      <span class="section-tag">Visit In Person</span>
-      <h2 class="section-title">Location & Verified Address</h2>
-    </div>
-    <div class="location-box">
-      <div class="location-details">
-        <h4>Apollo Aesthetics Studio</h4>
-        <p>📍 Near Tower Circle, Karimnagar, Telangana 505001</p>
-        <p style="margin-top: 6px;">📞 Phone: <strong>+91 98490 12345</strong></p>
-        <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-muted);">Serving Karimnagar, Telangana and surrounding communities with premium quality service.</p>
+      <div class="grid-services">
+        
+          <div class="card-service">
+            <div>
+              <div class="service-cat">Hair Artistry</div>
+              <h4>Signature Haircut &amp; Beard Architecture</h4>
+              <p>Consultation, scalp massage, precision style cut, and hot towel finish.</p>
+            </div>
+            <div class="service-footer">
+              <span class="service-price">₹499*</span>
+              <a href="https://wa.me/919849012345?text=Hi%20Apollo%20Aesthetics%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20Signature%20Haircut%20%26%20Beard%20Architecture" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
+            </div>
+          </div>
+        
+          <div class="card-service">
+            <div>
+              <div class="service-cat">Tattoo Art</div>
+              <h4>Custom Tattoo &amp; Fine Line Ink</h4>
+              <p>Custom 3D flash preview, single-use needle cartridge, medical-grade aftercare protocol.</p>
+            </div>
+            <div class="service-footer">
+              <span class="service-price">From ₹1,200*</span>
+              <a href="https://wa.me/919849012345?text=Hi%20Apollo%20Aesthetics%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20Custom%20Tattoo%20%26%20Fine%20Line%20Ink" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
+            </div>
+          </div>
+        
+          <div class="card-service">
+            <div>
+              <div class="service-cat">Therapies</div>
+              <h4>Keratin &amp; Botox Hair Spa Therapy</h4>
+              <p>Intense moisture restoration and frizz control for long-lasting silky smooth hair.</p>
+            </div>
+            <div class="service-footer">
+              <span class="service-price">₹1,999*</span>
+              <a href="https://wa.me/919849012345?text=Hi%20Apollo%20Aesthetics%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20Keratin%20%26%20Botox%20Hair%20Spa%20Therapy" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
+            </div>
+          </div>
+        
+          <div class="card-service">
+            <div>
+              <div class="service-cat">Makeovers</div>
+              <h4>HD Bridal &amp; Groom Package</h4>
+              <p>Pre-wedding skin facial, premium styling, beard grooming, and photo-ready finish.</p>
+            </div>
+            <div class="service-footer">
+              <span class="service-price">Enquire for Muhurtham</span>
+              <a href="https://wa.me/919849012345?text=Hi%20Apollo%20Aesthetics%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20HD%20Bridal%20%26%20Groom%20Package" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
+            </div>
+          </div>
+        
       </div>
-      <div>
-        <a href="https://www.google.com/maps/search/?api=1&query=Apollo%20Aesthetics%20Studio%20Near%20Tower%20Circle%2C%20Karimnagar%2C%20Telangana%20505001" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-          🗺️ Open in Google Maps
-        </a>
+    </section>
+
+    <!-- Interactive Callout -->
+    <section>
+      <div class="interactive-card">
+        <div>
+          <h3>Need custom requirements or personalized assistance?</h3>
+          <p style="color: var(--text-muted); max-width: 500px;">Direct WhatsApp consultation connects you immediately with our team in Karimnagar.</p>
+        </div>
+        <a href="https://wa.me/919849012345?text=Hi%20Apollo%20Aesthetics%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." target="_blank" rel="noopener noreferrer" class="btn-primary">Chat with Us Now</a>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+      <div class="section-header">
+        <span class="section-tag">Common Enquiries</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        
+          <div class="faq-item">
+            <h4>Where are you located in Karimnagar?</h4>
+            <p>We are located at Near Tower Circle, Karimnagar, Telangana 505001. Walk-ins and appointments are both welcomed!</p>
+          </div>
+        
+          <div class="faq-item">
+            <h4>Is tattoo equipment sterilized and safe?</h4>
+            <p>Yes, 100% single-use sterilized needle cartridges opened directly in front of clients, adhering to strict hygiene guidelines.</p>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- Verified Location & Contact Section -->
+    <section id="location">
+      <div class="section-header">
+        <span class="section-tag">Visit In Person</span>
+        <h2 class="section-title">Location & Verified Address</h2>
+      </div>
+      <div class="location-box">
+        <div class="location-details">
+          <h4>Apollo Aesthetics Studio</h4>
+          <p>📍 Near Tower Circle, Karimnagar, Telangana 505001</p>
+          <p style="margin-top: 6px;">📞 Phone: <strong>+91 98490 12345</strong></p>
+          <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-muted);">Serving Karimnagar, Telangana and surrounding communities with premium quality service.</p>
+        </div>
+        <div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Apollo%20Aesthetics%20Studio%20Near%20Tower%20Circle%2C%20Karimnagar%2C%20Telangana%20505001" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            🗺️ Open in Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
     <p>© 2026 Apollo Aesthetics Studio. All rights reserved.</p>
-    <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text-muted);">Near Tower Circle, Karimnagar, Telangana 505001</p>
+    <p style="font-size: 0.85rem; color: var(--text-muted);">Near Tower Circle, Karimnagar, Telangana 505001</p>
+    <p style="margin-top: 12px; font-size: 0.78rem; color: var(--text-muted); opacity: 0.85;">Independent concept website preview engineered for verified local businesses in Karimnagar, Telangana.</p>
   </footer>
 
-  <!-- Floating WhatsApp CTA (Desktop & Mobile) -->
+  <!-- Floating WhatsApp CTA (Desktop) -->
   <a href="https://wa.me/919849012345?text=Hi%20Apollo%20Aesthetics%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
   </a>
@@ -829,23 +904,26 @@
     </a>
   </div>
 
-  <!-- Three.js Interactive Particle Background with CSS fallback -->
+  <!-- Three.js Interactive Particle Background with Reduced Motion & Viewport Observer -->
   <script>
     (function init3DHero() {
       const canvas = document.getElementById('three-canvas');
       if (!canvas || typeof THREE === 'undefined') return;
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isMobile = window.innerWidth < 768;
 
       try {
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(60, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
         camera.position.z = 25;
 
-        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true, powerPreference: 'low-power' });
         renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 
-        // Particle Geometry
-        const particleCount = 200;
+        // Adaptive particle density (50 on mobile, 180 on desktop)
+        const particleCount = isMobile ? 50 : 180;
         const geometry = new THREE.BufferGeometry();
         const positions = new Float32Array(particleCount * 3);
         const colors = new Float32Array(particleCount * 3);
@@ -868,28 +946,56 @@
         geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
         const material = new THREE.PointsMaterial({
-          size: 0.6,
+          size: isMobile ? 0.7 : 0.6,
           vertexColors: true,
           transparent: true,
-          opacity: 0.8
+          opacity: 0.75
         });
 
         const particles = new THREE.Points(geometry, material);
         scene.add(particles);
 
         let mouseX = 0, mouseY = 0;
-        window.addEventListener('mousemove', (e) => {
-          mouseX = (e.clientX - window.innerWidth / 2) * 0.001;
-          mouseY = (e.clientY - window.innerHeight / 2) * 0.001;
-        }, { passive: true });
+        if (!isMobile) {
+          window.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX - window.innerWidth / 2) * 0.0008;
+            mouseY = (e.clientY - window.innerHeight / 2) * 0.0008;
+          }, { passive: true });
+        }
+
+        // Render single frame if reduced motion requested
+        if (prefersReducedMotion) {
+          renderer.render(scene, camera);
+          return;
+        }
+
+        // Viewport Visibility Observer: Pause 60FPS loop when scrolled out of view
+        let isHeroVisible = true;
+        let isRunning = true;
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            isHeroVisible = entries[0].isIntersecting;
+            if (isHeroVisible && !isRunning) {
+              isRunning = true;
+              requestAnimationFrame(animate);
+            }
+          }, { threshold: 0.05 });
+          observer.observe(canvas.parentElement || canvas);
+        }
 
         function animate() {
+          if (!isHeroVisible) {
+            isRunning = false;
+            return;
+          }
           requestAnimationFrame(animate);
-          particles.rotation.y += 0.0015;
-          particles.rotation.x += 0.0008;
+          particles.rotation.y += 0.0012;
+          particles.rotation.x += 0.0006;
 
-          particles.position.x += (mouseX * 5 - particles.position.x) * 0.05;
-          particles.position.y += (-mouseY * 5 - particles.position.y) * 0.05;
+          if (!isMobile) {
+            particles.position.x += (mouseX * 4 - particles.position.x) * 0.04;
+            particles.position.y += (-mouseY * 4 - particles.position.y) * 0.04;
+          }
 
           renderer.render(scene, camera);
         }
@@ -898,10 +1004,13 @@
         window.addEventListener('resize', () => {
           const w = canvas.parentElement.clientWidth;
           const h = canvas.parentElement.clientHeight;
-          camera.aspect = w / h;
-          camera.updateProjectionMatrix();
-          renderer.setSize(w, h);
-        });
+          if (w > 0 && h > 0) {
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+            if (prefersReducedMotion) renderer.render(scene, camera);
+          }
+        }, { passive: true });
       } catch (err) {
         console.warn('3D canvas fallback active:', err);
       }

@@ -8,7 +8,7 @@ export const CATEGORY_ASSETS = {
   'famous-tattoos-fathepura': {
     categoryKey: 'tattoo',
     heroImage: 'https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=1200&q=80',
-    heroAlt: 'Professional tattoo artist working on custom ink art with sterile equipment',
+    heroAlt: 'Professional tattoo artist working on custom ink art with sterile equipment in studio',
     accentGradient: 'linear-gradient(135deg, rgba(194, 157, 89, 0.25) 0%, rgba(224, 40, 104, 0.25) 100%)',
     items: [
       {
@@ -36,7 +36,7 @@ export const CATEGORY_ASSETS = {
     categoryKey: 'salon',
     heroImage: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80',
     heroAlt: 'Modern luxury salon interior with stylist chairs and mirrors',
-    accentGradient: 'linear-gradient(135deg, rgba(194, 157, 89, 0.2) 0%, rgba(224, 40, 104, 0.2) 100%)',
+    accentGradient: 'linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%)',
     items: [
       {
         title: 'Couture Hair Architecture & Styling',
@@ -198,7 +198,7 @@ export const CATEGORY_ASSETS = {
     categoryKey: 'photo_studio',
     heroImage: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80',
     heroAlt: 'Professional camera setup and lighting equipment in portrait studio',
-    accentGradient: 'linear-gradient(135deg, rgba(229, 192, 123, 0.25) 0%, rgba(212, 122, 138, 0.25) 100%)',
+    accentGradient: 'linear-gradient(135deg, rgba(226, 177, 112, 0.25) 0%, rgba(96, 165, 250, 0.25) 100%)',
     items: [
       {
         title: 'Master Studio Portraiture & Lighting',
@@ -260,31 +260,36 @@ export function getCategoryAssets(lead) {
   const slug = (lead?.slug || '').toLowerCase();
   const niche = (lead?.niche || '').toLowerCase();
   const name = (lead?.name || '').toLowerCase();
-  const combined = `${slug} ${niche} ${name}`;
+  const cat = (lead?.category || '').toLowerCase();
+  const combined = `${slug} ${niche} ${name} ${cat}`;
 
-  if (combined.includes('furniture') || combined.includes('interior')) {
-    return CATEGORY_ASSETS['pavan-furniture-world'];
-  }
-  if (combined.includes('coaching') || combined.includes('college')) {
-    return CATEGORY_ASSETS['sri-chaitanya-coaching-karimnagar'];
-  }
-  if (combined.includes('bakery') || combined.includes('cake') || combined.includes('pastry')) {
+  // Prioritized keyword fallback matching
+  if (combined.includes('bakery') || combined.includes('cake') || combined.includes('pastry') || combined.includes('bakes')) {
     return CATEGORY_ASSETS['la-delicious-bakery-karimnagar'];
   }
-  if (combined.includes('restaurant') || combined.includes('dining') || combined.includes('biryani')) {
-    return CATEGORY_ASSETS['peacock-restaurant-karimnagar'];
-  }
-  if (combined.includes('gym') || combined.includes('fitness')) {
-    return CATEGORY_ASSETS['star-fitness-gym-karimnagar'];
-  }
-  if (combined.includes('famous-tattoos') || (combined.includes('tattoo') && !combined.includes('hair'))) {
-    return CATEGORY_ASSETS['famous-tattoos-fathepura'];
-  }
-  if (combined.includes('sumasri') || combined.includes('digital-photo')) {
+  if (combined.includes('sumasri') || combined.includes('digital photo') || combined.includes('photo studio') || combined.includes('portrait')) {
     return CATEGORY_ASSETS['sumasri-digital-photo-karimnagar'];
   }
-  if (combined.includes('yashika') || combined.includes('wedding')) {
+  if (combined.includes('yashika') || combined.includes('wedding photo') || combined.includes('wedding film') || combined.includes('muhurtham')) {
     return CATEGORY_ASSETS['yashika-photography-karimnagar'];
+  }
+  if (combined.includes('famous tattoos') || (combined.includes('tattoo') && !combined.includes('hair') && !combined.includes('lounge'))) {
+    return CATEGORY_ASSETS['famous-tattoos-fathepura'];
+  }
+  if (combined.includes('salon') || combined.includes('hair lounge') || combined.includes('beauty parlour') || combined.includes('spa')) {
+    return CATEGORY_ASSETS['hair-lounge-salon-tattoos'];
+  }
+  if (combined.includes('furniture') || combined.includes('interior') || combined.includes('wood') || combined.includes('sofa')) {
+    return CATEGORY_ASSETS['pavan-furniture-world'];
+  }
+  if (combined.includes('coaching') || combined.includes('college') || combined.includes('academy') || combined.includes('eapcet') || combined.includes('neet')) {
+    return CATEGORY_ASSETS['sri-chaitanya-coaching-karimnagar'];
+  }
+  if (combined.includes('restaurant') || combined.includes('dining') || combined.includes('biryani') || combined.includes('cuisine')) {
+    return CATEGORY_ASSETS['peacock-restaurant-karimnagar'];
+  }
+  if (combined.includes('gym') || combined.includes('fitness') || combined.includes('workout') || combined.includes('crossfit')) {
+    return CATEGORY_ASSETS['star-fitness-gym-karimnagar'];
   }
 
   return CATEGORY_ASSETS['hair-lounge-salon-tattoos'];
@@ -297,28 +302,29 @@ export function renderCategoryMicroComponent(lead, waPhone) {
   const slug = (lead?.slug || '').toLowerCase();
   const niche = (lead?.niche || '').toLowerCase();
   const name = (lead?.name || '').toLowerCase();
-  const combined = `${slug} ${niche} ${name}`;
+  const cat = (lead?.category || '').toLowerCase();
+  const combined = `${slug} ${niche} ${name} ${cat}`;
 
   // 1. STAR FITNESS GYM — Interactive BMI & Fitness Goal Calculator
-  if (combined.includes('gym') || combined.includes('fitness')) {
+  if (slug === 'star-fitness-gym-karimnagar' || combined.includes('gym') || combined.includes('fitness') || combined.includes('crossfit')) {
     return `
     <!-- Star Fitness Interactive BMI & Goal Calculator -->
-    <section id="bmi-calculator" style="background: rgba(255, 77, 0, 0.04); border-top: 1px solid rgba(255, 77, 0, 0.2); border-bottom: 1px solid rgba(255, 77, 0, 0.2);">
+    <section id="bmi-calculator" class="micro-component-section" style="background: rgba(255, 77, 0, 0.04); border-top: 1px solid rgba(255, 77, 0, 0.2); border-bottom: 1px solid rgba(255, 77, 0, 0.2);">
       <div class="section-header">
         <span class="section-tag" style="color: #ff4d00;">Instant Health Assessment</span>
         <h2 class="section-title">Calculate Your BMI & Plan Your Transformation</h2>
         <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Get your biometric score and unlock a personalized workout and Telangana nutrition recommendation.</p>
       </div>
 
-      <div style="max-width: 720px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 30px; box-shadow: var(--shadow);">
+      <div style="max-width: 720px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(24px, 4vw, 36px) clamp(18px, 3vw, 30px); box-shadow: var(--shadow);">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 24px;">
           <div>
             <label for="bmi-weight" style="display: block; font-size: 0.88rem; font-weight: 600; color: #fff; margin-bottom: 8px;">Body Weight (kg)</label>
-            <input type="number" id="bmi-weight" placeholder="e.g. 72" min="30" max="200" style="width: 100%; padding: 12px 16px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 1rem;">
+            <input type="number" id="bmi-weight" placeholder="e.g. 72" min="30" max="200" style="width: 100%; box-sizing: border-box; padding: 12px 16px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 1rem;">
           </div>
           <div>
             <label for="bmi-height" style="display: block; font-size: 0.88rem; font-weight: 600; color: #fff; margin-bottom: 8px;">Height (cm)</label>
-            <input type="number" id="bmi-height" placeholder="e.g. 175" min="100" max="230" style="width: 100%; padding: 12px 16px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 1rem;">
+            <input type="number" id="bmi-height" placeholder="e.g. 175" min="100" max="230" style="width: 100%; box-sizing: border-box; padding: 12px 16px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 1rem;">
           </div>
         </div>
 
@@ -333,6 +339,7 @@ export function renderCategoryMicroComponent(lead, waPhone) {
           <a id="bmi-wa-share" href="#hero" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; background: #25d366; color: #000; font-weight: 700; padding: 10px 22px; border-radius: 24px; text-decoration: none; font-size: 0.9rem;">
             <span>💬</span> Share with Fitness Coach on WhatsApp
           </a>
+          <p style="margin-top: 10px; font-size: 0.78rem; color: var(--text-muted);">Biometric guide score. Consult floor trainers for full body composition analysis.</p>
         </div>
       </div>
 
@@ -396,75 +403,22 @@ export function renderCategoryMicroComponent(lead, waPhone) {
     `;
   }
 
-  // 2. PEACOCK RESTAURANT — Interactive Dining & Table Booking
-  if (combined.includes('restaurant') || combined.includes('dining') || combined.includes('biryani')) {
-    return `
-    <!-- Multi-Cuisine Interactive Dining & Table Booking -->
-    <section id="table-booking" style="background: rgba(249, 115, 22, 0.04); border-top: 1px solid rgba(249, 115, 22, 0.2); border-bottom: 1px solid rgba(249, 115, 22, 0.2);">
-      <div class="section-header">
-        <span class="section-tag" style="color: #f97316;">Reserve In Advance</span>
-        <h2 class="section-title">Family Table & Banquet Reservation</h2>
-        <p style="color: var(--text-muted); max-width: 620px; margin: 10px auto 0;">Skip weekend waiting times. Reserve your dining table or private family cabin instantly.</p>
-      </div>
-
-      <div style="max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 30px; box-shadow: var(--shadow);">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 20px;">
-          <div>
-            <label for="book-name" style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 6px;">Your Name</label>
-            <input type="text" id="book-name" placeholder="Guest Name" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
-          </div>
-          <div>
-            <label for="book-guests" style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 6px;">Number of Guests</label>
-            <select id="book-guests" style="width: 100%; padding: 12px 14px; background: #16151f; border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
-              <option value="2 Guests">2 Guests (Couple Table)</option>
-              <option value="4 Guests" selected>4 Guests (Family Table)</option>
-              <option value="6 Guests">6 Guests (Executive Booth)</option>
-              <option value="8+ Guests">8+ Guests (Banquet Suite)</option>
-            </select>
-          </div>
-          <div>
-            <label for="book-slot" style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 6px;">Dining Preference</label>
-            <select id="book-slot" style="width: 100%; padding: 12px 14px; background: #16151f; border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
-              <option value="Lunch (12:30 PM - 3:30 PM)">Lunch (12:30 PM - 3:30 PM)</option>
-              <option value="Dinner (7:30 PM - 10:30 PM)" selected>Dinner (7:30 PM - 10:30 PM)</option>
-            </select>
-          </div>
-        </div>
-
-        <button type="button" onclick="reserveRestaurantTable()" style="width: 100%; padding: 14px; background: #f97316; color: #000; border: none; border-radius: 30px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: transform 0.2s;">
-          🍽️ Confirm Reservation via Direct WhatsApp
-        </button>
-      </div>
-    </section>
-
-    <script>
-      function reserveRestaurantTable() {
-        var name = document.getElementById('book-name').value.trim() || 'Valued Guest';
-        var guests = document.getElementById('book-guests').value;
-        var slot = document.getElementById('book-slot').value;
-        var msg = 'Hi, I would like to reserve a dining table for ' + name + ' for ' + guests + ' during ' + slot + '. Please confirm availability.';
-        window.open('https://wa.me/${waPhone}?text=' + encodeURIComponent(msg), '_blank');
-      }
-    </script>
-    `;
-  }
-
-  // 3. LA DELICIOUS BAKERY — Celebration Cake Estimator
-  if (combined.includes('bakery') || combined.includes('cake') || combined.includes('pastry')) {
+  // 2. LA DELICIOUS BAKERY — Celebration Cake Estimator (Evaluated BEFORE generic restaurant)
+  if (slug === 'la-delicious-bakery-karimnagar' || combined.includes('bakery') || combined.includes('cake') || combined.includes('pastry') || combined.includes('bakes')) {
     return `
     <!-- Celebration Cake Customizer -->
-    <section id="cake-estimator" style="background: rgba(244, 63, 94, 0.04); border-top: 1px solid rgba(244, 63, 94, 0.2); border-bottom: 1px solid rgba(244, 63, 94, 0.2);">
+    <section id="cake-estimator" class="micro-component-section" style="background: rgba(244, 63, 94, 0.04); border-top: 1px solid rgba(244, 63, 94, 0.2); border-bottom: 1px solid rgba(244, 63, 94, 0.2);">
       <div class="section-header">
         <span class="section-tag" style="color: #f43f5e;">Celebration Special</span>
         <h2 class="section-title">Custom Cake Builder & Price Estimator</h2>
-        <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Configure flavor, weight, and eggless preferences for instant Karimnagar delivery quotes.</p>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Configure flavor, weight, and eggless preferences for instant Karimnagar celebration cake quotes.</p>
       </div>
 
-      <div style="max-width: 720px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 30px; box-shadow: var(--shadow);">
+      <div style="max-width: 720px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(24px, 4vw, 36px) clamp(18px, 3vw, 30px); box-shadow: var(--shadow);">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 24px;">
           <div>
             <label for="cake-flavor" style="display: block; font-size: 0.88rem; font-weight: 600; color: #fff; margin-bottom: 8px;">Select Flavor</label>
-            <select id="cake-flavor" onchange="updateCakeEstimate()" style="width: 100%; padding: 12px 14px; background: #16151f; border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
+            <select id="cake-flavor" onchange="updateCakeEstimate()" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: #16151f; border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
               <option value="Dutch Truffle" data-rate="650">Belgian Dutch Truffle (₹650/kg)</option>
               <option value="Red Velvet Cream Cheese" data-rate="750">Red Velvet Cream Cheese (₹750/kg)</option>
               <option value="Fresh Butterscotch Crunch" data-rate="550">Fresh Butterscotch Crunch (₹550/kg)</option>
@@ -473,7 +427,7 @@ export function renderCategoryMicroComponent(lead, waPhone) {
           </div>
           <div>
             <label for="cake-weight" style="display: block; font-size: 0.88rem; font-weight: 600; color: #fff; margin-bottom: 8px;">Cake Weight</label>
-            <select id="cake-weight" onchange="updateCakeEstimate()" style="width: 100%; padding: 12px 14px; background: #16151f; border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
+            <select id="cake-weight" onchange="updateCakeEstimate()" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: #16151f; border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
               <option value="0.5" selected>0.5 kg (Small Family)</option>
               <option value="1.0">1.0 kg (Standard Party)</option>
               <option value="2.0">2.0 kg (Grand Celebration)</option>
@@ -484,20 +438,20 @@ export function renderCategoryMicroComponent(lead, waPhone) {
 
         <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; background: rgba(255,255,255,0.03); border-radius: 8px; margin-bottom: 24px; border: 1px solid var(--border);">
           <span style="color: #fff; font-size: 0.95rem; font-weight: 500;">🌱 100% Pure Eggless Preparation</span>
-          <label style="position: relative; display: inline-block; width: 44px; height: 24px;">
+          <label for="cake-eggless" style="position: relative; display: inline-block; width: 44px; height: 24px; cursor: pointer;">
             <input type="checkbox" id="cake-eggless" onchange="updateCakeEstimate()" checked style="opacity: 0; width: 0; height: 0;">
-            <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #10b981; border-radius: 24px;"></span>
+            <span style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: #10b981; border-radius: 24px;"></span>
           </label>
         </div>
 
         <div style="text-align: center; padding: 18px; background: rgba(244, 63, 94, 0.08); border-radius: 10px; margin-bottom: 20px; border: 1px solid rgba(244, 63, 94, 0.3);">
-          <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">Estimated Price</div>
+          <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">Estimated Guide Price</div>
           <div id="cake-price-display" style="font-size: 2.2rem; font-weight: 800; color: #fff; margin: 4px 0;">₹325*</div>
           <div style="font-size: 0.8rem; color: #10b981;">Includes complimentary celebration candles & knife</div>
         </div>
 
         <button type="button" onclick="orderCustomCake()" style="width: 100%; padding: 14px; background: #f43f5e; color: #fff; border: none; border-radius: 30px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: transform 0.2s;">
-          🎂 Order via WhatsApp with Inspiration Photo
+          🎂 Send Custom Cake Enquiry on WhatsApp
         </button>
       </div>
     </section>
@@ -514,7 +468,61 @@ export function renderCategoryMicroComponent(lead, waPhone) {
         var flavor = document.getElementById('cake-flavor').value;
         var weight = document.getElementById('cake-weight').value;
         var isEggless = document.getElementById('cake-eggless').checked ? 'Eggless' : 'Regular';
-        var msg = 'Hi, I want to order a ' + weight + 'kg ' + flavor + ' cake (' + isEggless + '). I am sending my inspiration design.';
+        var msg = 'Hi, I would like to enquire about a ' + weight + 'kg ' + flavor + ' cake (' + isEggless + '). I am attaching my reference photo.';
+        window.open('https://wa.me/${waPhone}?text=' + encodeURIComponent(msg), '_blank');
+      }
+    </script>
+    `;
+  }
+
+  // 3. PEACOCK RESTAURANT — Interactive Dining & Table Booking
+  if (slug === 'peacock-restaurant-karimnagar' || combined.includes('restaurant') || combined.includes('biryani') || combined.includes('dining')) {
+    return `
+    <!-- Multi-Cuisine Interactive Dining & Table Booking -->
+    <section id="table-booking" class="micro-component-section" style="background: rgba(249, 115, 22, 0.04); border-top: 1px solid rgba(249, 115, 22, 0.2); border-bottom: 1px solid rgba(249, 115, 22, 0.2);">
+      <div class="section-header">
+        <span class="section-tag" style="color: #f97316;">Reserve In Advance</span>
+        <h2 class="section-title">Family Table & Banquet Reservation Request</h2>
+        <p style="color: var(--text-muted); max-width: 620px; margin: 10px auto 0;">Skip weekend waiting times. Send your dining table or private family cabin request directly.</p>
+      </div>
+
+      <div style="max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(24px, 4vw, 36px) clamp(18px, 3vw, 30px); box-shadow: var(--shadow);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 20px;">
+          <div>
+            <label for="book-name" style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 6px;">Your Name</label>
+            <input type="text" id="book-name" placeholder="Guest Name" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
+          </div>
+          <div>
+            <label for="book-guests" style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 6px;">Number of Guests</label>
+            <select id="book-guests" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: #16151f; border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
+              <option value="2 Guests">2 Guests (Couple Table)</option>
+              <option value="4 Guests" selected>4 Guests (Family Table)</option>
+              <option value="6 Guests">6 Guests (Executive Booth)</option>
+              <option value="8+ Guests">8+ Guests (Banquet Suite)</option>
+            </select>
+          </div>
+          <div>
+            <label for="book-slot" style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 6px;">Dining Preference</label>
+            <select id="book-slot" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: #16151f; border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
+              <option value="Lunch (12:30 PM - 3:30 PM)">Lunch (12:30 PM - 3:30 PM)</option>
+              <option value="Dinner (7:30 PM - 10:30 PM)" selected>Dinner (7:30 PM - 10:30 PM)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="button" onclick="reserveRestaurantTable()" style="width: 100%; padding: 14px; background: #f97316; color: #000; border: none; border-radius: 30px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: transform 0.2s;">
+          🍽️ Send Table Request via Direct WhatsApp
+        </button>
+        <p style="margin-top: 10px; font-size: 0.78rem; text-align: center; color: var(--text-muted);">Instant confirmation sent directly by the restaurant manager upon message receipt.</p>
+      </div>
+    </section>
+
+    <script>
+      function reserveRestaurantTable() {
+        var name = document.getElementById('book-name').value.trim() || 'Valued Guest';
+        var guests = document.getElementById('book-guests').value;
+        var slot = document.getElementById('book-slot').value;
+        var msg = 'Hi, I would like to request a dining table reservation for ' + name + ' (' + guests + ') during ' + slot + '. Please confirm availability.';
         window.open('https://wa.me/${waPhone}?text=' + encodeURIComponent(msg), '_blank');
       }
     </script>
@@ -522,10 +530,10 @@ export function renderCategoryMicroComponent(lead, waPhone) {
   }
 
   // 4. PAVAN FURNITURE WORLD — Room Collection Switcher & Wood Guarantee
-  if (combined.includes('furniture') || combined.includes('interior')) {
+  if (slug === 'pavan-furniture-world' || combined.includes('furniture') || combined.includes('interior')) {
     return `
     <!-- Solid Teak & Hardwood Guarantee -->
-    <section id="timber-specs" style="background: rgba(196, 139, 82, 0.04); border-top: 1px solid rgba(196, 139, 82, 0.2); border-bottom: 1px solid rgba(196, 139, 82, 0.2);">
+    <section id="timber-specs" class="micro-component-section" style="background: rgba(196, 139, 82, 0.04); border-top: 1px solid rgba(196, 139, 82, 0.2); border-bottom: 1px solid rgba(196, 139, 82, 0.2);">
       <div class="section-header">
         <span class="section-tag" style="color: #c48b52;">Built To Last Decades</span>
         <h2 class="section-title">The Solid Teak & Hardwood Guarantee</h2>
@@ -545,7 +553,7 @@ export function renderCategoryMicroComponent(lead, waPhone) {
         </div>
         <div style="background: var(--surface); padding: 28px; border-radius: var(--radius); border: 1px solid var(--border);">
           <div style="font-size: 2rem; margin-bottom: 12px;">🚚</div>
-          <h4 style="color: #fff; font-size: 1.15rem; margin-bottom: 8px;">Doorstep Assembly</h4>
+          <h4 style="color: #fff; font-size: 1.15rem; margin-bottom: 8px;">Doorstep Karimnagar Assembly</h4>
           <p style="color: var(--text-muted); font-size: 0.9rem;">Zero-hassle transit packaging with dedicated carpentry team assembly at your residence.</p>
         </div>
       </div>
@@ -560,10 +568,10 @@ export function renderCategoryMicroComponent(lead, waPhone) {
   }
 
   // 5. SRI CHAITANYA COACHING — Entrance Exam Pathways & Methodology
-  if (combined.includes('coaching') || combined.includes('college')) {
+  if (slug === 'sri-chaitanya-coaching-karimnagar' || combined.includes('coaching') || combined.includes('college')) {
     return `
     <!-- Entrance Pathways & Mentorship System -->
-    <section id="exam-pathways" style="background: rgba(56, 189, 248, 0.04); border-top: 1px solid rgba(56, 189, 248, 0.2); border-bottom: 1px solid rgba(56, 189, 248, 0.2);">
+    <section id="exam-pathways" class="micro-component-section" style="background: rgba(56, 189, 248, 0.04); border-top: 1px solid rgba(56, 189, 248, 0.2); border-bottom: 1px solid rgba(56, 189, 248, 0.2);">
       <div class="section-header">
         <span class="section-tag" style="color: #38bdf8;">Academic Mentorship</span>
         <h2 class="section-title">Proven 4-Tier Entrance Coaching Methodology</h2>
@@ -602,11 +610,11 @@ export function renderCategoryMicroComponent(lead, waPhone) {
     `;
   }
 
-  // 6. FAMOUS TATTOOS FATHEPURA — Hygiene Protocol & Flash Consultation
-  if (combined.includes('famous-tattoos') || (combined.includes('tattoo') && !combined.includes('hair'))) {
+  // 6. FAMOUS TATTOOS FATHEPURA — Hygiene Protocol & Flash Consultation (Evaluated BEFORE salon)
+  if (slug === 'famous-tattoos-fathepura' || combined.includes('famous-tattoos') || (combined.includes('tattoo') && !combined.includes('hair'))) {
     return `
     <!-- Clinical Hygiene & Flash Consultation -->
-    <section id="hygiene-protocol" style="background: rgba(194, 157, 89, 0.04); border-top: 1px solid rgba(194, 157, 89, 0.2); border-bottom: 1px solid rgba(194, 157, 89, 0.2);">
+    <section id="hygiene-protocol" class="micro-component-section" style="background: rgba(194, 157, 89, 0.04); border-top: 1px solid rgba(194, 157, 89, 0.2); border-bottom: 1px solid rgba(194, 157, 89, 0.2);">
       <div class="section-header">
         <span class="section-tag" style="color: #c29d59;">Clinical Standards</span>
         <h2 class="section-title">Strict Medical-Grade Hygiene & Safety Protocol</h2>
@@ -645,59 +653,14 @@ export function renderCategoryMicroComponent(lead, waPhone) {
     `;
   }
 
-  // 7. YASHIKA PHOTOGRAPHY — Cinematic Wedding Teaser & Muhurtham Checker
-  if (combined.includes('yashika') || combined.includes('wedding')) {
-    return `
-    <!-- Muhurtham Availability Checker -->
-    <section id="muhurtham-checker" style="background: rgba(229, 192, 123, 0.04); border-top: 1px solid rgba(229, 192, 123, 0.2); border-bottom: 1px solid rgba(229, 192, 123, 0.2);">
-      <div class="section-header">
-        <span class="section-tag" style="color: #e5c07b;">Telangana Wedding Season</span>
-        <h2 class="section-title">Check Your Muhurtham Date Availability</h2>
-        <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Peak wedding dates book 3 to 6 months in advance. Verify your celebration dates instantly.</p>
-      </div>
-
-      <div style="max-width: 720px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 30px; box-shadow: var(--shadow);">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 24px;">
-          <div>
-            <label for="event-date" style="display: block; font-size: 0.88rem; font-weight: 600; color: #fff; margin-bottom: 8px;">Muhurtham / Event Date</label>
-            <input type="date" id="event-date" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
-          </div>
-          <div>
-            <label for="event-type" style="display: block; font-size: 0.88rem; font-weight: 600; color: #fff; margin-bottom: 8px;">Event Type</label>
-            <select id="event-type" style="width: 100%; padding: 12px 14px; background: #16151f; border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
-              <option value="Complete Wedding & Reception">Complete Wedding & Reception</option>
-              <option value="Pre-Wedding Cinematic Shoot">Pre-Wedding Cinematic Shoot</option>
-              <option value="Traditional Haldi / Sangeet">Traditional Haldi / Sangeet</option>
-              <option value="Engagement Ceremony">Engagement Ceremony</option>
-            </select>
-          </div>
-        </div>
-
-        <button type="button" onclick="checkMuhurthamDate()" style="width: 100%; padding: 14px; background: #e5c07b; color: #000; border: none; border-radius: 30px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: transform 0.2s;">
-          💍 Check Date Availability on WhatsApp
-        </button>
-      </div>
-    </section>
-
-    <script>
-      function checkMuhurthamDate() {
-        var dateVal = document.getElementById('event-date').value;
-        var eventType = document.getElementById('event-type').value;
-        var msg = 'Hi, I would like to check availability for our ' + eventType + (dateVal ? ' on date: ' + dateVal : '') + '. Please share your wedding package details.';
-        window.open('https://wa.me/${waPhone}?text=' + encodeURIComponent(msg), '_blank');
-      }
-    </script>
-    `;
-  }
-
-  // 8. SUMASRI DIGITAL PHOTO — Portrait Lighting & Archival Restoration
-  if (combined.includes('sumasri') || combined.includes('digital-photo')) {
+  // 7. SUMASRI DIGITAL PHOTO — Portrait Lighting & Archival Restoration (Evaluated BEFORE wedding)
+  if (slug === 'sumasri-digital-photo-karimnagar' || combined.includes('sumasri') || combined.includes('digital-photo') || combined.includes('restoration')) {
     return `
     <!-- Studio Portraiture & Photo Restoration -->
-    <section id="studio-craft" style="background: rgba(229, 192, 123, 0.04); border-top: 1px solid rgba(229, 192, 123, 0.2); border-bottom: 1px solid rgba(229, 192, 123, 0.2);">
+    <section id="studio-craft" class="micro-component-section" style="background: rgba(226, 177, 112, 0.04); border-top: 1px solid rgba(226, 177, 112, 0.2); border-bottom: 1px solid rgba(226, 177, 112, 0.2);">
       <div class="section-header">
-        <span class="section-tag" style="color: #e5c07b;">Karimnagar Studio Heritage</span>
-        <h2 class="section-title">Studio Portraiture & Photo Restoration</h2>
+        <span class="section-tag" style="color: #e2b170;">Karimnagar Studio Heritage</span>
+        <h2 class="section-title">Studio Portraiture & Vintage Photo Restoration</h2>
         <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Preserving timeless family generations with precision studio lighting and heirloom restoration.</p>
       </div>
 
@@ -715,7 +678,7 @@ export function renderCategoryMicroComponent(lead, waPhone) {
       </div>
 
       <div style="text-align: center;">
-        <a href="https://wa.me/${waPhone}?text=${encodeURIComponent('Hi, I have an old family photo I would like restored and framed.')}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: #e5c07b; color: #000;">
+        <a href="https://wa.me/${waPhone}?text=${encodeURIComponent('Hi, I have an old family photo I would like restored and framed.')}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: #e2b170; color: #000;">
           🖼️ Consult for Studio Portrait / Photo Restoration
         </a>
       </div>
@@ -723,17 +686,63 @@ export function renderCategoryMicroComponent(lead, waPhone) {
     `;
   }
 
+  // 8. YASHIKA PHOTOGRAPHY — Cinematic Wedding Teaser & Muhurtham Checker
+  if (slug === 'yashika-photography-karimnagar' || combined.includes('yashika') || combined.includes('wedding')) {
+    return `
+    <!-- Muhurtham Availability Checker -->
+    <section id="muhurtham-checker" class="micro-component-section" style="background: rgba(229, 192, 123, 0.04); border-top: 1px solid rgba(229, 192, 123, 0.2); border-bottom: 1px solid rgba(229, 192, 123, 0.2);">
+      <div class="section-header">
+        <span class="section-tag" style="color: #e5c07b;">Telangana Wedding Season</span>
+        <h2 class="section-title">Check Your Muhurtham Date Availability</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Peak wedding dates book 3 to 6 months in advance. Enquire for your celebration dates.</p>
+      </div>
+
+      <div style="max-width: 720px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(24px, 4vw, 36px) clamp(18px, 3vw, 30px); box-shadow: var(--shadow);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 24px;">
+          <div>
+            <label for="event-date" style="display: block; font-size: 0.88rem; font-weight: 600; color: #fff; margin-bottom: 8px;">Muhurtham / Event Date</label>
+            <input type="date" id="event-date" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
+          </div>
+          <div>
+            <label for="event-type" style="display: block; font-size: 0.88rem; font-weight: 600; color: #fff; margin-bottom: 8px;">Event Type</label>
+            <select id="event-type" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: #16151f; border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
+              <option value="Complete Wedding & Reception">Complete Wedding & Reception</option>
+              <option value="Pre-Wedding Cinematic Shoot">Pre-Wedding Cinematic Shoot</option>
+              <option value="Traditional Haldi / Sangeet">Traditional Haldi / Sangeet</option>
+              <option value="Engagement Ceremony">Engagement Ceremony</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="button" onclick="checkMuhurthamDate()" style="width: 100%; padding: 14px; background: #e5c07b; color: #000; border: none; border-radius: 30px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: transform 0.2s;">
+          💍 Check Date Availability on WhatsApp
+        </button>
+        <p style="margin-top: 10px; font-size: 0.78rem; text-align: center; color: var(--text-muted);">Direct date verification sent to studio manager. Dates confirmed upon advance booking.</p>
+      </div>
+    </section>
+
+    <script>
+      function checkMuhurthamDate() {
+        var dateVal = document.getElementById('event-date').value;
+        var eventType = document.getElementById('event-type').value;
+        var msg = 'Hi, I would like to check availability for our ' + eventType + (dateVal ? ' on date: ' + dateVal : '') + '. Please share your wedding package details.';
+        window.open('https://wa.me/${waPhone}?text=' + encodeURIComponent(msg), '_blank');
+      }
+    </script>
+    `;
+  }
+
   // 9. HAIR LOUNGE SALON — VIP Booking & Treatment Consultation
   return `
   <!-- Hair Lounge VIP Booking Callout -->
-  <section style="background: rgba(194, 157, 89, 0.04); border-top: 1px solid rgba(194, 157, 89, 0.2); border-bottom: 1px solid rgba(194, 157, 89, 0.2);">
+  <section class="micro-component-section" style="background: rgba(212, 175, 55, 0.04); border-top: 1px solid rgba(212, 175, 55, 0.2); border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
     <div class="section-header">
-      <span class="section-tag" style="color: #c29d59;">Priority Consultation</span>
+      <span class="section-tag" style="color: #d4af37;">Priority Consultation</span>
       <h2 class="section-title">Schedule Your VIP Salon Appointment</h2>
       <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Experience luxury haircare, beard architecture, and skin therapies with our certified senior stylists.</p>
     </div>
     <div style="text-align: center;">
-      <a href="https://wa.me/${waPhone}?text=${encodeURIComponent('Hi, I would like to book a VIP haircut and grooming appointment.')}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: #c29d59; color: #000;">
+      <a href="https://wa.me/${waPhone}?text=${encodeURIComponent('Hi, I would like to book a VIP haircut and grooming appointment.')}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: #d4af37; color: #000;">
         ✂️ Reserve VIP Salon Slot on WhatsApp
       </a>
     </div>

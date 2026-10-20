@@ -8,7 +8,7 @@ const DEMOS_DIR = path.join(WORKSPACE_DIR, 'public', 'demos');
 const SCREENSHOT_DIR = path.join(WORKSPACE_DIR, 'reports', 'screenshots');
 
 async function main() {
-  console.log('=== REAL AUTOMATED HEADLESS CHROME SCREENSHOT AUDITOR ===');
+  console.log('=== REAL AUTOMATED HEADLESS CHROME SCREENSHOT AUDITOR (MULTI-VIEWPORT) ===');
   if (!fs.existsSync(CHROME_PATH)) {
     throw new Error(`Chrome binary not found at ${CHROME_PATH}`);
   }
@@ -29,6 +29,14 @@ async function main() {
     'la-delicious-bakery-karimnagar'
   ];
 
+  const viewports = [
+    { name: 'desktop-1440', width: 1440, height: 900, suffix: '-1440x900.png' },
+    { name: 'desktop-1280', width: 1280, height: 800, suffix: '-desktop.png' },
+    { name: 'tablet-768', width: 768, height: 1024, suffix: '-tablet-768.png' },
+    { name: 'mobile-390', width: 390, height: 844, suffix: '-mobile-390.png' },
+    { name: 'mobile-375', width: 375, height: 812, suffix: '-mobile.png' }
+  ];
+
   const results = [];
 
   for (const slug of slugs) {
@@ -39,66 +47,68 @@ async function main() {
     }
 
     const fileUrl = `file:///${htmlPath.replace(/\\/g, '/')}`;
-    const desktopOut = path.join(SCREENSHOT_DIR, `${slug}-desktop.png`);
-    const mobileOut = path.join(SCREENSHOT_DIR, `${slug}-mobile.png`);
+    console.log(`\n[CAPTURE] Capturing ${slug}...`);
+    const demoResult = { slug, captures: {} };
 
-    console.log(`[CAPTURE] Capturing ${slug}...`);
-
-    // Desktop: 1280x800
-    try {
-      execSync(`"${CHROME_PATH}" --headless=new --disable-gpu --hide-scrollbars --virtual-time-budget=2000 --screenshot="${desktopOut}" --window-size=1280,800 "${fileUrl}"`, {
-        stdio: 'pipe',
-        timeout: 15000
-      });
-      const dStats = fs.statSync(desktopOut);
-      console.log(`          ✅ Desktop (1280x800): ${(dStats.size / 1024).toFixed(1)} KB`);
-    } catch (err) {
-      console.error(`          ❌ Desktop capture failed: ${err.message}`);
+    for (const vp of viewports) {
+      const outPath = path.join(SCREENSHOT_DIR, `${slug}${vp.suffix}`);
+      try {
+        execSync(`"${CHROME_PATH}" --headless=new --disable-gpu --hide-scrollbars --virtual-time-budget=2000 --screenshot="${outPath}" --window-size=${vp.width},${vp.height} "${fileUrl}"`, {
+          stdio: 'pipe',
+          timeout: 20000
+        });
+        const stats = fs.statSync(outPath);
+        const sizeKb = (stats.size / 1024).toFixed(1);
+        demoResult.captures[vp.name] = {
+          file: `${slug}${vp.suffix}`,
+          sizeKb,
+          status: stats.size > 5000 ? 'PASS' : 'FAIL'
+        };
+        process.stdout.write(`  [${vp.name} ${vp.width}x${vp.height}: ${sizeKb}KB] `);
+      } catch (err) {
+        demoResult.captures[vp.name] = { error: err.message, status: 'FAIL' };
+        process.stdout.write(`  [${vp.name}: FAIL] `);
+      }
     }
-
-    // Mobile: 375x812
-    try {
-      execSync(`"${CHROME_PATH}" --headless=new --disable-gpu --hide-scrollbars --virtual-time-budget=2000 --screenshot="${mobileOut}" --window-size=375,812 "${fileUrl}"`, {
-        stdio: 'pipe',
-        timeout: 15000
-      });
-      const mStats = fs.statSync(mobileOut);
-      console.log(`          ✅ Mobile  (375x812): ${(mStats.size / 1024).toFixed(1)} KB`);
-    } catch (err) {
-      console.error(`          ❌ Mobile capture failed: ${err.message}`);
-    }
-
-    const dSize = fs.existsSync(desktopOut) ? fs.statSync(desktopOut).size : 0;
-    const mSize = fs.existsSync(mobileOut) ? fs.statSync(mobileOut).size : 0;
-
-    results.push({
-      slug,
-      desktopPng: `${slug}-desktop.png`,
-      desktopSizeKb: (dSize / 1024).toFixed(1),
-      desktopStatus: dSize > 5000 ? 'PASS' : 'FAIL',
-      mobilePng: `${slug}-mobile.png`,
-      mobileSizeKb: (mSize / 1024).toFixed(1),
-      mobileStatus: mSize > 5000 ? 'PASS' : 'FAIL'
-    });
+    console.log();
+    results.push(demoResult);
   }
 
-  console.log('\n=== SCREENSHOT QA AUDIT RESULTS ===');
-  console.table(results);
+  // Also capture Hub index across desktop and mobile
+  const hubHtmlPath = path.join(WORKSPACE_DIR, 'data', 'git_staging', 'index.html');
+  if (fs.existsSync(hubHtmlPath)) {
+    const hubUrl = `file:///${hubHtmlPath.replace(/\\/g, '/')}`;
+    console.log(`\n[CAPTURE] Capturing Hub Directory...`);
+    const hubResult = { slug: 'hub-directory', captures: {} };
+    for (const vp of viewports.slice(0, 2)) {
+      const outPath = path.join(SCREENSHOT_DIR, `hub${vp.suffix}`);
+      try {
+        execSync(`"${CHROME_PATH}" --headless=new --disable-gpu --hide-scrollbars --virtual-time-budget=1500 --screenshot="${outPath}" --window-size=${vp.width},${vp.height} "${hubUrl}"`, {
+          stdio: 'pipe',
+          timeout: 15000
+        });
+        const stats = fs.statSync(outPath);
+        hubResult.captures[vp.name] = { file: `hub${vp.suffix}`, sizeKb: (stats.size / 1024).toFixed(1), status: 'PASS' };
+      } catch (err) {
+        hubResult.captures[vp.name] = { error: err.message, status: 'FAIL' };
+      }
+    }
+    results.push(hubResult);
+  }
 
   // Write screenshot audit report
   const reportPath = path.join(WORKSPACE_DIR, 'reports', 'screenshot_audit.json');
   fs.writeFileSync(reportPath, JSON.stringify({
     capturedAt: new Date().toISOString(),
-    totalDemos: results.length,
-    totalScreenshots: results.length * 2,
-    allPassed: results.every(r => r.desktopStatus === 'PASS' && r.mobileStatus === 'PASS'),
+    totalDemos: slugs.length,
+    viewportsTested: viewports.map(v => `${v.name} (${v.width}x${v.height})`),
     details: results
   }, null, 2), 'utf8');
 
-  console.log(`Report written to ${reportPath}`);
+  console.log(`\nScreenshot audit report written to ${reportPath}`);
 }
 
 main().catch(err => {
-  console.error('Fatal error during screenshot capture:', err);
+  console.error(err);
   process.exit(1);
 });

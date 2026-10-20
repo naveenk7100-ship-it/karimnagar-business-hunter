@@ -5,19 +5,19 @@
  */
 
 export const ARCHETYPES = {
-  salon_tattoo: {
-    id: 'luxury_ink_noir',
-    name: 'Luxury Ink & Aesthetics Noir',
-    categories: ['salons & tattoo studios', 'tattoo', 'salon', 'beauty parlour', 'spa', 'barber'],
+  tattoo: {
+    id: 'artisan_ink_noir',
+    name: 'Artisan Tattoo Studio & Ink Noir',
+    categories: ['tattoo', 'tattoos', 'ink', 'piercing'],
     theme: {
-      bgDark: '#0d0d11',
-      surfaceDark: '#16151f',
-      surfaceHover: '#1f1e2b',
+      bgDark: '#09090c',
+      surfaceDark: '#14141b',
+      surfaceHover: '#1d1d28',
       primary: '#c29d59',       // Warm metallic artisan gold
       accent: '#e02868',        // Vivid crimson ink accent
       text: '#f8fafc',
       textMuted: '#94a3b8',
-      border: 'rgba(194, 157, 89, 0.2)'
+      border: 'rgba(194, 157, 89, 0.22)'
     },
     typography: {
       heading: 'Cinzel Decorative',
@@ -25,15 +25,40 @@ export const ARCHETYPES = {
       body: 'Plus Jakarta Sans',
       googleFontQuery: 'Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700'
     },
-    layout: 'split_hero_service_tabs',
+    layout: 'noir_ink_hygiene_protocol',
     threeScene: 'particle_noir_smoke',
     sectionOrder: ['hero', 'hygiene_sterilization', 'services_ratecard', 'flash_gallery', 'faq', 'location']
+  },
+
+  salon: {
+    id: 'luxury_couture_salon',
+    name: 'Luxury Couture Salon & Aesthetics',
+    categories: ['salon', 'salons', 'beauty parlour', 'spa', 'barber', 'hair lounge', 'makeover'],
+    theme: {
+      bgDark: '#0b0a0e',
+      surfaceDark: '#16141d',
+      surfaceHover: '#211e2b',
+      primary: '#d4af37',       // Rose / champagne metallic gold
+      accent: '#ec4899',        // Couture magenta
+      text: '#f9fafb',
+      textMuted: '#9ca3af',
+      border: 'rgba(212, 175, 55, 0.2)'
+    },
+    typography: {
+      heading: 'Cinzel',
+      headingFallback: 'Playfair Display, serif',
+      body: 'Plus Jakarta Sans',
+      googleFontQuery: 'Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700'
+    },
+    layout: 'split_hero_service_tabs',
+    threeScene: 'particle_noir_smoke',
+    sectionOrder: ['hero', 'services_ratecard', 'flash_gallery', 'faq', 'location']
   },
 
   fitness_gym: {
     id: 'athletic_kinetic',
     name: 'Athletic Kinetic Powerhouse',
-    categories: ['gyms & fitness centres', 'gym', 'fitness', 'crossfit', 'workout', 'yoga'],
+    categories: ['gyms & fitness centres', 'gym', 'fitness', 'crossfit', 'workout', 'bodybuilding'],
     theme: {
       bgDark: '#080a0f',
       surfaceDark: '#121622',
@@ -58,7 +83,7 @@ export const ARCHETYPES = {
   wedding_photo: {
     id: 'champagne_editorial',
     name: 'Champagne Editorial & Cinema',
-    categories: ['wedding & event photography', 'photography', 'photographer', 'photo studio', 'videography'],
+    categories: ['wedding photo', 'wedding film', 'candid wedding', 'muhurtham', 'cinematic film', 'yashika'],
     theme: {
       bgDark: '#0b0c0f',
       surfaceDark: '#14171d',
@@ -80,14 +105,39 @@ export const ARCHETYPES = {
     sectionOrder: ['hero', 'cinema_reel', 'portfolio_masonry', 'muhurtham_calendar', 'client_stories', 'location']
   },
 
+  photo_studio: {
+    id: 'heritage_studio_portraiture',
+    name: 'Heritage Portrait Studio & Restoration',
+    categories: ['digital photo', 'photo studio', 'portrait studio', 'restoration', 'sumasri'],
+    theme: {
+      bgDark: '#0e0d0b',
+      surfaceDark: '#191714',
+      surfaceHover: '#25211c',
+      primary: '#e2b170',       // Warm studio tungsten amber
+      accent: '#60a5fa',        // Fine art archival blue
+      text: '#fbfaf8',
+      textMuted: '#a8a29e',
+      border: 'rgba(226, 177, 112, 0.22)'
+    },
+    typography: {
+      heading: 'Playfair Display',
+      headingFallback: 'Georgia, serif',
+      body: 'Plus Jakarta Sans',
+      googleFontQuery: 'Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700'
+    },
+    layout: 'studio_portrait_restoration',
+    threeScene: 'floating_crystalline_prisms',
+    sectionOrder: ['hero', 'studio_craft', 'portfolio_masonry', 'faq', 'location']
+  },
+
   furniture: {
     id: 'architectural_room_collections',
     name: 'Architectural Timber & Living Collections',
     categories: ['furniture & interior stores', 'furniture', 'interiors', 'home decor', 'woodworks', 'furnishings'],
     theme: {
-      bgDark: '#0e0f12',
-      surfaceDark: '#17191f',
-      surfaceHover: '#21242d',
+      bgDark: '#0c0d10',
+      surfaceDark: '#161820',
+      surfaceHover: '#20232e',
       primary: '#c48b52',       // Rich teak & cedar wood
       accent: '#5e829d',        // Modern slate glaze
       text: '#f9fafb',
@@ -133,7 +183,7 @@ export const ARCHETYPES = {
   restaurant: {
     id: 'culinary_warmth',
     name: 'Culinary Ember & Feast Reservations',
-    categories: ['restaurants & dining', 'restaurant', 'cafe', 'bistro', 'bakery', 'food', 'biryani'],
+    categories: ['restaurants & dining', 'restaurant', 'dining', 'biryani', 'cuisine', 'dhaba'],
     theme: {
       bgDark: '#0e0b0a',
       surfaceDark: '#1a1311',
@@ -153,6 +203,31 @@ export const ARCHETYPES = {
     layout: 'culinary_menu_reservations',
     threeScene: 'warm_bokeh_embers',
     sectionOrder: ['hero', 'chef_specials', 'menu_categories', 'table_booking', 'ambience_experience', 'location']
+  },
+
+  bakery: {
+    id: 'pastry_patisserie_delight',
+    name: 'Artisan Pastry & Celebration Patisserie',
+    categories: ['bakery', 'cafe', 'cakes', 'pastry', 'bakes', 'dessert'],
+    theme: {
+      bgDark: '#0f0a0d',
+      surfaceDark: '#1a1217',
+      surfaceHover: '#261a22',
+      primary: '#f43f5e',       // Velvet berry rose
+      accent: '#fbbf24',        // Warm golden pastry crust
+      text: '#fdfbfb',
+      textMuted: '#a8a29e',
+      border: 'rgba(244, 63, 94, 0.25)'
+    },
+    typography: {
+      heading: 'Outfit',
+      headingFallback: 'Poppins, sans-serif',
+      body: 'Plus Jakarta Sans',
+      googleFontQuery: 'Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700'
+    },
+    layout: 'artisan_bakery_estimator',
+    threeScene: 'warm_bokeh_embers',
+    sectionOrder: ['hero', 'fresh_bakes', 'cake_estimator', 'menu_categories', 'faq', 'location']
   },
 
   default: {
@@ -186,18 +261,50 @@ export class DesignEngine {
    * Resolves the best archetype matching the lead's category or niche.
    */
   resolveArchetype(lead) {
-    const rawNiche = (lead.niche || '').toLowerCase();
-    const rawCat = (lead.category || '').toLowerCase();
-    const rawName = (lead.name || '').toLowerCase();
+    const slug = (lead?.slug || '').toLowerCase();
+    const rawNiche = (lead?.niche || '').toLowerCase();
+    const rawCat = (lead?.category || '').toLowerCase();
+    const rawName = (lead?.name || '').toLowerCase();
+    const combined = `${slug} ${rawNiche} ${rawCat} ${rawName}`;
 
-    for (const [key, arch] of Object.entries(ARCHETYPES)) {
-      if (key === 'default') continue;
-      if (rawNiche.includes(key)) return arch;
-      for (const cat of arch.categories) {
-        if (rawCat.includes(cat) || rawName.includes(cat)) {
-          return arch;
-        }
-      }
+    // Direct slug matches
+    if (slug === 'famous-tattoos-fathepura') return ARCHETYPES.tattoo;
+    if (slug === 'hair-lounge-salon-tattoos') return ARCHETYPES.salon;
+    if (slug === 'la-delicious-bakery-karimnagar') return ARCHETYPES.bakery;
+    if (slug === 'peacock-restaurant-karimnagar') return ARCHETYPES.restaurant;
+    if (slug === 'pavan-furniture-world') return ARCHETYPES.furniture;
+    if (slug === 'sri-chaitanya-coaching-karimnagar') return ARCHETYPES.coaching;
+    if (slug === 'star-fitness-gym-karimnagar') return ARCHETYPES.fitness_gym;
+    if (slug === 'sumasri-digital-photo-karimnagar') return ARCHETYPES.photo_studio;
+    if (slug === 'yashika-photography-karimnagar') return ARCHETYPES.wedding_photo;
+
+    // Prioritized keyword matching
+    if (combined.includes('bakery') || combined.includes('cake') || combined.includes('pastry') || combined.includes('bakes')) {
+      return ARCHETYPES.bakery;
+    }
+    if (combined.includes('sumasri') || combined.includes('digital photo') || combined.includes('portrait studio') || combined.includes('restoration')) {
+      return ARCHETYPES.photo_studio;
+    }
+    if (combined.includes('yashika') || combined.includes('wedding film') || combined.includes('wedding photo') || combined.includes('candid wedding')) {
+      return ARCHETYPES.wedding_photo;
+    }
+    if (combined.includes('famous tattoo') || (combined.includes('tattoo') && !combined.includes('hair') && !combined.includes('lounge'))) {
+      return ARCHETYPES.tattoo;
+    }
+    if (combined.includes('salon') || combined.includes('hair lounge') || combined.includes('beauty parlour') || combined.includes('spa')) {
+      return ARCHETYPES.salon;
+    }
+    if (combined.includes('furniture') || combined.includes('interior') || combined.includes('wood') || combined.includes('sofa')) {
+      return ARCHETYPES.furniture;
+    }
+    if (combined.includes('coaching') || combined.includes('college') || combined.includes('academy') || combined.includes('eapcet') || combined.includes('neet')) {
+      return ARCHETYPES.coaching;
+    }
+    if (combined.includes('restaurant') || combined.includes('dining') || combined.includes('biryani') || combined.includes('cuisine')) {
+      return ARCHETYPES.restaurant;
+    }
+    if (combined.includes('gym') || combined.includes('fitness') || combined.includes('workout') || combined.includes('crossfit')) {
+      return ARCHETYPES.fitness_gym;
     }
 
     return ARCHETYPES.default;
@@ -237,7 +344,6 @@ export class DesignEngine {
       // If too similar to an existing site (>= 0.45), dynamically apply variations
       if (maxSim >= 0.45) {
         fp.accentColor = this._shiftHue(fp.accentColor, 40);
-        // Slightly reorder sections while keeping hero first and location last
         if (fp.sectionOrder.length > 4) {
           const middle = fp.sectionOrder.slice(1, -1).reverse();
           fp.sectionOrder = [fp.sectionOrder[0], ...middle, fp.sectionOrder[fp.sectionOrder.length - 1]];
@@ -317,7 +423,6 @@ export class DesignEngine {
   _shiftHue(hex, degrees) {
     const rgb = this._hexToRgb(hex);
     if (!rgb) return hex;
-    // Simple hue shift in RGB space
     const shiftedR = (rgb.r + degrees * 2) % 255;
     const shiftedG = (rgb.g + degrees) % 255;
     const shiftedB = (rgb.b + degrees * 3) % 255;
