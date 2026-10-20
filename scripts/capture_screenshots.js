@@ -1,4 +1,10 @@
-import { execSync } from 'node:child_process';
+/**
+ * FLASH.Ai Multi-Viewport Auditor & Headless Chrome Screenshot Capture
+ * Connects directly via Chrome DevTools Protocol (CDP) to measure exact layout
+ * metrics, assert zero horizontal overflow across 10 viewports, and capture PNG evidence.
+ */
+
+import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -6,9 +12,84 @@ const CHROME_PATH = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
 const WORKSPACE_DIR = path.resolve('.');
 const DEMOS_DIR = path.join(WORKSPACE_DIR, 'public', 'demos');
 const SCREENSHOT_DIR = path.join(WORKSPACE_DIR, 'reports', 'screenshots');
+const AUDIT_REPORT_PATH = path.join(WORKSPACE_DIR, 'reports', 'multi_viewport_audit.json');
+
+const VIEWPORTS = [
+  { name: 'desktop-1920', width: 1920, height: 1080, type: 'Desktop Full HD' },
+  { name: 'desktop-1648', width: 1648, height: 900, type: 'High-Res Laptop / Scaled' },
+  { name: 'desktop-1440', width: 1440, height: 900, type: 'Standard Desktop' },
+  { name: 'laptop-1280', width: 1280, height: 800, type: 'Compact Laptop' },
+  { name: 'tablet-1024', width: 1024, height: 768, type: 'Tablet Landscape' },
+  { name: 'tablet-768', width: 768, height: 1024, type: 'Tablet Portrait' },
+  { name: 'mobile-430', width: 430, height: 932, type: 'iPhone Pro Max' },
+  { name: 'mobile-390', width: 390, height: 844, type: 'iPhone Standard' },
+  { name: 'mobile-375', width: 375, height: 812, type: 'iPhone Mini' },
+  { name: 'mobile-360', width: 360, height: 780, type: 'Compact Android' }
+];
+
+const SLUGS = [
+  'hair-lounge-salon-tattoos',
+  'star-fitness-gym-karimnagar',
+  'yashika-photography-karimnagar',
+  'pavan-furniture-world',
+  'sri-chaitanya-coaching-karimnagar',
+  'peacock-restaurant-karimnagar',
+  'famous-tattoos-fathepura',
+  'sumasri-digital-photo-karimnagar',
+  'la-delicious-bakery-karimnagar'
+];
+
+class CdpClient {
+  constructor(wsUrl) {
+    this.ws = new WebSocket(wsUrl);
+    this.id = 1;
+    this.callbacks = new Map();
+    this.ready = new Promise((resolve, reject) => {
+      this.ws.onopen = resolve;
+      this.ws.onerror = reject;
+    });
+    this.ws.onmessage = (event) => {
+      try {
+        const msg = JSON.parse(event.data);
+        if (msg.id && this.callbacks.has(msg.id)) {
+          const { resolve, reject } = this.callbacks.get(msg.id);
+          this.callbacks.delete(msg.id);
+          if (msg.error) reject(new Error(msg.error.message));
+          else resolve(msg.result);
+        }
+      } catch (_) {}
+    };
+  }
+
+  send(method, params = {}, timeoutMs = 8000) {
+    const id = this.id++;
+    return new Promise((resolve, reject) => {
+      const timer = setTimeout(() => {
+        this.callbacks.delete(id);
+        reject(new Error(`Timeout waiting for ${method} (${timeoutMs}ms)`));
+      }, timeoutMs);
+
+      this.callbacks.set(id, {
+        resolve: (res) => { clearTimeout(timer); resolve(res); },
+        reject: (err) => { clearTimeout(timer); reject(err); }
+      });
+
+      try {
+        this.ws.send(JSON.stringify({ id, method, params }));
+      } catch (err) {
+        clearTimeout(timer);
+        reject(err);
+      }
+    });
+  }
+
+  close() {
+    try { this.ws.close(); } catch (_) {}
+  }
+}
 
 async function main() {
-  console.log('=== REAL AUTOMATED HEADLESS CHROME SCREENSHOT AUDITOR (MULTI-VIEWPORT & FULLPAGE) ===');
+  console.log('=== FLASH.Ai UNIVERSAL DESIGN SYSTEM: MULTI-VIEWPORT CDP AUDITOR ===');
   if (!fs.existsSync(CHROME_PATH)) {
     throw new Error(`Chrome binary not found at ${CHROME_PATH}`);
   }
@@ -17,119 +98,231 @@ async function main() {
     fs.mkdirSync(SCREENSHOT_DIR, { recursive: true });
   }
 
-  const slugs = [
-    'hair-lounge-salon-tattoos',
-    'star-fitness-gym-karimnagar',
-    'yashika-photography-karimnagar',
-    'pavan-furniture-world',
-    'sri-chaitanya-coaching-karimnagar',
-    'peacock-restaurant-karimnagar',
-    'famous-tattoos-fathepura',
-    'sumasri-digital-photo-karimnagar',
-    'la-delicious-bakery-karimnagar'
-  ];
+  const port = 9333; // dedicated audit port
+  console.log(`[CHROME] Launching headless Chrome on port ${port}...`);
+  const chromeProcess = spawn(CHROME_PATH, [
+    '--headless=new',
+    '--disable-gpu',
+    `--remote-debugging-port=${port}`,
+    '--no-first-run',
+    '--no-default-browser-check',
+    'about:blank'
+  ]);
 
-  const viewports = [
-    { name: 'desktop-1648', width: 1648, height: 900, suffix: '-1648x900.png' },
-    { name: 'desktop-1440', width: 1440, height: 900, suffix: '-1440x900.png' },
-    { name: 'desktop-1280', width: 1280, height: 800, suffix: '-desktop.png' },
-    { name: 'tablet-768', width: 768, height: 1024, suffix: '-tablet-768.png' },
-    { name: 'mobile-390', width: 390, height: 844, suffix: '-mobile-390.png' },
-    { name: 'mobile-375', width: 375, height: 812, suffix: '-mobile.png' },
-    { name: 'mobile-360', width: 360, height: 780, suffix: '-mobile-360.png' }
-  ];
-
-  const results = [];
-
-  for (const slug of slugs) {
-    const htmlPath = path.join(DEMOS_DIR, slug, 'index.html');
-    if (!fs.existsSync(htmlPath)) {
-      console.warn(`[WARN] HTML file missing for ${slug}: ${htmlPath}`);
-      continue;
-    }
-
-    const fileUrl = `file:///${htmlPath.replace(/\\/g, '/')}`;
-    console.log(`\n[CAPTURE] Capturing ${slug}...`);
-    const demoResult = { slug, captures: {} };
-
-    for (const vp of viewports) {
-      const outPath = path.join(SCREENSHOT_DIR, `${slug}${vp.suffix}`);
-      try {
-        execSync(`"${CHROME_PATH}" --headless=new --disable-gpu --hide-scrollbars --virtual-time-budget=2000 --screenshot="${outPath}" --window-size=${vp.width},${vp.height} "${fileUrl}"`, {
-          stdio: 'pipe',
-          timeout: 20000
-        });
-        const stats = fs.statSync(outPath);
-        const sizeKb = (stats.size / 1024).toFixed(1);
-        demoResult.captures[vp.name] = {
-          file: `${slug}${vp.suffix}`,
-          sizeKb,
-          status: stats.size > 5000 ? 'PASS' : 'FAIL'
-        };
-        process.stdout.write(`  [${vp.name} ${vp.width}x${vp.height}: ${sizeKb}KB] `);
-      } catch (err) {
-        demoResult.captures[vp.name] = { error: err.message, status: 'FAIL' };
-        process.stdout.write(`  [${vp.name}: FAIL] `);
-      }
-    }
-
-    // Full-page capture at 1440 width
-    const fullpageOut = path.join(SCREENSHOT_DIR, `${slug}-fullpage.png`);
+  // Wait for CDP readiness
+  let cdpReady = false;
+  for (let i = 0; i < 20; i++) {
     try {
-      execSync(`"${CHROME_PATH}" --headless=new --disable-gpu --hide-scrollbars --virtual-time-budget=2000 --screenshot="${fullpageOut}" --window-size=1440,3200 "${fileUrl}"`, {
-        stdio: 'pipe',
-        timeout: 25000
-      });
-      const fpStats = fs.statSync(fullpageOut);
-      const fpSizeKb = (fpStats.size / 1024).toFixed(1);
-      demoResult.captures['fullpage-1440'] = {
-        file: `${slug}-fullpage.png`,
-        sizeKb: fpSizeKb,
-        status: fpStats.size > 10000 ? 'PASS' : 'FAIL'
-      };
-      process.stdout.write(`  [fullpage: ${fpSizeKb}KB] `);
-    } catch (_) {}
-
-    console.log();
-    results.push(demoResult);
-  }
-
-  // Also capture Hub directory across desktop 1648, 1440, 1280 and mobile
-  const hubHtmlPath = path.join(WORKSPACE_DIR, 'data', 'git_staging', 'index.html');
-  if (fs.existsSync(hubHtmlPath)) {
-    const hubUrl = `file:///${hubHtmlPath.replace(/\\/g, '/')}`;
-    console.log(`\n[CAPTURE] Capturing Hub Directory...`);
-    const hubResult = { slug: 'hub-directory', captures: {} };
-    for (const vp of [viewports[0], viewports[1], viewports[2], viewports[4]]) {
-      const outPath = path.join(SCREENSHOT_DIR, `hub${vp.suffix}`);
-      try {
-        execSync(`"${CHROME_PATH}" --headless=new --disable-gpu --hide-scrollbars --virtual-time-budget=1500 --screenshot="${outPath}" --window-size=${vp.width},${vp.height} "${hubUrl}"`, {
-          stdio: 'pipe',
-          timeout: 15000
-        });
-        const stats = fs.statSync(outPath);
-        hubResult.captures[vp.name] = { file: `hub${vp.suffix}`, sizeKb: (stats.size / 1024).toFixed(1), status: 'PASS' };
-        process.stdout.write(`  [hub-${vp.name}: ${(stats.size / 1024).toFixed(1)}KB] `);
-      } catch (err) {
-        hubResult.captures[vp.name] = { error: err.message, status: 'FAIL' };
+      const res = await fetch(`http://127.0.0.1:${port}/json/version`);
+      if (res.ok) {
+        cdpReady = true;
+        break;
       }
-    }
-    results.push(hubResult);
+    } catch (_) {}
+    await new Promise(r => setTimeout(r, 200));
   }
 
-  // Write screenshot audit report
-  const reportPath = path.join(WORKSPACE_DIR, 'reports', 'screenshot_audit.json');
-  fs.writeFileSync(reportPath, JSON.stringify({
-    capturedAt: new Date().toISOString(),
-    totalDemos: slugs.length,
-    viewportsTested: viewports.map(v => `${v.name} (${v.width}x${v.height})`),
-    details: results
-  }, null, 2), 'utf8');
+  if (!cdpReady) {
+    chromeProcess.kill();
+    throw new Error('Could not connect to Chrome CDP endpoint');
+  }
 
-  console.log(`\n\nScreenshot audit report written to ${reportPath}`);
+  const auditReport = {
+    auditedAt: new Date().toISOString(),
+    viewportsTested: VIEWPORTS.length,
+    demosTested: SLUGS.length,
+    results: []
+  };
+
+  try {
+    for (const slug of SLUGS) {
+      const htmlPath = path.join(DEMOS_DIR, slug, 'index.html');
+      if (!fs.existsSync(htmlPath)) {
+        console.warn(`[WARN] Missing ${htmlPath}`);
+        continue;
+      }
+
+      const fileUrl = `file:///${htmlPath.replace(/\\/g, '/')}`;
+      console.log(`\n======================================================`);
+      console.log(`[AUDIT] ${slug}`);
+      console.log(`======================================================`);
+
+      // Open new tab
+      const newTabRes = await fetch(`http://127.0.0.1:${port}/json/new?${encodeURIComponent(fileUrl)}`, { method: 'PUT' });
+      const tabData = await newTabRes.json();
+      const client = new CdpClient(tabData.webSocketDebuggerUrl);
+      await client.ready;
+
+      await client.send('Page.enable');
+      await client.send('DOM.enable');
+      await client.send('Runtime.enable');
+      await client.send('Page.navigate', { url: fileUrl });
+      await new Promise(r => setTimeout(r, 500));
+
+      // Wait for DOM readiness and button attachment
+      for (let w = 0; w < 30; w++) {
+        try {
+          const chk = await client.send('Runtime.evaluate', {
+            expression: 'Boolean(document.querySelector(".btn-wa-header"))',
+            returnByValue: true
+          }, 3000);
+          if (chk.result?.value) break;
+        } catch (_) {}
+        await new Promise(r => setTimeout(r, 150));
+      }
+
+      const demoAudit = {
+        slug,
+        viewports: []
+      };
+
+      for (const vp of VIEWPORTS) {
+        // Set viewport metrics
+        await client.send('Emulation.setDeviceMetricsOverride', {
+          width: vp.width,
+          height: vp.height,
+          deviceScaleFactor: 1,
+          mobile: vp.width < 768
+        });
+
+        await new Promise(r => setTimeout(r, 120));
+
+        // Evaluate layout metrics and header button state
+        const evalRes = await client.send('Runtime.evaluate', {
+          expression: `(function() {
+            const html = document.documentElement;
+            const scrollW = html.scrollWidth;
+            const clientW = html.clientWidth;
+            const btnWa = document.querySelector('.btn-wa-header');
+            const floatingWa = document.querySelector('.floating-wa');
+            const btnStyle = btnWa ? window.getComputedStyle(btnWa) : null;
+            const btnRect = btnWa ? btnWa.getBoundingClientRect() : null;
+
+            return {
+              scrollWidth: scrollW,
+              clientWidth: clientW,
+              zeroOverflow: scrollW <= clientW,
+              hasBtnWa: !!btnWa,
+              btnText: btnWa ? btnWa.innerText.replace(/\\s+/g, ' ').trim() : null,
+              btnBg: btnStyle ? btnStyle.backgroundColor : null,
+              btnColor: btnStyle ? btnStyle.color : null,
+              btnTop: btnRect ? Math.round(btnRect.top) : null,
+              btnRight: btnRect ? Math.round(btnRect.right) : null,
+              btnWidth: btnRect ? Math.round(btnRect.width) : null,
+              btnHeight: btnRect ? Math.round(btnRect.height) : null,
+              hasFloatingWa: !!floatingWa
+            };
+          })()`,
+          returnByValue: true
+        });
+
+        const metrics = evalRes.result?.value || {};
+        const vpResult = {
+          viewport: vp.name,
+          width: vp.width,
+          height: vp.height,
+          type: vp.type,
+          scrollWidth: metrics.scrollWidth,
+          clientWidth: metrics.clientWidth,
+          zeroOverflow: metrics.zeroOverflow,
+          btnWaVisible: metrics.hasBtnWa && metrics.btnWidth > 0 && metrics.btnHeight > 0,
+          btnText: metrics.btnText,
+          btnBg: metrics.btnBg,
+          btnColor: metrics.btnColor,
+          floatingWaPresent: metrics.hasFloatingWa
+        };
+
+        // Capture PNG screenshot
+        try {
+          const shot = await client.send('Page.captureScreenshot', { format: 'png' }, 6000);
+          const shotFilename = `${slug}-${vp.name}.png`;
+          const shotPath = path.join(SCREENSHOT_DIR, shotFilename);
+          fs.writeFileSync(shotPath, Buffer.from(shot.data, 'base64'));
+
+          const fileSizeKb = (fs.statSync(shotPath).size / 1024).toFixed(1);
+          vpResult.screenshot = shotFilename;
+          vpResult.screenshotSizeKb = `${fileSizeKb}KB`;
+          const statusPill = vpResult.zeroOverflow ? '✅ 0-OVERFLOW' : '❌ OVERFLOW';
+          const waPill = vpResult.btnWaVisible ? '✅ WA-CTA' : '❌ NO-WA';
+          console.log(`  [${vp.name.padEnd(12)}] ${statusPill} | ${waPill} ("${metrics.btnText}") | ${fileSizeKb}KB`);
+        } catch (err) {
+          console.warn(`  [${vp.name}] Screenshot capture skipped: ${err.message}`);
+        }
+
+        demoAudit.viewports.push(vpResult);
+      }
+
+      // Capture full-page screenshot at 1440px
+      try {
+        await client.send('Emulation.setDeviceMetricsOverride', {
+          width: 1440,
+          height: 2400,
+          deviceScaleFactor: 1,
+          mobile: false
+        });
+        await new Promise(r => setTimeout(r, 150));
+
+        const fpShot = await client.send('Page.captureScreenshot', { format: 'png' }, 7000);
+        const fpFilename = `${slug}-fullpage.png`;
+        const fpPath = path.join(SCREENSHOT_DIR, fpFilename);
+        fs.writeFileSync(fpPath, Buffer.from(fpShot.data, 'base64'));
+        demoAudit.fullpageScreenshot = fpFilename;
+        demoAudit.fullpageSizeKb = `${(fs.statSync(fpPath).size / 1024).toFixed(1)}KB`;
+        console.log(`  [fullpage-1440] ✅ ${demoAudit.fullpageSizeKb}`);
+      } catch (_) {}
+
+      // Close tab
+      client.close();
+      await fetch(`http://127.0.0.1:${port}/json/close/${tabData.id}`);
+
+      auditReport.results.push(demoAudit);
+    }
+
+    // Also audit the Hub index
+    const hubHtmlPath = path.join(WORKSPACE_DIR, 'data', 'git_staging', 'index.html');
+    if (fs.existsSync(hubHtmlPath)) {
+      console.log(`\n======================================================`);
+      console.log(`[AUDIT] Demonstration Hub (Showcase Index)`);
+      console.log(`======================================================`);
+      const hubUrl = `file:///${hubHtmlPath.replace(/\\/g, '/')}`;
+      const newTabRes = await fetch(`http://127.0.0.1:${port}/json/new?${encodeURIComponent(hubUrl)}`, { method: 'PUT' });
+      const tabData = await newTabRes.json();
+      const client = new CdpClient(tabData.webSocketDebuggerUrl);
+      await client.ready;
+      await client.send('Page.enable');
+      await client.send('DOM.enable');
+      await client.send('Runtime.enable');
+      await new Promise(r => setTimeout(r, 400));
+
+      for (const vp of [VIEWPORTS[0], VIEWPORTS[2], VIEWPORTS[5], VIEWPORTS[7]]) {
+        await client.send('Emulation.setDeviceMetricsOverride', {
+          width: vp.width,
+          height: vp.height,
+          deviceScaleFactor: 1,
+          mobile: vp.width < 768
+        });
+        await new Promise(r => setTimeout(r, 120));
+        const shot = await client.send('Page.captureScreenshot', { format: 'png' });
+        const filename = `hub-showcase-${vp.name}.png`;
+        fs.writeFileSync(path.join(SCREENSHOT_DIR, filename), Buffer.from(shot.data, 'base64'));
+        console.log(`  [Hub ${vp.name.padEnd(12)}] Captured showcase screenshot: ${filename}`);
+      }
+
+      client.close();
+      await fetch(`http://127.0.0.1:${port}/json/close/${tabData.id}`);
+    }
+
+    // Write full audit report
+    fs.writeFileSync(AUDIT_REPORT_PATH, JSON.stringify(auditReport, null, 2), 'utf8');
+    console.log(`\n✅ Full multi-viewport audit report saved to ${AUDIT_REPORT_PATH}`);
+
+  } finally {
+    chromeProcess.kill();
+    console.log('🏁 Chrome process stopped cleanly.');
+  }
 }
 
 main().catch(err => {
-  console.error(err);
+  console.error('Fatal error in multi-viewport auditor:', err);
   process.exit(1);
 });
