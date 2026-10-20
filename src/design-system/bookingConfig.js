@@ -1,6 +1,7 @@
 /**
  * FLASH.Ai Universal Website Design System — Booking Configuration
  * Strict per-business WhatsApp booking configuration using verified numbers from data/discovered_leads.json.
+ * Non-negotiable: Never fallback to another business's number. Missing numbers are flagged for confirmation.
  */
 
 export const BUSINESS_BOOKING_REGISTRY = {
@@ -14,7 +15,8 @@ export const BUSINESS_BOOKING_REGISTRY = {
     compactLabel: 'Book',
     bookingType: 'Salon Appointment & Style Consultation',
     prefilledMessage: 'Hi Hair Lounge, I would like to book a salon appointment / style consultation in Karimnagar. Please share available time slots.',
-    verified: true
+    verified: true,
+    needsConfirmation: false
   },
 
   'star-fitness-gym-karimnagar': {
@@ -27,7 +29,8 @@ export const BUSINESS_BOOKING_REGISTRY = {
     compactLabel: 'Join',
     bookingType: 'Trial Pass & Membership Enquiry',
     prefilledMessage: 'Hi Star Fitness Gym, I would like to claim my free 1-day workout trial pass and inquire about AC gym membership packages in Karimnagar.',
-    verified: true
+    verified: true,
+    needsConfirmation: false
   },
 
   'yashika-photography-karimnagar': {
@@ -40,7 +43,8 @@ export const BUSINESS_BOOKING_REGISTRY = {
     compactLabel: 'Enquire',
     bookingType: 'Muhurtham Wedding Coverage Availability',
     prefilledMessage: 'Hi Yashika Photography, I would like to check availability and package pricing for our upcoming wedding celebration in Telangana.',
-    verified: true
+    verified: true,
+    needsConfirmation: false
   },
 
   'pavan-furniture-world': {
@@ -53,7 +57,8 @@ export const BUSINESS_BOOKING_REGISTRY = {
     compactLabel: 'Quote',
     bookingType: 'Showroom Visit & Teak Catalogue Request',
     prefilledMessage: 'Hi Pavan Furniture World, I would like to request your full living & bedroom solid teak catalogue and showroom pricing in Karimnagar.',
-    verified: true
+    verified: true,
+    needsConfirmation: false
   },
 
   'sri-chaitanya-coaching-karimnagar': {
@@ -66,7 +71,8 @@ export const BUSINESS_BOOKING_REGISTRY = {
     compactLabel: 'Admissions',
     bookingType: 'Academic Counseling & Admissions Enquiry',
     prefilledMessage: 'Hi Sri Chaitanya College, I would like to schedule an in-person academic counseling session regarding IIT-JEE / NEET integrated batches in Karimnagar.',
-    verified: true
+    verified: true,
+    needsConfirmation: false
   },
 
   'peacock-restaurant-karimnagar': {
@@ -79,7 +85,8 @@ export const BUSINESS_BOOKING_REGISTRY = {
     compactLabel: 'Reserve',
     bookingType: 'Family Table & Banquet Reservation',
     prefilledMessage: 'Hi Peacock Restaurant, I would like to request a family dining table reservation. Please confirm availability.',
-    verified: true
+    verified: true,
+    needsConfirmation: false
   },
 
   'famous-tattoos-fathepura': {
@@ -92,7 +99,8 @@ export const BUSINESS_BOOKING_REGISTRY = {
     compactLabel: 'Book',
     bookingType: 'Tattoo Artist Consultation & Studio Slot',
     prefilledMessage: 'Hi Famous Tattoos, I would like to send my reference tattoo design for a custom size and price estimate in Fathepura, Karimnagar.',
-    verified: true
+    verified: true,
+    needsConfirmation: false
   },
 
   'sumasri-digital-photo-karimnagar': {
@@ -105,7 +113,8 @@ export const BUSINESS_BOOKING_REGISTRY = {
     compactLabel: 'Studio',
     bookingType: 'Studio Portrait & Photo Restoration Enquiry',
     prefilledMessage: 'Hi Sumasri Digital Studio, I would like to book a studio portrait session / enquire about damaged family photo restoration and framing in Karimnagar.',
-    verified: true
+    verified: true,
+    needsConfirmation: false
   },
 
   'la-delicious-bakery-karimnagar': {
@@ -118,12 +127,14 @@ export const BUSINESS_BOOKING_REGISTRY = {
     compactLabel: 'Order',
     bookingType: 'Celebration Cake Order & Cafe Enquiry',
     prefilledMessage: 'Hi La Delicious Bakery, I would like to enquire about ordering a custom celebration cake / fresh party snacks in Karimnagar.',
-    verified: true
+    verified: true,
+    needsConfirmation: false
   }
 };
 
 /**
  * Resolves the booking configuration for any given lead (existing or future)
+ * Strictly guards against cross-business number fallback.
  */
 export function getBookingConfig(lead) {
   const slug = lead?.slug || '';
@@ -137,9 +148,11 @@ export function getBookingConfig(lead) {
   }
 
   // Fallback / Generator path for future leads
+  // Never reuse another business's number. If phone is missing, flag for confirmation.
   const rawPhone = (lead?.phone || '').replace(/[^0-9]/g, '');
-  const waDigits = rawPhone.length === 10 ? `91${rawPhone}` : rawPhone || '919849214389';
-  const phoneDisplay = lead?.phoneDisplay || lead?.phone || `+${waDigits}`;
+  const hasValidPhone = rawPhone.length >= 10;
+  const waDigits = hasValidPhone ? (rawPhone.length === 10 ? `91${rawPhone}` : rawPhone) : null;
+  const phoneDisplay = lead?.phoneDisplay || lead?.phone || (waDigits ? `+${waDigits}` : 'Contact Store');
   const prefilledMessage = `Hi ${lead?.name || 'Store'}, I would like to enquire regarding your services in Karimnagar.`;
   const encoded = encodeURIComponent(prefilledMessage);
 
@@ -153,7 +166,8 @@ export function getBookingConfig(lead) {
     compactLabel: 'Book',
     bookingType: 'Direct Customer Enquiry',
     prefilledMessage,
-    bookingUrl: `https://wa.me/${waDigits}?text=${encoded}`,
-    verified: Boolean(rawPhone)
+    bookingUrl: waDigits ? `https://wa.me/${waDigits}?text=${encoded}` : '#contact-unverified',
+    verified: Boolean(waDigits),
+    needsConfirmation: !waDigits
   };
 }

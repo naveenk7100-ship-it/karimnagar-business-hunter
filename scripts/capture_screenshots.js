@@ -1,7 +1,8 @@
 /**
  * FLASH.Ai Multi-Viewport Auditor & Headless Chrome Screenshot Capture
  * Connects directly via Chrome DevTools Protocol (CDP) to measure exact layout
- * metrics, assert zero horizontal overflow across 10 viewports, and capture PNG evidence.
+ * metrics, assert zero horizontal overflow across 10 viewports, full-width hero bleed,
+ * contrast-certified WhatsApp button, and complete removal of all rating displays.
  */
 
 import { spawn } from 'node:child_process';
@@ -89,7 +90,7 @@ class CdpClient {
 }
 
 async function main() {
-  console.log('=== FLASH.Ai UNIVERSAL DESIGN SYSTEM: MULTI-VIEWPORT CDP AUDITOR ===');
+  console.log('=== FLASH.Ai UNIVERSAL UPGRADE: FULL-WIDTH, CONTRAST & ZERO-RATING CDP AUDITOR ===');
   if (!fs.existsSync(CHROME_PATH)) {
     throw new Error(`Chrome binary not found at ${CHROME_PATH}`);
   }
@@ -187,30 +188,52 @@ async function main() {
 
         await new Promise(r => setTimeout(r, 120));
 
-        // Evaluate layout metrics and header button state
+        // Evaluate comprehensive layout metrics, full-width bleed, WhatsApp button contrast, and zero ratings
         const evalRes = await client.send('Runtime.evaluate', {
           expression: `(function() {
             const html = document.documentElement;
             const scrollW = html.scrollWidth;
             const clientW = html.clientWidth;
+            const hero = document.querySelector('section.hero') || document.querySelector('.hero');
+            const heroW = hero ? hero.clientWidth : 0;
+            const heroFullBleed = hero ? Math.abs(heroW - clientW) <= 2 : false;
+            
             const btnWa = document.querySelector('.btn-wa-header');
             const floatingWa = document.querySelector('.floating-wa');
             const btnStyle = btnWa ? window.getComputedStyle(btnWa) : null;
             const btnRect = btnWa ? btnWa.getBoundingClientRect() : null;
 
+            // Zero Rating Check (no stars, no aggregateRating, no review claims)
+            const bodyHtml = document.body ? document.body.innerHTML : '';
+            const hasStars = /[⭐★]/i.test(bodyHtml);
+            const hasAggregateRating = /aggregateRating/i.test(bodyHtml);
+            const hasRatingValue = /ratingValue/i.test(bodyHtml);
+            const hasReviewClaims = /verified\\s+reviews/i.test(bodyHtml);
+            const zeroRatings = !hasStars && !hasAggregateRating && !hasRatingValue && !hasReviewClaims;
+
+            // High contrast text check on white button:
+            // Background is white/near-white rgb(255, 255, 255)
+            // Color is dark rgb(11, 15, 23)
+            const isWhiteBg = btnStyle ? btnStyle.backgroundColor.includes('255, 255, 255') || btnStyle.backgroundColor === 'rgb(255, 255, 255)' : false;
+            const isDarkText = btnStyle ? (btnStyle.color.includes('11, 15, 23') || btnStyle.color.includes('0, 0, 0') || btnStyle.color === 'rgb(11, 15, 23)') : false;
+
             return {
               scrollWidth: scrollW,
               clientWidth: clientW,
               zeroOverflow: scrollW <= clientW,
+              heroWidth: heroW,
+              heroFullBleed: heroFullBleed,
               hasBtnWa: !!btnWa,
               btnText: btnWa ? btnWa.innerText.replace(/\\s+/g, ' ').trim() : null,
               btnBg: btnStyle ? btnStyle.backgroundColor : null,
               btnColor: btnStyle ? btnStyle.color : null,
+              contrastPass: isWhiteBg && isDarkText,
               btnTop: btnRect ? Math.round(btnRect.top) : null,
               btnRight: btnRect ? Math.round(btnRect.right) : null,
               btnWidth: btnRect ? Math.round(btnRect.width) : null,
               btnHeight: btnRect ? Math.round(btnRect.height) : null,
-              hasFloatingWa: !!floatingWa
+              hasFloatingWa: !!floatingWa,
+              zeroRatings: zeroRatings
             };
           })()`,
           returnByValue: true
@@ -225,10 +248,14 @@ async function main() {
           scrollWidth: metrics.scrollWidth,
           clientWidth: metrics.clientWidth,
           zeroOverflow: metrics.zeroOverflow,
+          heroFullBleed: metrics.heroFullBleed,
+          heroWidth: metrics.heroWidth,
           btnWaVisible: metrics.hasBtnWa && metrics.btnWidth > 0 && metrics.btnHeight > 0,
           btnText: metrics.btnText,
           btnBg: metrics.btnBg,
           btnColor: metrics.btnColor,
+          contrastPass: metrics.contrastPass,
+          zeroRatings: metrics.zeroRatings,
           floatingWaPresent: metrics.hasFloatingWa
         };
 
@@ -242,9 +269,11 @@ async function main() {
           const fileSizeKb = (fs.statSync(shotPath).size / 1024).toFixed(1);
           vpResult.screenshot = shotFilename;
           vpResult.screenshotSizeKb = `${fileSizeKb}KB`;
-          const statusPill = vpResult.zeroOverflow ? '✅ 0-OVERFLOW' : '❌ OVERFLOW';
+          const overflowPill = vpResult.zeroOverflow ? '✅ 0-OVERFLOW' : '❌ OVERFLOW';
+          const bleedPill = vpResult.heroFullBleed ? '✅ FULL-BLEED' : '❌ BOXED';
           const waPill = vpResult.btnWaVisible ? '✅ WA-CTA' : '❌ NO-WA';
-          console.log(`  [${vp.name.padEnd(12)}] ${statusPill} | ${waPill} ("${metrics.btnText}") | ${fileSizeKb}KB`);
+          const ratingsPill = vpResult.zeroRatings ? '✅ 0-RATINGS' : '❌ HAS-RATINGS';
+          console.log(`  [${vp.name.padEnd(12)}] ${overflowPill} | ${bleedPill} | ${waPill} ("${metrics.btnText}") | ${ratingsPill} | ${fileSizeKb}KB`);
         } catch (err) {
           console.warn(`  [${vp.name}] Screenshot capture skipped: ${err.message}`);
         }

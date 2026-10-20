@@ -185,6 +185,21 @@ export class QAEngine {
       evidence: `business_name=${hasBusinessName}, local_karimnagar=${hasKarimnagar}, direct_cta=${hasWaLink || hasTelLink}`
     });
 
+    // 11. Complete Rating UI & Claims Removal Guard
+    const hasStars = /[⭐★]/i.test(html);
+    const hasAggregateRating = /aggregateRating/i.test(html);
+    const hasRatingValue = /ratingValue/i.test(html);
+    const hasReviewClaims = /verified\s+reviews/i.test(html);
+    const hasRatings = hasStars || hasAggregateRating || hasRatingValue || hasReviewClaims;
+    checks.push({
+      id: 'zero_ratings',
+      name: 'Zero Rating UI & Claims Guard',
+      status: !hasRatings ? 'PASS' : 'FAIL',
+      evidence: !hasRatings
+        ? 'Clean presentation: zero rating badges, stars, review counts or aggregateRating claims'
+        : `Detected forbidden rating claims: stars=${hasStars}, aggregateRating=${hasAggregateRating}, ratingValue=${hasRatingValue}, reviewClaims=${hasReviewClaims}`
+    });
+
     // Save repaired file if modifications were applied
     if (repaired) {
       fs.writeFileSync(filePath, html, 'utf8');

@@ -1,5 +1,5 @@
 {
-  "auditedAt": "2026-10-20T11:32:45.878Z",
+  "auditedAt": "2026-10-20T12:13:26.975Z",
   "viewportsTested": 10,
   "demosTested": 9,
   "results": [
@@ -14,13 +14,17 @@
           "scrollWidth": 1905,
           "clientWidth": 1905,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1905,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "hair-lounge-salon-tattoos-desktop-1920.png",
-          "screenshotSizeKb": "141.9KB"
+          "screenshotSizeKb": "951.6KB"
         },
         {
           "viewport": "desktop-1648",
@@ -30,13 +34,17 @@
           "scrollWidth": 1633,
           "clientWidth": 1633,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1633,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "hair-lounge-salon-tattoos-desktop-1648.png",
-          "screenshotSizeKb": "133.8KB"
+          "screenshotSizeKb": "901.9KB"
         },
         {
           "viewport": "desktop-1440",
@@ -46,13 +54,17 @@
           "scrollWidth": 1425,
           "clientWidth": 1425,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1425,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "hair-lounge-salon-tattoos-desktop-1440.png",
-          "screenshotSizeKb": "129.8KB"
+          "screenshotSizeKb": "825.1KB"
         },
         {
           "viewport": "laptop-1280",
@@ -62,13 +74,17 @@
           "scrollWidth": 1265,
           "clientWidth": 1265,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1265,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "hair-lounge-salon-tattoos-laptop-1280.png",
-          "screenshotSizeKb": "149.1KB"
+          "screenshotSizeKb": "684.7KB"
         },
         {
           "viewport": "tablet-1024",
@@ -78,13 +94,17 @@
           "scrollWidth": 1009,
           "clientWidth": 1009,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1009,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "hair-lounge-salon-tattoos-tablet-1024.png",
-          "screenshotSizeKb": "654.2KB"
+          "screenshotSizeKb": "516.8KB"
         },
         {
           "viewport": "tablet-768",
@@ -94,13 +114,17 @@
           "scrollWidth": 753,
           "clientWidth": 753,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 753,
           "btnWaVisible": true,
           "btnText": "Book",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "hair-lounge-salon-tattoos-tablet-768.png",
-          "screenshotSizeKb": "573.4KB"
+          "screenshotSizeKb": "536.2KB"
         },
         {
           "viewport": "mobile-430",
@@ -110,13 +134,17 @@
           "scrollWidth": 430,
           "clientWidth": 430,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 430,
           "btnWaVisible": true,
           "btnText": "Book",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "hair-lounge-salon-tattoos-mobile-430.png",
-          "screenshotSizeKb": "284.6KB"
+          "screenshotSizeKb": "297.9KB"
         },
         {
           "viewport": "mobile-390",
@@ -126,13 +154,17 @@
           "scrollWidth": 390,
           "clientWidth": 390,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 390,
           "btnWaVisible": true,
           "btnText": "Book",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "hair-lounge-salon-tattoos-mobile-390.png",
-          "screenshotSizeKb": "254.6KB"
+          "screenshotSizeKb": "229.8KB"
         },
         {
           "viewport": "mobile-375",
@@ -142,13 +174,17 @@
           "scrollWidth": 375,
           "clientWidth": 375,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 375,
           "btnWaVisible": true,
           "btnText": "Book",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "hair-lounge-salon-tattoos-mobile-375.png",
-          "screenshotSizeKb": "236.4KB"
+          "screenshotSizeKb": "215.6KB"
         },
         {
           "viewport": "mobile-360",
@@ -158,17 +194,21 @@
           "scrollWidth": 360,
           "clientWidth": 360,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 360,
           "btnWaVisible": true,
           "btnText": "Book",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "hair-lounge-salon-tattoos-mobile-360.png",
-          "screenshotSizeKb": "205.1KB"
+          "screenshotSizeKb": "201.9KB"
         }
       ],
       "fullpageScreenshot": "hair-lounge-salon-tattoos-fullpage.png",
-      "fullpageSizeKb": "1869.3KB"
+      "fullpageSizeKb": "1384.6KB"
     },
     {
       "slug": "star-fitness-gym-karimnagar",
@@ -181,13 +221,17 @@
           "scrollWidth": 1905,
           "clientWidth": 1905,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1905,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "star-fitness-gym-karimnagar-desktop-1920.png",
-          "screenshotSizeKb": "1226.1KB"
+          "screenshotSizeKb": "1241.9KB"
         },
         {
           "viewport": "desktop-1648",
@@ -197,13 +241,17 @@
           "scrollWidth": 1633,
           "clientWidth": 1633,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1633,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "star-fitness-gym-karimnagar-desktop-1648.png",
-          "screenshotSizeKb": "1042.8KB"
+          "screenshotSizeKb": "1004.2KB"
         },
         {
           "viewport": "desktop-1440",
@@ -213,13 +261,17 @@
           "scrollWidth": 1425,
           "clientWidth": 1425,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1425,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "star-fitness-gym-karimnagar-desktop-1440.png",
-          "screenshotSizeKb": "1032.7KB"
+          "screenshotSizeKb": "902.0KB"
         },
         {
           "viewport": "laptop-1280",
@@ -229,13 +281,17 @@
           "scrollWidth": 1265,
           "clientWidth": 1265,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1265,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "star-fitness-gym-karimnagar-laptop-1280.png",
-          "screenshotSizeKb": "879.2KB"
+          "screenshotSizeKb": "742.9KB"
         },
         {
           "viewport": "tablet-1024",
@@ -245,13 +301,17 @@
           "scrollWidth": 1009,
           "clientWidth": 1009,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1009,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "star-fitness-gym-karimnagar-tablet-1024.png",
-          "screenshotSizeKb": "709.8KB"
+          "screenshotSizeKb": "591.6KB"
         },
         {
           "viewport": "tablet-768",
@@ -261,13 +321,17 @@
           "scrollWidth": 753,
           "clientWidth": 753,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 753,
           "btnWaVisible": true,
           "btnText": "Join",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "star-fitness-gym-karimnagar-tablet-768.png",
-          "screenshotSizeKb": "681.7KB"
+          "screenshotSizeKb": "591.4KB"
         },
         {
           "viewport": "mobile-430",
@@ -277,13 +341,17 @@
           "scrollWidth": 430,
           "clientWidth": 430,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 430,
           "btnWaVisible": true,
           "btnText": "Join",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "star-fitness-gym-karimnagar-mobile-430.png",
-          "screenshotSizeKb": "374.8KB"
+          "screenshotSizeKb": "363.9KB"
         },
         {
           "viewport": "mobile-390",
@@ -293,13 +361,17 @@
           "scrollWidth": 390,
           "clientWidth": 390,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 390,
           "btnWaVisible": true,
           "btnText": "Join",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "star-fitness-gym-karimnagar-mobile-390.png",
-          "screenshotSizeKb": "310.0KB"
+          "screenshotSizeKb": "303.7KB"
         },
         {
           "viewport": "mobile-375",
@@ -309,13 +381,17 @@
           "scrollWidth": 375,
           "clientWidth": 375,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 375,
           "btnWaVisible": true,
           "btnText": "Join",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "star-fitness-gym-karimnagar-mobile-375.png",
-          "screenshotSizeKb": "291.1KB"
+          "screenshotSizeKb": "279.6KB"
         },
         {
           "viewport": "mobile-360",
@@ -325,17 +401,21 @@
           "scrollWidth": 360,
           "clientWidth": 360,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 360,
           "btnWaVisible": true,
           "btnText": "Join",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "star-fitness-gym-karimnagar-mobile-360.png",
-          "screenshotSizeKb": "273.9KB"
+          "screenshotSizeKb": "261.0KB"
         }
       ],
       "fullpageScreenshot": "star-fitness-gym-karimnagar-fullpage.png",
-      "fullpageSizeKb": "2422.9KB"
+      "fullpageSizeKb": "1586.8KB"
     },
     {
       "slug": "yashika-photography-karimnagar",
@@ -348,13 +428,17 @@
           "scrollWidth": 1905,
           "clientWidth": 1905,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1905,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "yashika-photography-karimnagar-desktop-1920.png",
-          "screenshotSizeKb": "183.6KB"
+          "screenshotSizeKb": "864.6KB"
         },
         {
           "viewport": "desktop-1648",
@@ -364,13 +448,17 @@
           "scrollWidth": 1633,
           "clientWidth": 1633,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1633,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "yashika-photography-karimnagar-desktop-1648.png",
-          "screenshotSizeKb": "798.2KB"
+          "screenshotSizeKb": "785.3KB"
         },
         {
           "viewport": "desktop-1440",
@@ -380,13 +468,17 @@
           "scrollWidth": 1425,
           "clientWidth": 1425,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1425,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "yashika-photography-karimnagar-desktop-1440.png",
-          "screenshotSizeKb": "789.9KB"
+          "screenshotSizeKb": "714.1KB"
         },
         {
           "viewport": "laptop-1280",
@@ -396,13 +488,17 @@
           "scrollWidth": 1265,
           "clientWidth": 1265,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1265,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "yashika-photography-karimnagar-laptop-1280.png",
-          "screenshotSizeKb": "681.8KB"
+          "screenshotSizeKb": "591.0KB"
         },
         {
           "viewport": "tablet-1024",
@@ -412,13 +508,17 @@
           "scrollWidth": 1009,
           "clientWidth": 1009,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1009,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "yashika-photography-karimnagar-tablet-1024.png",
-          "screenshotSizeKb": "552.7KB"
+          "screenshotSizeKb": "449.1KB"
         },
         {
           "viewport": "tablet-768",
@@ -428,13 +528,17 @@
           "scrollWidth": 753,
           "clientWidth": 753,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 753,
           "btnWaVisible": true,
           "btnText": "Enquire",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "yashika-photography-karimnagar-tablet-768.png",
-          "screenshotSizeKb": "516.9KB"
+          "screenshotSizeKb": "463.7KB"
         },
         {
           "viewport": "mobile-430",
@@ -444,13 +548,17 @@
           "scrollWidth": 430,
           "clientWidth": 430,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 430,
           "btnWaVisible": true,
           "btnText": "Enquire",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "yashika-photography-karimnagar-mobile-430.png",
-          "screenshotSizeKb": "289.6KB"
+          "screenshotSizeKb": "275.4KB"
         },
         {
           "viewport": "mobile-390",
@@ -460,13 +568,17 @@
           "scrollWidth": 390,
           "clientWidth": 390,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 390,
           "btnWaVisible": true,
           "btnText": "Enquire",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "yashika-photography-karimnagar-mobile-390.png",
-          "screenshotSizeKb": "250.0KB"
+          "screenshotSizeKb": "242.4KB"
         },
         {
           "viewport": "mobile-375",
@@ -476,13 +588,17 @@
           "scrollWidth": 375,
           "clientWidth": 375,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 375,
           "btnWaVisible": true,
           "btnText": "Enquire",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "yashika-photography-karimnagar-mobile-375.png",
-          "screenshotSizeKb": "227.5KB"
+          "screenshotSizeKb": "221.7KB"
         },
         {
           "viewport": "mobile-360",
@@ -492,17 +608,21 @@
           "scrollWidth": 360,
           "clientWidth": 360,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 360,
           "btnWaVisible": true,
           "btnText": "Enquire",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "yashika-photography-karimnagar-mobile-360.png",
-          "screenshotSizeKb": "211.9KB"
+          "screenshotSizeKb": "212.4KB"
         }
       ],
       "fullpageScreenshot": "yashika-photography-karimnagar-fullpage.png",
-      "fullpageSizeKb": "1643.0KB"
+      "fullpageSizeKb": "1348.5KB"
     },
     {
       "slug": "pavan-furniture-world",
@@ -515,13 +635,17 @@
           "scrollWidth": 1905,
           "clientWidth": 1905,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1905,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "pavan-furniture-world-desktop-1920.png",
-          "screenshotSizeKb": "732.1KB"
+          "screenshotSizeKb": "646.4KB"
         },
         {
           "viewport": "desktop-1648",
@@ -531,13 +655,17 @@
           "scrollWidth": 1633,
           "clientWidth": 1633,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1633,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "pavan-furniture-world-desktop-1648.png",
-          "screenshotSizeKb": "644.3KB"
+          "screenshotSizeKb": "609.3KB"
         },
         {
           "viewport": "desktop-1440",
@@ -547,13 +675,17 @@
           "scrollWidth": 1425,
           "clientWidth": 1425,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1425,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "pavan-furniture-world-desktop-1440.png",
-          "screenshotSizeKb": "638.1KB"
+          "screenshotSizeKb": "569.4KB"
         },
         {
           "viewport": "laptop-1280",
@@ -563,13 +695,17 @@
           "scrollWidth": 1265,
           "clientWidth": 1265,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1265,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "pavan-furniture-world-laptop-1280.png",
-          "screenshotSizeKb": "554.6KB"
+          "screenshotSizeKb": "486.8KB"
         },
         {
           "viewport": "tablet-1024",
@@ -579,13 +715,17 @@
           "scrollWidth": 1009,
           "clientWidth": 1009,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1009,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "pavan-furniture-world-tablet-1024.png",
-          "screenshotSizeKb": "453.3KB"
+          "screenshotSizeKb": "425.9KB"
         },
         {
           "viewport": "tablet-768",
@@ -595,13 +735,17 @@
           "scrollWidth": 753,
           "clientWidth": 753,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 753,
           "btnWaVisible": true,
           "btnText": "Quote",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "pavan-furniture-world-tablet-768.png",
-          "screenshotSizeKb": "396.2KB"
+          "screenshotSizeKb": "383.6KB"
         },
         {
           "viewport": "mobile-430",
@@ -611,13 +755,17 @@
           "scrollWidth": 430,
           "clientWidth": 430,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 430,
           "btnWaVisible": true,
           "btnText": "Quote",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "pavan-furniture-world-mobile-430.png",
-          "screenshotSizeKb": "240.5KB"
+          "screenshotSizeKb": "240.0KB"
         },
         {
           "viewport": "mobile-390",
@@ -627,13 +775,17 @@
           "scrollWidth": 390,
           "clientWidth": 390,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 390,
           "btnWaVisible": true,
           "btnText": "Quote",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "pavan-furniture-world-mobile-390.png",
-          "screenshotSizeKb": "196.8KB"
+          "screenshotSizeKb": "197.4KB"
         },
         {
           "viewport": "mobile-375",
@@ -643,13 +795,17 @@
           "scrollWidth": 375,
           "clientWidth": 375,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 375,
           "btnWaVisible": true,
           "btnText": "Quote",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "pavan-furniture-world-mobile-375.png",
-          "screenshotSizeKb": "183.7KB"
+          "screenshotSizeKb": "184.7KB"
         },
         {
           "viewport": "mobile-360",
@@ -659,17 +815,21 @@
           "scrollWidth": 360,
           "clientWidth": 360,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 360,
           "btnWaVisible": true,
           "btnText": "Quote",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "pavan-furniture-world-mobile-360.png",
-          "screenshotSizeKb": "179.3KB"
+          "screenshotSizeKb": "176.1KB"
         }
       ],
       "fullpageScreenshot": "pavan-furniture-world-fullpage.png",
-      "fullpageSizeKb": "1167.2KB"
+      "fullpageSizeKb": "1132.7KB"
     },
     {
       "slug": "sri-chaitanya-coaching-karimnagar",
@@ -682,13 +842,17 @@
           "scrollWidth": 1905,
           "clientWidth": 1905,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1905,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sri-chaitanya-coaching-karimnagar-desktop-1920.png",
-          "screenshotSizeKb": "1215.3KB"
+          "screenshotSizeKb": "176.3KB"
         },
         {
           "viewport": "desktop-1648",
@@ -698,13 +862,17 @@
           "scrollWidth": 1633,
           "clientWidth": 1633,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1633,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sri-chaitanya-coaching-karimnagar-desktop-1648.png",
-          "screenshotSizeKb": "1022.2KB"
+          "screenshotSizeKb": "982.9KB"
         },
         {
           "viewport": "desktop-1440",
@@ -714,13 +882,17 @@
           "scrollWidth": 1425,
           "clientWidth": 1425,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1425,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sri-chaitanya-coaching-karimnagar-desktop-1440.png",
-          "screenshotSizeKb": "1013.4KB"
+          "screenshotSizeKb": "895.6KB"
         },
         {
           "viewport": "laptop-1280",
@@ -730,13 +902,17 @@
           "scrollWidth": 1265,
           "clientWidth": 1265,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1265,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sri-chaitanya-coaching-karimnagar-laptop-1280.png",
-          "screenshotSizeKb": "874.7KB"
+          "screenshotSizeKb": "737.0KB"
         },
         {
           "viewport": "tablet-1024",
@@ -746,13 +922,17 @@
           "scrollWidth": 1009,
           "clientWidth": 1009,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1009,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sri-chaitanya-coaching-karimnagar-tablet-1024.png",
-          "screenshotSizeKb": "692.4KB"
+          "screenshotSizeKb": "589.4KB"
         },
         {
           "viewport": "tablet-768",
@@ -762,13 +942,17 @@
           "scrollWidth": 753,
           "clientWidth": 753,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 753,
           "btnWaVisible": true,
           "btnText": "Admissions",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sri-chaitanya-coaching-karimnagar-tablet-768.png",
-          "screenshotSizeKb": "644.5KB"
+          "screenshotSizeKb": "567.2KB"
         },
         {
           "viewport": "mobile-430",
@@ -778,13 +962,17 @@
           "scrollWidth": 430,
           "clientWidth": 430,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 430,
           "btnWaVisible": true,
           "btnText": "Admissions",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sri-chaitanya-coaching-karimnagar-mobile-430.png",
-          "screenshotSizeKb": "344.8KB"
+          "screenshotSizeKb": "341.9KB"
         },
         {
           "viewport": "mobile-390",
@@ -794,13 +982,17 @@
           "scrollWidth": 390,
           "clientWidth": 390,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 390,
           "btnWaVisible": true,
           "btnText": "Admissions",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sri-chaitanya-coaching-karimnagar-mobile-390.png",
-          "screenshotSizeKb": "279.4KB"
+          "screenshotSizeKb": "279.0KB"
         },
         {
           "viewport": "mobile-375",
@@ -810,13 +1002,17 @@
           "scrollWidth": 375,
           "clientWidth": 375,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 375,
           "btnWaVisible": true,
           "btnText": "Admissions",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sri-chaitanya-coaching-karimnagar-mobile-375.png",
-          "screenshotSizeKb": "265.0KB"
+          "screenshotSizeKb": "259.9KB"
         },
         {
           "viewport": "mobile-360",
@@ -826,17 +1022,21 @@
           "scrollWidth": 360,
           "clientWidth": 360,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 360,
           "btnWaVisible": true,
           "btnText": "Admissions",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sri-chaitanya-coaching-karimnagar-mobile-360.png",
-          "screenshotSizeKb": "246.3KB"
+          "screenshotSizeKb": "242.3KB"
         }
       ],
       "fullpageScreenshot": "sri-chaitanya-coaching-karimnagar-fullpage.png",
-      "fullpageSizeKb": "2233.7KB"
+      "fullpageSizeKb": "1466.8KB"
     },
     {
       "slug": "peacock-restaurant-karimnagar",
@@ -849,13 +1049,17 @@
           "scrollWidth": 1905,
           "clientWidth": 1905,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1905,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "peacock-restaurant-karimnagar-desktop-1920.png",
-          "screenshotSizeKb": "1107.9KB"
+          "screenshotSizeKb": "166.1KB"
         },
         {
           "viewport": "desktop-1648",
@@ -865,13 +1069,17 @@
           "scrollWidth": 1633,
           "clientWidth": 1633,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1633,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "peacock-restaurant-karimnagar-desktop-1648.png",
-          "screenshotSizeKb": "942.8KB"
+          "screenshotSizeKb": "157.5KB"
         },
         {
           "viewport": "desktop-1440",
@@ -881,13 +1089,17 @@
           "scrollWidth": 1425,
           "clientWidth": 1425,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1425,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "peacock-restaurant-karimnagar-desktop-1440.png",
-          "screenshotSizeKb": "935.2KB"
+          "screenshotSizeKb": "149.3KB"
         },
         {
           "viewport": "laptop-1280",
@@ -897,13 +1109,17 @@
           "scrollWidth": 1265,
           "clientWidth": 1265,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1265,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "peacock-restaurant-karimnagar-laptop-1280.png",
-          "screenshotSizeKb": "814.0KB"
+          "screenshotSizeKb": "139.1KB"
         },
         {
           "viewport": "tablet-1024",
@@ -913,13 +1129,17 @@
           "scrollWidth": 1009,
           "clientWidth": 1009,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1009,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "peacock-restaurant-karimnagar-tablet-1024.png",
-          "screenshotSizeKb": "632.5KB"
+          "screenshotSizeKb": "529.8KB"
         },
         {
           "viewport": "tablet-768",
@@ -929,13 +1149,17 @@
           "scrollWidth": 753,
           "clientWidth": 753,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 753,
           "btnWaVisible": true,
           "btnText": "Reserve",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "peacock-restaurant-karimnagar-tablet-768.png",
-          "screenshotSizeKb": "612.6KB"
+          "screenshotSizeKb": "519.9KB"
         },
         {
           "viewport": "mobile-430",
@@ -945,13 +1169,17 @@
           "scrollWidth": 430,
           "clientWidth": 430,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 430,
           "btnWaVisible": true,
           "btnText": "Reserve",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "peacock-restaurant-karimnagar-mobile-430.png",
-          "screenshotSizeKb": "386.4KB"
+          "screenshotSizeKb": "360.8KB"
         },
         {
           "viewport": "mobile-390",
@@ -961,13 +1189,17 @@
           "scrollWidth": 390,
           "clientWidth": 390,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 390,
           "btnWaVisible": true,
           "btnText": "Reserve",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "peacock-restaurant-karimnagar-mobile-390.png",
-          "screenshotSizeKb": "314.7KB"
+          "screenshotSizeKb": "316.5KB"
         },
         {
           "viewport": "mobile-375",
@@ -977,13 +1209,17 @@
           "scrollWidth": 375,
           "clientWidth": 375,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 375,
           "btnWaVisible": true,
           "btnText": "Reserve",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "peacock-restaurant-karimnagar-mobile-375.png",
-          "screenshotSizeKb": "306.8KB"
+          "screenshotSizeKb": "304.1KB"
         },
         {
           "viewport": "mobile-360",
@@ -993,17 +1229,21 @@
           "scrollWidth": 360,
           "clientWidth": 360,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 360,
           "btnWaVisible": true,
           "btnText": "Reserve",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "peacock-restaurant-karimnagar-mobile-360.png",
-          "screenshotSizeKb": "284.4KB"
+          "screenshotSizeKb": "286.5KB"
         }
       ],
       "fullpageScreenshot": "peacock-restaurant-karimnagar-fullpage.png",
-      "fullpageSizeKb": "2378.3KB"
+      "fullpageSizeKb": "1629.0KB"
     },
     {
       "slug": "famous-tattoos-fathepura",
@@ -1016,13 +1256,17 @@
           "scrollWidth": 1905,
           "clientWidth": 1905,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1905,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "famous-tattoos-fathepura-desktop-1920.png",
-          "screenshotSizeKb": "176.9KB"
+          "screenshotSizeKb": "931.8KB"
         },
         {
           "viewport": "desktop-1648",
@@ -1032,13 +1276,17 @@
           "scrollWidth": 1633,
           "clientWidth": 1633,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1633,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "famous-tattoos-fathepura-desktop-1648.png",
-          "screenshotSizeKb": "168.9KB"
+          "screenshotSizeKb": "846.3KB"
         },
         {
           "viewport": "desktop-1440",
@@ -1048,13 +1296,17 @@
           "scrollWidth": 1425,
           "clientWidth": 1425,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1425,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "famous-tattoos-fathepura-desktop-1440.png",
-          "screenshotSizeKb": "164.8KB"
+          "screenshotSizeKb": "778.3KB"
         },
         {
           "viewport": "laptop-1280",
@@ -1064,13 +1316,17 @@
           "scrollWidth": 1265,
           "clientWidth": 1265,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1265,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "famous-tattoos-fathepura-laptop-1280.png",
-          "screenshotSizeKb": "150.9KB"
+          "screenshotSizeKb": "641.3KB"
         },
         {
           "viewport": "tablet-1024",
@@ -1080,13 +1336,17 @@
           "scrollWidth": 1009,
           "clientWidth": 1009,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1009,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "famous-tattoos-fathepura-tablet-1024.png",
-          "screenshotSizeKb": "608.2KB"
+          "screenshotSizeKb": "491.5KB"
         },
         {
           "viewport": "tablet-768",
@@ -1096,13 +1356,17 @@
           "scrollWidth": 753,
           "clientWidth": 753,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 753,
           "btnWaVisible": true,
           "btnText": "Book",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "famous-tattoos-fathepura-tablet-768.png",
-          "screenshotSizeKb": "572.6KB"
+          "screenshotSizeKb": "510.3KB"
         },
         {
           "viewport": "mobile-430",
@@ -1112,13 +1376,17 @@
           "scrollWidth": 430,
           "clientWidth": 430,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 430,
           "btnWaVisible": true,
           "btnText": "Book",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "famous-tattoos-fathepura-mobile-430.png",
-          "screenshotSizeKb": "335.2KB"
+          "screenshotSizeKb": "324.2KB"
         },
         {
           "viewport": "mobile-390",
@@ -1128,13 +1396,17 @@
           "scrollWidth": 390,
           "clientWidth": 390,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 390,
           "btnWaVisible": true,
           "btnText": "Book",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "famous-tattoos-fathepura-mobile-390.png",
-          "screenshotSizeKb": "269.5KB"
+          "screenshotSizeKb": "266.9KB"
         },
         {
           "viewport": "mobile-375",
@@ -1144,13 +1416,17 @@
           "scrollWidth": 375,
           "clientWidth": 375,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 375,
           "btnWaVisible": true,
           "btnText": "Book",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "famous-tattoos-fathepura-mobile-375.png",
-          "screenshotSizeKb": "251.5KB"
+          "screenshotSizeKb": "248.0KB"
         },
         {
           "viewport": "mobile-360",
@@ -1160,17 +1436,21 @@
           "scrollWidth": 360,
           "clientWidth": 360,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 360,
           "btnWaVisible": true,
           "btnText": "Book",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "famous-tattoos-fathepura-mobile-360.png",
-          "screenshotSizeKb": "240.2KB"
+          "screenshotSizeKb": "233.1KB"
         }
       ],
       "fullpageScreenshot": "famous-tattoos-fathepura-fullpage.png",
-      "fullpageSizeKb": "1953.6KB"
+      "fullpageSizeKb": "1439.8KB"
     },
     {
       "slug": "sumasri-digital-photo-karimnagar",
@@ -1183,13 +1463,17 @@
           "scrollWidth": 1905,
           "clientWidth": 1905,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1905,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sumasri-digital-photo-karimnagar-desktop-1920.png",
-          "screenshotSizeKb": "1133.5KB"
+          "screenshotSizeKb": "1104.6KB"
         },
         {
           "viewport": "desktop-1648",
@@ -1199,13 +1483,17 @@
           "scrollWidth": 1633,
           "clientWidth": 1633,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1633,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sumasri-digital-photo-karimnagar-desktop-1648.png",
-          "screenshotSizeKb": "966.3KB"
+          "screenshotSizeKb": "910.8KB"
         },
         {
           "viewport": "desktop-1440",
@@ -1215,13 +1503,17 @@
           "scrollWidth": 1425,
           "clientWidth": 1425,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1425,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sumasri-digital-photo-karimnagar-desktop-1440.png",
-          "screenshotSizeKb": "957.6KB"
+          "screenshotSizeKb": "835.8KB"
         },
         {
           "viewport": "laptop-1280",
@@ -1231,13 +1523,17 @@
           "scrollWidth": 1265,
           "clientWidth": 1265,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1265,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sumasri-digital-photo-karimnagar-laptop-1280.png",
-          "screenshotSizeKb": "820.0KB"
+          "screenshotSizeKb": "689.0KB"
         },
         {
           "viewport": "tablet-1024",
@@ -1247,13 +1543,17 @@
           "scrollWidth": 1009,
           "clientWidth": 1009,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1009,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sumasri-digital-photo-karimnagar-tablet-1024.png",
-          "screenshotSizeKb": "665.9KB"
+          "screenshotSizeKb": "565.7KB"
         },
         {
           "viewport": "tablet-768",
@@ -1263,13 +1563,17 @@
           "scrollWidth": 753,
           "clientWidth": 753,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 753,
           "btnWaVisible": true,
           "btnText": "Studio",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sumasri-digital-photo-karimnagar-tablet-768.png",
-          "screenshotSizeKb": "586.4KB"
+          "screenshotSizeKb": "516.4KB"
         },
         {
           "viewport": "mobile-430",
@@ -1279,13 +1583,17 @@
           "scrollWidth": 430,
           "clientWidth": 430,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 430,
           "btnWaVisible": true,
           "btnText": "Studio",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sumasri-digital-photo-karimnagar-mobile-430.png",
-          "screenshotSizeKb": "332.9KB"
+          "screenshotSizeKb": "328.1KB"
         },
         {
           "viewport": "mobile-390",
@@ -1295,13 +1603,17 @@
           "scrollWidth": 390,
           "clientWidth": 390,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 390,
           "btnWaVisible": true,
           "btnText": "Studio",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sumasri-digital-photo-karimnagar-mobile-390.png",
-          "screenshotSizeKb": "274.2KB"
+          "screenshotSizeKb": "271.4KB"
         },
         {
           "viewport": "mobile-375",
@@ -1311,13 +1623,17 @@
           "scrollWidth": 375,
           "clientWidth": 375,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 375,
           "btnWaVisible": true,
           "btnText": "Studio",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sumasri-digital-photo-karimnagar-mobile-375.png",
-          "screenshotSizeKb": "256.2KB"
+          "screenshotSizeKb": "253.7KB"
         },
         {
           "viewport": "mobile-360",
@@ -1327,17 +1643,21 @@
           "scrollWidth": 360,
           "clientWidth": 360,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 360,
           "btnWaVisible": true,
           "btnText": "Studio",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "sumasri-digital-photo-karimnagar-mobile-360.png",
-          "screenshotSizeKb": "240.1KB"
+          "screenshotSizeKb": "237.1KB"
         }
       ],
       "fullpageScreenshot": "sumasri-digital-photo-karimnagar-fullpage.png",
-      "fullpageSizeKb": "2008.2KB"
+      "fullpageSizeKb": "1464.1KB"
     },
     {
       "slug": "la-delicious-bakery-karimnagar",
@@ -1350,13 +1670,17 @@
           "scrollWidth": 1905,
           "clientWidth": 1905,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1905,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "la-delicious-bakery-karimnagar-desktop-1920.png",
-          "screenshotSizeKb": "173.6KB"
+          "screenshotSizeKb": "169.8KB"
         },
         {
           "viewport": "desktop-1648",
@@ -1366,13 +1690,17 @@
           "scrollWidth": 1633,
           "clientWidth": 1633,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1633,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "la-delicious-bakery-karimnagar-desktop-1648.png",
-          "screenshotSizeKb": "1066.5KB"
+          "screenshotSizeKb": "162.0KB"
         },
         {
           "viewport": "desktop-1440",
@@ -1382,13 +1710,17 @@
           "scrollWidth": 1425,
           "clientWidth": 1425,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1425,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "la-delicious-bakery-karimnagar-desktop-1440.png",
-          "screenshotSizeKb": "1056.9KB"
+          "screenshotSizeKb": "159.0KB"
         },
         {
           "viewport": "laptop-1280",
@@ -1398,13 +1730,17 @@
           "scrollWidth": 1265,
           "clientWidth": 1265,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1265,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "la-delicious-bakery-karimnagar-laptop-1280.png",
-          "screenshotSizeKb": "912.2KB"
+          "screenshotSizeKb": "148.2KB"
         },
         {
           "viewport": "tablet-1024",
@@ -1414,13 +1750,17 @@
           "scrollWidth": 1009,
           "clientWidth": 1009,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 1009,
           "btnWaVisible": true,
           "btnText": "WhatsApp Booking",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "la-delicious-bakery-karimnagar-tablet-1024.png",
-          "screenshotSizeKb": "731.0KB"
+          "screenshotSizeKb": "133.1KB"
         },
         {
           "viewport": "tablet-768",
@@ -1430,13 +1770,17 @@
           "scrollWidth": 753,
           "clientWidth": 753,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 753,
           "btnWaVisible": true,
           "btnText": "Order",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "la-delicious-bakery-karimnagar-tablet-768.png",
-          "screenshotSizeKb": "705.6KB"
+          "screenshotSizeKb": "122.1KB"
         },
         {
           "viewport": "mobile-430",
@@ -1446,13 +1790,17 @@
           "scrollWidth": 430,
           "clientWidth": 430,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 430,
           "btnWaVisible": true,
           "btnText": "Order",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "la-delicious-bakery-karimnagar-mobile-430.png",
-          "screenshotSizeKb": "386.5KB"
+          "screenshotSizeKb": "376.2KB"
         },
         {
           "viewport": "mobile-390",
@@ -1462,13 +1810,17 @@
           "scrollWidth": 390,
           "clientWidth": 390,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 390,
           "btnWaVisible": true,
           "btnText": "Order",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "la-delicious-bakery-karimnagar-mobile-390.png",
-          "screenshotSizeKb": "311.0KB"
+          "screenshotSizeKb": "300.0KB"
         },
         {
           "viewport": "mobile-375",
@@ -1478,13 +1830,17 @@
           "scrollWidth": 375,
           "clientWidth": 375,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 375,
           "btnWaVisible": true,
           "btnText": "Order",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "la-delicious-bakery-karimnagar-mobile-375.png",
-          "screenshotSizeKb": "284.3KB"
+          "screenshotSizeKb": "279.2KB"
         },
         {
           "viewport": "mobile-360",
@@ -1494,17 +1850,21 @@
           "scrollWidth": 360,
           "clientWidth": 360,
           "zeroOverflow": true,
+          "heroFullBleed": true,
+          "heroWidth": 360,
           "btnWaVisible": true,
           "btnText": "Order",
           "btnBg": "rgb(255, 255, 255)",
           "btnColor": "rgb(11, 15, 23)",
+          "contrastPass": true,
+          "zeroRatings": true,
           "floatingWaPresent": false,
           "screenshot": "la-delicious-bakery-karimnagar-mobile-360.png",
-          "screenshotSizeKb": "263.2KB"
+          "screenshotSizeKb": "260.6KB"
         }
       ],
       "fullpageScreenshot": "la-delicious-bakery-karimnagar-fullpage.png",
-      "fullpageSizeKb": "2438.8KB"
+      "fullpageSizeKb": "1668.4KB"
     }
   ]
 }

@@ -26,7 +26,7 @@ export const CATEGORIES = {
         headline: `Crafted for Generations: Solid Teak & Modern Furniture in Karimnagar`,
         subheadline: `Explore luxury living room sofas, handcrafted teak dining sets, ergonomic bedroom furniture, and bespoke modular storage at ${lead.landmark || 'Karimnagar'}.`,
         ctaText: 'Get Showroom Quote on WhatsApp',
-        badgeText: `★ ${lead.rating || '4.5'} Solid Teak & Living Collections`
+        badgeText: 'Verified Local Business in Karimnagar'
       },
       advantages: [
         { title: '100% Seasoned Solid Teak & Hardwood', desc: 'Crafted with pest-resistant, kiln-seasoned timber designed to endure decades with minimal maintenance.' },
@@ -67,7 +67,7 @@ export const CATEGORIES = {
         headline: `Empowering Karimnagar's Top Rankers in IIT-JEE, NEET & Intermediate`,
         subheadline: `Comprehensive conceptual coaching, micro-scheduled test series, and dedicated expert faculty mentorship at ${lead.landmark || 'Karimnagar'}.`,
         ctaText: 'Book Free Academic Counseling',
-        badgeText: `★ ${lead.rating || '4.8'} Leading Junior & Entrance Coaching Institute`
+        badgeText: 'Verified Local Business in Karimnagar'
       },
       advantages: [
         { title: 'Proven Entrance Track Record', desc: 'Consistent top percentiles in JEE Advanced, Mains, NEET Medical, and TG-EAPCET state examinations.' },
@@ -107,7 +107,7 @@ export const CATEGORIES = {
         headline: `Authentic Flavors & Unforgettable Dining Traditions in Karimnagar`,
         subheadline: `Savor signature dum biryanis, aromatic tandoori sizzlers, rich curries, and warm family dining hospitality at ${lead.landmark || 'Karimnagar'}.`,
         ctaText: 'Reserve Table / Order on WhatsApp',
-        badgeText: `★ ${lead.rating || '4.8'} Top-Rated Family Multi-Cuisine Destination`
+        badgeText: 'Verified Local Business in Karimnagar'
       },
       advantages: [
         { title: 'Authentic Charcoal & Clay Oven Cooking', desc: 'Slow-cooked traditional dum biryanis and clay-tandoor flatbreads using 100% fresh whole spices.' },
@@ -146,7 +146,7 @@ export const CATEGORIES = {
         headline: `Freshly Baked Delights & Designer Celebration Cakes in Karimnagar`,
         subheadline: `Indulge in artisanal fresh pastries, custom birthday photo cakes, savory hot bakes, and freshly brewed coffees at ${lead.landmark || 'Karimnagar'}.`,
         ctaText: 'Order Custom Cake on WhatsApp',
-        badgeText: `★ ${lead.rating || '4.8'} Artisan Bakery & Dessert Destination`
+        badgeText: 'Verified Local Business in Karimnagar'
       },
       advantages: [
         { title: 'Fresh Daily Oven Bakes', desc: 'Baked from scratch every single morning using premium butter, pure cocoa, and zero artificial preservatives.' },
@@ -190,7 +190,7 @@ export const CATEGORIES = {
             headline: `Custom Tattoo Artistry & Sterile Body Piercing in Karimnagar`,
             subheadline: `Experience custom fine-line tattoos, cover-ups, and single-use sterile piercing in a certified hygienic studio at ${lead.landmark || 'Fathepura, Karimnagar'}.`,
             ctaText: 'Consult Tattoo Artist on WhatsApp',
-            badgeText: `★ ${lead.rating || '4.8'} Certified Sterile Tattoo & Piercing Studio`
+            badgeText: 'Verified Local Business in Karimnagar'
           },
           advantages: [
             { title: '100% Single-Use Needle Cartridges', desc: 'Medical blister packs unsealed in front of you. Hospital-grade autoclave surface hygiene.' },
@@ -218,7 +218,7 @@ export const CATEGORIES = {
           headline: `Couture Hair Architecture & Luxury Grooming in Karimnagar`,
           subheadline: `Experience bespoke haircuts, master beard grooming, and rejuvenating skin therapies in a luxurious private studio at ${lead.landmark || 'Karimnagar'}.`,
           ctaText: 'Book Salon Appointment on WhatsApp',
-          badgeText: `★ ${lead.rating || '4.8'} Premium Salon & Grooming Lounge`
+          badgeText: 'Verified Local Business in Karimnagar'
         },
         advantages: [
           { title: 'Certified Senior Hair & Skin Stylists', desc: 'International precision scissor cuts, personalized hair texture consultations, and modern styling.' },
@@ -258,7 +258,7 @@ export const CATEGORIES = {
         headline: `Transform Your Body at Karimnagar's Elite Fitness Hub`,
         subheadline: `Fully air-conditioned unisex fitness arena with certified coaches, Olympic lifting gear, and tailored diet charts at ${lead.landmark || 'Karimnagar'}.`,
         ctaText: 'Claim Free 1-Day Trial Pass',
-        badgeText: `★ ${lead.rating || '4.8'} Top-Rated AC Gym in Karimnagar`
+        badgeText: 'Air-Conditioned Unisex Fitness & Olympic Strength Arena'
       },
       advantages: [
         { title: 'Biomechanical Equipment', desc: 'Imported pin-loaded and plate-loaded machines engineered for maximum muscle activation and joint safety.' },
@@ -301,7 +301,7 @@ export const CATEGORIES = {
             headline: `Master Studio Portraiture & Photo Restoration in Karimnagar`,
             subheadline: `Professional studio lighting portraiture, timeless family memories, and museum-grade digital photo restoration at ${lead.landmark || 'Karimnagar'}.`,
             ctaText: 'Book Studio Session on WhatsApp',
-            badgeText: `★ ${lead.rating || '4.8'} Karimnagar Heritage Portrait & Restoration Studio`
+            badgeText: 'Verified Local Business in Karimnagar'
           },
           advantages: [
             { title: 'Master Studio Strobe Lighting', desc: 'Calibrated studio flash strobes and softboxes capturing character, natural skin tones, and warmth.' },
@@ -329,7 +329,7 @@ export const CATEGORIES = {
           headline: `Cinematic 4K Wedding Films & Candid Stories in Karimnagar`,
           subheadline: `Candid wedding photography, cinematic 4K films, and authentic couple portraits capturing raw emotion across Karimnagar & Telangana.`,
           ctaText: 'Check Muhurtham Availability',
-          badgeText: `★ ${lead.rating || '4.8'} Rated (${lead.reviewCount || '80'}+ Weddings Documented)`
+          badgeText: 'Verified Local Business in Karimnagar'
         },
         advantages: [
           { title: 'Cinematic 4K Storytelling', desc: 'Master cinematographers equipped with cinema cameras, gimbal stabilizers, and aerial drone visuals.' },
@@ -367,7 +367,7 @@ export const CATEGORIES = {
         headline: `Trusted Quality & Exceptional Value at ${lead.name}`,
         subheadline: `Serving Karimnagar with verified quality, customer-first service, and competitive pricing at ${lead.landmark || 'Karimnagar'}.`,
         ctaText: 'Enquire on WhatsApp',
-        badgeText: `★ ${lead.rating || '4.8'} Top Rated in Karimnagar`
+        badgeText: 'Verified Local Business in Karimnagar'
       },
       advantages: [
         { title: 'Verified Quality Guarantee', desc: 'Every product and service meets strict standards of durability and customer satisfaction.' },

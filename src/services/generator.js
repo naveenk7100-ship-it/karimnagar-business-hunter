@@ -123,12 +123,7 @@ export class WebsiteGenerator {
       "postalCode": "505001",
       "addressCountry": "IN"
     },
-    "telephone": "${lead.phone || ''}",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "${lead.rating || '4.8'}",
-      "reviewCount": "${lead.reviewCount || '80'}"
-    }
+    "telephone": "${lead.phone || ''}"
   }
   </script>
 
@@ -165,20 +160,25 @@ export class WebsiteGenerator {
 
     ${renderDesignSystemCss()}
 
-    /* Hero Section with Balanced Photographic Lighting and Responsive Viewport Alignment */
-    .hero {
+    /* Hero Section with Full-Bleed Viewport Width & Responsive Height */
+    section.hero {
       position: relative;
-      min-height: calc(100vh - var(--header-height));
-      min-height: calc(100dvh - var(--header-height));
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      left: 0;
+      right: 0;
+      min-height: clamp(540px, 78vh, 880px);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: clamp(48px, 6vh, 80px) clamp(20px, 3vw, 40px);
+      padding: clamp(64px, 8vh, 120px) clamp(20px, 4vw, 48px);
       overflow: hidden;
       box-sizing: border-box;
-      background: linear-gradient(180deg, rgba(12, 14, 18, 0.58) 0%, rgba(12, 14, 18, 0.40) 45%, rgba(12, 14, 18, 0.88) 100%),
+      background: linear-gradient(180deg, rgba(12, 14, 18, 0.65) 0%, rgba(12, 14, 18, 0.44) 45%, rgba(12, 14, 18, 0.94) 100%),
                   url('${heroImage}') center/cover no-repeat;
+      background-attachment: scroll;
     }
     #three-canvas {
       position: absolute;
@@ -317,7 +317,7 @@ export class WebsiteGenerator {
     }
 
     /* Section Styles */
-    section {
+    section:not(.hero) {
       max-width: 1320px;
       width: 100%;
       margin: 0 auto;
@@ -677,12 +677,12 @@ export class WebsiteGenerator {
             <span class="pill-text">${this._escape(lead.landmark || 'Karimnagar, Telangana')}</span>
           </div>
           <div class="highlight-pill">
-            <span class="pill-icon">★</span>
-            <span class="pill-text">${lead.rating || '4.8'} (${lead.reviewCount || '80'}+ Verified Reviews)</span>
-          </div>
-          <div class="highlight-pill">
             <span class="pill-icon">🛡️</span>
             <span class="pill-text">${this._escape(categoryName)}</span>
+          </div>
+          <div class="highlight-pill">
+            <span class="pill-icon">⚡</span>
+            <span class="pill-text">Prompt Local Customer Care</span>
           </div>
           <div class="highlight-pill">
             <span class="pill-icon">💬</span>
