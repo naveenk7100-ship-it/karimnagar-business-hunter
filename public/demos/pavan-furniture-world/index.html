@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pavan Furniture World | Furniture &amp; Interior Stores in Karimnagar, Telangana</title>
-  <meta name="description" content="Discover Pavan Furniture World in Karimnagar, Telangana. Explore Karimnagar&#39;s premier furniture collection online. Browse digital catalogs, request custom designs, and get quotes for your modern home.">
+  <meta name="description" content="Discover Pavan Furniture World in Karimnagar, Telangana. Explore our vast collection of quality furniture and bespoke interior solutions online. Request custom sofa or wardrobe quotes tailored for your Karimnagar home, without leaving your comfort.">
   
   <!-- OpenGraph / Social Metadata -->
   <meta property="og:title" content="Pavan Furniture World - Karimnagar">
-  <meta property="og:description" content="Explore Karimnagar&#39;s premier furniture collection online. Browse digital catalogs, request custom designs, and get quotes for your modern home.">
+  <meta property="og:description" content="Explore our vast collection of quality furniture and bespoke interior solutions online. Request custom sofa or wardrobe quotes tailored for your Karimnagar home, without leaving your comfort.">
   <meta property="og:type" content="business.business">
   <meta property="og:locale" content="en_IN">
   
@@ -70,22 +70,6 @@
     }
 
     /* Navigation */
-    .concept-banner-hidden { display: none; }
-      background: linear-gradient(90deg, #1e1b4b, #312e81, #1e1b4b);
-      color: #c7d2fe;
-      font-size: 0.8rem;
-      padding: 8px 16px;
-      text-align: center;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .concept-banner strong { color: #fff; }
-
-    /* Navigation */
     nav {
       max-width: 1200px;
       margin: 0 auto;
@@ -138,16 +122,18 @@
       box-shadow: 0 4px 15px rgba(255,255,255,0.2);
     }
 
-    /* Hero Section with 3D Canvas */
+    /* Hero Section with Photographic Backdrop and 3D Canvas */
     .hero {
       position: relative;
-      min-height: 80vh;
+      min-height: 85vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 24px;
+      padding: 90px 24px 80px;
       overflow: hidden;
+      background: linear-gradient(180deg, rgba(13, 15, 20, 0.82) 0%, rgba(13, 15, 20, 0.94) 100%),
+                  url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
     }
     #three-canvas {
       position: absolute;
@@ -156,7 +142,7 @@
       width: 100%;
       height: 100%;
       z-index: 1;
-      opacity: 0.6;
+      opacity: 0.55;
       pointer-events: none;
     }
     .hero-content {
@@ -167,7 +153,7 @@
     }
     .hero-badge {
       display: inline-block;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--border);
       color: var(--primary);
       font-size: 0.85rem;
@@ -257,6 +243,73 @@
       font-size: clamp(1.8rem, 3.5vw, 2.5rem);
       font-weight: 800;
       color: #fff;
+    }
+
+    /* Photographic Showcase Gallery */
+    .grid-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+    .card-gallery {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-gallery:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+    .gallery-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #111;
+    }
+    .gallery-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .card-gallery:hover .gallery-img-wrap img {
+      transform: scale(1.05);
+    }
+    .gallery-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      color: var(--primary);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      backdrop-filter: blur(6px);
+    }
+    .gallery-info {
+      padding: 20px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-info h4 {
+      font-family: var(--font-heading);
+      color: #fff;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+    .gallery-info p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
     /* Advantages Grid */
@@ -350,7 +403,7 @@
     }
     .btn-book-sm:hover { background: var(--primary); color: #000; }
 
-    /* Interactive Calculator / Booking Hook */
+    /* Interactive Callout Card */
     .interactive-card {
       background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.08));
       border: 1px solid var(--border);
@@ -383,18 +436,14 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 20px 24px;
-      cursor: pointer;
     }
     .faq-item h4 {
       font-size: 1.05rem;
       color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      margin-bottom: 6px;
     }
     .faq-item p {
       color: var(--text-muted);
-      margin-top: 10px;
       font-size: 0.95rem;
     }
 
@@ -430,16 +479,6 @@
       color: var(--text-muted);
       font-size: 0.9rem;
     }
-    .placeholder-badge {
-      display: inline-block;
-      font-size: 0.7rem;
-      background: rgba(239, 68, 68, 0.15);
-      color: #f87171;
-      padding: 2px 6px;
-      border-radius: 4px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
 
     /* Floating WhatsApp Button */
     .floating-wa {
@@ -465,6 +504,7 @@
     /* Mobile Bottom Action Bar */
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .grid-gallery { grid-template-columns: 1fr; }
       .mobile-action-bar {
         position: fixed;
         bottom: 0;
@@ -511,6 +551,7 @@
     </a>
     <div class="nav-links">
       <a href="#advantages">Why Us</a>
+      <a href="#gallery">Showcase</a>
       <a href="#services">Services</a>
       <a href="#faq">FAQ</a>
       <a href="#location">Find Us</a>
@@ -522,13 +563,13 @@
   <section class="hero" id="hero">
     <canvas id="three-canvas" aria-hidden="true"></canvas>
     <div class="hero-content">
-      <div class="hero-badge">4.5 Star Rated | 110+ Happy Karimnagar Customers</div>
-      <h1>Pavan Furniture World: Crafting Dream Interiors for Karimnagar Homes</h1>
-      <p>Explore Karimnagar&#39;s premier furniture collection online. Browse digital catalogs, request custom designs, and get quotes for your modern home.</p>
+      <div class="hero-badge">4.5 Stars | 110+ Happy Customers</div>
+      <h1>Karimnagar&#39;s Digital Showroom for Exquisite Furniture &amp; Interiors</h1>
+      <p>Explore our vast collection of quality furniture and bespoke interior solutions online. Request custom sofa or wardrobe quotes tailored for your Karimnagar home, without leaving your comfort.</p>
       <div class="hero-ctas">
         <a href="https://wa.me/919440122390?text=Hi%20Pavan%20Furniture%20World%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." target="_blank" rel="noopener noreferrer" class="btn-primary">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          Explore Our Digital Catalog
+          Browse Our Digital Catalog
         </a>
         <a href="tel:919440122390" class="btn-secondary">
           📞 Call +91 94401 22390
@@ -546,76 +587,157 @@
     <div class="grid-advantages">
       
         <div class="card-advantage">
-          <h3>Browse Online, Anytime</h3>
-          <p>Explore our extensive furniture catalog and interior design ideas from the comfort of your home in Karimnagar.</p>
+          <h3>Browse Extensive Online Catalog</h3>
+          <p>Discover our wide range of furniture and interior solutions from the comfort of your home, anytime, anywhere in Karimnagar.</p>
         </div>
       
         <div class="card-advantage">
-          <h3>Tailored Furniture Solutions</h3>
-          <p>Request custom sofa, wardrobe, and other furniture designs online, perfectly crafted for your unique space.</p>
+          <h3>Custom Furniture Design &amp; Quotes</h3>
+          <p>Get personalized quotes for custom sofas, wardrobes, and bespoke furniture pieces tailored to your unique style and space requirements.</p>
         </div>
       
         <div class="card-advantage">
-          <h3>Karimnagar&#39;s Trusted Craftsmanship</h3>
-          <p>Benefit from years of expertise and quality furniture, highly rated by over 110 local customers.</p>
+          <h3>Quality Craftsmanship &amp; Local Trust</h3>
+          <p>Experience durable, stylish furniture backed by years of dedicated service to the Karimnagar community and 4.5-star reviews.</p>
         </div>
       
     </div>
   </section>
 
+  <!-- Curated Category Photography Showcase -->
+  <section id="gallery">
+    <div class="section-header">
+      <span class="section-tag">Furniture &amp; Interior Stores Visual Showcase</span>
+      <h2 class="section-title">Verified Portfolio & Standards</h2>
+      <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Authentic glimpses into our daily work, facilities, and signature service quality in Karimnagar.</p>
+    </div>
+    <div class="grid-gallery">
+      
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=600&q=80" alt="Handcrafted Teak Living Room Suites" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">Living Space</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Handcrafted Teak Living Room Suites</h4>
+            <p>Premium high-density cushioned sectional sofas with solid pest-resistant teak framing.</p>
+          </div>
+        </div>
+      
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80" alt="Ergonomic Bedroom Suites &amp; Hydraulic Beds" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">Master Bedroom</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Ergonomic Bedroom Suites &amp; Hydraulic Beds</h4>
+            <p>Smooth gas-lift hydraulic storage beds with orthopaedic posture-support mattress slats.</p>
+          </div>
+        </div>
+      
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80" alt="Solid Wood 6-Seater Dining Collections" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">Dining &amp; Kitchen</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Solid Wood 6-Seater Dining Collections</h4>
+            <p>Natural grain seasoned timber dining tables with ergonomic cushioned chairs.</p>
+          </div>
+        </div>
+      
+    </div>
+  </section>
+
+  <!-- Bespoke Interactive Micro-Component Section -->
+  
+    <!-- Solid Teak & Hardwood Guarantee -->
+    <section id="timber-specs" style="background: rgba(196, 139, 82, 0.04); border-top: 1px solid rgba(196, 139, 82, 0.2); border-bottom: 1px solid rgba(196, 139, 82, 0.2);">
+      <div class="section-header">
+        <span class="section-tag" style="color: #c48b52;">Built To Last Decades</span>
+        <h2 class="section-title">The Solid Teak & Hardwood Guarantee</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Every piece in our showroom undergoes rigorous kiln seasoning and structural craftsmanship.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto 40px;">
+        <div style="background: var(--surface); padding: 28px; border-radius: var(--radius); border: 1px solid var(--border);">
+          <div style="font-size: 2rem; margin-bottom: 12px;">🪵</div>
+          <h4 style="color: #fff; font-size: 1.15rem; margin-bottom: 8px;">100% Kiln-Seasoned Teak</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Moisture controlled below 12% to prevent warping, cracking, or seasonal wood joint loosening.</p>
+        </div>
+        <div style="background: var(--surface); padding: 28px; border-radius: var(--radius); border: 1px solid var(--border);">
+          <div style="font-size: 2rem; margin-bottom: 12px;">🛡️</div>
+          <h4 style="color: #fff; font-size: 1.15rem; margin-bottom: 8px;">10-Year Borer Protection</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Treated with eco-friendly anti-termite and borer barrier solutions for lifelong durability.</p>
+        </div>
+        <div style="background: var(--surface); padding: 28px; border-radius: var(--radius); border: 1px solid var(--border);">
+          <div style="font-size: 2rem; margin-bottom: 12px;">🚚</div>
+          <h4 style="color: #fff; font-size: 1.15rem; margin-bottom: 8px;">Doorstep Assembly</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Zero-hassle transit packaging with dedicated carpentry team assembly at your residence.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <a href="https://wa.me/919440122390?text=Hi%2C%20I%20would%20like%20to%20request%20your%20full%20living%20and%20bedroom%20furniture%20PDF%20catalogue." target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: #c48b52; color: #000;">
+          📲 Request Full Catalogue & Showroom Pricing on WhatsApp
+        </a>
+      </div>
+    </section>
+    
+
   <!-- Services Showcase -->
   <section id="services">
     <div class="section-header">
       <span class="section-tag">Popular Offerings</span>
-      <h2 class="section-title">Signature Services & Transparent Pricing</h2>
+      <h2 class="section-title">Signature Offerings & Transparent Pricing</h2>
     </div>
     <div class="grid-services">
       
         <div class="card-service">
           <div>
-            <div class="service-cat">Online Browsing</div>
-            <h4>Digital Furniture Catalog</h4>
-            <p>Explore our wide range of sofas, beds, dining sets, wardrobes, and more with detailed descriptions and images.</p>
+            <div class="service-cat">Furniture</div>
+            <h4>Living Room Furniture</h4>
+            <p>Sofas, recliners, coffee tables, and entertainment units designed for ultimate comfort and contemporary style.</p>
           </div>
           <div class="service-footer">
-            <span class="service-price">Free</span>
-            <a href="https://wa.me/919440122390?text=Hi%20Pavan%20Furniture%20World%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Digital%20Furniture%20Catalog" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <span class="service-price">Enquire</span>
+            <a href="https://wa.me/919440122390?text=Hi%20Pavan%20Furniture%20World%2C%20I%20would%20like%20to%20enquire%20about%20Living%20Room%20Furniture" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
         <div class="card-service">
           <div>
-            <div class="service-cat">Bespoke Solutions</div>
-            <h4>Custom Furniture Design &amp; Quotes</h4>
-            <p>Submit your requirements for custom sofas, wardrobes, and other bespoke furniture pieces and receive a personalized quote.</p>
+            <div class="service-cat">Furniture</div>
+            <h4>Bedroom Furniture</h4>
+            <p>Beds, wardrobes, dressing tables, and nightstands crafted to create a serene and functional bedroom sanctuary.</p>
           </div>
           <div class="service-footer">
             <span class="service-price">Enquire</span>
-            <a href="https://wa.me/919440122390?text=Hi%20Pavan%20Furniture%20World%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Custom%20Furniture%20Design%20%26%20Quotes" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <a href="https://wa.me/919440122390?text=Hi%20Pavan%20Furniture%20World%2C%20I%20would%20like%20to%20enquire%20about%20Bedroom%20Furniture" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
         <div class="card-service">
           <div>
-            <div class="service-cat">Design Services</div>
-            <h4>Home Interior Consultation</h4>
-            <p>Expert advice on furniture placement, space optimization, and interior styling to enhance your Karimnagar home.</p>
+            <div class="service-cat">Furniture</div>
+            <h4>Dining &amp; Kitchen Furniture</h4>
+            <p>Elegant dining sets, chairs, and modular kitchen storage solutions to enhance your culinary and gathering spaces.</p>
           </div>
           <div class="service-footer">
             <span class="service-price">Enquire</span>
-            <a href="https://wa.me/919440122390?text=Hi%20Pavan%20Furniture%20World%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Home%20Interior%20Consultation" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <a href="https://wa.me/919440122390?text=Hi%20Pavan%20Furniture%20World%2C%20I%20would%20like%20to%20enquire%20about%20Dining%20%26%20Kitchen%20Furniture" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
         <div class="card-service">
           <div>
-            <div class="service-cat">Customer Service</div>
-            <h4>Professional Delivery &amp; Installation</h4>
-            <p>Hassle-free delivery and expert assembly of your new furniture right to your doorstep in Karimnagar.</p>
+            <div class="service-cat">Interior Design</div>
+            <h4>Custom Interior Solutions</h4>
+            <p>Bespoke furniture design, modular wardrobes, and complete interior styling services to bring your vision to life.</p>
           </div>
           <div class="service-footer">
             <span class="service-price">Enquire</span>
-            <a href="https://wa.me/919440122390?text=Hi%20Pavan%20Furniture%20World%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Professional%20Delivery%20%26%20Installation" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <a href="https://wa.me/919440122390?text=Hi%20Pavan%20Furniture%20World%2C%20I%20would%20like%20to%20enquire%20about%20Custom%20Interior%20Solutions" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
@@ -626,7 +748,7 @@
   <section>
     <div class="interactive-card">
       <div>
-        <h3>Need custom requirements or group bookings?</h3>
+        <h3>Need custom requirements or personalized assistance?</h3>
         <p style="color: var(--text-muted); max-width: 500px;">Direct WhatsApp consultation connects you immediately with our team in Karimnagar.</p>
       </div>
       <a href="https://wa.me/919440122390?text=Hi%20Pavan%20Furniture%20World%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." target="_blank" rel="noopener noreferrer" class="btn-primary">Chat with Us Now</a>
@@ -642,13 +764,13 @@
     <div class="faq-list">
       
         <div class="faq-item">
-          <h4>How can I browse your furniture catalog online?</h4>
-          <p>Visit our &#39;Digital Catalog&#39; section to explore our extensive collection of furniture, complete with images, dimensions, and material details.</p>
+          <h4>Can I browse your furniture collection online before visiting?</h4>
+          <p>Yes, our comprehensive digital catalog allows you to explore our entire range of furniture and interior solutions from anywhere in Karimnagar, at your convenience.</p>
         </div>
       
         <div class="faq-item">
-          <h4>Can I request custom furniture designs and quotes online?</h4>
-          <p>Yes, simply navigate to our &#39;Custom Design&#39; page, fill out the form with your specific requirements for sofas, wardrobes, or other furniture, and we will provide a tailored quote.</p>
+          <h4>How can I request a custom quote for a sofa or wardrobe?</h4>
+          <p>You can easily request a custom quote directly through our website by providing your specific requirements, and our design team will get back to you promptly with a tailored estimate.</p>
         </div>
       
     </div>
@@ -679,11 +801,10 @@
   <footer>
     <p>© 2026 Pavan Furniture World. All rights reserved.</p>
     <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text-muted);">Near Rajiv Chowk, Jagtial Road, Karimnagar, Telangana 505001</p>
-
   </footer>
 
   <!-- Floating WhatsApp CTA (Desktop & Mobile) -->
-  <a href="https://wa.me/919440122390?text=Hi%20Pavan%20Furniture%20World%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/919440122390?text=Hi%20Pavan%20Furniture%20World%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
   </a>
 

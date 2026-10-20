@@ -5,6 +5,7 @@ import { aiService } from './ai.js';
 import { store } from './store.js';
 import { designEngine } from './designEngine.js';
 import { categoryRegistry } from './categoryRegistry.js';
+import { getCategoryAssets, renderCategoryMicroComponent } from './visualComponents.js';
 
 export class WebsiteGenerator {
   /**
@@ -64,8 +65,8 @@ export class WebsiteGenerator {
   _buildHtml(lead, bp) {
     const cleanPhone = (lead.phone || '').replace(/[^0-9]/g, '');
     const waPhone = cleanPhone.length === 10 ? `91${cleanPhone}` : cleanPhone;
-    const waText = encodeURIComponent(`Hi ${lead.name}, I am contacting you regarding your services in Karimnagar.`);
-    const waLink = `https://wa.me/${waPhone}?text=${waText}`;
+    const makeWaUrl = (text) => `https://wa.me/${waPhone}?text=${encodeURIComponent(text || `Hi ${lead.name}, I am contacting you regarding your services in Karimnagar.`)}`;
+    const defaultWaLink = makeWaUrl();
     const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${lead.name} ${lead.address}`)}`;
 
     const resolvedCat = categoryRegistry.resolveCategory(lead);
@@ -73,13 +74,14 @@ export class WebsiteGenerator {
     const bgDark = bp.archetype?.theme?.bgDark || bp.bgDark || '#0f1115';
     const surfaceDark = bp.archetype?.theme?.surfaceDark || '#1a1d24';
     const primary = bp.archetype?.theme?.primary || bp.primaryColor || '#c9a050';
-
-    // Theme CSS tokens
     const accent = bp.archetype?.theme?.accent || bp.accentColor || '#3d72b4';
     const font = bp.archetype?.typography?.heading || bp.fontFamily || 'Plus Jakarta Sans';
 
-
-
+    // Retrieve curated photographic assets and interactive micro-component
+    const assets = getCategoryAssets(lead);
+    const heroImage = assets.heroImage || '';
+    const galleryItems = assets.items || [];
+    const microComponentHtml = renderCategoryMicroComponent(lead, waPhone);
 
     return `<!DOCTYPE html>
 <html lang="en">
@@ -153,22 +155,6 @@ export class WebsiteGenerator {
     }
 
     /* Navigation */
-    .concept-banner-hidden { display: none; }
-      background: linear-gradient(90deg, #1e1b4b, #312e81, #1e1b4b);
-      color: #c7d2fe;
-      font-size: 0.8rem;
-      padding: 8px 16px;
-      text-align: center;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .concept-banner strong { color: #fff; }
-
-    /* Navigation */
     nav {
       max-width: 1200px;
       margin: 0 auto;
@@ -221,16 +207,18 @@ export class WebsiteGenerator {
       box-shadow: 0 4px 15px rgba(255,255,255,0.2);
     }
 
-    /* Hero Section with 3D Canvas */
+    /* Hero Section with Photographic Backdrop and 3D Canvas */
     .hero {
       position: relative;
-      min-height: 80vh;
+      min-height: 85vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 24px;
+      padding: 90px 24px 80px;
       overflow: hidden;
+      background: linear-gradient(180deg, rgba(13, 15, 20, 0.82) 0%, rgba(13, 15, 20, 0.94) 100%),
+                  url('${heroImage}') center/cover no-repeat;
     }
     #three-canvas {
       position: absolute;
@@ -239,7 +227,7 @@ export class WebsiteGenerator {
       width: 100%;
       height: 100%;
       z-index: 1;
-      opacity: 0.6;
+      opacity: 0.55;
       pointer-events: none;
     }
     .hero-content {
@@ -250,7 +238,7 @@ export class WebsiteGenerator {
     }
     .hero-badge {
       display: inline-block;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--border);
       color: var(--primary);
       font-size: 0.85rem;
@@ -340,6 +328,73 @@ export class WebsiteGenerator {
       font-size: clamp(1.8rem, 3.5vw, 2.5rem);
       font-weight: 800;
       color: #fff;
+    }
+
+    /* Photographic Showcase Gallery */
+    .grid-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+    .card-gallery {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-gallery:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+    .gallery-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #111;
+    }
+    .gallery-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .card-gallery:hover .gallery-img-wrap img {
+      transform: scale(1.05);
+    }
+    .gallery-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      color: var(--primary);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      backdrop-filter: blur(6px);
+    }
+    .gallery-info {
+      padding: 20px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-info h4 {
+      font-family: var(--font-heading);
+      color: #fff;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+    .gallery-info p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
     /* Advantages Grid */
@@ -433,7 +488,7 @@ export class WebsiteGenerator {
     }
     .btn-book-sm:hover { background: var(--primary); color: #000; }
 
-    /* Interactive Calculator / Booking Hook */
+    /* Interactive Callout Card */
     .interactive-card {
       background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.08));
       border: 1px solid var(--border);
@@ -466,18 +521,14 @@ export class WebsiteGenerator {
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 20px 24px;
-      cursor: pointer;
     }
     .faq-item h4 {
       font-size: 1.05rem;
       color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      margin-bottom: 6px;
     }
     .faq-item p {
       color: var(--text-muted);
-      margin-top: 10px;
       font-size: 0.95rem;
     }
 
@@ -513,16 +564,6 @@ export class WebsiteGenerator {
       color: var(--text-muted);
       font-size: 0.9rem;
     }
-    .placeholder-badge {
-      display: inline-block;
-      font-size: 0.7rem;
-      background: rgba(239, 68, 68, 0.15);
-      color: #f87171;
-      padding: 2px 6px;
-      border-radius: 4px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
 
     /* Floating WhatsApp Button */
     .floating-wa {
@@ -548,6 +589,7 @@ export class WebsiteGenerator {
     /* Mobile Bottom Action Bar */
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .grid-gallery { grid-template-columns: 1fr; }
       .mobile-action-bar {
         position: fixed;
         bottom: 0;
@@ -594,10 +636,11 @@ export class WebsiteGenerator {
     </a>
     <div class="nav-links">
       <a href="#advantages">Why Us</a>
+      <a href="#gallery">Showcase</a>
       <a href="#services">Services</a>
       <a href="#faq">FAQ</a>
       <a href="#location">Find Us</a>
-      <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="btn-nav">WhatsApp Booking</a>
+      <a href="${defaultWaLink}" target="_blank" rel="noopener noreferrer" class="btn-nav">WhatsApp Booking</a>
     </div>
   </nav>
 
@@ -609,7 +652,7 @@ export class WebsiteGenerator {
       <h1>${this._escape(bp.hero.headline)}</h1>
       <p>${this._escape(bp.hero.subheadline)}</p>
       <div class="hero-ctas">
-        <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        <a href="${defaultWaLink}" target="_blank" rel="noopener noreferrer" class="btn-primary">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
           ${this._escape(bp.hero.ctaText)}
         </a>
@@ -636,11 +679,37 @@ export class WebsiteGenerator {
     </div>
   </section>
 
+  <!-- Curated Category Photography Showcase -->
+  <section id="gallery">
+    <div class="section-header">
+      <span class="section-tag">${this._escape(categoryName)} Visual Showcase</span>
+      <h2 class="section-title">Verified Portfolio & Standards</h2>
+      <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Authentic glimpses into our daily work, facilities, and signature service quality in Karimnagar.</p>
+    </div>
+    <div class="grid-gallery">
+      ${galleryItems.map(item => `
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="${item.img}" alt="${this._escape(item.title)}" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">${this._escape(item.tag)}</span>
+          </div>
+          <div class="gallery-info">
+            <h4>${this._escape(item.title)}</h4>
+            <p>${this._escape(item.desc)}</p>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  </section>
+
+  <!-- Bespoke Interactive Micro-Component Section -->
+  ${microComponentHtml}
+
   <!-- Services Showcase -->
   <section id="services">
     <div class="section-header">
       <span class="section-tag">Popular Offerings</span>
-      <h2 class="section-title">Signature Services & Transparent Pricing</h2>
+      <h2 class="section-title">Signature Offerings & Transparent Pricing</h2>
     </div>
     <div class="grid-services">
       ${bp.services.map(srv => `
@@ -652,7 +721,7 @@ export class WebsiteGenerator {
           </div>
           <div class="service-footer">
             <span class="service-price">${this._escape(srv.price)}</span>
-            <a href="${waLink}&text=${encodeURIComponent(`Hi, I would like to book ${srv.name}`)}" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <a href="${makeWaUrl(`Hi ${lead.name}, I would like to enquire about ${srv.name}`)}" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       `).join('')}
@@ -663,10 +732,10 @@ export class WebsiteGenerator {
   <section>
     <div class="interactive-card">
       <div>
-        <h3>Need custom requirements or group bookings?</h3>
+        <h3>Need custom requirements or personalized assistance?</h3>
         <p style="color: var(--text-muted); max-width: 500px;">Direct WhatsApp consultation connects you immediately with our team in Karimnagar.</p>
       </div>
-      <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="btn-primary">Chat with Us Now</a>
+      <a href="${defaultWaLink}" target="_blank" rel="noopener noreferrer" class="btn-primary">Chat with Us Now</a>
     </div>
   </section>
 
@@ -711,11 +780,10 @@ export class WebsiteGenerator {
   <footer>
     <p>© ${new Date().getFullYear()} ${this._escape(lead.name)}. All rights reserved.</p>
     <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text-muted);">${this._escape(lead.address)}</p>
-
   </footer>
 
   <!-- Floating WhatsApp CTA (Desktop & Mobile) -->
-  <a href="${waLink}" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <a href="${defaultWaLink}" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
   </a>
 
@@ -729,7 +797,7 @@ export class WebsiteGenerator {
       <span>📍</span>
       <span>Directions</span>
     </a>
-    <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="btn-wa-action">
+    <a href="${defaultWaLink}" target="_blank" rel="noopener noreferrer" class="btn-wa-action">
       <span>💬</span>
       <span>WhatsApp</span>
     </a>

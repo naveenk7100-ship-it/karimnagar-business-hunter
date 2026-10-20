@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hair Lounge Salon &amp; Tattoo Studio | Salons, Spas &amp; Tattoo Studios in Karimnagar, Telangana</title>
-  <meta name="description" content="Discover Hair Lounge Salon &amp; Tattoo Studio in Karimnagar, Telangana. Experience expert hair styling, rejuvenating spa services, and custom tattoo artistry right here on Court Road, Near Geetha Bhavan.">
+  <meta name="description" content="Discover Hair Lounge Salon &amp; Tattoo Studio in Karimnagar, Telangana. From trendy haircuts to intricate tattoo designs, we offer unparalleled service. Now with easy online booking and transparent rate cards for Karimnagar.">
   
   <!-- OpenGraph / Social Metadata -->
   <meta property="og:title" content="Hair Lounge Salon &amp; Tattoo Studio - Karimnagar">
-  <meta property="og:description" content="Experience expert hair styling, rejuvenating spa services, and custom tattoo artistry right here on Court Road, Near Geetha Bhavan.">
+  <meta property="og:description" content="From trendy haircuts to intricate tattoo designs, we offer unparalleled service. Now with easy online booking and transparent rate cards for Karimnagar.">
   <meta property="og:type" content="business.business">
   <meta property="og:locale" content="en_IN">
   
@@ -70,22 +70,6 @@
     }
 
     /* Navigation */
-    .concept-banner-hidden { display: none; }
-      background: linear-gradient(90deg, #1e1b4b, #312e81, #1e1b4b);
-      color: #c7d2fe;
-      font-size: 0.8rem;
-      padding: 8px 16px;
-      text-align: center;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .concept-banner strong { color: #fff; }
-
-    /* Navigation */
     nav {
       max-width: 1200px;
       margin: 0 auto;
@@ -138,16 +122,18 @@
       box-shadow: 0 4px 15px rgba(255,255,255,0.2);
     }
 
-    /* Hero Section with 3D Canvas */
+    /* Hero Section with Photographic Backdrop and 3D Canvas */
     .hero {
       position: relative;
-      min-height: 80vh;
+      min-height: 85vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 24px;
+      padding: 90px 24px 80px;
       overflow: hidden;
+      background: linear-gradient(180deg, rgba(13, 15, 20, 0.82) 0%, rgba(13, 15, 20, 0.94) 100%),
+                  url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
     }
     #three-canvas {
       position: absolute;
@@ -156,7 +142,7 @@
       width: 100%;
       height: 100%;
       z-index: 1;
-      opacity: 0.6;
+      opacity: 0.55;
       pointer-events: none;
     }
     .hero-content {
@@ -167,7 +153,7 @@
     }
     .hero-badge {
       display: inline-block;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--border);
       color: var(--primary);
       font-size: 0.85rem;
@@ -257,6 +243,73 @@
       font-size: clamp(1.8rem, 3.5vw, 2.5rem);
       font-weight: 800;
       color: #fff;
+    }
+
+    /* Photographic Showcase Gallery */
+    .grid-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+    .card-gallery {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-gallery:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+    .gallery-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #111;
+    }
+    .gallery-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .card-gallery:hover .gallery-img-wrap img {
+      transform: scale(1.05);
+    }
+    .gallery-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      color: var(--primary);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      backdrop-filter: blur(6px);
+    }
+    .gallery-info {
+      padding: 20px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-info h4 {
+      font-family: var(--font-heading);
+      color: #fff;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+    .gallery-info p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
     /* Advantages Grid */
@@ -350,7 +403,7 @@
     }
     .btn-book-sm:hover { background: var(--primary); color: #000; }
 
-    /* Interactive Calculator / Booking Hook */
+    /* Interactive Callout Card */
     .interactive-card {
       background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.08));
       border: 1px solid var(--border);
@@ -383,18 +436,14 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 20px 24px;
-      cursor: pointer;
     }
     .faq-item h4 {
       font-size: 1.05rem;
       color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      margin-bottom: 6px;
     }
     .faq-item p {
       color: var(--text-muted);
-      margin-top: 10px;
       font-size: 0.95rem;
     }
 
@@ -430,16 +479,6 @@
       color: var(--text-muted);
       font-size: 0.9rem;
     }
-    .placeholder-badge {
-      display: inline-block;
-      font-size: 0.7rem;
-      background: rgba(239, 68, 68, 0.15);
-      color: #f87171;
-      padding: 2px 6px;
-      border-radius: 4px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
 
     /* Floating WhatsApp Button */
     .floating-wa {
@@ -465,6 +504,7 @@
     /* Mobile Bottom Action Bar */
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .grid-gallery { grid-template-columns: 1fr; }
       .mobile-action-bar {
         position: fixed;
         bottom: 0;
@@ -511,6 +551,7 @@
     </a>
     <div class="nav-links">
       <a href="#advantages">Why Us</a>
+      <a href="#gallery">Showcase</a>
       <a href="#services">Services</a>
       <a href="#faq">FAQ</a>
       <a href="#location">Find Us</a>
@@ -522,13 +563,13 @@
   <section class="hero" id="hero">
     <canvas id="three-canvas" aria-hidden="true"></canvas>
     <div class="hero-content">
-      <div class="hero-badge">4.6 Stars | 142 Reviews</div>
-      <h1>Karimnagar&#39;s Premier Salon &amp; Tattoo Studio</h1>
-      <p>Experience expert hair styling, rejuvenating spa services, and custom tattoo artistry right here on Court Road, Near Geetha Bhavan.</p>
+      <div class="hero-badge">4.6 Stars | 142+ Reviews</div>
+      <h1>Hair Lounge: Your Style Sanctuary &amp; Tattoo Artistry in Karimnagar</h1>
+      <p>From trendy haircuts to intricate tattoo designs, we offer unparalleled service. Now with easy online booking and transparent rate cards for Karimnagar.</p>
       <div class="hero-ctas">
         <a href="https://wa.me/919849214389?text=Hi%20Hair%20Lounge%20Salon%20%26%20Tattoo%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." target="_blank" rel="noopener noreferrer" class="btn-primary">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          Book Your Appointment Now
+          Explore Services &amp; Book Now
         </a>
         <a href="tel:919849214389" class="btn-secondary">
           📞 Call +91 98492 14389
@@ -546,76 +587,138 @@
     <div class="grid-advantages">
       
         <div class="card-advantage">
-          <h3>Effortless Online Booking</h3>
-          <p>Schedule your salon service or tattoo consultation with ease, anytime, anywhere, and never miss an opportunity.</p>
+          <h3>Seamless Online Booking</h3>
+          <p>Effortlessly schedule your hair, beauty, or tattoo consultation from anywhere, anytime.</p>
         </div>
       
         <div class="card-advantage">
-          <h3>Inspiring Digital Tattoo Flash</h3>
-          <p>Browse our curated collection of tattoo designs and find your next masterpiece in our online catalog.</p>
+          <h3>Transparent Pricing &amp; Portfolio</h3>
+          <p>Browse our service rate cards and digital tattoo flash catalog before you visit.</p>
         </div>
       
         <div class="card-advantage">
-          <h3>Transparent Service Rates</h3>
-          <p>View our comprehensive service menu and indicative pricing for all salon, spa, and tattoo services before you visit.</p>
+          <h3>Expert Stylists &amp; Artists</h3>
+          <p>Our experienced team delivers personalized beauty and unique tattoo artistry.</p>
         </div>
       
     </div>
   </section>
 
+  <!-- Curated Category Photography Showcase -->
+  <section id="gallery">
+    <div class="section-header">
+      <span class="section-tag">Salons, Spas &amp; Tattoo Studios Visual Showcase</span>
+      <h2 class="section-title">Verified Portfolio & Standards</h2>
+      <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Authentic glimpses into our daily work, facilities, and signature service quality in Karimnagar.</p>
+    </div>
+    <div class="grid-gallery">
+      
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Couture Hair Architecture &amp; Styling" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">Hair Care</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Couture Hair Architecture &amp; Styling</h4>
+            <p>Precision cuts, texturizing, and bespoke conditioning suited to Indian hair textures.</p>
+          </div>
+        </div>
+      
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80" alt="Gentlemen Beard Architecture &amp; Grooming" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">Barber Suite</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Gentlemen Beard Architecture &amp; Grooming</h4>
+            <p>Hot towel therapy, razor lining, beard softening, and relaxing facial massage.</p>
+          </div>
+        </div>
+      
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" alt="Revitalizing Botanical Skin Therapies" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">Skin Spa</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Revitalizing Botanical Skin Therapies</h4>
+            <p>Deep pore detox, organic fruit facials, and anti-pollution skin hydration treatments.</p>
+          </div>
+        </div>
+      
+    </div>
+  </section>
+
+  <!-- Bespoke Interactive Micro-Component Section -->
+  
+  <!-- Hair Lounge VIP Booking Callout -->
+  <section style="background: rgba(194, 157, 89, 0.04); border-top: 1px solid rgba(194, 157, 89, 0.2); border-bottom: 1px solid rgba(194, 157, 89, 0.2);">
+    <div class="section-header">
+      <span class="section-tag" style="color: #c29d59;">Priority Consultation</span>
+      <h2 class="section-title">Schedule Your VIP Salon Appointment</h2>
+      <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Experience luxury haircare, beard architecture, and skin therapies with our certified senior stylists.</p>
+    </div>
+    <div style="text-align: center;">
+      <a href="https://wa.me/919849214389?text=Hi%2C%20I%20would%20like%20to%20book%20a%20VIP%20haircut%20and%20grooming%20appointment." target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: #c29d59; color: #000;">
+        ✂️ Reserve VIP Salon Slot on WhatsApp
+      </a>
+    </div>
+  </section>
+  
+
   <!-- Services Showcase -->
   <section id="services">
     <div class="section-header">
       <span class="section-tag">Popular Offerings</span>
-      <h2 class="section-title">Signature Services & Transparent Pricing</h2>
+      <h2 class="section-title">Signature Offerings & Transparent Pricing</h2>
     </div>
     <div class="grid-services">
       
         <div class="card-service">
           <div>
-            <div class="service-cat">Hair Care</div>
+            <div class="service-cat">Hair Salon</div>
             <h4>Signature Haircut &amp; Styling</h4>
-            <p>Expert cuts, styling, and hair treatments for men and women, tailored to your unique look and preferences.</p>
+            <p>Precision cuts, modern styles, and expert blow-dries for all hair types.</p>
           </div>
           <div class="service-footer">
-            <span class="service-price">₹500 - ₹1500</span>
-            <a href="https://wa.me/919849214389?text=Hi%20Hair%20Lounge%20Salon%20%26%20Tattoo%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Signature%20Haircut%20%26%20Styling" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <span class="service-price">₹500 - ₹1200 (Indicative)</span>
+            <a href="https://wa.me/919849214389?text=Hi%20Hair%20Lounge%20Salon%20%26%20Tattoo%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20Signature%20Haircut%20%26%20Styling" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
         <div class="card-service">
           <div>
-            <div class="service-cat">Spa &amp; Skincare</div>
+            <div class="service-cat">Spa &amp; Beauty</div>
             <h4>Rejuvenating Facial Treatments</h4>
-            <p>Indulge in our range of facials and skincare therapies designed to refresh, cleanse, and revitalize your skin.</p>
+            <p>Customized facials to cleanse, nourish, and revitalize your skin.</p>
           </div>
           <div class="service-footer">
-            <span class="service-price">₹800 - ₹2500</span>
-            <a href="https://wa.me/919849214389?text=Hi%20Hair%20Lounge%20Salon%20%26%20Tattoo%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Rejuvenating%20Facial%20Treatments" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <span class="service-price">₹1500 - ₹3500 (Indicative)</span>
+            <a href="https://wa.me/919849214389?text=Hi%20Hair%20Lounge%20Salon%20%26%20Tattoo%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20Rejuvenating%20Facial%20Treatments" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
         <div class="card-service">
           <div>
-            <div class="service-cat">Tattoo Artistry</div>
-            <h4>Custom Tattoo Design &amp; Application</h4>
-            <p>Bring your vision to life with our skilled tattoo artists, specializing in personalized designs and precise application.</p>
+            <div class="service-cat">Tattoo Studio</div>
+            <h4>Custom Tattoo Artistry</h4>
+            <p>Collaborate with our artists to bring your unique tattoo vision to life.</p>
           </div>
           <div class="service-footer">
             <span class="service-price">Enquire for Quote</span>
-            <a href="https://wa.me/919849214389?text=Hi%20Hair%20Lounge%20Salon%20%26%20Tattoo%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Custom%20Tattoo%20Design%20%26%20Application" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <a href="https://wa.me/919849214389?text=Hi%20Hair%20Lounge%20Salon%20%26%20Tattoo%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20Custom%20Tattoo%20Artistry" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
         <div class="card-service">
           <div>
-            <div class="service-cat">Tattoo &amp; Piercing</div>
-            <h4>Professional Body Piercing</h4>
-            <p>Safe and hygienic body piercing services performed by experienced professionals, with a variety of options.</p>
+            <div class="service-cat">Hair Salon</div>
+            <h4>Professional Hair Colouring</h4>
+            <p>From subtle highlights to vibrant full-colour transformations.</p>
           </div>
           <div class="service-footer">
-            <span class="service-price">₹300 - ₹1500</span>
-            <a href="https://wa.me/919849214389?text=Hi%20Hair%20Lounge%20Salon%20%26%20Tattoo%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Professional%20Body%20Piercing" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <span class="service-price">₹2000 - ₹6000 (Indicative)</span>
+            <a href="https://wa.me/919849214389?text=Hi%20Hair%20Lounge%20Salon%20%26%20Tattoo%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20Professional%20Hair%20Colouring" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
@@ -626,7 +729,7 @@
   <section>
     <div class="interactive-card">
       <div>
-        <h3>Need custom requirements or group bookings?</h3>
+        <h3>Need custom requirements or personalized assistance?</h3>
         <p style="color: var(--text-muted); max-width: 500px;">Direct WhatsApp consultation connects you immediately with our team in Karimnagar.</p>
       </div>
       <a href="https://wa.me/919849214389?text=Hi%20Hair%20Lounge%20Salon%20%26%20Tattoo%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." target="_blank" rel="noopener noreferrer" class="btn-primary">Chat with Us Now</a>
@@ -643,12 +746,17 @@
       
         <div class="faq-item">
           <h4>How can I book an appointment at Hair Lounge?</h4>
-          <p>You can easily book your salon service or tattoo consultation directly through our website&#39;s online booking system, or by calling us during business hours.</p>
+          <p>You can easily book your appointment online through our website&#39;s dedicated booking system, or call us directly during business hours.</p>
         </div>
       
         <div class="faq-item">
-          <h4>Do you offer custom tattoo designs or only pre-made flash?</h4>
-          <p>Yes, our talented artists specialize in creating unique, custom tattoo designs to perfectly match your vision. We also have a digital flash catalog for inspiration.</p>
+          <h4>Do you offer consultations for tattoo designs?</h4>
+          <p>Yes, we highly recommend a consultation to discuss your tattoo ideas, placement, and get a personalized quote from our artists.</p>
+        </div>
+      
+        <div class="faq-item">
+          <h4>Can I see your service price list online?</h4>
+          <p>Yes, our detailed service rate cards for all hair, beauty, spa treatments, and indicative tattoo pricing are available on our website.</p>
         </div>
       
     </div>
@@ -679,11 +787,10 @@
   <footer>
     <p>© 2026 Hair Lounge Salon &amp; Tattoo Studio. All rights reserved.</p>
     <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text-muted);">Near Geetha Bhavan, Court Road, Karimnagar, Telangana 505001</p>
-
   </footer>
 
   <!-- Floating WhatsApp CTA (Desktop & Mobile) -->
-  <a href="https://wa.me/919849214389?text=Hi%20Hair%20Lounge%20Salon%20%26%20Tattoo%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/919849214389?text=Hi%20Hair%20Lounge%20Salon%20%26%20Tattoo%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
   </a>
 

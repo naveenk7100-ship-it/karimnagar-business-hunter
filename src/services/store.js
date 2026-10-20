@@ -50,7 +50,17 @@ class PersistentStore {
       if (fs.existsSync(filePath)) {
         try { fs.copyFileSync(filePath, bakPath); } catch (_) {}
       }
-      fs.renameSync(tempPath, filePath);
+      try {
+        fs.renameSync(tempPath, filePath);
+      } catch (renameErr) {
+        if (renameErr.code === 'EPERM' || renameErr.code === 'EBUSY') {
+          // Windows atomic rename fallback when file is concurrently accessed
+          fs.writeFileSync(filePath, str, 'utf8');
+          try { fs.unlinkSync(tempPath); } catch (_) {}
+        } else {
+          throw renameErr;
+        }
+      }
     } catch (err) {
       if (fs.existsSync(tempPath)) {
         try { fs.unlinkSync(tempPath); } catch (_) {}
@@ -278,7 +288,7 @@ class PersistentStore {
       }
     }
     const mergedLeads = Array.from(leadMap.values());
-    this._atomicWrite(this.leadsFile, mergedLeads);
+    if (existingLeads.length < mergedLeads.length) { this._atomicWrite(this.leadsFile, mergedLeads); }
 
     // Seed canonical generated demos
     const canonicalDemos = [
@@ -462,7 +472,7 @@ class PersistentStore {
       }
     }
     const mergedDemos = Array.from(demoMap.values());
-    this._atomicWrite(this.demosFile, mergedDemos);
+    if (existingDemos.length < mergedDemos.length) { this._atomicWrite(this.demosFile, mergedDemos); }
   }
 
   // --- Leads API ---

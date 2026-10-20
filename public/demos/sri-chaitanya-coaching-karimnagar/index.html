@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sri Chaitanya Junior &amp; Coaching College | Educational Coaching Centres &amp; Junior Colleges in Karimnagar, Telangana</title>
-  <meta name="description" content="Discover Sri Chaitanya Junior &amp; Coaching College in Karimnagar, Telangana. Comprehensive conceptual coaching, micro-scheduled test series, and dedicated expert faculty mentorship at Opp. Collectorate Office, Mukarampura.">
+  <meta name="description" content="Discover Sri Chaitanya Junior &amp; Coaching College in Karimnagar, Telangana. Specialized EAPCET &amp; NEET preparation, comprehensive junior college programs, and easy access to digital resources for Karimnagar students.">
   
   <!-- OpenGraph / Social Metadata -->
   <meta property="og:title" content="Sri Chaitanya Junior &amp; Coaching College - Karimnagar">
-  <meta property="og:description" content="Comprehensive conceptual coaching, micro-scheduled test series, and dedicated expert faculty mentorship at Opp. Collectorate Office, Mukarampura.">
+  <meta property="og:description" content="Specialized EAPCET &amp; NEET preparation, comprehensive junior college programs, and easy access to digital resources for Karimnagar students.">
   <meta property="og:type" content="business.business">
   <meta property="og:locale" content="en_IN">
   
@@ -70,22 +70,6 @@
     }
 
     /* Navigation */
-    .concept-banner-hidden { display: none; }
-      background: linear-gradient(90deg, #1e1b4b, #312e81, #1e1b4b);
-      color: #c7d2fe;
-      font-size: 0.8rem;
-      padding: 8px 16px;
-      text-align: center;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .concept-banner strong { color: #fff; }
-
-    /* Navigation */
     nav {
       max-width: 1200px;
       margin: 0 auto;
@@ -138,16 +122,18 @@
       box-shadow: 0 4px 15px rgba(255,255,255,0.2);
     }
 
-    /* Hero Section with 3D Canvas */
+    /* Hero Section with Photographic Backdrop and 3D Canvas */
     .hero {
       position: relative;
-      min-height: 80vh;
+      min-height: 85vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 24px;
+      padding: 90px 24px 80px;
       overflow: hidden;
+      background: linear-gradient(180deg, rgba(13, 15, 20, 0.82) 0%, rgba(13, 15, 20, 0.94) 100%),
+                  url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
     }
     #three-canvas {
       position: absolute;
@@ -156,7 +142,7 @@
       width: 100%;
       height: 100%;
       z-index: 1;
-      opacity: 0.6;
+      opacity: 0.55;
       pointer-events: none;
     }
     .hero-content {
@@ -167,7 +153,7 @@
     }
     .hero-badge {
       display: inline-block;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--border);
       color: var(--primary);
       font-size: 0.85rem;
@@ -257,6 +243,73 @@
       font-size: clamp(1.8rem, 3.5vw, 2.5rem);
       font-weight: 800;
       color: #fff;
+    }
+
+    /* Photographic Showcase Gallery */
+    .grid-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+    .card-gallery {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-gallery:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+    .gallery-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #111;
+    }
+    .gallery-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .card-gallery:hover .gallery-img-wrap img {
+      transform: scale(1.05);
+    }
+    .gallery-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      color: var(--primary);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      backdrop-filter: blur(6px);
+    }
+    .gallery-info {
+      padding: 20px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-info h4 {
+      font-family: var(--font-heading);
+      color: #fff;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+    .gallery-info p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
     /* Advantages Grid */
@@ -350,7 +403,7 @@
     }
     .btn-book-sm:hover { background: var(--primary); color: #000; }
 
-    /* Interactive Calculator / Booking Hook */
+    /* Interactive Callout Card */
     .interactive-card {
       background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.08));
       border: 1px solid var(--border);
@@ -383,18 +436,14 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 20px 24px;
-      cursor: pointer;
     }
     .faq-item h4 {
       font-size: 1.05rem;
       color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      margin-bottom: 6px;
     }
     .faq-item p {
       color: var(--text-muted);
-      margin-top: 10px;
       font-size: 0.95rem;
     }
 
@@ -430,16 +479,6 @@
       color: var(--text-muted);
       font-size: 0.9rem;
     }
-    .placeholder-badge {
-      display: inline-block;
-      font-size: 0.7rem;
-      background: rgba(239, 68, 68, 0.15);
-      color: #f87171;
-      padding: 2px 6px;
-      border-radius: 4px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
 
     /* Floating WhatsApp Button */
     .floating-wa {
@@ -465,6 +504,7 @@
     /* Mobile Bottom Action Bar */
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .grid-gallery { grid-template-columns: 1fr; }
       .mobile-action-bar {
         position: fixed;
         bottom: 0;
@@ -511,6 +551,7 @@
     </a>
     <div class="nav-links">
       <a href="#advantages">Why Us</a>
+      <a href="#gallery">Showcase</a>
       <a href="#services">Services</a>
       <a href="#faq">FAQ</a>
       <a href="#location">Find Us</a>
@@ -522,13 +563,13 @@
   <section class="hero" id="hero">
     <canvas id="three-canvas" aria-hidden="true"></canvas>
     <div class="hero-content">
-      <div class="hero-badge">★ 4.4 Leading Junior &amp; Entrance Coaching Institute</div>
-      <h1>Empowering Karimnagar&#39;s Top Rankers in IIT-JEE, NEET &amp; Intermediate</h1>
-      <p>Comprehensive conceptual coaching, micro-scheduled test series, and dedicated expert faculty mentorship at Opp. Collectorate Office, Mukarampura.</p>
+      <div class="hero-badge">4.4 Star Rated Coaching College</div>
+      <h1>Karimnagar&#39;s Premier Coaching for Academic &amp; Entrance Success</h1>
+      <p>Specialized EAPCET &amp; NEET preparation, comprehensive junior college programs, and easy access to digital resources for Karimnagar students.</p>
       <div class="hero-ctas">
         <a href="https://wa.me/918782241900?text=Hi%20Sri%20Chaitanya%20Junior%20%26%20Coaching%20College%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." target="_blank" rel="noopener noreferrer" class="btn-primary">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          Book Free Academic Counseling
+          Explore Programs &amp; Enroll
         </a>
         <a href="tel:918782241900" class="btn-secondary">
           📞 Call +91 87822 41900
@@ -546,76 +587,162 @@
     <div class="grid-advantages">
       
         <div class="card-advantage">
-          <h3>Proven Entrance Track Record</h3>
-          <p>Consistent top percentiles in JEE Advanced, Mains, NEET Medical, and TG-EAPCET state examinations.</p>
+          <h3>Specialized Entrance Test Coaching</h3>
+          <p>Expert guidance for EAPCET, NEET, and other competitive entrance examinations tailored for Karimnagar students.</p>
         </div>
       
         <div class="card-advantage">
-          <h3>Daily Practice Papers &amp; Micro-Schedules</h3>
-          <p>Rigorous daily DPPs, weekly error analysis sessions, and individual doubt-clearing counters.</p>
+          <h3>Comprehensive Junior College Programs</h3>
+          <p>Holistic academic curriculum designed to build strong foundations and ensure success in board exams and beyond.</p>
         </div>
       
         <div class="card-advantage">
-          <h3>Experienced Senior National Faculty</h3>
-          <p>Subject matter specialists with 12+ years mentoring experience breaking down complex concepts simply.</p>
+          <h3>Digital Learning Resources</h3>
+          <p>Access to downloadable syllabi, study materials, and online practice tests for flexible and effective preparation.</p>
         </div>
       
     </div>
   </section>
 
+  <!-- Curated Category Photography Showcase -->
+  <section id="gallery">
+    <div class="section-header">
+      <span class="section-tag">Educational Coaching Centres &amp; Junior Colleges Visual Showcase</span>
+      <h2 class="section-title">Verified Portfolio & Standards</h2>
+      <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Authentic glimpses into our daily work, facilities, and signature service quality in Karimnagar.</p>
+    </div>
+    <div class="grid-gallery">
+      
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Digital Entrance Exam Practice &amp; Analysis" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">Test Series</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Digital Entrance Exam Practice &amp; Analysis</h4>
+            <p>Computer-based national exam simulations with immediate question-level error diagnostics.</p>
+          </div>
+        </div>
+      
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80" alt="Advanced Science Laboratory Curriculum" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">Practical Labs</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Advanced Science Laboratory Curriculum</h4>
+            <p>Hands-on practical physics and chemistry demonstrations cementing theoretical concepts.</p>
+          </div>
+        </div>
+      
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80" alt="Structured Daily Practice Papers (DPP)" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">Study Modules</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Structured Daily Practice Papers (DPP)</h4>
+            <p>Systematic question banks mapped chapter-by-chapter to ensure thorough conceptual mastery.</p>
+          </div>
+        </div>
+      
+    </div>
+  </section>
+
+  <!-- Bespoke Interactive Micro-Component Section -->
+  
+    <!-- Entrance Pathways & Mentorship System -->
+    <section id="exam-pathways" style="background: rgba(56, 189, 248, 0.04); border-top: 1px solid rgba(56, 189, 248, 0.2); border-bottom: 1px solid rgba(56, 189, 248, 0.2);">
+      <div class="section-header">
+        <span class="section-tag" style="color: #38bdf8;">Academic Mentorship</span>
+        <h2 class="section-title">Proven 4-Tier Entrance Coaching Methodology</h2>
+        <p style="color: var(--text-muted); max-width: 620px; margin: 10px auto 0;">Structured curriculum designed to elevate student confidence from foundational concepts to top national ranks.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; max-width: 1040px; margin: 0 auto 36px;">
+        <div style="background: var(--surface); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border);">
+          <span style="display: inline-block; background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-weight: 700; font-size: 0.8rem; padding: 4px 10px; border-radius: 20px; margin-bottom: 12px;">Stage 01</span>
+          <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">Concept Immersion</h4>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">Rigorous foundational theory lectures breaking down abstract principles step-by-step.</p>
+        </div>
+        <div style="background: var(--surface); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border);">
+          <span style="display: inline-block; background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-weight: 700; font-size: 0.8rem; padding: 4px 10px; border-radius: 20px; margin-bottom: 12px;">Stage 02</span>
+          <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">Daily Practice Papers</h4>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">30 to 45 targeted high-frequency numericals every single evening with next-morning solution keys.</p>
+        </div>
+        <div style="background: var(--surface); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border);">
+          <span style="display: inline-block; background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-weight: 700; font-size: 0.8rem; padding: 4px 10px; border-radius: 20px; margin-bottom: 12px;">Stage 03</span>
+          <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">Error Analysis Sessions</h4>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">One-on-one doubt counters identifying negative-marking patterns and conceptual misunderstandings.</p>
+        </div>
+        <div style="background: var(--surface); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border);">
+          <span style="display: inline-block; background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-weight: 700; font-size: 0.8rem; padding: 4px 10px; border-radius: 20px; margin-bottom: 12px;">Stage 04</span>
+          <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 8px;">National Mock Simulation</h4>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">All-India comparative rank percentiles preparing students for genuine examination hall conditions.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <a href="https://wa.me/918782241900?text=Hi%2C%20I%20would%20like%20to%20schedule%20an%20in-person%20academic%20counseling%20session." target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: #38bdf8; color: #000;">
+          🎓 Book Free Academic Counseling & Scholarship Test
+        </a>
+      </div>
+    </section>
+    
+
   <!-- Services Showcase -->
   <section id="services">
     <div class="section-header">
       <span class="section-tag">Popular Offerings</span>
-      <h2 class="section-title">Signature Services & Transparent Pricing</h2>
+      <h2 class="section-title">Signature Offerings & Transparent Pricing</h2>
     </div>
     <div class="grid-services">
       
         <div class="card-service">
           <div>
-            <div class="service-cat">Engineering</div>
-            <h4>2-Year Integrated IIT-JEE (Mains &amp; Adv) Track</h4>
-            <p>Conceptual physics, advanced mathematics, chemistry labs, and national test series.</p>
+            <div class="service-cat">Entrance Test Preparation</div>
+            <h4>EAPCET Coaching Program</h4>
+            <p>Intensive coaching for Engineering, Agriculture &amp; Medical Common Entrance Test (EAPCET) with updated curriculum.</p>
           </div>
           <div class="service-footer">
-            <span class="service-price">Admissions Open</span>
-            <a href="https://wa.me/918782241900?text=Hi%20Sri%20Chaitanya%20Junior%20%26%20Coaching%20College%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%202-Year%20Integrated%20IIT-JEE%20(Mains%20%26%20Adv)%20Track" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <span class="service-price">Enquire</span>
+            <a href="https://wa.me/918782241900?text=Hi%20Sri%20Chaitanya%20Junior%20%26%20Coaching%20College%2C%20I%20would%20like%20to%20enquire%20about%20EAPCET%20Coaching%20Program" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
         <div class="card-service">
           <div>
-            <div class="service-cat">Medical</div>
-            <h4>Intensive NEET Medical Entrance Preparation</h4>
-            <p>NCERT line-by-line mastery, botany &amp; zoology mock exams, and speed test drills.</p>
+            <div class="service-cat">Medical Entrance Preparation</div>
+            <h4>NEET Coaching Program</h4>
+            <p>Dedicated coaching for National Eligibility cum Entrance Test (NEET) to secure admission in top medical colleges.</p>
           </div>
           <div class="service-footer">
-            <span class="service-price">Admissions Open</span>
-            <a href="https://wa.me/918782241900?text=Hi%20Sri%20Chaitanya%20Junior%20%26%20Coaching%20College%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Intensive%20NEET%20Medical%20Entrance%20Preparation" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <span class="service-price">Enquire</span>
+            <a href="https://wa.me/918782241900?text=Hi%20Sri%20Chaitanya%20Junior%20%26%20Coaching%20College%2C%20I%20would%20like%20to%20enquire%20about%20NEET%20Coaching%20Program" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
         <div class="card-service">
           <div>
-            <div class="service-cat">Board Curriculum</div>
-            <h4>Intermediate MPC / BiPC Board Excellence</h4>
-            <p>State board curriculum alignment ensuring 98%+ marks along with entrance preparation.</p>
+            <div class="service-cat">Junior College Education</div>
+            <h4>Intermediate Junior College (MPC)</h4>
+            <p>Two-year intermediate program for Mathematics, Physics, Chemistry (MPC) with integrated coaching.</p>
           </div>
           <div class="service-footer">
-            <span class="service-price">Enquire for Batches</span>
-            <a href="https://wa.me/918782241900?text=Hi%20Sri%20Chaitanya%20Junior%20%26%20Coaching%20College%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Intermediate%20MPC%20%2F%20BiPC%20Board%20Excellence" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <span class="service-price">Enquire</span>
+            <a href="https://wa.me/918782241900?text=Hi%20Sri%20Chaitanya%20Junior%20%26%20Coaching%20College%2C%20I%20would%20like%20to%20enquire%20about%20Intermediate%20Junior%20College%20(MPC)" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
         <div class="card-service">
           <div>
-            <div class="service-cat">State Entrance</div>
-            <h4>TG-EAPCET Rank Acceleration Batch</h4>
-            <p>Targeted shortcut formulas, state exam simulation tests, and high-frequency question banks.</p>
+            <div class="service-cat">Junior College Education</div>
+            <h4>Intermediate Junior College (BiPC)</h4>
+            <p>Two-year intermediate program for Biology, Physics, Chemistry (BiPC) with integrated coaching.</p>
           </div>
           <div class="service-footer">
-            <span class="service-price">Special Batch</span>
-            <a href="https://wa.me/918782241900?text=Hi%20Sri%20Chaitanya%20Junior%20%26%20Coaching%20College%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20TG-EAPCET%20Rank%20Acceleration%20Batch" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <span class="service-price">Enquire</span>
+            <a href="https://wa.me/918782241900?text=Hi%20Sri%20Chaitanya%20Junior%20%26%20Coaching%20College%2C%20I%20would%20like%20to%20enquire%20about%20Intermediate%20Junior%20College%20(BiPC)" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
@@ -626,7 +753,7 @@
   <section>
     <div class="interactive-card">
       <div>
-        <h3>Need custom requirements or group bookings?</h3>
+        <h3>Need custom requirements or personalized assistance?</h3>
         <p style="color: var(--text-muted); max-width: 500px;">Direct WhatsApp consultation connects you immediately with our team in Karimnagar.</p>
       </div>
       <a href="https://wa.me/918782241900?text=Hi%20Sri%20Chaitanya%20Junior%20%26%20Coaching%20College%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." target="_blank" rel="noopener noreferrer" class="btn-primary">Chat with Us Now</a>
@@ -642,13 +769,13 @@
     <div class="faq-list">
       
         <div class="faq-item">
-          <h4>What are the admission and counseling hours in Karimnagar?</h4>
-          <p>Our campus at Opp. Collectorate Office, Mukarampura, Karimnagar, Telangana 505001 is open Monday to Saturday from 8:30 AM to 6:30 PM for admissions.</p>
+          <h4>How can I download the syllabus for specific courses?</h4>
+          <p>You can easily download the detailed syllabus for all our EAPCET, NEET, and Junior College programs directly from our website&#39;s &#39;Programs&#39; section.</p>
         </div>
       
         <div class="faq-item">
-          <h4>Are study materials and test series provided?</h4>
-          <p>Yes, comprehensive updated study modules, question banks, and weekly online/offline test series are included.</p>
+          <h4>Is there a dedicated portal for parent enquiries and progress tracking?</h4>
+          <p>Yes, we offer a dedicated parent enquiry form on our website, and our administrative team is available to address all your queries regarding student progress and admissions.</p>
         </div>
       
     </div>
@@ -679,11 +806,10 @@
   <footer>
     <p>© 2026 Sri Chaitanya Junior &amp; Coaching College. All rights reserved.</p>
     <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text-muted);">Opp. Collectorate Office, Mukarampura, Karimnagar, Telangana 505001</p>
-
   </footer>
 
   <!-- Floating WhatsApp CTA (Desktop & Mobile) -->
-  <a href="https://wa.me/918782241900?text=Hi%20Sri%20Chaitanya%20Junior%20%26%20Coaching%20College%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/918782241900?text=Hi%20Sri%20Chaitanya%20Junior%20%26%20Coaching%20College%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
   </a>
 

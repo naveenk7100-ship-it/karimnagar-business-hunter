@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Famous Tattoos &amp; Beauty Saloon | Salons, Spas &amp; Tattoo Studios in Karimnagar, Telangana</title>
-  <meta name="description" content="Discover Famous Tattoos &amp; Beauty Saloon in Karimnagar, Telangana. Experience bespoke haircuts, bridal makeovers, and medical-grade custom tattoo artistry in a hygienic luxury studio at Near Eat And More, Fathepura.">
+  <meta name="description" content="Discover Famous Tattoos &amp; Beauty Saloon in Karimnagar, Telangana. Experience unparalleled artistry and relaxation at Karimnagar&#39;s premier destination for stunning tattoos, luxurious salon services, and soothing spa treatments. Book your transformation today!">
   
   <!-- OpenGraph / Social Metadata -->
   <meta property="og:title" content="Famous Tattoos &amp; Beauty Saloon - Karimnagar">
-  <meta property="og:description" content="Experience bespoke haircuts, bridal makeovers, and medical-grade custom tattoo artistry in a hygienic luxury studio at Near Eat And More, Fathepura.">
+  <meta property="og:description" content="Experience unparalleled artistry and relaxation at Karimnagar&#39;s premier destination for stunning tattoos, luxurious salon services, and soothing spa treatments. Book your transformation today!">
   <meta property="og:type" content="business.business">
   <meta property="og:locale" content="en_IN">
   
@@ -70,22 +70,6 @@
     }
 
     /* Navigation */
-    .concept-banner-hidden { display: none; }
-      background: linear-gradient(90deg, #1e1b4b, #312e81, #1e1b4b);
-      color: #c7d2fe;
-      font-size: 0.8rem;
-      padding: 8px 16px;
-      text-align: center;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .concept-banner strong { color: #fff; }
-
-    /* Navigation */
     nav {
       max-width: 1200px;
       margin: 0 auto;
@@ -138,16 +122,18 @@
       box-shadow: 0 4px 15px rgba(255,255,255,0.2);
     }
 
-    /* Hero Section with 3D Canvas */
+    /* Hero Section with Photographic Backdrop and 3D Canvas */
     .hero {
       position: relative;
-      min-height: 80vh;
+      min-height: 85vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 24px;
+      padding: 90px 24px 80px;
       overflow: hidden;
+      background: linear-gradient(180deg, rgba(13, 15, 20, 0.82) 0%, rgba(13, 15, 20, 0.94) 100%),
+                  url('https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
     }
     #three-canvas {
       position: absolute;
@@ -156,7 +142,7 @@
       width: 100%;
       height: 100%;
       z-index: 1;
-      opacity: 0.6;
+      opacity: 0.55;
       pointer-events: none;
     }
     .hero-content {
@@ -167,7 +153,7 @@
     }
     .hero-badge {
       display: inline-block;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--border);
       color: var(--primary);
       font-size: 0.85rem;
@@ -257,6 +243,73 @@
       font-size: clamp(1.8rem, 3.5vw, 2.5rem);
       font-weight: 800;
       color: #fff;
+    }
+
+    /* Photographic Showcase Gallery */
+    .grid-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+    .card-gallery {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-gallery:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+    .gallery-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #111;
+    }
+    .gallery-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .card-gallery:hover .gallery-img-wrap img {
+      transform: scale(1.05);
+    }
+    .gallery-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      color: var(--primary);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      backdrop-filter: blur(6px);
+    }
+    .gallery-info {
+      padding: 20px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-info h4 {
+      font-family: var(--font-heading);
+      color: #fff;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+    .gallery-info p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
     /* Advantages Grid */
@@ -350,7 +403,7 @@
     }
     .btn-book-sm:hover { background: var(--primary); color: #000; }
 
-    /* Interactive Calculator / Booking Hook */
+    /* Interactive Callout Card */
     .interactive-card {
       background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.08));
       border: 1px solid var(--border);
@@ -383,18 +436,14 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 20px 24px;
-      cursor: pointer;
     }
     .faq-item h4 {
       font-size: 1.05rem;
       color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      margin-bottom: 6px;
     }
     .faq-item p {
       color: var(--text-muted);
-      margin-top: 10px;
       font-size: 0.95rem;
     }
 
@@ -430,16 +479,6 @@
       color: var(--text-muted);
       font-size: 0.9rem;
     }
-    .placeholder-badge {
-      display: inline-block;
-      font-size: 0.7rem;
-      background: rgba(239, 68, 68, 0.15);
-      color: #f87171;
-      padding: 2px 6px;
-      border-radius: 4px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
 
     /* Floating WhatsApp Button */
     .floating-wa {
@@ -465,6 +504,7 @@
     /* Mobile Bottom Action Bar */
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .grid-gallery { grid-template-columns: 1fr; }
       .mobile-action-bar {
         position: fixed;
         bottom: 0;
@@ -511,6 +551,7 @@
     </a>
     <div class="nav-links">
       <a href="#advantages">Why Us</a>
+      <a href="#gallery">Showcase</a>
       <a href="#services">Services</a>
       <a href="#faq">FAQ</a>
       <a href="#location">Find Us</a>
@@ -522,13 +563,13 @@
   <section class="hero" id="hero">
     <canvas id="three-canvas" aria-hidden="true"></canvas>
     <div class="hero-content">
-      <div class="hero-badge">★ 4.5 Premium Salon &amp; Certified Ink Studio</div>
-      <h1>Luxury Hair Artistry &amp; Precision Fine-Line Tattoos in Karimnagar</h1>
-      <p>Experience bespoke haircuts, bridal makeovers, and medical-grade custom tattoo artistry in a hygienic luxury studio at Near Eat And More, Fathepura.</p>
+      <div class="hero-badge">4.5 Star Rated by 45 Happy Clients</div>
+      <h1>Masterful Tattoos &amp; Rejuvenating Beauty in Karimnagar</h1>
+      <p>Experience unparalleled artistry and relaxation at Karimnagar&#39;s premier destination for stunning tattoos, luxurious salon services, and soothing spa treatments. Book your transformation today!</p>
       <div class="hero-ctas">
         <a href="https://wa.me/919963287114?text=Hi%20Famous%20Tattoos%20%26%20Beauty%20Saloon%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." target="_blank" rel="noopener noreferrer" class="btn-primary">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          Book VIP Slot on WhatsApp
+          Book Your Appointment Now
         </a>
         <a href="tel:919963287114" class="btn-secondary">
           📞 Call +91 99632 87114
@@ -546,76 +587,162 @@
     <div class="grid-advantages">
       
         <div class="card-advantage">
-          <h3>100% Hospital-Grade Sterilization</h3>
-          <p>Single-use sterilized needle cartridges unsealed right before your eyes, with medical autoclave hygiene.</p>
+          <h3>Curated Digital Portfolio</h3>
+          <p>Explore our extensive gallery of stunning tattoo designs and beauty transformations to inspire your next look.</p>
         </div>
       
         <div class="card-advantage">
-          <h3>Certified Hair Stylists &amp; Tattoo Artists</h3>
-          <p>Trained artists specializing in precision fades, international hair therapies, and custom fine-line ink.</p>
+          <h3>Effortless Online Booking</h3>
+          <p>Conveniently schedule your tattoo session or beauty appointment anytime, ensuring a smooth experience.</p>
         </div>
       
         <div class="card-advantage">
-          <h3>Private Consultation &amp; Bridal Suites</h3>
-          <p>Relaxed, fully air-conditioned private rooms designed for intimate bridal grooming and focused tattoo sessions.</p>
+          <h3>Personalized Aftercare Support</h3>
+          <p>Receive detailed, expert guidance for optimal healing and longevity of your tattoos and beauty treatments.</p>
         </div>
       
     </div>
   </section>
 
+  <!-- Curated Category Photography Showcase -->
+  <section id="gallery">
+    <div class="section-header">
+      <span class="section-tag">Salons, Spas &amp; Tattoo Studios Visual Showcase</span>
+      <h2 class="section-title">Verified Portfolio & Standards</h2>
+      <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Authentic glimpses into our daily work, facilities, and signature service quality in Karimnagar.</p>
+    </div>
+    <div class="grid-gallery">
+      
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format&fit=crop&w=600&q=80" alt="Neo-Traditional &amp; Custom Realism" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">Custom Flash</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Neo-Traditional &amp; Custom Realism</h4>
+            <p>Intricate custom design sketches tailored to your anatomy and personal narrative.</p>
+          </div>
+        </div>
+      
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?auto=format&fit=crop&w=600&q=80" alt="Fine-Line Geometric Sleeve Art" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">Blackwork</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fine-Line Geometric Sleeve Art</h4>
+            <p>Sharp, precision-executed geometric lines with balanced negative space.</p>
+          </div>
+        </div>
+      
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?auto=format&fit=crop&w=600&q=80" alt="High-Detail Shading &amp; Portrait Ink" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">Realism</span>
+          </div>
+          <div class="gallery-info">
+            <h4>High-Detail Shading &amp; Portrait Ink</h4>
+            <p>Smooth gradients, high-contrast black and grey shading with hospital-grade pigments.</p>
+          </div>
+        </div>
+      
+    </div>
+  </section>
+
+  <!-- Bespoke Interactive Micro-Component Section -->
+  
+    <!-- Clinical Hygiene & Flash Consultation -->
+    <section id="hygiene-protocol" style="background: rgba(194, 157, 89, 0.04); border-top: 1px solid rgba(194, 157, 89, 0.2); border-bottom: 1px solid rgba(194, 157, 89, 0.2);">
+      <div class="section-header">
+        <span class="section-tag" style="color: #c29d59;">Clinical Standards</span>
+        <h2 class="section-title">Strict Medical-Grade Hygiene & Safety Protocol</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Your health and skin safety come first. Zero shortcuts, zero compromises.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto 36px;">
+        <div style="background: var(--surface); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">💉</div>
+          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 6px;">Single-Use Cartridges</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Blister packs unsealed right in front of your eyes before every tattoo session.</p>
+        </div>
+        <div style="background: var(--surface); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🧼</div>
+          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 6px;">Autoclave Sterilization</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Hospital-standard pressure sterilization for all reusable grips and surfaces.</p>
+        </div>
+        <div style="background: var(--surface); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🌿</div>
+          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 6px;">100% Vegan Inks</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Certified non-toxic, skin-tested organic pigments ensuring vibrant long-term healing.</p>
+        </div>
+        <div style="background: var(--surface); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🩹</div>
+          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 6px;">Dermal SecondSkin Wrap</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Medical waterproof breathable protective membrane provided for infection-free recovery.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <a href="https://wa.me/919963287114?text=Hi%2C%20I%20want%20to%20send%20an%20image%20of%20my%20custom%20tattoo%20idea%20for%20size%20and%20price%20consultation." target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: #c29d59; color: #000;">
+          ⚡ Send Your Tattoo Reference Photo on WhatsApp
+        </a>
+      </div>
+    </section>
+    
+
   <!-- Services Showcase -->
   <section id="services">
     <div class="section-header">
       <span class="section-tag">Popular Offerings</span>
-      <h2 class="section-title">Signature Services & Transparent Pricing</h2>
+      <h2 class="section-title">Signature Offerings & Transparent Pricing</h2>
     </div>
     <div class="grid-services">
       
         <div class="card-service">
           <div>
-            <div class="service-cat">Hair Artistry</div>
-            <h4>Signature Haircut &amp; Beard Architecture</h4>
-            <p>Consultation, scalp massage, precision style cut, and hot towel finish.</p>
+            <div class="service-cat">Tattoos</div>
+            <h4>Custom Tattoo Artistry</h4>
+            <p>Bring your vision to life with unique, personalized tattoo designs crafted by our skilled artists.</p>
           </div>
           <div class="service-footer">
-            <span class="service-price">₹499*</span>
-            <a href="https://wa.me/919963287114?text=Hi%20Famous%20Tattoos%20%26%20Beauty%20Saloon%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Signature%20Haircut%20%26%20Beard%20Architecture" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <span class="service-price">Enquire</span>
+            <a href="https://wa.me/919963287114?text=Hi%20Famous%20Tattoos%20%26%20Beauty%20Saloon%2C%20I%20would%20like%20to%20enquire%20about%20Custom%20Tattoo%20Artistry" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
         <div class="card-service">
           <div>
-            <div class="service-cat">Tattoo Art</div>
-            <h4>Custom Tattoo &amp; Fine Line Ink</h4>
-            <p>Custom 3D flash preview, single-use needle cartridge, medical-grade aftercare protocol.</p>
+            <div class="service-cat">Salon Services</div>
+            <h4>Hair Styling &amp; Treatments</h4>
+            <p>From trendy cuts to nourishing treatments, achieve your desired hair look with our expert stylists.</p>
           </div>
           <div class="service-footer">
-            <span class="service-price">From ₹1,200*</span>
-            <a href="https://wa.me/919963287114?text=Hi%20Famous%20Tattoos%20%26%20Beauty%20Saloon%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Custom%20Tattoo%20%26%20Fine%20Line%20Ink" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <span class="service-price">Starts from ₹500 (Indicative)</span>
+            <a href="https://wa.me/919963287114?text=Hi%20Famous%20Tattoos%20%26%20Beauty%20Saloon%2C%20I%20would%20like%20to%20enquire%20about%20Hair%20Styling%20%26%20Treatments" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
         <div class="card-service">
           <div>
-            <div class="service-cat">Therapies</div>
-            <h4>Keratin &amp; Botox Hair Spa Therapy</h4>
-            <p>Intense moisture restoration and frizz control for long-lasting silky smooth hair.</p>
+            <div class="service-cat">Spa &amp; Beauty</div>
+            <h4>Rejuvenating Facial Therapies</h4>
+            <p>Indulge in relaxing facials tailored to your skin type, leaving you refreshed and radiant.</p>
           </div>
           <div class="service-footer">
-            <span class="service-price">₹1,999*</span>
-            <a href="https://wa.me/919963287114?text=Hi%20Famous%20Tattoos%20%26%20Beauty%20Saloon%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Keratin%20%26%20Botox%20Hair%20Spa%20Therapy" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <span class="service-price">Starts from ₹800 (Indicative)</span>
+            <a href="https://wa.me/919963287114?text=Hi%20Famous%20Tattoos%20%26%20Beauty%20Saloon%2C%20I%20would%20like%20to%20enquire%20about%20Rejuvenating%20Facial%20Therapies" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
         <div class="card-service">
           <div>
-            <div class="service-cat">Makeovers</div>
-            <h4>HD Bridal &amp; Groom Package</h4>
-            <p>Pre-wedding skin facial, premium styling, beard grooming, and photo-ready finish.</p>
+            <div class="service-cat">Tattoos</div>
+            <h4>Tattoo Touch-ups &amp; Cover-ups</h4>
+            <p>Refresh existing ink or transform old tattoos into new masterpieces with our specialized services.</p>
           </div>
           <div class="service-footer">
-            <span class="service-price">Enquire for Muhurtham</span>
-            <a href="https://wa.me/919963287114?text=Hi%20Famous%20Tattoos%20%26%20Beauty%20Saloon%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20HD%20Bridal%20%26%20Groom%20Package" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <span class="service-price">Enquire</span>
+            <a href="https://wa.me/919963287114?text=Hi%20Famous%20Tattoos%20%26%20Beauty%20Saloon%2C%20I%20would%20like%20to%20enquire%20about%20Tattoo%20Touch-ups%20%26%20Cover-ups" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
@@ -626,7 +753,7 @@
   <section>
     <div class="interactive-card">
       <div>
-        <h3>Need custom requirements or group bookings?</h3>
+        <h3>Need custom requirements or personalized assistance?</h3>
         <p style="color: var(--text-muted); max-width: 500px;">Direct WhatsApp consultation connects you immediately with our team in Karimnagar.</p>
       </div>
       <a href="https://wa.me/919963287114?text=Hi%20Famous%20Tattoos%20%26%20Beauty%20Saloon%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." target="_blank" rel="noopener noreferrer" class="btn-primary">Chat with Us Now</a>
@@ -642,13 +769,13 @@
     <div class="faq-list">
       
         <div class="faq-item">
-          <h4>Where are you located in Karimnagar?</h4>
-          <p>We are located at Near Eat And More Restaurant, Fathepura, Karimnagar, Telangana 505001. Walk-ins and appointments are both welcomed!</p>
+          <h4>How do I book an appointment for a tattoo or beauty service?</h4>
+          <p>You can easily book your appointment through our website&#39;s online booking system or by calling us directly during business hours.</p>
         </div>
       
         <div class="faq-item">
-          <h4>Is tattoo equipment sterilized and safe?</h4>
-          <p>Yes, 100% single-use sterilized needle cartridges opened directly in front of clients, adhering to strict hygiene guidelines.</p>
+          <h4>What kind of aftercare guidance do you provide for tattoos?</h4>
+          <p>We provide comprehensive verbal and written aftercare instructions for all tattoos to ensure proper healing and vibrant, long-lasting results.</p>
         </div>
       
     </div>
@@ -679,11 +806,10 @@
   <footer>
     <p>© 2026 Famous Tattoos &amp; Beauty Saloon. All rights reserved.</p>
     <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text-muted);">Near Eat And More Restaurant, Fathepura, Karimnagar, Telangana 505001</p>
-
   </footer>
 
   <!-- Floating WhatsApp CTA (Desktop & Mobile) -->
-  <a href="https://wa.me/919963287114?text=Hi%20Famous%20Tattoos%20%26%20Beauty%20Saloon%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/919963287114?text=Hi%20Famous%20Tattoos%20%26%20Beauty%20Saloon%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
   </a>
 

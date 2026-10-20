@@ -70,22 +70,6 @@
     }
 
     /* Navigation */
-    .concept-banner-hidden { display: none; }
-      background: linear-gradient(90deg, #1e1b4b, #312e81, #1e1b4b);
-      color: #c7d2fe;
-      font-size: 0.8rem;
-      padding: 8px 16px;
-      text-align: center;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .concept-banner strong { color: #fff; }
-
-    /* Navigation */
     nav {
       max-width: 1200px;
       margin: 0 auto;
@@ -138,16 +122,18 @@
       box-shadow: 0 4px 15px rgba(255,255,255,0.2);
     }
 
-    /* Hero Section with 3D Canvas */
+    /* Hero Section with Photographic Backdrop and 3D Canvas */
     .hero {
       position: relative;
-      min-height: 80vh;
+      min-height: 85vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 24px;
+      padding: 90px 24px 80px;
       overflow: hidden;
+      background: linear-gradient(180deg, rgba(13, 15, 20, 0.82) 0%, rgba(13, 15, 20, 0.94) 100%),
+                  url('https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
     }
     #three-canvas {
       position: absolute;
@@ -156,7 +142,7 @@
       width: 100%;
       height: 100%;
       z-index: 1;
-      opacity: 0.6;
+      opacity: 0.55;
       pointer-events: none;
     }
     .hero-content {
@@ -167,7 +153,7 @@
     }
     .hero-badge {
       display: inline-block;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--border);
       color: var(--primary);
       font-size: 0.85rem;
@@ -257,6 +243,73 @@
       font-size: clamp(1.8rem, 3.5vw, 2.5rem);
       font-weight: 800;
       color: #fff;
+    }
+
+    /* Photographic Showcase Gallery */
+    .grid-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+    .card-gallery {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-gallery:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+    .gallery-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #111;
+    }
+    .gallery-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .card-gallery:hover .gallery-img-wrap img {
+      transform: scale(1.05);
+    }
+    .gallery-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      color: var(--primary);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      backdrop-filter: blur(6px);
+    }
+    .gallery-info {
+      padding: 20px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-info h4 {
+      font-family: var(--font-heading);
+      color: #fff;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+    .gallery-info p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
     /* Advantages Grid */
@@ -350,7 +403,7 @@
     }
     .btn-book-sm:hover { background: var(--primary); color: #000; }
 
-    /* Interactive Calculator / Booking Hook */
+    /* Interactive Callout Card */
     .interactive-card {
       background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.08));
       border: 1px solid var(--border);
@@ -383,18 +436,14 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 20px 24px;
-      cursor: pointer;
     }
     .faq-item h4 {
       font-size: 1.05rem;
       color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      margin-bottom: 6px;
     }
     .faq-item p {
       color: var(--text-muted);
-      margin-top: 10px;
       font-size: 0.95rem;
     }
 
@@ -430,16 +479,6 @@
       color: var(--text-muted);
       font-size: 0.9rem;
     }
-    .placeholder-badge {
-      display: inline-block;
-      font-size: 0.7rem;
-      background: rgba(239, 68, 68, 0.15);
-      color: #f87171;
-      padding: 2px 6px;
-      border-radius: 4px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
 
     /* Floating WhatsApp Button */
     .floating-wa {
@@ -465,6 +504,7 @@
     /* Mobile Bottom Action Bar */
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .grid-gallery { grid-template-columns: 1fr; }
       .mobile-action-bar {
         position: fixed;
         bottom: 0;
@@ -511,6 +551,7 @@
     </a>
     <div class="nav-links">
       <a href="#advantages">Why Us</a>
+      <a href="#gallery">Showcase</a>
       <a href="#services">Services</a>
       <a href="#faq">FAQ</a>
       <a href="#location">Find Us</a>
@@ -563,11 +604,99 @@
     </div>
   </section>
 
+  <!-- Curated Category Photography Showcase -->
+  <section id="gallery">
+    <div class="section-header">
+      <span class="section-tag">Wedding &amp; Event Photography Visual Showcase</span>
+      <h2 class="section-title">Verified Portfolio & Standards</h2>
+      <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Authentic glimpses into our daily work, facilities, and signature service quality in Karimnagar.</p>
+    </div>
+    <div class="grid-gallery">
+      
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Master Studio Portraiture &amp; Lighting" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">Studio Portraits</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Master Studio Portraiture &amp; Lighting</h4>
+            <p>Controlled softbox strobe lighting capturing character, natural skin tones, and warmth.</p>
+          </div>
+        </div>
+      
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Traditional Family &amp; Milestone Sessions" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">Family Memories</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Traditional Family &amp; Milestone Sessions</h4>
+            <p>Timeless group portraits, anniversary sessions, and generational family heritage portraits.</p>
+          </div>
+        </div>
+      
+        <div class="card-gallery">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="Vintage Photo Restoration &amp; Custom Framing" loading="lazy" width="600" height="400">
+            <span class="gallery-tag">Archival Craft</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Vintage Photo Restoration &amp; Custom Framing</h4>
+            <p>Digital restoration of damaged heritage photos and museum-grade wooden frame framing.</p>
+          </div>
+        </div>
+      
+    </div>
+  </section>
+
+  <!-- Bespoke Interactive Micro-Component Section -->
+  
+    <!-- Muhurtham Availability Checker -->
+    <section id="muhurtham-checker" style="background: rgba(229, 192, 123, 0.04); border-top: 1px solid rgba(229, 192, 123, 0.2); border-bottom: 1px solid rgba(229, 192, 123, 0.2);">
+      <div class="section-header">
+        <span class="section-tag" style="color: #e5c07b;">Telangana Wedding Season</span>
+        <h2 class="section-title">Check Your Muhurtham Date Availability</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 0;">Peak wedding dates book 3 to 6 months in advance. Verify your celebration dates instantly.</p>
+      </div>
+
+      <div style="max-width: 720px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 30px; box-shadow: var(--shadow);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 24px;">
+          <div>
+            <label for="event-date" style="display: block; font-size: 0.88rem; font-weight: 600; color: #fff; margin-bottom: 8px;">Muhurtham / Event Date</label>
+            <input type="date" id="event-date" style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
+          </div>
+          <div>
+            <label for="event-type" style="display: block; font-size: 0.88rem; font-weight: 600; color: #fff; margin-bottom: 8px;">Event Type</label>
+            <select id="event-type" style="width: 100%; padding: 12px 14px; background: #16151f; border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 0.95rem;">
+              <option value="Complete Wedding & Reception">Complete Wedding & Reception</option>
+              <option value="Pre-Wedding Cinematic Shoot">Pre-Wedding Cinematic Shoot</option>
+              <option value="Traditional Haldi / Sangeet">Traditional Haldi / Sangeet</option>
+              <option value="Engagement Ceremony">Engagement Ceremony</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="button" onclick="checkMuhurthamDate()" style="width: 100%; padding: 14px; background: #e5c07b; color: #000; border: none; border-radius: 30px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: transform 0.2s;">
+          💍 Check Date Availability on WhatsApp
+        </button>
+      </div>
+    </section>
+
+    <script>
+      function checkMuhurthamDate() {
+        var dateVal = document.getElementById('event-date').value;
+        var eventType = document.getElementById('event-type').value;
+        var msg = 'Hi, I would like to check availability for our ' + eventType + (dateVal ? ' on date: ' + dateVal : '') + '. Please share your wedding package details.';
+        window.open('https://wa.me/919848552190?text=' + encodeURIComponent(msg), '_blank');
+      }
+    </script>
+    
+
   <!-- Services Showcase -->
   <section id="services">
     <div class="section-header">
       <span class="section-tag">Popular Offerings</span>
-      <h2 class="section-title">Signature Services & Transparent Pricing</h2>
+      <h2 class="section-title">Signature Offerings & Transparent Pricing</h2>
     </div>
     <div class="grid-services">
       
@@ -579,7 +708,7 @@
           </div>
           <div class="service-footer">
             <span class="service-price">Enquire for Quote</span>
-            <a href="https://wa.me/919848552190?text=Hi%20Sumasri%20Digital%20Photo%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Complete%20Muhurtham%20Wedding%20Package" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <a href="https://wa.me/919848552190?text=Hi%20Sumasri%20Digital%20Photo%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20Complete%20Muhurtham%20Wedding%20Package" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
@@ -591,7 +720,7 @@
           </div>
           <div class="service-footer">
             <span class="service-price">From ₹15,000*</span>
-            <a href="https://wa.me/919848552190?text=Hi%20Sumasri%20Digital%20Photo%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Pre-Wedding%20%26%20Post-Wedding%20Shoots" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <a href="https://wa.me/919848552190?text=Hi%20Sumasri%20Digital%20Photo%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20Pre-Wedding%20%26%20Post-Wedding%20Shoots" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
@@ -603,7 +732,7 @@
           </div>
           <div class="service-footer">
             <span class="service-price">₹9,999*</span>
-            <a href="https://wa.me/919848552190?text=Hi%20Sumasri%20Digital%20Photo%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20Baby%20Shower%20%26%20Traditional%20Ceremonies" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <a href="https://wa.me/919848552190?text=Hi%20Sumasri%20Digital%20Photo%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20Baby%20Shower%20%26%20Traditional%20Ceremonies" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
@@ -615,7 +744,7 @@
           </div>
           <div class="service-footer">
             <span class="service-price">₹2,500*</span>
-            <a href="https://wa.me/919848552190?text=Hi%20Sumasri%20Digital%20Photo%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar.&text=Hi%2C%20I%20would%20like%20to%20book%20High-Resolution%20Studio%20Portraits" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Book on WhatsApp</a>
+            <a href="https://wa.me/919848552190?text=Hi%20Sumasri%20Digital%20Photo%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20High-Resolution%20Studio%20Portraits" target="_blank" rel="noopener noreferrer" class="btn-book-sm">Enquire on WhatsApp</a>
           </div>
         </div>
       
@@ -626,7 +755,7 @@
   <section>
     <div class="interactive-card">
       <div>
-        <h3>Need custom requirements or group bookings?</h3>
+        <h3>Need custom requirements or personalized assistance?</h3>
         <p style="color: var(--text-muted); max-width: 500px;">Direct WhatsApp consultation connects you immediately with our team in Karimnagar.</p>
       </div>
       <a href="https://wa.me/919848552190?text=Hi%20Sumasri%20Digital%20Photo%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." target="_blank" rel="noopener noreferrer" class="btn-primary">Chat with Us Now</a>
@@ -679,11 +808,10 @@
   <footer>
     <p>© 2026 Sumasri Digital Photo Studio. All rights reserved.</p>
     <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text-muted);">Gandhi Chowk Main Road, Karimnagar, Telangana 505001</p>
-
   </footer>
 
   <!-- Floating WhatsApp CTA (Desktop & Mobile) -->
-  <a href="https://wa.me/919848552190?text=Hi%20Sumasri%20Digital%20Photo%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/919848552190?text=Hi%20Sumasri%20Digital%20Photo%20Studio%2C%20I%20am%20contacting%20you%20regarding%20your%20services%20in%20Karimnagar." class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
   </a>
 
