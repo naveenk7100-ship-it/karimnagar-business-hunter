@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initPreviewModal();
   initHarnessActions();
   initHuntTrigger();
+  initFullscreenToggle();
+  loadFeaturesAndKnowledge();
   
   // Initial Data Load
   loadDashboardData();
@@ -45,7 +47,7 @@ function initNavigation() {
 
   // Handle URL Hash if present
   const hash = window.location.hash.replace('#', '');
-  if (['dashboard', 'leads', 'demos', 'qa', 'outreach', 'harness'].includes(hash)) {
+  if (['dashboard', 'leads', 'demos', 'qa', 'outreach', 'harness', 'features'].includes(hash)) {
     navigateTo(hash);
   }
 }
@@ -71,7 +73,8 @@ window.navigateTo = function(tabName) {
     demos: 'Premium Bespoke Demo Websites',
     qa: 'Quality Assurance & Deployment Registry',
     outreach: 'Customer Outreach Proposals',
-    harness: 'DeepSeek Harness & Workflow Benchmarks'
+    harness: 'DeepSeek Harness & Workflow Benchmarks',
+    features: 'Platform Architecture & Features Directory'
   };
   const titleEl = document.getElementById('page-title');
   if (titleEl) titleEl.textContent = titleMap[tabName] || 'Command Center';
@@ -691,4 +694,172 @@ function escapeHtml(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+}
+
+
+// --- Fullscreen Viewport Mode ---
+function initFullscreenToggle() {
+  const fsBtn = document.getElementById('btn-toggle-fs');
+  if (!fsBtn) return;
+
+  const updateIcon = () => {
+    const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
+    const iconEl = document.getElementById('fs-icon');
+    const labelEl = fsBtn.querySelector('.fs-label');
+    if (iconEl) iconEl.textContent = isFs ? '🗗' : '⛶';
+    if (labelEl) labelEl.textContent = isFs ? 'Exit' : 'Fullscreen';
+    document.body.classList.toggle('is-fullscreen', isFs);
+  };
+
+  fsBtn.addEventListener('click', async () => {
+    try {
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        if (document.documentElement.requestFullscreen) {
+          await document.documentElement.requestFullscreen();
+        } else if (document.documentElement.webkitRequestFullscreen) {
+          await document.documentElement.webkitRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          await document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          await document.webkitExitFullscreen();
+        }
+      }
+    } catch (err) {
+      console.warn('Fullscreen request failed:', err);
+      document.body.classList.toggle('is-fullscreen');
+    }
+  });
+
+  document.addEventListener('fullscreenchange', updateIcon);
+  document.addEventListener('webkitfullscreenchange', updateIcon);
+}
+
+// --- Features & Knowledge Base Subsystem ---
+async function loadFeaturesAndKnowledge() {
+  try {
+    const [featuresRes, kbRes] = await Promise.all([
+      fetch('/api/features').then(r => r.json()),
+      fetch('/api/knowledge-base').then(r => r.json())
+    ]);
+
+    state.features = featuresRes;
+    state.knowledgeBase = kbRes;
+
+    renderFeaturesCategoryGrid(featuresRes.categories || []);
+    renderQAPillars(featuresRes.qaPillars || []);
+    renderKnowledgeBaseTabs(kbRes.categories || {});
+    renderKnowledgeBaseDetail('furniture');
+  } catch (err) {
+    console.warn('[Dashboard] Could not load features metadata:', err);
+  }
+}
+
+function renderFeaturesCategoryGrid(categories) {
+  const grid = document.getElementById('features-category-grid');
+  if (!grid) return;
+
+  const descriptions = {
+    furniture: 'Solid seasoned teak wood, modular living sofas, ergonomic bedroom suites, dining collections.',
+    coaching: '2-year integrated IIT-JEE, NEET medical entrance, Intermediate MPC/BiPC, TG-EAPCET preparation.',
+    restaurant: 'Signature Hyderabadi dum biryani feasts, clay-oven tandoor platters, and family banquet dining.',
+    bakery: 'Daily fresh artisanal pastries, custom designer birthday cakes, and pure eggless celebration bakes.',
+    salon_tattoo: 'Signature haircuts, clinical single-use fine-line ink, keratin hair spas, and bridal makeovers.',
+    fitness_gym: 'Fully air-conditioned unisex fitness arena with Olympic lifting gear and custom diet plans.',
+    wedding_photo: 'Candid wedding photography, cinematic 4K wedding films, and heirloom velvet albums.',
+    general_retail: 'Local verified retail, consumer goods, apparel, and commercial Karimnagar establishments.'
+  };
+
+  grid.innerHTML = categories.map(cat => `
+    <div class="category-firewall-card">
+      <div class="cat-card-header">
+        <span class="cat-tag">${escapeHtml(cat.archetype || 'standard')}</span>
+        <h4>${escapeHtml(cat.name)}</h4>
+      </div>
+      <p class="cat-card-desc">${descriptions[cat.id] || 'Verified category data contract in Karimnagar.'}</p>
+      <div class="cat-card-footer">
+        <span class="cat-banned-badge">🛡️ ${cat.bannedCount} Banned Terms</span>
+        <span class="cat-status">Protected</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderKnowledgeBaseTabs(categoriesObj) {
+  const tabsContainer = document.getElementById('kb-category-tabs');
+  if (!tabsContainer) return;
+
+  const keys = Object.keys(categoriesObj);
+  tabsContainer.innerHTML = keys.map((key, idx) => `
+    <button class="btn-kb-tab ${key === 'furniture' ? 'active' : ''}" data-cat="${key}">
+      ${escapeHtml(categoriesObj[key].name)}
+    </button>
+  `).join('');
+
+  tabsContainer.querySelectorAll('.btn-kb-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabsContainer.querySelectorAll('.btn-kb-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderKnowledgeBaseDetail(btn.dataset.cat);
+    });
+  });
+}
+
+function renderKnowledgeBaseDetail(catKey) {
+  const container = document.getElementById('kb-detail-container');
+  if (!container || !state.knowledgeBase?.categories?.[catKey]) return;
+
+  const cat = state.knowledgeBase.categories[catKey];
+
+  container.innerHTML = `
+    <div class="kb-overview-box">
+      <div class="kb-meta-col">
+        <h4>Target Audience & Tone</h4>
+        <p><strong>Audience:</strong> ${escapeHtml(cat.targetAudience)}</p>
+        <p style="margin-top: 6px;"><strong>Tone:</strong> ${escapeHtml(cat.visualTone)}</p>
+        <div class="color-palette-preview" style="margin-top: 12px; display: flex; gap: 8px; align-items: center;">
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Palette:</span>
+          <span class="color-swatch" style="background:${cat.colorSystem.primary};" title="Primary: ${cat.colorSystem.primaryName}"></span>
+          <span class="color-swatch" style="background:${cat.colorSystem.accent};" title="Accent: ${cat.colorSystem.accentName}"></span>
+          <span class="color-swatch" style="background:${cat.colorSystem.bgDark}; border: 1px solid #333;" title="Background"></span>
+          <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: 8px;">Font: <strong>${escapeHtml(cat.typography.heading)}</strong></span>
+        </div>
+      </div>
+      <div class="kb-benchmarks-col">
+        <h4>Verified Industry Benchmarks (${cat.referenceWebsites?.length || 0} Sites)</h4>
+        <div class="benchmarks-list">
+          ${(cat.referenceWebsites || []).map(ref => `
+            <div class="benchmark-item">
+              <div class="benchmark-header">
+                <strong>${escapeHtml(ref.name)}</strong>
+                <a href="${escapeHtml(ref.url)}" target="_blank" rel="noopener" class="benchmark-link">↗ Visit</a>
+              </div>
+              <ul class="benchmark-patterns">
+                ${(ref.keyPatterns || []).map(p => `<li>${escapeHtml(p)}</li>`).join('')}
+              </ul>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderQAPillars(pillars) {
+  const list = document.getElementById('features-qa-pillars-list');
+  if (!list) return;
+
+  list.innerHTML = pillars.map((p, idx) => `
+    <div class="qa-pillar-item">
+      <div class="qa-pillar-num">${idx + 1}</div>
+      <div class="qa-pillar-info">
+        <strong>${escapeHtml(p.name)}</strong>
+        <span class="qa-pillar-id">gate_id: ${escapeHtml(p.id)}</span>
+      </div>
+      <div class="qa-pillar-status">
+        <span class="status-pill status-pass">Verified</span>
+      </div>
+    </div>
+  `).join('');
 }

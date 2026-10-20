@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { categoryRegistry } from './categoryRegistry.js';
 
 export class QAEngine {
   /**
@@ -137,6 +138,51 @@ export class QAEngine {
       name: 'Placeholder & Template Leakage',
       status: placeholderPass ? 'PASS' : 'FAIL',
       evidence: placeholderPass ? 'No raw template tokens detected' : `Found leaked tokens: ${foundTokens.join(', ')}`
+    });
+
+    // 8. Strict Category Safety & Cross-Contamination Guard
+    const resolvedCategory = categoryRegistry.resolveCategory(lead);
+    const categorySafety = categoryRegistry.validateContentSafety(resolvedCategory.id, bodyOnly);
+    checks.push({
+      id: 'category_safety',
+      name: 'Category Safety & Zero Contamination',
+      status: categorySafety.safe ? 'PASS' : 'FAIL',
+      evidence: categorySafety.safe
+        ? `Clean category integrity verified (${resolvedCategory.displayName})`
+        : `Cross-category contamination detected: ${categorySafety.violations.join(', ')}`
+    });
+
+    // 9. Client-Facing Independence & Zero Internal Leakage
+    const internalTokens = [
+      'Karimnagar Leads',
+      'Business Hunter',
+      'AI-generated',
+      'CONCEPT PREVIEW',
+      'Concept Placeholder',
+      'Official Concept Showcase',
+      'View Public Source'
+    ];
+    const foundInternal = internalTokens.filter(t => bodyOnly.toLowerCase().includes(t.toLowerCase()));
+    const internalPass = foundInternal.length === 0;
+    checks.push({
+      id: 'no_internal_leakage',
+      name: 'Client-Facing Independence',
+      status: internalPass ? 'PASS' : 'FAIL',
+      evidence: internalPass
+        ? '100% standalone client website without internal platform branding'
+        : `Leaked internal strings: ${foundInternal.join(', ')}`
+    });
+
+    // 10. Verified Business Facts & Conversion Integrity
+    const unescapedHtml = html.replace(/&amp;/g, '&');
+    const hasBusinessName = lead?.name ? (unescapedHtml.includes(lead.name) || unescapedHtml.toLowerCase().includes(lead.name.toLowerCase())) : true;
+    const hasKarimnagar = /Karimnagar/i.test(html);
+    const factsPass = hasBusinessName && hasKarimnagar && (hasWaLink || hasTelLink);
+    checks.push({
+      id: 'verified_facts',
+      name: 'Verified Facts & Local Integrity',
+      status: factsPass ? 'PASS' : 'FAIL',
+      evidence: `business_name=${hasBusinessName}, local_karimnagar=${hasKarimnagar}, direct_cta=${hasWaLink || hasTelLink}`
     });
 
     // Save repaired file if modifications were applied

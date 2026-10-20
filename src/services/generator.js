@@ -4,6 +4,7 @@ import { CONFIG } from '../config.js';
 import { aiService } from './ai.js';
 import { store } from './store.js';
 import { designEngine } from './designEngine.js';
+import { categoryRegistry } from './categoryRegistry.js';
 
 export class WebsiteGenerator {
   /**
@@ -67,23 +68,25 @@ export class WebsiteGenerator {
     const waLink = `https://wa.me/${waPhone}?text=${waText}`;
     const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${lead.name} ${lead.address}`)}`;
 
-    const isSalon = lead.niche?.includes('salon') || lead.category?.toLowerCase().includes('salon');
-    const isGym = lead.niche?.includes('gym') || lead.category?.toLowerCase().includes('gym');
-    const isPhoto = lead.niche?.includes('photo') || lead.category?.toLowerCase().includes('photo');
+    const resolvedCat = categoryRegistry.resolveCategory(lead);
+    const categoryName = resolvedCat.displayName;
+    const bgDark = bp.archetype?.theme?.bgDark || bp.bgDark || '#0f1115';
+    const surfaceDark = bp.archetype?.theme?.surfaceDark || '#1a1d24';
+    const primary = bp.archetype?.theme?.primary || bp.primaryColor || '#c9a050';
 
     // Theme CSS tokens
-    const bgDark = isGym ? '#0c0e12' : isSalon ? '#0d0d11' : '#0f1115';
-    const surfaceDark = isGym ? '#161922' : isSalon ? '#18171f' : '#1a1d24';
-    const primary = bp.primaryColor || (isGym ? '#ff4d00' : isSalon ? '#d4af37' : '#c9a050');
-    const accent = bp.accentColor || (isGym ? '#00e5ff' : isSalon ? '#e02868' : '#3d72b4');
-    const font = bp.fontFamily || 'Plus Jakarta Sans';
+    const accent = bp.archetype?.theme?.accent || bp.accentColor || '#3d72b4';
+    const font = bp.archetype?.typography?.heading || bp.fontFamily || 'Plus Jakarta Sans';
+
+
+
 
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${this._escape(lead.name)} | Official Concept Showcase (Karimnagar)</title>
+  <title>${this._escape(lead.name)} | ${this._escape(categoryName)} in Karimnagar, Telangana</title>
   <meta name="description" content="Discover ${this._escape(lead.name)} in Karimnagar, Telangana. ${this._escape(bp.hero.subheadline)}">
   
   <!-- OpenGraph / Social Metadata -->
@@ -149,8 +152,8 @@ export class WebsiteGenerator {
       overflow-x: hidden;
     }
 
-    /* Concept Banner */
-    .concept-banner {
+    /* Navigation */
+    .concept-banner-hidden { display: none; }
       background: linear-gradient(90deg, #1e1b4b, #312e81, #1e1b4b);
       color: #c7d2fe;
       font-size: 0.8rem;
@@ -583,11 +586,6 @@ export class WebsiteGenerator {
 </head>
 <body>
 
-  <!-- Top Concept Transparency Banner -->
-  <div class="concept-banner">
-    ✨ <strong>CONCEPT PREVIEW:</strong> Designed for <strong>${this._escape(lead.name)}</strong> by Karimnagar Business Hunter AI. Non-official preview demo.
-  </div>
-
   <!-- Header & Navigation -->
   <nav>
     <a href="#hero" class="brand">
@@ -699,7 +697,7 @@ export class WebsiteGenerator {
         <h4>${this._escape(lead.name)}</h4>
         <p>📍 ${this._escape(lead.address)}</p>
         <p style="margin-top: 6px;">📞 Phone: <strong>${this._escape(lead.phoneDisplay || lead.phone || 'Available via WhatsApp')}</strong></p>
-        <p style="margin-top: 6px; font-size: 0.85rem; color: #6b7280;">Verified Source: ${this._escape(lead.sourceType || 'Public Directory')} (<a href="${lead.publicSourceUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">View Public Source</a>)</p>
+        <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-muted);">Serving Karimnagar, Telangana and surrounding communities with premium quality service.</p>
       </div>
       <div>
         <a href="${mapsLink}" target="_blank" rel="noopener noreferrer" class="btn-secondary">
@@ -712,8 +710,8 @@ export class WebsiteGenerator {
   <!-- Footer -->
   <footer>
     <p>© ${new Date().getFullYear()} ${this._escape(lead.name)}. All rights reserved.</p>
-    <p style="margin-top: 8px;">Concept preview website engineered by Karimnagar Business Hunter AI automation.</p>
-    <p style="margin-top: 4px; font-size: 0.8rem;">Demo Version 1.0 <span class="placeholder-badge">Concept Placeholder</span></p>
+    <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text-muted);">${this._escape(lead.address)}</p>
+
   </footer>
 
   <!-- Floating WhatsApp CTA (Desktop & Mobile) -->

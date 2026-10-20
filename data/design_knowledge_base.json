@@ -1,0 +1,425 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-20T06:30:00Z",
+  "city": "Karimnagar, Telangana",
+  "description": "Comprehensive design reference database containing verified design patterns, typography pairings, color systems, and reference website benchmarks across Karimnagar target business categories.",
+  "categories": {
+    "furniture": {
+      "name": "Furniture & Interior Stores",
+      "slug": "furniture",
+      "targetAudience": "Homeowners, new apartment buyers, commercial office setup, wedding gift shoppers in Karimnagar & northern Telangana.",
+      "visualTone": "Warm Scandinavian minimalism, rich architectural timber, clean structured grids, craftsmanship excellence.",
+      "referenceWebsites": [
+        {
+          "name": "IKEA India",
+          "url": "https://www.ikea.com/in/en/",
+          "keyPatterns": ["Room-by-room inspiration tabs", "Material & wood durability specs", "Modular sofa configurator", "Dimensional dimensions & floor space guide"]
+        },
+        {
+          "name": "Urban Ladder",
+          "url": "https://www.urbanladder.com/",
+          "keyPatterns": ["Solid teak & sheesham wood tags", "Room setting photography", "Fabric swatch samples", "Direct WhatsApp showroom tour"]
+        },
+        {
+          "name": "Wooden Street",
+          "url": "https://www.woodenstreet.com/",
+          "keyPatterns": ["Customizable finishes", "Customer room photos", "Karimnagar doorstep delivery assurance", "EMI calculator"]
+        },
+        {
+          "name": "Pepperfry",
+          "url": "https://www.pepperfry.com/",
+          "keyPatterns": ["Studio Pepperfry store locator", "360-degree furniture viewer", "Warranty badges", "Clear dimension diagrams"]
+        },
+        {
+          "name": "Godrej Interio",
+          "url": "https://www.godrejinterio.com/",
+          "keyPatterns": ["Ergonomic workspace callouts", "Termite & moisture resistance seals", "Modular kitchen planner", "Store appointment booking"]
+        },
+        {
+          "name": "Damro India",
+          "url": "https://www.damroindia.com/",
+          "keyPatterns": ["Durable engineered wood sets", "Clear price points", "Living room bundles", "Direct telephone enquiry"]
+        }
+      ],
+      "colorSystem": {
+        "primary": "#c48b52",
+        "primaryName": "Rich Warm Teak",
+        "accent": "#5e829d",
+        "accentName": "Slate Glaze",
+        "bgDark": "#0e0f12",
+        "surfaceDark": "#17191f",
+        "border": "rgba(196, 139, 82, 0.22)"
+      },
+      "typography": {
+        "heading": "Syne",
+        "body": "Plus Jakarta Sans",
+        "weights": ["600", "700", "800"]
+      },
+      "conversionElements": [
+        "Store Visit & Direction CTA",
+        "Custom Room Quote Estimator via WhatsApp",
+        "Teak & Sheesham Craftsmanship Guarantee Badge",
+        "Doorstep Karimnagar Delivery & Assembly"
+      ],
+      "bannedTerms": [
+        "wedding photography", "candid wedding", "muhurtham", "photo album", "haircut", "facial",
+        "salon", "spa", "gym", "dumbbell", "barbell", "workout", "biryani", "tandoor",
+        "eapcet", "neet", "coaching college", "camera teaser", "pre-wedding"
+      ]
+    },
+    "coaching": {
+      "name": "Educational Coaching Centres & Junior Colleges",
+      "slug": "coaching",
+      "targetAudience": "Intermediate (10+2) students, parents, IIT-JEE, NEET, and EAPCET/TG-EAMCET aspirants in Karimnagar district.",
+      "visualTone": "Academic prestige, intellectual clarity, high-trust institutional credibility, structured curriculum layout.",
+      "referenceWebsites": [
+        {
+          "name": "Sri Chaitanya Educational Institutions",
+          "url": "https://srichaitanya.net/",
+          "keyPatterns": ["National rank announcements with hall ticket proof", "Integrated curriculum modules", "Faculty qualification matrix", "Parent counseling hotline"]
+        },
+        {
+          "name": "Narayana Educational Institutions",
+          "url": "https://www.narayanagroup.com/",
+          "keyPatterns": ["Micro-schedule breakdown", "Weekly mock exam schedules", "Branch campus locator", "Online admission enquiry"]
+        },
+        {
+          "name": "Allen Career Institute",
+          "url": "https://www.allen.ac.in/",
+          "keyPatterns": ["Target batch timelines", "Success stories with verified ranks", "Doubt counter details", "Fee structure & scholarship tests"]
+        },
+        {
+          "name": "Resonance Eduventures",
+          "url": "https://www.resonance.ac.in/",
+          "keyPatterns": ["Study material download links", "Exam calendar countdown", "Batch commencement dates", "Direct admission registration"]
+        },
+        {
+          "name": "Aakash Educational Services",
+          "url": "https://www.aakash.ac.in/",
+          "keyPatterns": ["Medical vs Engineering stream selector", "Scholarship calculator", "Karimnagar branch helpline", "Interactive syllabus PDF"]
+        },
+        {
+          "name": "PACE IIT & Medical",
+          "url": "https://iitianspace.com/",
+          "keyPatterns": ["Small batch size guarantee", "Past 5-year Karimnagar selections", "Campus lab facilities", "WhatsApp counseling direct link"]
+        }
+      ],
+      "colorSystem": {
+        "primary": "#38bdf8",
+        "primaryName": "Intellectual Cyan Sky",
+        "accent": "#f59e0b",
+        "accentName": "Academic Gold Amber",
+        "bgDark": "#070b14",
+        "surfaceDark": "#0f172a",
+        "border": "rgba(56, 189, 248, 0.25)"
+      },
+      "typography": {
+        "heading": "Lexend",
+        "body": "Inter",
+        "weights": ["600", "700", "800"]
+      },
+      "conversionElements": [
+        "Free Academic Counseling & Diagnostic Test Booking",
+        "Curriculum & Fee Schedule via WhatsApp",
+        "Karimnagar Collectorate Office Branch Directions",
+        "Direct Principal / Admission Cell Telephone Link"
+      ],
+      "bannedTerms": [
+        "wedding photography", "muhurtham", "bridal", "groom", "heirloom album", "haircut", "facial",
+        "salon", "botox hair spa", "gym", "bodybuilding", "dumbbell", "biryani", "tandoor",
+        "sofa set", "dining table", "teak wood", "cocktail bar"
+      ]
+    },
+    "restaurant": {
+      "name": "Restaurants & Dining",
+      "slug": "restaurant",
+      "targetAudience": "Families, food lovers, weekend diners, corporate lunch groups, party bookings in Karimnagar.",
+      "visualTone": "Warm culinary embers, appetizing rich photography, aromatic flavor cues, effortless menu browsing and table booking.",
+      "referenceWebsites": [
+        {
+          "name": "Paradise Biryani Hyderabad",
+          "url": "https://www.paradisefoodcourt.in/",
+          "keyPatterns": ["Authentic Dum Biryani heritage timeline", "Categorized menu tabs", "Party pack & take-away hotline", "Hygiene & HALAL certification"]
+        },
+        {
+          "name": "Barbeque Nation",
+          "url": "https://www.barbeque-nation.com/",
+          "keyPatterns": ["Live table reservation slot picker", "Buffet pricing for adults and kids", "Chef special kebab carousel", "Location & parking guidance"]
+        },
+        {
+          "name": "Pista House",
+          "url": "https://www.pistahouse.in/",
+          "keyPatterns": ["Seasonal specials (Haleem, Dum Ka Murgh)", "Online food parcel booking", "Family dining section highlight", "WhatsApp ordering"]
+        },
+        {
+          "name": "Bawarchi Restaurant",
+          "url": "https://bawarchirestaurant.in/",
+          "keyPatterns": ["Original branch verification", "Tandoori & Mughlai specialties", "Quick phone orders", "Party hall booking"]
+        },
+        {
+          "name": "Chili's India",
+          "url": "https://chilisindia.com/",
+          "keyPatterns": ["High-contrast visual menu cards", "Dietary badges (Veg, Non-Veg, Chef Recommended)", "Location locator with Google Maps", "Happy hours & dining offers"]
+        },
+        {
+          "name": "The Fisherman's Wharf",
+          "url": "https://thefishermanswharf.in/",
+          "keyPatterns": ["Signature culinary storytelling", "Ambience & seating gallery", "Special event private dining", "Instant WhatsApp reservation"]
+        }
+      ],
+      "colorSystem": {
+        "primary": "#f97316",
+        "primaryName": "Warm Tandoor Flame",
+        "accent": "#10b981",
+        "accentName": "Fresh Herb Mint",
+        "bgDark": "#0e0b0a",
+        "surfaceDark": "#1a1311",
+        "border": "rgba(249, 115, 22, 0.25)"
+      },
+      "typography": {
+        "heading": "Outfit",
+        "body": "Plus Jakarta Sans",
+        "weights": ["600", "700", "800"]
+      },
+      "conversionElements": [
+        "Reserve a Table via WhatsApp",
+        "Categorized Digital Menu with Veg/Non-Veg Badges",
+        "Takeaway & Parcel Phone Hotline",
+        "Google Maps Navigation to Kaman / Prathima Junction"
+      ],
+      "bannedTerms": [
+        "wedding photography", "muhurtham", "photo album", "haircut", "facial spa",
+        "salon", "gym", "dumbbell", "barbell", "eapcet", "neet coaching",
+        "sofa set", "living room furniture", "sheesham wood"
+      ]
+    },
+    "bakery": {
+      "name": "Bakeries & Cafes",
+      "slug": "bakery",
+      "targetAudience": "Birthday celebrations, cake lovers, dessert enthusiasts, youth coffee meetups in Karimnagar.",
+      "visualTone": "Artisanal confection, warm vanilla/chocolate indulgence, festive celebration vibes, custom cake ordering.",
+      "referenceWebsites": [
+        {
+          "name": "Theobroma Patisserie",
+          "url": "https://theobroma.in/",
+          "keyPatterns": ["Fresh daily bake counter", "Signature brownies & pastry showcase", "Celebration cake pre-order flow", "Storage & eggless guidance"]
+        },
+        {
+          "name": "Karachi Bakery Hyderabad",
+          "url": "https://www.karachibakery.com/",
+          "keyPatterns": ["Heritage fruit biscuits & plum cake highlights", "Online custom cake design request", "Gift hamper boxes", "Store pickup scheduler"]
+        },
+        {
+          "name": "Bakingo",
+          "url": "https://www.bakingo.com/",
+          "keyPatterns": ["Same-day 2-hour delivery guarantee", "Photo cakes & fondant customized designs", "Flavor selector (Red Velvet, Chocolate Truffle)", "WhatsApp cake photo quote"]
+        },
+        {
+          "name": "WarmOven Cakes",
+          "url": "https://www.warmoven.in/",
+          "keyPatterns": ["Midnight birthday surprise delivery", "Cupcake party towers", "Customer cake reviews", "Clear weight options (0.5kg, 1kg, 2kg)"]
+        },
+        {
+          "name": "Magnolia Bakery India",
+          "url": "https://www.magnoliabakery.com/",
+          "keyPatterns": ["Iconic banana pudding spotlight", "Pastel aesthetic typography", "Catering & bulk event orders", "Instagram feed integration"]
+        }
+      ],
+      "colorSystem": {
+        "primary": "#f43f5e",
+        "primaryName": "Velvet Berry Rose",
+        "accent": "#fbbf24",
+        "accentName": "Golden Pastry Glaze",
+        "bgDark": "#0f0b0c",
+        "surfaceDark": "#1c1417",
+        "border": "rgba(244, 63, 94, 0.25)"
+      },
+      "typography": {
+        "heading": "Outfit",
+        "body": "Plus Jakarta Sans",
+        "weights": ["600", "700", "800"]
+      },
+      "conversionElements": [
+        "Send Birthday Cake Photo for Custom Quote on WhatsApp",
+        "Daily Fresh Bakes & Flavor Menu",
+        "Direct Phone Order for Same-Day Pickup",
+        "Google Maps Store Navigation"
+      ],
+      "bannedTerms": [
+        "wedding photography", "muhurtham", "photo album", "haircut", "tattoo ink",
+        "gym", "barbell", "eapcet", "sofa set", "dining table"
+      ]
+    },
+    "salon_tattoo": {
+      "name": "Salons, Spas & Tattoo Studios",
+      "slug": "salon_tattoo",
+      "targetAudience": "Fashion-conscious men and women, youth ink enthusiasts, bridal beauty clients in Karimnagar.",
+      "visualTone": "Luxury artisan dark noir, clinical hygiene precision, metallic gold and vivid crimson ink accents, trendsetting elegance.",
+      "referenceWebsites": [
+        {
+          "name": "Aliens Tattoo India",
+          "url": "https://alienstattoo.com/",
+          "keyPatterns": ["Custom flash design portfolio", "100% sterilized single-use needle breakdown", "Celebrity client showcase", "WhatsApp consultation link"]
+        },
+        {
+          "name": "Toni&Guy India",
+          "url": "https://toniandguyindia.com/",
+          "keyPatterns": ["Artistic director cut & colour menu", "Seasonal style lookbooks", "Salon booking system", "Premium brand product shelf (Kérastase, L'Oréal)"]
+        },
+        {
+          "name": "Jawed Habib Hair & Beauty",
+          "url": "https://jawedhabib.com/",
+          "keyPatterns": ["Affordable luxury transparent price list", "Bridal makeover timeline", "Men's grooming combos", "Walk-in & appointment helpline"]
+        },
+        {
+          "name": "Body Canvas Tattoos",
+          "url": "https://bodycanvas.in/",
+          "keyPatterns": ["Tattoo aftercare detailed protocol", "Cover-up tattoo before/after slider", "Hygiene certificate display", "Custom sketch consultation booking"]
+        },
+        {
+          "name": "Enrich Beauty Salons",
+          "url": "https://www.enrichbeauty.com/",
+          "keyPatterns": ["Multi-category service filters (Hair, Skin, Spa, Nails)", "Membership loyalty discount highlights", "Online slot selector", "Verified Google review snippets"]
+        }
+      ],
+      "colorSystem": {
+        "primary": "#c29d59",
+        "primaryName": "Artisan Gold",
+        "accent": "#e02868",
+        "accentName": "Vivid Crimson Ink",
+        "bgDark": "#0d0d11",
+        "surfaceDark": "#16151f",
+        "border": "rgba(194, 157, 89, 0.2)"
+      },
+      "typography": {
+        "heading": "Cinzel Decorative",
+        "body": "Plus Jakarta Sans",
+        "weights": ["600", "700", "900"]
+      },
+      "conversionElements": [
+        "Book Appointment via WhatsApp",
+        "Single-Use Medical Needle Hygiene Guarantee",
+        "Transparent Service & Rate Card Menu",
+        "Direct Studio Call & Tower Circle Directions"
+      ],
+      "bannedTerms": [
+        "eapcet", "neet coaching", "engineering college", "sofa set", "sheesham dining table",
+        "biryani feast", "dum biryani", "dumbbell powerlifting"
+      ]
+    },
+    "fitness_gym": {
+      "name": "Gyms & Fitness Centres",
+      "slug": "fitness_gym",
+      "targetAudience": "Fitness enthusiasts, weight loss seekers, powerlifters, morning cardio professionals in Karimnagar.",
+      "visualTone": "High-octane athletic kinetic energy, electric solar orange and cyan lighting, motivational typography, equipment excellence.",
+      "referenceWebsites": [
+        {
+          "name": "Cult.fit",
+          "url": "https://www.cult.fit/",
+          "keyPatterns": ["Free 1-day trial workout pass CTA", "Daily batch schedule grid", "Trainer credentials & sports certifications", "No-cost monthly membership options"]
+        },
+        {
+          "name": "Gold's Gym India",
+          "url": "https://goldsgym.in/",
+          "keyPatterns": ["Biomechanical gym floor photo tour", "Personal training transformation galleries", "Corporate wellness program", "Direct manager WhatsApp contact"]
+        },
+        {
+          "name": "Anytime Fitness India",
+          "url": "https://www.anytimefitness.co.in/",
+          "keyPatterns": ["24/7 key fob access messaging", "Separate cardio & heavy lifting zones", "Clean locker room and steam amenities", "Free fitness assessment booking"]
+        },
+        {
+          "name": "Snap Fitness India",
+          "url": "https://snapfitnessindia.com/",
+          "keyPatterns": ["Cardio cinema zone highlight", "Custom Telangana diet consultation", "Monthly vs Annual fee matrix", "WhatsApp trial pass generator"]
+        },
+        {
+          "name": "Chisel Fitness",
+          "url": "https://chisel.co.in/",
+          "keyPatterns": ["Virat Kohli brand athletic edge", "Functional HIIT turf area", "Body composition tracking (InBody)", "Quick call for timing inquiry"]
+        }
+      ],
+      "colorSystem": {
+        "primary": "#ff4d00",
+        "primaryName": "Solar Flame Orange",
+        "accent": "#00e5ff",
+        "accentName": "Electric Cyan",
+        "bgDark": "#080a0f",
+        "surfaceDark": "#121622",
+        "border": "rgba(255, 77, 0, 0.25)"
+      },
+      "typography": {
+        "heading": "Bebas Neue",
+        "body": "Inter",
+        "weights": ["400", "600", "700", "800"]
+      },
+      "conversionElements": [
+        "Claim Free 1-Day Trial Pass on WhatsApp",
+        "Morning & Evening Timings Table",
+        "Interactive BMI & Goal Calculator",
+        "Transparent Membership Tiers (Quarterly / Half-Yearly / Annual)"
+      ],
+      "bannedTerms": [
+        "wedding photography", "muhurtham date", "photo album", "haircut", "bridal makeup",
+        "sofa set", "sheesham wood", "dining table", "eapcet coaching", "biryani feast"
+      ]
+    },
+    "wedding_photo": {
+      "name": "Wedding & Event Photography",
+      "slug": "wedding_photo",
+      "targetAudience": "Grooms, brides, families planning weddings, engagements, cradle ceremonies across Karimnagar, Jagtial & Hyderabad.",
+      "visualTone": "Editorial ivory & champagne gold luxury, cinematic storytelling, elegant serif typography, heirloom timelessness.",
+      "referenceWebsites": [
+        {
+          "name": "Stories by Joseph Radhik",
+          "url": "https://storiesbyjosephradhik.com/",
+          "keyPatterns": ["Fullscreen editorial couple hero frames", "Intimate raw emotional moments focus", "Limited wedding dates per season", "Dedicated enquiry questionnaire"]
+        },
+        {
+          "name": "The Wedding Filmer",
+          "url": "https://theweddingfilmer.co.in/",
+          "keyPatterns": ["Original cinematic soundtrack player", "Teaser reel video gallery", "Heirloom velvet album showcase", "Direct WhatsApp producer chat"]
+        },
+        {
+          "name": "Candid Tales Photography",
+          "url": "https://candidtales.com/",
+          "keyPatterns": ["Telangana traditional rituals (Pellikuthuru, Mangalasnanam) highlights", "Pre-wedding scenic shoot locations", "Drone & 4K cinematic delivery timelines", "Transparent package breakdown"]
+        },
+        {
+          "name": "Zero Gravity Photography",
+          "url": "https://zerogravity.photography/",
+          "keyPatterns": ["Traditional vs Candid coverage explanation", "Muhurtham availability calendar hook", "Client video testimonials", "Downloadable brochure via WhatsApp"]
+        },
+        {
+          "name": "KnotsbyAMP",
+          "url": "https://knotsbyamp.com/",
+          "keyPatterns": ["Destination wedding specialist highlights", "Award-winning portrait gallery", "Same-day social media teaser guarantee", "Direct booking phone line"]
+        }
+      ],
+      "colorSystem": {
+        "primary": "#e5c07b",
+        "primaryName": "Champagne Gold",
+        "accent": "#d47a8a",
+        "accentName": "Velvet Rose",
+        "bgDark": "#0b0c0f",
+        "surfaceDark": "#14171d",
+        "border": "rgba(229, 192, 123, 0.22)"
+      },
+      "typography": {
+        "heading": "Playfair Display",
+        "body": "Plus Jakarta Sans",
+        "weights": ["400", "600", "800"]
+      },
+      "conversionElements": [
+        "Check Muhurtham Date Availability on WhatsApp",
+        "Cinematic 4K Wedding Film Teaser Showcase",
+        "Heirloom Velvet Wedding Album Details",
+        "Direct Studio Call & Karimnagar Location"
+      ],
+      "bannedTerms": [
+        "haircut", "botox hair spa", "gym membership", "dumbbell", "olympic lifting",
+        "sofa set", "dining table", "eapcet coaching", "neet college", "biryani order"
+      ]
+    }
+  }
+}

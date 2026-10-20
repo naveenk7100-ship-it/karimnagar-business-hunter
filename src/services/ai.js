@@ -1,4 +1,5 @@
 import { CONFIG } from '../config.js';
+import { categoryRegistry } from './categoryRegistry.js';
 
 export class AIService {
   constructor() {
@@ -74,24 +75,33 @@ export class AIService {
    * Generates a design blueprint for a business lead
    */
   async generateDesignBlueprint(lead) {
+    const category = categoryRegistry.resolveCategory(lead);
+    const bannedSample = (category.bannedKeywords || []).slice(0, 12).join(', ');
+
     const prompt = `
 You are a senior UI/UX designer and web strategist for Karimnagar, Telangana local businesses.
 Analyze this verified business lead:
 - Name: "${lead.name}"
-- Category: "${lead.category}"
+- Category: "${category.displayName}" (Lead raw category: "${lead.category}")
 - Address: "${lead.address}" (Landmark: "${lead.landmark}")
 - Rating: ${lead.rating} (${lead.reviewCount} reviews)
 - Identified Gaps: "${lead.websiteGapDetails}"
 
+STRICT CATEGORY INTEGRITY RULE:
+This business is strictly a "${category.displayName}".
+Under NO circumstances use vocabulary, services, or themes from other businesses.
+BANNED WORDS/TERMS THAT MUST NEVER BE USED FOR THIS BUSINESS:
+${bannedSample}
+
 Generate a complete, tailored website design blueprint in strict JSON format:
 {
-  "theme": "luxury_dark | medical_clean | vibrant_modern | warm_hospitality | artistic_editorial",
+  "theme": "${category.archetypeId}",
   "primaryColor": "#hex",
   "accentColor": "#hex",
   "fontFamily": "font name from Google Fonts",
   "hero": {
-    "headline": "punchy local headline",
-    "subheadline": "compelling value prop mentioning Karimnagar",
+    "headline": "punchy category-pure local headline",
+    "subheadline": "compelling value prop mentioning Karimnagar tailored to ${category.displayName}",
     "ctaText": "action button label",
     "badgeText": "trust badge label"
   },
@@ -114,6 +124,18 @@ Generate a complete, tailored website design blueprint in strict JSON format:
 Do NOT invent fake customer testimonials or fake personal claims. Keep all prices marked as indicative estimates.
 `;
 
+    // Helper to validate candidate blueprint
+    const isValidBlueprint = (bp) => {
+      if (!bp || !bp.hero || !bp.services || !Array.isArray(bp.services) || bp.services.length < 2) return false;
+      const bpStr = JSON.stringify(bp);
+      const safety = categoryRegistry.validateContentSafety(category.id, bpStr);
+      if (!safety.safe) {
+        console.warn(`[AIService] AI blueprint failed category safety check (${category.displayName}) with violations: ${safety.violations.join(', ')}`);
+        return false;
+      }
+      return true;
+    };
+
     // 1. Try Gemini
     if (this.geminiKey) {
       try {
@@ -123,7 +145,7 @@ Do NOT invent fake customer testimonials or fake personal claims. Keep all price
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             contents: [{ parts: [{ text: prompt }] }],
-            generationConfig: { responseMimeType: 'application/json', temperature: 0.3 }
+            generationConfig: { responseMimeType: 'application/json', temperature: 0.2 }
           }),
           signal: AbortSignal.timeout(15000)
         });
@@ -132,7 +154,10 @@ Do NOT invent fake customer testimonials or fake personal claims. Keep all price
           const json = await res.json();
           const text = json.candidates?.[0]?.content?.parts?.[0]?.text;
           if (text) {
-            return JSON.parse(text);
+            const parsed = JSON.parse(text);
+            if (isValidBlueprint(parsed)) {
+              return parsed;
+            }
           }
         }
       } catch (err) {
@@ -152,7 +177,7 @@ Do NOT invent fake customer testimonials or fake personal claims. Keep all price
           body: JSON.stringify({
             model: this.openrouterModel,
             messages: [{ role: 'user', content: prompt + '\nReturn ONLY pure valid JSON.' }],
-            temperature: 0.3
+            temperature: 0.2
           }),
           signal: AbortSignal.timeout(15000)
         });
@@ -161,14 +186,17 @@ Do NOT invent fake customer testimonials or fake personal claims. Keep all price
           const data = await res.json();
           const content = data.choices?.[0]?.message?.content;
           const cleaned = content.replace(/^```json\s*|\s*```$/g, '').trim();
-          return JSON.parse(cleaned);
+          const parsed = JSON.parse(cleaned);
+          if (isValidBlueprint(parsed)) {
+            return parsed;
+          }
         }
       } catch (err) {
         console.warn('[AIService] OpenRouter blueprint failed, falling back:', err.message);
       }
     }
 
-    // 3. Fallback to Local Heuristic Blueprint Engine
+    // 3. Fallback to Deterministic Category-Pure Heuristic Blueprint Engine
     return this._localHeuristicBlueprint(lead);
   }
 
@@ -176,99 +204,7 @@ Do NOT invent fake customer testimonials or fake personal claims. Keep all price
    * Deterministic category-tailored blueprint generator for offline / fallback
    */
   _localHeuristicBlueprint(lead) {
-    const isSalon = lead.niche?.includes('salon') || lead.category?.toLowerCase().includes('salon');
-    const isGym = lead.niche?.includes('gym') || lead.category?.toLowerCase().includes('gym');
-    const isPhoto = lead.niche?.includes('photo') || lead.category?.toLowerCase().includes('photo');
-    const isFurniture = lead.niche?.includes('furniture') || lead.category?.toLowerCase().includes('furniture');
-
-    if (isSalon) {
-      return {
-        theme: 'luxury_dark',
-        primaryColor: '#c29d59', // Warm gold
-        accentColor: '#e02868', // Vibrant magenta
-        fontFamily: 'Plus Jakarta Sans',
-        hero: {
-          headline: `Karimnagar's Premier Hair & Tattoo Studio Experience`,
-          subheadline: `Signature cuts, organic keratin therapies, and custom clinical tattoo artistry right on ${lead.landmark || 'Court Road, Karimnagar'}.`,
-          ctaText: 'Book VIP Slot on WhatsApp',
-          badgeText: `★ ${lead.rating} Verified Rating (${lead.reviewCount} Google/Local Reviews)`
-        },
-        advantages: [
-          { title: 'Certified Hair & Ink Artists', desc: 'Trained technicians following international clinical sterilization protocols.' },
-          { title: 'Zero Waiting Time Booking', desc: 'Instant WhatsApp appointment confirmation with digital consultations.' },
-          { title: 'Prime Central Karimnagar', desc: `Easily accessible on ${lead.landmark || 'Court Road'} with dedicated customer parking.` }
-        ],
-        services: [
-          { name: 'Signature Haircut & Beard Architecture', category: 'Hair Artistry', price: '₹499*', desc: 'Consultation, scalp massage, precision style cut and hot towel finish.' },
-          { name: 'Custom Tattoo & Fine Line Ink', category: 'Tattoo Art', price: 'From ₹1,200*', desc: 'Custom 3D flash preview, single-use needle cartridge, medical-grade aftercare.' },
-          { name: 'Keratin & Botox Hair Spa', category: 'Therapies', price: '₹1,999*', desc: 'Intense moisture restoration and frizz control for long-lasting silky texture.' },
-          { name: 'HD Bridal & Groom Package', category: 'Makeovers', price: 'Enquire for Muhurtham', desc: 'Pre-wedding facial, hair styling, beard grooming, and photo-ready finish.' }
-        ],
-        faq: [
-          { q: 'Where are you located in Karimnagar?', a: `We are located at ${lead.address}. Walk-ins and appointments are both welcomed!` },
-          { q: 'Is tattoo equipment sterilized?', a: 'Yes, 100% single-use sterilized needle cartridges opened directly in front of clients.' }
-        ]
-      };
-    }
-
-    if (isGym) {
-      return {
-        theme: 'high_energy_dark',
-        primaryColor: '#ff4d00', // Neon athletic orange
-        accentColor: '#00e5ff', // Electric cyan
-        fontFamily: 'Inter',
-        hero: {
-          headline: `Transform Your Body at Karimnagar's Elite Fitness Hub`,
-          subheadline: `Fully air-conditioned unisex fitness arena with certified coaches, Olympic lifting gear, and tailored diet charts at ${lead.landmark}.`,
-          ctaText: 'Claim Free 1-Day Trial Pass',
-          badgeText: `★ ${lead.rating} Top-Rated AC Gym in Karimnagar`
-        },
-        advantages: [
-          { title: 'Biomechanical Equipment', desc: 'Imported pin-loaded and plate-loaded machines engineered for maximum muscle activation.' },
-          { title: 'Personalized Nutrition Coaching', desc: 'Custom meal plans tailored to Telangana dietary preferences and work routines.' },
-          { title: 'Dedicated Women & Men Batches', desc: 'Comfortable training environment with certified male and female fitness trainers.' }
-        ],
-        services: [
-          { name: 'Annual Unlimited Fitness Pass', category: 'Membership', price: '₹9,999/yr*', desc: 'Full access to cardio, strength, cross-training, and steam room.' },
-          { name: '1-on-1 Personal Body Transformation', category: 'Coaching', price: 'Enquire on WhatsApp', desc: 'Dedicated trainer, weekly body composition analysis, and goal-oriented workouts.' },
-          { name: 'Fat Loss & HIIT Bootcamp', category: 'Conditioning', price: '₹1,499/mo*', desc: 'High-intensity interval group sessions burning 600+ calories per class.' },
-          { name: 'Strength & Powerlifting Coaching', category: 'Hypertrophy', price: 'Included in pass', desc: 'Master deadlifts, squats, and bench press under coach supervision.' }
-        ],
-        faq: [
-          { q: 'What are the gym timings?', a: 'Monday to Saturday: Morning 5:30 AM to 10:30 AM | Evening 4:30 PM to 9:30 PM.' },
-          { q: 'Can I take a trial session first?', a: 'Yes! Tap the WhatsApp button to book your complimentary 1-day pass.' }
-        ]
-      };
-    }
-
-    // Photography / Default
-    return {
-      theme: 'artistic_editorial',
-      primaryColor: '#e0b568', // Champagne Gold
-      accentColor: '#3d72b4', // Cinematic blue
-      fontFamily: 'Playfair Display',
-      hero: {
-        headline: `Timeless Wedding & Portrait Stories in Karimnagar`,
-        subheadline: `Candid wedding photography, cinematic 4K films, and authentic pre-wedding portraits capturing raw emotion across Karimnagar & Telangana.`,
-        ctaText: 'Check Muhurtham Availability',
-        badgeText: `★ ${lead.rating} Rated (${lead.reviewCount}+ Celebrations Captured)`
-      },
-      advantages: [
-        { title: 'Cinematic 4K Storytelling', desc: 'Master cinematographers equipped with cinema cameras, gimbal stabilizers, and drone visuals.' },
-        { title: 'Express Muhurtham Teaser Delivery', desc: 'Receive your 60-second Instagram wedding reel within 48 hours of your event.' },
-        { title: 'Custom Heirloom Photo Albums', desc: 'Non-tearable, velvet-touch premium wedding albums crafted to last generations.' }
-      ],
-      services: [
-        { name: 'Complete Muhurtham Wedding Package', category: 'Weddings', price: 'Enquire for Quote', desc: 'Traditional + Candid photo & video coverage, drone shots, and 2 luxury albums.' },
-        { name: 'Pre-Wedding & Post-Wedding Shoots', category: 'Portraits', price: 'From ₹15,000*', desc: 'Full-day outdoor shoot with concept styling and cinematic couple teaser.' },
-        { name: 'Baby Shower & Traditional Ceremonies', category: 'Celebrations', price: '₹9,999*', desc: 'Half-day photo coverage with digital gallery and photo book.' },
-        { name: 'High-Resolution Studio Portraits', category: 'Studio', price: '₹2,500*', desc: 'Professional studio lighting, backdrop changes, and retouched master files.' }
-      ],
-      faq: [
-        { q: 'Do you travel outside Karimnagar?', a: 'Yes, we regularly cover weddings across Hyderabad, Jagtial, Warangal, and all Telangana districts.' },
-        { q: 'How far in advance should we book?', a: 'We recommend reserving your muhurtham date 3 to 6 months in advance during peak season.' }
-      ]
-    };
+    return categoryRegistry.getDeterministicBlueprint(lead);
   }
 }
 

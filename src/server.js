@@ -9,6 +9,7 @@ import { telegramService } from './services/telegram.js';
 import { websiteGenerator } from './services/generator.js';
 import { qaEngine } from './services/qa.js';
 import { deepseekHarness } from './harness/deepseekHarness.js';
+import { categoryRegistry } from './services/categoryRegistry.js';
 
 let isRunningHunt = false;
 
@@ -250,6 +251,64 @@ const server = http.createServer(async (req, res) => {
         isRunningHunt = false;
       }
     })();
+    return;
+  }
+
+  // 9. Knowledge Base & Reference Research
+  if (pathname === '/api/knowledge-base' && req.method === 'GET') {
+    const kbPath = path.join(CONFIG.DATA_DIR, 'design_knowledge_base.json');
+    if (fs.existsSync(kbPath)) {
+      const data = JSON.parse(fs.readFileSync(kbPath, 'utf8'));
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify(data));
+    } else {
+      res.writeHead(404, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Design knowledge base not found' }));
+    }
+    return;
+  }
+
+  // 10. Platform Architecture & Features Manifest
+  if (pathname === '/api/features' && req.method === 'GET') {
+    const categories = categoryRegistry.getAllCategoryIds().map(id => {
+      const cat = categoryRegistry.resolveCategory({ niche: id });
+      return {
+        id,
+        name: cat.displayName,
+        archetype: cat.archetypeId,
+        bannedCount: cat.bannedKeywords.length
+      };
+    });
+
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({
+      version: '2.5.0',
+      system: 'Karimnagar Business Hunter AI',
+      schedule: {
+        cron: '30 2 * * *',
+        localTime: '8:00 AM IST (Asia/Kolkata)',
+        targetCity: 'Karimnagar, Telangana',
+        activeWorkflow: '.github/workflows/daily-hunter.yml'
+      },
+      categories,
+      qaPillars: [
+        { id: 'html_structure', name: 'HTML5 Semantic Structure & Doctype' },
+        { id: 'mobile_responsive', name: 'Mobile Viewport & Bottom Action Bar' },
+        { id: 'links_cta', name: 'WhatsApp & Direct Call Conversion Links' },
+        { id: 'accessibility', name: 'ARIA Labels & Heading Hierarchy' },
+        { id: 'seo_metadata', name: 'Schema.org LocalBusiness JSON-LD & OG Meta' },
+        { id: 'interactive_3d_fallback', name: 'Three.js Particle Animation & Fallback' },
+        { id: 'placeholder_leakage', name: 'Template Token & Undefined Scanner' },
+        { id: 'category_safety', name: 'Category Purity & Zero Cross-Contamination' },
+        { id: 'no_internal_leakage', name: 'Client-Facing Independence (No Internal Branding)' },
+        { id: 'verified_facts', name: 'Verified Karimnagar Location & Phone Integrity' }
+      ],
+      deployments: {
+        hubUrl: 'https://naveenk7100-ship-it.github.io/karimnagar-business-demos/',
+        repo: 'naveenk7100-ship-it/karimnagar-business-demos',
+        branch: 'main'
+      }
+    }));
     return;
   }
 

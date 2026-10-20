@@ -8,6 +8,11 @@ import { qaEngine } from '../src/services/qa.js';
 import { outreachGenerator } from '../src/services/outreach.js';
 import { telegramService } from '../src/services/telegram.js';
 import { store } from '../src/services/store.js';
+import { aiService } from '../src/services/ai.js';
+import { categoryRegistry } from '../src/services/categoryRegistry.js';
+
+// Deterministic blueprint generation for instant reliable unit test execution
+aiService.generateDesignBlueprint = async (lead) => categoryRegistry.getDeterministicBlueprint(lead);
 
 test('1. Lead Discovery & Duplicate Prevention Suite', async (t) => {
   await t.test('Deduplication prevents re-selecting previously processed businesses', async () => {
@@ -55,7 +60,8 @@ test('2. Unique 3D Website Generator & Versioning Suite', async (t) => {
   assert.ok(content.includes('Apollo Aesthetics Studio'), 'HTML must include business name');
   assert.ok(content.includes('three-canvas'), 'HTML must include 3D canvas');
   assert.ok(content.includes('wa.me'), 'HTML must include WhatsApp conversion link');
-  assert.ok(content.includes('CONCEPT PREVIEW'), 'Must include concept disclaimer banner');
+  assert.ok(!content.includes('CONCEPT PREVIEW'), 'Client-facing website must NOT include CONCEPT PREVIEW banner');
+  assert.ok(!content.includes('Karimnagar Business Hunter AI'), 'Client-facing website must NOT include internal platform names');
 
   // Test versioning: second generation should preserve prior version
   await websiteGenerator.generateWebsite(mockLead);

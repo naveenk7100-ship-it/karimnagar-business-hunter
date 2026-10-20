@@ -36,3 +36,7 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Demo test runs and version snapshots
+public/demos/*-test/
+public/demos/*/versions/

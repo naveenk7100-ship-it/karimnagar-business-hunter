@@ -3,7 +3,7 @@
     "id": "hair-lounge-salon-tattoos",
     "leadId": "knr-sal-01",
     "businessName": "Hair Lounge Salon & Tattoo Studio",
-    "category": "Salons & Tattoo Studios",
+    "category": "Salons, Spas & Tattoo Studios",
     "niche": "salon_tattoo",
     "slug": "hair-lounge-salon-tattoos",
     "relativeUrl": "/demos/hair-lounge-salon-tattoos/index.html",
@@ -11,28 +11,93 @@
     "repo": "naveenk7100-ship-it/karimnagar-business-demos",
     "archetype": "luxury_ink_noir",
     "designFingerprint": {
-      "layout": "split_hero_service_tabs",
-      "heroStyle": "threejs_particle_noir",
+      "archetypeId": "luxury_ink_noir",
+      "archetypeName": "Luxury Ink & Aesthetics Noir",
+      "layout": "split_hero_service_tabs_variant",
+      "heroStyle": "particle_noir_smoke",
       "primaryColor": "#c29d59",
-      "accentColor": "#e02868",
+      "accentColor": "#3150e0",
+      "bgDark": "#0d0d11",
       "fontHeading": "Cinzel Decorative",
       "fontBody": "Plus Jakarta Sans",
       "sectionOrder": [
         "hero",
-        "hygiene_sterilization",
-        "services_ratecard",
-        "flash_gallery",
         "faq",
+        "flash_gallery",
+        "services_ratecard",
+        "hygiene_sterilization",
         "location"
       ],
-      "similarityScore": 0.22
+      "similarityScore": 0.4
     },
     "qaScore": 100,
     "qaPass": true,
     "deploymentStatus": "LIVE",
     "httpStatus": 200,
-    "verifiedAt": "2026-10-18T15:55:54.843Z",
-    "createdAt": "2026-10-18T08:37:19.000Z"
+    "verifiedAt": "2026-10-20T06:30:28.787Z",
+    "createdAt": "2026-10-18T08:30:00.000Z",
+    "qaChecks": [
+      {
+        "id": "html_structure",
+        "name": "HTML Document Structure",
+        "status": "PASS",
+        "evidence": "DOCTYPE=true, html=true, head=true, body=true"
+      },
+      {
+        "id": "mobile_responsive",
+        "name": "Mobile Responsiveness & Viewport",
+        "status": "PASS",
+        "evidence": "viewport_meta=true, media_query_768=true, mobile_action_bar=true"
+      },
+      {
+        "id": "links_cta",
+        "name": "CTA & Navigation Links",
+        "status": "PASS",
+        "evidence": "wa_link=true, tel_link=true, maps_link=true"
+      },
+      {
+        "id": "accessibility",
+        "name": "Accessibility & ARIA Attributes",
+        "status": "PASS",
+        "evidence": "h1=true, h2=true, floating_wa_aria=true"
+      },
+      {
+        "id": "seo_metadata",
+        "name": "SEO & Structured Data (JSON-LD)",
+        "status": "PASS",
+        "evidence": "title=true, meta_desc=true, og_title=true, schema_localbusiness=Hair Lounge Salon &amp; Tattoo Studio"
+      },
+      {
+        "id": "interactive_3d_fallback",
+        "name": "Interactive 3D Engine & Fallbacks",
+        "status": "PASS",
+        "evidence": "canvas_tag=true, threejs_cdn=true, graceful_catch_block=true"
+      },
+      {
+        "id": "placeholder_leakage",
+        "name": "Placeholder & Template Leakage",
+        "status": "PASS",
+        "evidence": "No raw template tokens detected"
+      },
+      {
+        "id": "category_safety",
+        "name": "Category Safety & Zero Contamination",
+        "status": "PASS",
+        "evidence": "Clean category integrity verified (Salons, Spas & Tattoo Studios)"
+      },
+      {
+        "id": "no_internal_leakage",
+        "name": "Client-Facing Independence",
+        "status": "PASS",
+        "evidence": "100% standalone client website without internal platform branding"
+      },
+      {
+        "id": "verified_facts",
+        "name": "Verified Facts & Local Integrity",
+        "status": "PASS",
+        "evidence": "business_name=true, local_karimnagar=true, direct_cta=true"
+      }
+    ]
   },
   {
     "id": "star-fitness-gym-karimnagar",
@@ -46,28 +111,93 @@
     "repo": "naveenk7100-ship-it/karimnagar-business-demos",
     "archetype": "athletic_kinetic",
     "designFingerprint": {
-      "layout": "athletic_widescreen_calculator",
-      "heroStyle": "threejs_kinetic_neon",
+      "archetypeId": "athletic_kinetic",
+      "archetypeName": "Athletic Kinetic Powerhouse",
+      "layout": "athletic_widescreen_calculator_variant",
+      "heroStyle": "kinetic_neon_wireframe",
       "primaryColor": "#ff4d00",
-      "accentColor": "#00e5ff",
+      "accentColor": "#500e78",
+      "bgDark": "#080a0f",
       "fontHeading": "Bebas Neue",
       "fontBody": "Inter",
       "sectionOrder": [
         "hero",
-        "facility_specs",
-        "bmi_calculator",
-        "membership_tiers",
         "schedule_table",
+        "membership_tiers",
+        "bmi_calculator",
+        "facility_specs",
         "location"
       ],
-      "similarityScore": 0.18
+      "similarityScore": 0.4
     },
     "qaScore": 100,
     "qaPass": true,
     "deploymentStatus": "LIVE",
     "httpStatus": 200,
-    "verifiedAt": "2026-10-18T15:55:54.845Z",
-    "createdAt": "2026-10-18T08:37:37.000Z"
+    "verifiedAt": "2026-10-20T06:30:39.623Z",
+    "createdAt": "2026-10-18T08:30:00.000Z",
+    "qaChecks": [
+      {
+        "id": "html_structure",
+        "name": "HTML Document Structure",
+        "status": "PASS",
+        "evidence": "DOCTYPE=true, html=true, head=true, body=true"
+      },
+      {
+        "id": "mobile_responsive",
+        "name": "Mobile Responsiveness & Viewport",
+        "status": "PASS",
+        "evidence": "viewport_meta=true, media_query_768=true, mobile_action_bar=true"
+      },
+      {
+        "id": "links_cta",
+        "name": "CTA & Navigation Links",
+        "status": "PASS",
+        "evidence": "wa_link=true, tel_link=true, maps_link=true"
+      },
+      {
+        "id": "accessibility",
+        "name": "Accessibility & ARIA Attributes",
+        "status": "PASS",
+        "evidence": "h1=true, h2=true, floating_wa_aria=true"
+      },
+      {
+        "id": "seo_metadata",
+        "name": "SEO & Structured Data (JSON-LD)",
+        "status": "PASS",
+        "evidence": "title=true, meta_desc=true, og_title=true, schema_localbusiness=Star Fitness Gym AC"
+      },
+      {
+        "id": "interactive_3d_fallback",
+        "name": "Interactive 3D Engine & Fallbacks",
+        "status": "PASS",
+        "evidence": "canvas_tag=true, threejs_cdn=true, graceful_catch_block=true"
+      },
+      {
+        "id": "placeholder_leakage",
+        "name": "Placeholder & Template Leakage",
+        "status": "PASS",
+        "evidence": "No raw template tokens detected"
+      },
+      {
+        "id": "category_safety",
+        "name": "Category Safety & Zero Contamination",
+        "status": "PASS",
+        "evidence": "Clean category integrity verified (Gyms & Fitness Centres)"
+      },
+      {
+        "id": "no_internal_leakage",
+        "name": "Client-Facing Independence",
+        "status": "PASS",
+        "evidence": "100% standalone client website without internal platform branding"
+      },
+      {
+        "id": "verified_facts",
+        "name": "Verified Facts & Local Integrity",
+        "status": "PASS",
+        "evidence": "business_name=true, local_karimnagar=true, direct_cta=true"
+      }
+    ]
   },
   {
     "id": "yashika-photography-karimnagar",
@@ -79,134 +209,694 @@
     "relativeUrl": "/demos/yashika-photography-karimnagar/index.html",
     "publishedUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/yashika-photography-karimnagar/",
     "repo": "naveenk7100-ship-it/karimnagar-business-demos",
-    "archetype": "editorial_cinema",
+    "archetype": "champagne_editorial",
     "designFingerprint": {
-      "layout": "editorial_masonry_lightbox",
-      "heroStyle": "threejs_champagne_constellation",
-      "primaryColor": "#e0b568",
-      "accentColor": "#3d72b4",
+      "archetypeId": "champagne_editorial",
+      "archetypeName": "Champagne Editorial & Cinema",
+      "layout": "editorial_masonry_lightbox_variant",
+      "heroStyle": "floating_crystalline_prisms",
+      "primaryColor": "#e5c07b",
+      "accentColor": "#25a203",
+      "bgDark": "#0b0c0f",
       "fontHeading": "Playfair Display",
       "fontBody": "Plus Jakarta Sans",
       "sectionOrder": [
         "hero",
-        "cinematic_showreel",
-        "masonry_gallery",
+        "client_stories",
         "muhurtham_calendar",
-        "packages",
+        "portfolio_masonry",
+        "cinema_reel",
         "location"
       ],
-      "similarityScore": 0.19
+      "similarityScore": 0.27
     },
     "qaScore": 100,
     "qaPass": true,
     "deploymentStatus": "LIVE",
     "httpStatus": 200,
-    "verifiedAt": "2026-10-18T15:55:54.845Z",
-    "createdAt": "2026-10-18T08:37:57.000Z"
+    "verifiedAt": "2026-10-20T06:30:48.340Z",
+    "createdAt": "2026-10-18T08:30:00.000Z",
+    "qaChecks": [
+      {
+        "id": "html_structure",
+        "name": "HTML Document Structure",
+        "status": "PASS",
+        "evidence": "DOCTYPE=true, html=true, head=true, body=true"
+      },
+      {
+        "id": "mobile_responsive",
+        "name": "Mobile Responsiveness & Viewport",
+        "status": "PASS",
+        "evidence": "viewport_meta=true, media_query_768=true, mobile_action_bar=true"
+      },
+      {
+        "id": "links_cta",
+        "name": "CTA & Navigation Links",
+        "status": "PASS",
+        "evidence": "wa_link=true, tel_link=true, maps_link=true"
+      },
+      {
+        "id": "accessibility",
+        "name": "Accessibility & ARIA Attributes",
+        "status": "PASS",
+        "evidence": "h1=true, h2=true, floating_wa_aria=true"
+      },
+      {
+        "id": "seo_metadata",
+        "name": "SEO & Structured Data (JSON-LD)",
+        "status": "PASS",
+        "evidence": "title=true, meta_desc=true, og_title=true, schema_localbusiness=Yashika Photography Studio"
+      },
+      {
+        "id": "interactive_3d_fallback",
+        "name": "Interactive 3D Engine & Fallbacks",
+        "status": "PASS",
+        "evidence": "canvas_tag=true, threejs_cdn=true, graceful_catch_block=true"
+      },
+      {
+        "id": "placeholder_leakage",
+        "name": "Placeholder & Template Leakage",
+        "status": "PASS",
+        "evidence": "No raw template tokens detected"
+      },
+      {
+        "id": "category_safety",
+        "name": "Category Safety & Zero Contamination",
+        "status": "PASS",
+        "evidence": "Clean category integrity verified (Wedding & Event Photography)"
+      },
+      {
+        "id": "no_internal_leakage",
+        "name": "Client-Facing Independence",
+        "status": "PASS",
+        "evidence": "100% standalone client website without internal platform branding"
+      },
+      {
+        "id": "verified_facts",
+        "name": "Verified Facts & Local Integrity",
+        "status": "PASS",
+        "evidence": "business_name=true, local_karimnagar=true, direct_cta=true"
+      }
+    ]
   },
   {
     "id": "pavan-furniture-world",
     "leadId": "knr-fur-01",
     "businessName": "Pavan Furniture World",
     "category": "Furniture & Interior Stores",
-    "niche": "furniture_decor",
+    "niche": "furniture",
     "slug": "pavan-furniture-world",
     "relativeUrl": "/demos/pavan-furniture-world/index.html",
     "publishedUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/pavan-furniture-world/",
     "repo": "naveenk7100-ship-it/karimnagar-business-demos",
-    "archetype": "scandinavian_minimal",
+    "archetype": "architectural_room_collections",
     "designFingerprint": {
-      "layout": "architectural_room_collections",
-      "heroStyle": "threejs_geometric_mesh",
+      "archetypeId": "architectural_room_collections",
+      "archetypeName": "Architectural Timber & Living Collections",
+      "layout": "spatial_room_configurator",
+      "heroStyle": "architectural_lowpoly_mesh",
       "primaryColor": "#c48b52",
-      "accentColor": "#476579",
+      "accentColor": "#5e829d",
+      "bgDark": "#0e0f12",
       "fontHeading": "Syne",
       "fontBody": "Plus Jakarta Sans",
       "sectionOrder": [
         "hero",
         "room_collections",
-        "material_durability",
+        "material_specs",
         "quote_estimator",
         "store_visit",
         "location"
       ],
-      "similarityScore": 0.2
+      "similarityScore": 0.29
     },
     "qaScore": 100,
     "qaPass": true,
     "deploymentStatus": "LIVE",
     "httpStatus": 200,
-    "verifiedAt": "2026-10-18T15:55:54.845Z",
-    "createdAt": "2026-10-18T09:11:59.000Z"
+    "verifiedAt": "2026-10-20T06:31:00.802Z",
+    "createdAt": "2026-10-18T09:11:00.000Z",
+    "qaChecks": [
+      {
+        "id": "html_structure",
+        "name": "HTML Document Structure",
+        "status": "PASS",
+        "evidence": "DOCTYPE=true, html=true, head=true, body=true"
+      },
+      {
+        "id": "mobile_responsive",
+        "name": "Mobile Responsiveness & Viewport",
+        "status": "PASS",
+        "evidence": "viewport_meta=true, media_query_768=true, mobile_action_bar=true"
+      },
+      {
+        "id": "links_cta",
+        "name": "CTA & Navigation Links",
+        "status": "PASS",
+        "evidence": "wa_link=true, tel_link=true, maps_link=true"
+      },
+      {
+        "id": "accessibility",
+        "name": "Accessibility & ARIA Attributes",
+        "status": "PASS",
+        "evidence": "h1=true, h2=true, floating_wa_aria=true"
+      },
+      {
+        "id": "seo_metadata",
+        "name": "SEO & Structured Data (JSON-LD)",
+        "status": "PASS",
+        "evidence": "title=true, meta_desc=true, og_title=true, schema_localbusiness=Pavan Furniture World"
+      },
+      {
+        "id": "interactive_3d_fallback",
+        "name": "Interactive 3D Engine & Fallbacks",
+        "status": "PASS",
+        "evidence": "canvas_tag=true, threejs_cdn=true, graceful_catch_block=true"
+      },
+      {
+        "id": "placeholder_leakage",
+        "name": "Placeholder & Template Leakage",
+        "status": "PASS",
+        "evidence": "No raw template tokens detected"
+      },
+      {
+        "id": "category_safety",
+        "name": "Category Safety & Zero Contamination",
+        "status": "PASS",
+        "evidence": "Clean category integrity verified (Furniture & Interior Stores)"
+      },
+      {
+        "id": "no_internal_leakage",
+        "name": "Client-Facing Independence",
+        "status": "PASS",
+        "evidence": "100% standalone client website without internal platform branding"
+      },
+      {
+        "id": "verified_facts",
+        "name": "Verified Facts & Local Integrity",
+        "status": "PASS",
+        "evidence": "business_name=true, local_karimnagar=true, direct_cta=true"
+      }
+    ]
   },
   {
     "id": "sri-chaitanya-coaching-karimnagar",
     "leadId": "knr-coa-01",
     "businessName": "Sri Chaitanya Junior & Coaching College",
-    "category": "Educational Coaching Centres",
-    "niche": "education_coaching",
+    "category": "Educational Coaching Centres & Junior Colleges",
+    "niche": "coaching",
     "slug": "sri-chaitanya-coaching-karimnagar",
     "relativeUrl": "/demos/sri-chaitanya-coaching-karimnagar/index.html",
     "publishedUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/sri-chaitanya-coaching-karimnagar/",
     "repo": "naveenk7100-ship-it/karimnagar-business-demos",
     "archetype": "academic_prestige",
     "designFingerprint": {
-      "layout": "academic_program_tracks",
-      "heroStyle": "threejs_constellation_matrix",
+      "archetypeId": "academic_prestige",
+      "archetypeName": "Academic Prestige & Career Pathways",
+      "layout": "academic_program_tracks_variant",
+      "heroStyle": "constellation_matrix",
       "primaryColor": "#38bdf8",
-      "accentColor": "#f59e0b",
+      "accentColor": "#46c683",
+      "bgDark": "#070b14",
       "fontHeading": "Lexend",
       "fontBody": "Inter",
       "sectionOrder": [
         "hero",
-        "exam_tracks",
-        "faculty_pedagogy",
-        "counseling_hook",
+        "batch_schedules",
         "syllabus_download",
+        "faculty_mentorship",
+        "exam_tracks",
         "location"
       ],
-      "similarityScore": 0.17
+      "similarityScore": 0.3
     },
     "qaScore": 100,
     "qaPass": true,
     "deploymentStatus": "LIVE",
     "httpStatus": 200,
-    "verifiedAt": "2026-10-18T15:55:54.845Z",
-    "createdAt": "2026-10-18T09:12:11.000Z"
+    "verifiedAt": "2026-10-20T06:31:30.869Z",
+    "createdAt": "2026-10-18T09:11:00.000Z",
+    "qaChecks": [
+      {
+        "id": "html_structure",
+        "name": "HTML Document Structure",
+        "status": "PASS",
+        "evidence": "DOCTYPE=true, html=true, head=true, body=true"
+      },
+      {
+        "id": "mobile_responsive",
+        "name": "Mobile Responsiveness & Viewport",
+        "status": "PASS",
+        "evidence": "viewport_meta=true, media_query_768=true, mobile_action_bar=true"
+      },
+      {
+        "id": "links_cta",
+        "name": "CTA & Navigation Links",
+        "status": "PASS",
+        "evidence": "wa_link=true, tel_link=true, maps_link=true"
+      },
+      {
+        "id": "accessibility",
+        "name": "Accessibility & ARIA Attributes",
+        "status": "PASS",
+        "evidence": "h1=true, h2=true, floating_wa_aria=true"
+      },
+      {
+        "id": "seo_metadata",
+        "name": "SEO & Structured Data (JSON-LD)",
+        "status": "PASS",
+        "evidence": "title=true, meta_desc=true, og_title=true, schema_localbusiness=Sri Chaitanya Junior &amp; Coaching College"
+      },
+      {
+        "id": "interactive_3d_fallback",
+        "name": "Interactive 3D Engine & Fallbacks",
+        "status": "PASS",
+        "evidence": "canvas_tag=true, threejs_cdn=true, graceful_catch_block=true"
+      },
+      {
+        "id": "placeholder_leakage",
+        "name": "Placeholder & Template Leakage",
+        "status": "PASS",
+        "evidence": "No raw template tokens detected"
+      },
+      {
+        "id": "category_safety",
+        "name": "Category Safety & Zero Contamination",
+        "status": "PASS",
+        "evidence": "Clean category integrity verified (Educational Coaching Centres & Junior Colleges)"
+      },
+      {
+        "id": "no_internal_leakage",
+        "name": "Client-Facing Independence",
+        "status": "PASS",
+        "evidence": "100% standalone client website without internal platform branding"
+      },
+      {
+        "id": "verified_facts",
+        "name": "Verified Facts & Local Integrity",
+        "status": "PASS",
+        "evidence": "business_name=true, local_karimnagar=true, direct_cta=true"
+      }
+    ]
   },
   {
     "id": "peacock-restaurant-karimnagar",
     "leadId": "knr-res-01",
     "businessName": "Peacock Multi-Cuisine Family Restaurant",
     "category": "Restaurants & Dining",
-    "niche": "restaurant_dining",
+    "niche": "restaurant",
     "slug": "peacock-restaurant-karimnagar",
     "relativeUrl": "/demos/peacock-restaurant-karimnagar/index.html",
     "publishedUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/peacock-restaurant-karimnagar/",
     "repo": "naveenk7100-ship-it/karimnagar-business-demos",
     "archetype": "culinary_warmth",
     "designFingerprint": {
-      "layout": "culinary_menu_reservations",
-      "heroStyle": "threejs_amber_bokeh",
+      "archetypeId": "culinary_warmth",
+      "archetypeName": "Culinary Ember & Feast Reservations",
+      "layout": "culinary_menu_reservations_variant",
+      "heroStyle": "warm_bokeh_embers",
       "primaryColor": "#f97316",
-      "accentColor": "#10b981",
+      "accentColor": "#60e1f9",
+      "bgDark": "#0e0b0a",
       "fontHeading": "Outfit",
       "fontBody": "Plus Jakarta Sans",
       "sectionOrder": [
         "hero",
-        "menu_categories",
-        "chef_specials",
         "ambience_experience",
         "table_booking",
+        "menu_categories",
+        "chef_specials",
         "location"
       ],
-      "similarityScore": 0.21
+      "similarityScore": 0.3
     },
     "qaScore": 100,
     "qaPass": true,
     "deploymentStatus": "LIVE",
     "httpStatus": 200,
-    "verifiedAt": "2026-10-18T15:55:54.845Z",
-    "createdAt": "2026-10-18T09:12:23.000Z"
+    "verifiedAt": "2026-10-20T06:31:56.409Z",
+    "createdAt": "2026-10-18T09:11:00.000Z",
+    "qaChecks": [
+      {
+        "id": "html_structure",
+        "name": "HTML Document Structure",
+        "status": "PASS",
+        "evidence": "DOCTYPE=true, html=true, head=true, body=true"
+      },
+      {
+        "id": "mobile_responsive",
+        "name": "Mobile Responsiveness & Viewport",
+        "status": "PASS",
+        "evidence": "viewport_meta=true, media_query_768=true, mobile_action_bar=true"
+      },
+      {
+        "id": "links_cta",
+        "name": "CTA & Navigation Links",
+        "status": "PASS",
+        "evidence": "wa_link=true, tel_link=true, maps_link=true"
+      },
+      {
+        "id": "accessibility",
+        "name": "Accessibility & ARIA Attributes",
+        "status": "PASS",
+        "evidence": "h1=true, h2=true, floating_wa_aria=true"
+      },
+      {
+        "id": "seo_metadata",
+        "name": "SEO & Structured Data (JSON-LD)",
+        "status": "PASS",
+        "evidence": "title=true, meta_desc=true, og_title=true, schema_localbusiness=Peacock Multi-Cuisine Family Restaurant"
+      },
+      {
+        "id": "interactive_3d_fallback",
+        "name": "Interactive 3D Engine & Fallbacks",
+        "status": "PASS",
+        "evidence": "canvas_tag=true, threejs_cdn=true, graceful_catch_block=true"
+      },
+      {
+        "id": "placeholder_leakage",
+        "name": "Placeholder & Template Leakage",
+        "status": "PASS",
+        "evidence": "No raw template tokens detected"
+      },
+      {
+        "id": "category_safety",
+        "name": "Category Safety & Zero Contamination",
+        "status": "PASS",
+        "evidence": "Clean category integrity verified (Restaurants & Dining)"
+      },
+      {
+        "id": "no_internal_leakage",
+        "name": "Client-Facing Independence",
+        "status": "PASS",
+        "evidence": "100% standalone client website without internal platform branding"
+      },
+      {
+        "id": "verified_facts",
+        "name": "Verified Facts & Local Integrity",
+        "status": "PASS",
+        "evidence": "business_name=true, local_karimnagar=true, direct_cta=true"
+      }
+    ]
+  },
+  {
+    "id": "famous-tattoos-fathepura",
+    "leadId": "knr-tat-02",
+    "businessName": "Famous Tattoos & Beauty Saloon",
+    "category": "Salons, Spas & Tattoo Studios",
+    "niche": "salon_tattoo",
+    "slug": "famous-tattoos-fathepura",
+    "relativeUrl": "/demos/famous-tattoos-fathepura/index.html",
+    "publishedUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/famous-tattoos-fathepura/",
+    "repo": "naveenk7100-ship-it/karimnagar-business-demos",
+    "archetype": "luxury_ink_noir",
+    "designFingerprint": {
+      "archetypeId": "luxury_ink_noir",
+      "archetypeName": "Luxury Ink & Aesthetics Noir",
+      "layout": "split_hero_service_tabs_variant",
+      "heroStyle": "particle_noir_smoke",
+      "primaryColor": "#c29d59",
+      "accentColor": "#3150e0",
+      "bgDark": "#0d0d11",
+      "fontHeading": "Cinzel Decorative",
+      "fontBody": "Plus Jakarta Sans",
+      "sectionOrder": [
+        "hero",
+        "faq",
+        "flash_gallery",
+        "services_ratecard",
+        "hygiene_sterilization",
+        "location"
+      ],
+      "similarityScore": 0.4
+    },
+    "qaScore": 100,
+    "qaPass": true,
+    "qaChecks": [
+      {
+        "id": "html_structure",
+        "name": "HTML Document Structure",
+        "status": "PASS",
+        "evidence": "DOCTYPE=true, html=true, head=true, body=true"
+      },
+      {
+        "id": "mobile_responsive",
+        "name": "Mobile Responsiveness & Viewport",
+        "status": "PASS",
+        "evidence": "viewport_meta=true, media_query_768=true, mobile_action_bar=true"
+      },
+      {
+        "id": "links_cta",
+        "name": "CTA & Navigation Links",
+        "status": "PASS",
+        "evidence": "wa_link=true, tel_link=true, maps_link=true"
+      },
+      {
+        "id": "accessibility",
+        "name": "Accessibility & ARIA Attributes",
+        "status": "PASS",
+        "evidence": "h1=true, h2=true, floating_wa_aria=true"
+      },
+      {
+        "id": "seo_metadata",
+        "name": "SEO & Structured Data (JSON-LD)",
+        "status": "PASS",
+        "evidence": "title=true, meta_desc=true, og_title=true, schema_localbusiness=Famous Tattoos &amp; Beauty Saloon"
+      },
+      {
+        "id": "interactive_3d_fallback",
+        "name": "Interactive 3D Engine & Fallbacks",
+        "status": "PASS",
+        "evidence": "canvas_tag=true, threejs_cdn=true, graceful_catch_block=true"
+      },
+      {
+        "id": "placeholder_leakage",
+        "name": "Placeholder & Template Leakage",
+        "status": "PASS",
+        "evidence": "No raw template tokens detected"
+      },
+      {
+        "id": "category_safety",
+        "name": "Category Safety & Zero Contamination",
+        "status": "PASS",
+        "evidence": "Clean category integrity verified (Salons, Spas & Tattoo Studios)"
+      },
+      {
+        "id": "no_internal_leakage",
+        "name": "Client-Facing Independence",
+        "status": "PASS",
+        "evidence": "100% standalone client website without internal platform branding"
+      },
+      {
+        "id": "verified_facts",
+        "name": "Verified Facts & Local Integrity",
+        "status": "PASS",
+        "evidence": "business_name=true, local_karimnagar=true, direct_cta=true"
+      }
+    ],
+    "deploymentStatus": "LIVE",
+    "httpStatus": 200,
+    "verifiedAt": "2026-10-20T06:32:26.443Z",
+    "createdAt": "2026-10-18T10:00:00.000Z"
+  },
+  {
+    "id": "sumasri-digital-photo-karimnagar",
+    "leadId": "knr-pho-02",
+    "businessName": "Sumasri Digital Photo Studio",
+    "category": "Wedding & Event Photography",
+    "niche": "wedding_photo",
+    "slug": "sumasri-digital-photo-karimnagar",
+    "relativeUrl": "/demos/sumasri-digital-photo-karimnagar/index.html",
+    "publishedUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/sumasri-digital-photo-karimnagar/",
+    "repo": "naveenk7100-ship-it/karimnagar-business-demos",
+    "archetype": "champagne_editorial",
+    "designFingerprint": {
+      "archetypeId": "champagne_editorial",
+      "archetypeName": "Champagne Editorial & Cinema",
+      "layout": "editorial_masonry_lightbox_variant",
+      "heroStyle": "floating_crystalline_prisms",
+      "primaryColor": "#e5c07b",
+      "accentColor": "#25a203",
+      "bgDark": "#0b0c0f",
+      "fontHeading": "Playfair Display",
+      "fontBody": "Plus Jakarta Sans",
+      "sectionOrder": [
+        "hero",
+        "client_stories",
+        "muhurtham_calendar",
+        "portfolio_masonry",
+        "cinema_reel",
+        "location"
+      ],
+      "similarityScore": 0.27
+    },
+    "qaScore": 100,
+    "qaPass": true,
+    "qaChecks": [
+      {
+        "id": "html_structure",
+        "name": "HTML Document Structure",
+        "status": "PASS",
+        "evidence": "DOCTYPE=true, html=true, head=true, body=true"
+      },
+      {
+        "id": "mobile_responsive",
+        "name": "Mobile Responsiveness & Viewport",
+        "status": "PASS",
+        "evidence": "viewport_meta=true, media_query_768=true, mobile_action_bar=true"
+      },
+      {
+        "id": "links_cta",
+        "name": "CTA & Navigation Links",
+        "status": "PASS",
+        "evidence": "wa_link=true, tel_link=true, maps_link=true"
+      },
+      {
+        "id": "accessibility",
+        "name": "Accessibility & ARIA Attributes",
+        "status": "PASS",
+        "evidence": "h1=true, h2=true, floating_wa_aria=true"
+      },
+      {
+        "id": "seo_metadata",
+        "name": "SEO & Structured Data (JSON-LD)",
+        "status": "PASS",
+        "evidence": "title=true, meta_desc=true, og_title=true, schema_localbusiness=Sumasri Digital Photo Studio"
+      },
+      {
+        "id": "interactive_3d_fallback",
+        "name": "Interactive 3D Engine & Fallbacks",
+        "status": "PASS",
+        "evidence": "canvas_tag=true, threejs_cdn=true, graceful_catch_block=true"
+      },
+      {
+        "id": "placeholder_leakage",
+        "name": "Placeholder & Template Leakage",
+        "status": "PASS",
+        "evidence": "No raw template tokens detected"
+      },
+      {
+        "id": "category_safety",
+        "name": "Category Safety & Zero Contamination",
+        "status": "PASS",
+        "evidence": "Clean category integrity verified (Wedding & Event Photography)"
+      },
+      {
+        "id": "no_internal_leakage",
+        "name": "Client-Facing Independence",
+        "status": "PASS",
+        "evidence": "100% standalone client website without internal platform branding"
+      },
+      {
+        "id": "verified_facts",
+        "name": "Verified Facts & Local Integrity",
+        "status": "PASS",
+        "evidence": "business_name=true, local_karimnagar=true, direct_cta=true"
+      }
+    ],
+    "deploymentStatus": "LIVE",
+    "httpStatus": 200,
+    "verifiedAt": "2026-10-20T06:32:56.484Z",
+    "createdAt": "2026-10-18T10:00:00.000Z"
+  },
+  {
+    "id": "la-delicious-bakery-karimnagar",
+    "leadId": "knr-bak-01",
+    "businessName": "La Delicious Bakery & Cafe",
+    "category": "Bakeries & Cafes",
+    "niche": "bakery",
+    "slug": "la-delicious-bakery-karimnagar",
+    "relativeUrl": "/demos/la-delicious-bakery-karimnagar/index.html",
+    "publishedUrl": "https://naveenk7100-ship-it.github.io/karimnagar-business-demos/la-delicious-bakery-karimnagar/",
+    "repo": "naveenk7100-ship-it/karimnagar-business-demos",
+    "archetype": "culinary_warmth",
+    "designFingerprint": {
+      "archetypeId": "culinary_warmth",
+      "archetypeName": "Culinary Ember & Feast Reservations",
+      "layout": "culinary_menu_reservations_variant",
+      "heroStyle": "warm_bokeh_embers",
+      "primaryColor": "#f97316",
+      "accentColor": "#60e1f9",
+      "bgDark": "#0e0b0a",
+      "fontHeading": "Outfit",
+      "fontBody": "Plus Jakarta Sans",
+      "sectionOrder": [
+        "hero",
+        "ambience_experience",
+        "table_booking",
+        "menu_categories",
+        "chef_specials",
+        "location"
+      ],
+      "similarityScore": 0.3
+    },
+    "qaScore": 100,
+    "qaPass": true,
+    "qaChecks": [
+      {
+        "id": "html_structure",
+        "name": "HTML Document Structure",
+        "status": "PASS",
+        "evidence": "DOCTYPE=true, html=true, head=true, body=true"
+      },
+      {
+        "id": "mobile_responsive",
+        "name": "Mobile Responsiveness & Viewport",
+        "status": "PASS",
+        "evidence": "viewport_meta=true, media_query_768=true, mobile_action_bar=true"
+      },
+      {
+        "id": "links_cta",
+        "name": "CTA & Navigation Links",
+        "status": "PASS",
+        "evidence": "wa_link=true, tel_link=true, maps_link=true"
+      },
+      {
+        "id": "accessibility",
+        "name": "Accessibility & ARIA Attributes",
+        "status": "PASS",
+        "evidence": "h1=true, h2=true, floating_wa_aria=true"
+      },
+      {
+        "id": "seo_metadata",
+        "name": "SEO & Structured Data (JSON-LD)",
+        "status": "PASS",
+        "evidence": "title=true, meta_desc=true, og_title=true, schema_localbusiness=La Delicious Bakery &amp; Cafe"
+      },
+      {
+        "id": "interactive_3d_fallback",
+        "name": "Interactive 3D Engine & Fallbacks",
+        "status": "PASS",
+        "evidence": "canvas_tag=true, threejs_cdn=true, graceful_catch_block=true"
+      },
+      {
+        "id": "placeholder_leakage",
+        "name": "Placeholder & Template Leakage",
+        "status": "PASS",
+        "evidence": "No raw template tokens detected"
+      },
+      {
+        "id": "category_safety",
+        "name": "Category Safety & Zero Contamination",
+        "status": "PASS",
+        "evidence": "Clean category integrity verified (Bakeries & Cafes)"
+      },
+      {
+        "id": "no_internal_leakage",
+        "name": "Client-Facing Independence",
+        "status": "PASS",
+        "evidence": "100% standalone client website without internal platform branding"
+      },
+      {
+        "id": "verified_facts",
+        "name": "Verified Facts & Local Integrity",
+        "status": "PASS",
+        "evidence": "business_name=true, local_karimnagar=true, direct_cta=true"
+      }
+    ],
+    "deploymentStatus": "LIVE",
+    "httpStatus": 200,
+    "verifiedAt": "2026-10-20T06:33:10.830Z",
+    "createdAt": "2026-10-18T10:00:00.000Z"
   }
 ]
