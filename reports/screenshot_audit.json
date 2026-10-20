@@ -1,40 +1,57 @@
 {
-  "capturedAt": "2026-10-20T09:31:44.099Z",
+  "capturedAt": "2026-10-20T10:09:56.399Z",
   "totalDemos": 9,
   "viewportsTested": [
+    "desktop-1648 (1648x900)",
     "desktop-1440 (1440x900)",
     "desktop-1280 (1280x800)",
     "tablet-768 (768x1024)",
     "mobile-390 (390x844)",
-    "mobile-375 (375x812)"
+    "mobile-375 (375x812)",
+    "mobile-360 (360x780)"
   ],
   "details": [
     {
       "slug": "hair-lounge-salon-tattoos",
       "captures": {
+        "desktop-1648": {
+          "file": "hair-lounge-salon-tattoos-1648x900.png",
+          "sizeKb": "945.2",
+          "status": "PASS"
+        },
         "desktop-1440": {
           "file": "hair-lounge-salon-tattoos-1440x900.png",
-          "sizeKb": "755.9",
+          "sizeKb": "931.2",
           "status": "PASS"
         },
         "desktop-1280": {
           "file": "hair-lounge-salon-tattoos-desktop.png",
-          "sizeKb": "663.7",
+          "sizeKb": "798.0",
           "status": "PASS"
         },
         "tablet-768": {
           "file": "hair-lounge-salon-tattoos-tablet-768.png",
-          "sizeKb": "476.5",
+          "sizeKb": "570.2",
           "status": "PASS"
         },
         "mobile-390": {
           "file": "hair-lounge-salon-tattoos-mobile-390.png",
-          "sizeKb": "217.4",
+          "sizeKb": "252.1",
           "status": "PASS"
         },
         "mobile-375": {
           "file": "hair-lounge-salon-tattoos-mobile.png",
-          "sizeKb": "203.9",
+          "sizeKb": "234.5",
+          "status": "PASS"
+        },
+        "mobile-360": {
+          "file": "hair-lounge-salon-tattoos-mobile-360.png",
+          "sizeKb": "203.1",
+          "status": "PASS"
+        },
+        "fullpage-1440": {
+          "file": "hair-lounge-salon-tattoos-fullpage.png",
+          "sizeKb": "2241.3",
           "status": "PASS"
         }
       }
@@ -42,29 +59,44 @@
     {
       "slug": "star-fitness-gym-karimnagar",
       "captures": {
+        "desktop-1648": {
+          "file": "star-fitness-gym-karimnagar-1648x900.png",
+          "sizeKb": "1042.6",
+          "status": "PASS"
+        },
         "desktop-1440": {
           "file": "star-fitness-gym-karimnagar-1440x900.png",
-          "sizeKb": "722.2",
+          "sizeKb": "1030.7",
           "status": "PASS"
         },
         "desktop-1280": {
           "file": "star-fitness-gym-karimnagar-desktop.png",
-          "sizeKb": "652.4",
+          "sizeKb": "882.6",
           "status": "PASS"
         },
         "tablet-768": {
           "file": "star-fitness-gym-karimnagar-tablet-768.png",
-          "sizeKb": "504.1",
+          "sizeKb": "674.5",
           "status": "PASS"
         },
         "mobile-390": {
           "file": "star-fitness-gym-karimnagar-mobile-390.png",
-          "sizeKb": "241.3",
+          "sizeKb": "308.5",
           "status": "PASS"
         },
         "mobile-375": {
           "file": "star-fitness-gym-karimnagar-mobile.png",
-          "sizeKb": "224.5",
+          "sizeKb": "286.4",
+          "status": "PASS"
+        },
+        "mobile-360": {
+          "file": "star-fitness-gym-karimnagar-mobile-360.png",
+          "sizeKb": "266.8",
+          "status": "PASS"
+        },
+        "fullpage-1440": {
+          "file": "star-fitness-gym-karimnagar-fullpage.png",
+          "sizeKb": "2975.3",
           "status": "PASS"
         }
       }
@@ -72,29 +104,44 @@
     {
       "slug": "yashika-photography-karimnagar",
       "captures": {
+        "desktop-1648": {
+          "file": "yashika-photography-karimnagar-1648x900.png",
+          "sizeKb": "800.2",
+          "status": "PASS"
+        },
         "desktop-1440": {
           "file": "yashika-photography-karimnagar-1440x900.png",
-          "sizeKb": "577.1",
+          "sizeKb": "792.2",
           "status": "PASS"
         },
         "desktop-1280": {
           "file": "yashika-photography-karimnagar-desktop.png",
-          "sizeKb": "520.1",
+          "sizeKb": "686.5",
           "status": "PASS"
         },
         "tablet-768": {
           "file": "yashika-photography-karimnagar-tablet-768.png",
-          "sizeKb": "397.6",
+          "sizeKb": "514.0",
           "status": "PASS"
         },
         "mobile-390": {
           "file": "yashika-photography-karimnagar-mobile-390.png",
-          "sizeKb": "179.3",
+          "sizeKb": "223.1",
           "status": "PASS"
         },
         "mobile-375": {
           "file": "yashika-photography-karimnagar-mobile.png",
-          "sizeKb": "167.5",
+          "sizeKb": "199.6",
+          "status": "PASS"
+        },
+        "mobile-360": {
+          "file": "yashika-photography-karimnagar-mobile-360.png",
+          "sizeKb": "192.9",
+          "status": "PASS"
+        },
+        "fullpage-1440": {
+          "file": "yashika-photography-karimnagar-fullpage.png",
+          "sizeKb": "2001.6",
           "status": "PASS"
         }
       }
@@ -102,29 +149,44 @@
     {
       "slug": "pavan-furniture-world",
       "captures": {
+        "desktop-1648": {
+          "file": "pavan-furniture-world-1648x900.png",
+          "sizeKb": "648.4",
+          "status": "PASS"
+        },
         "desktop-1440": {
           "file": "pavan-furniture-world-1440x900.png",
-          "sizeKb": "466.9",
+          "sizeKb": "641.5",
           "status": "PASS"
         },
         "desktop-1280": {
           "file": "pavan-furniture-world-desktop.png",
-          "sizeKb": "346.7",
+          "sizeKb": "556.9",
           "status": "PASS"
         },
         "tablet-768": {
           "file": "pavan-furniture-world-tablet-768.png",
-          "sizeKb": "305.9",
+          "sizeKb": "385.2",
           "status": "PASS"
         },
         "mobile-390": {
           "file": "pavan-furniture-world-mobile-390.png",
-          "sizeKb": "152.6",
+          "sizeKb": "202.2",
           "status": "PASS"
         },
         "mobile-375": {
           "file": "pavan-furniture-world-mobile.png",
-          "sizeKb": "142.9",
+          "sizeKb": "186.9",
+          "status": "PASS"
+        },
+        "mobile-360": {
+          "file": "pavan-furniture-world-mobile-360.png",
+          "sizeKb": "169.9",
+          "status": "PASS"
+        },
+        "fullpage-1440": {
+          "file": "pavan-furniture-world-fullpage.png",
+          "sizeKb": "1426.9",
           "status": "PASS"
         }
       }
@@ -132,29 +194,44 @@
     {
       "slug": "sri-chaitanya-coaching-karimnagar",
       "captures": {
+        "desktop-1648": {
+          "file": "sri-chaitanya-coaching-karimnagar-1648x900.png",
+          "sizeKb": "1026.7",
+          "status": "PASS"
+        },
         "desktop-1440": {
           "file": "sri-chaitanya-coaching-karimnagar-1440x900.png",
-          "sizeKb": "731.0",
+          "sizeKb": "1015.5",
           "status": "PASS"
         },
         "desktop-1280": {
           "file": "sri-chaitanya-coaching-karimnagar-desktop.png",
-          "sizeKb": "669.3",
+          "sizeKb": "879.8",
           "status": "PASS"
         },
         "tablet-768": {
           "file": "sri-chaitanya-coaching-karimnagar-tablet-768.png",
-          "sizeKb": "497.2",
+          "sizeKb": "638.8",
           "status": "PASS"
         },
         "mobile-390": {
           "file": "sri-chaitanya-coaching-karimnagar-mobile-390.png",
-          "sizeKb": "224.2",
+          "sizeKb": "278.2",
           "status": "PASS"
         },
         "mobile-375": {
           "file": "sri-chaitanya-coaching-karimnagar-mobile.png",
-          "sizeKb": "208.1",
+          "sizeKb": "259.8",
+          "status": "PASS"
+        },
+        "mobile-360": {
+          "file": "sri-chaitanya-coaching-karimnagar-mobile-360.png",
+          "sizeKb": "234.5",
+          "status": "PASS"
+        },
+        "fullpage-1440": {
+          "file": "sri-chaitanya-coaching-karimnagar-fullpage.png",
+          "sizeKb": "2778.6",
           "status": "PASS"
         }
       }
@@ -162,29 +239,44 @@
     {
       "slug": "peacock-restaurant-karimnagar",
       "captures": {
+        "desktop-1648": {
+          "file": "peacock-restaurant-karimnagar-1648x900.png",
+          "sizeKb": "944.4",
+          "status": "PASS"
+        },
         "desktop-1440": {
           "file": "peacock-restaurant-karimnagar-1440x900.png",
-          "sizeKb": "653.0",
+          "sizeKb": "937.9",
           "status": "PASS"
         },
         "desktop-1280": {
           "file": "peacock-restaurant-karimnagar-desktop.png",
-          "sizeKb": "590.7",
+          "sizeKb": "826.0",
           "status": "PASS"
         },
         "tablet-768": {
           "file": "peacock-restaurant-karimnagar-tablet-768.png",
-          "sizeKb": "458.9",
+          "sizeKb": "607.1",
           "status": "PASS"
         },
         "mobile-390": {
           "file": "peacock-restaurant-karimnagar-mobile-390.png",
-          "sizeKb": "246.3",
+          "sizeKb": "306.9",
           "status": "PASS"
         },
         "mobile-375": {
           "file": "peacock-restaurant-karimnagar-mobile.png",
-          "sizeKb": "230.3",
+          "sizeKb": "279.7",
+          "status": "PASS"
+        },
+        "mobile-360": {
+          "file": "peacock-restaurant-karimnagar-mobile-360.png",
+          "sizeKb": "257.9",
+          "status": "PASS"
+        },
+        "fullpage-1440": {
+          "file": "peacock-restaurant-karimnagar-fullpage.png",
+          "sizeKb": "3084.9",
           "status": "PASS"
         }
       }
@@ -192,29 +284,44 @@
     {
       "slug": "famous-tattoos-fathepura",
       "captures": {
+        "desktop-1648": {
+          "file": "famous-tattoos-fathepura-1648x900.png",
+          "sizeKb": "889.6",
+          "status": "PASS"
+        },
         "desktop-1440": {
           "file": "famous-tattoos-fathepura-1440x900.png",
-          "sizeKb": "648.5",
+          "sizeKb": "880.7",
           "status": "PASS"
         },
         "desktop-1280": {
           "file": "famous-tattoos-fathepura-desktop.png",
-          "sizeKb": "577.5",
+          "sizeKb": "751.9",
           "status": "PASS"
         },
         "tablet-768": {
           "file": "famous-tattoos-fathepura-tablet-768.png",
-          "sizeKb": "448.4",
+          "sizeKb": "567.7",
           "status": "PASS"
         },
         "mobile-390": {
           "file": "famous-tattoos-fathepura-mobile-390.png",
-          "sizeKb": "206.5",
+          "sizeKb": "251.2",
           "status": "PASS"
         },
         "mobile-375": {
           "file": "famous-tattoos-fathepura-mobile.png",
-          "sizeKb": "192.4",
+          "sizeKb": "235.2",
+          "status": "PASS"
+        },
+        "mobile-360": {
+          "file": "famous-tattoos-fathepura-mobile-360.png",
+          "sizeKb": "206.9",
+          "status": "PASS"
+        },
+        "fullpage-1440": {
+          "file": "famous-tattoos-fathepura-fullpage.png",
+          "sizeKb": "2215.0",
           "status": "PASS"
         }
       }
@@ -222,29 +329,44 @@
     {
       "slug": "sumasri-digital-photo-karimnagar",
       "captures": {
+        "desktop-1648": {
+          "file": "sumasri-digital-photo-karimnagar-1648x900.png",
+          "sizeKb": "969.1",
+          "status": "PASS"
+        },
         "desktop-1440": {
           "file": "sumasri-digital-photo-karimnagar-1440x900.png",
-          "sizeKb": "681.3",
+          "sizeKb": "957.6",
           "status": "PASS"
         },
         "desktop-1280": {
           "file": "sumasri-digital-photo-karimnagar-desktop.png",
-          "sizeKb": "617.6",
+          "sizeKb": "823.5",
           "status": "PASS"
         },
         "tablet-768": {
           "file": "sumasri-digital-photo-karimnagar-tablet-768.png",
-          "sizeKb": "446.7",
+          "sizeKb": "580.1",
           "status": "PASS"
         },
         "mobile-390": {
           "file": "sumasri-digital-photo-karimnagar-mobile-390.png",
-          "sizeKb": "207.9",
+          "sizeKb": "274.5",
           "status": "PASS"
         },
         "mobile-375": {
           "file": "sumasri-digital-photo-karimnagar-mobile.png",
-          "sizeKb": "194.7",
+          "sizeKb": "255.7",
+          "status": "PASS"
+        },
+        "mobile-360": {
+          "file": "sumasri-digital-photo-karimnagar-mobile-360.png",
+          "sizeKb": "238.6",
+          "status": "PASS"
+        },
+        "fullpage-1440": {
+          "file": "sumasri-digital-photo-karimnagar-fullpage.png",
+          "sizeKb": "2377.0",
           "status": "PASS"
         }
       }
@@ -252,29 +374,44 @@
     {
       "slug": "la-delicious-bakery-karimnagar",
       "captures": {
+        "desktop-1648": {
+          "file": "la-delicious-bakery-karimnagar-1648x900.png",
+          "sizeKb": "1066.2",
+          "status": "PASS"
+        },
         "desktop-1440": {
           "file": "la-delicious-bakery-karimnagar-1440x900.png",
-          "sizeKb": "751.0",
+          "sizeKb": "1055.7",
           "status": "PASS"
         },
         "desktop-1280": {
           "file": "la-delicious-bakery-karimnagar-desktop.png",
-          "sizeKb": "671.4",
+          "sizeKb": "916.3",
           "status": "PASS"
         },
         "tablet-768": {
           "file": "la-delicious-bakery-karimnagar-tablet-768.png",
-          "sizeKb": "507.8",
+          "sizeKb": "701.0",
           "status": "PASS"
         },
         "mobile-390": {
           "file": "la-delicious-bakery-karimnagar-mobile-390.png",
-          "sizeKb": "233.1",
+          "sizeKb": "304.6",
           "status": "PASS"
         },
         "mobile-375": {
           "file": "la-delicious-bakery-karimnagar-mobile.png",
-          "sizeKb": "214.9",
+          "sizeKb": "283.1",
+          "status": "PASS"
+        },
+        "mobile-360": {
+          "file": "la-delicious-bakery-karimnagar-mobile-360.png",
+          "sizeKb": "260.4",
+          "status": "PASS"
+        },
+        "fullpage-1440": {
+          "file": "la-delicious-bakery-karimnagar-fullpage.png",
+          "sizeKb": "2894.4",
           "status": "PASS"
         }
       }
@@ -282,14 +419,24 @@
     {
       "slug": "hub-directory",
       "captures": {
+        "desktop-1648": {
+          "file": "hub-1648x900.png",
+          "sizeKb": "143.5",
+          "status": "PASS"
+        },
         "desktop-1440": {
           "file": "hub-1440x900.png",
-          "sizeKb": "161.5",
+          "sizeKb": "142.3",
           "status": "PASS"
         },
         "desktop-1280": {
           "file": "hub-desktop.png",
-          "sizeKb": "125.8",
+          "sizeKb": "120.5",
+          "status": "PASS"
+        },
+        "mobile-390": {
+          "file": "hub-mobile-390.png",
+          "sizeKb": "62.6",
           "status": "PASS"
         }
       }

@@ -121,7 +121,7 @@ export class GitHubPagesDeployer {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karimnagar Business Demos Hub | AI Local Hunter</title>
+  <title>Karimnagar Commercial Showcase | Digital Demonstration Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -156,7 +156,7 @@ export class GitHubPagesDeployer {
   <div class="container">
     <header>
       <h1>Karimnagar Business Concept Demos Hub</h1>
-      <p class="subtitle">Live responsive preview concepts engineered autonomously by Karimnagar Business Hunter AI.</p>
+      <p class="subtitle">Independent concept prototypes and interactive digital demonstrations developed for premier local businesses across Karimnagar, Telangana.</p>
     </header>
     <div class="grid">
       ${items.map(slug => `

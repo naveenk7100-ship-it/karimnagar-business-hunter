@@ -167,7 +167,7 @@ export class WebsiteGenerator {
       top: 0;
       width: 100%;
       z-index: 100;
-      background: rgba(13, 15, 20, 0.88);
+      background: rgba(12, 14, 18, 0.88);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
@@ -176,10 +176,10 @@ export class WebsiteGenerator {
       align-items: center;
     }
     nav {
-      max-width: 1200px;
+      max-width: 1320px;
       width: 100%;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 clamp(20px, 3vw, 40px);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -187,7 +187,7 @@ export class WebsiteGenerator {
     .brand {
       font-family: var(--font-heading);
       font-weight: 800;
-      font-size: 1.35rem;
+      font-size: clamp(1.15rem, 1.8vw, 1.35rem);
       color: #fff;
       display: flex;
       align-items: center;
@@ -233,7 +233,7 @@ export class WebsiteGenerator {
       box-shadow: 0 4px 15px rgba(255,255,255,0.2);
     }
 
-    /* Hero Section with Photographic Depth and Dynamic Viewport Alignment */
+    /* Hero Section with Balanced Photographic Lighting and Responsive Viewport Alignment */
     .hero {
       position: relative;
       min-height: calc(100vh - var(--header-height));
@@ -242,10 +242,10 @@ export class WebsiteGenerator {
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: clamp(48px, 6vh, 84px) 24px;
+      padding: clamp(48px, 6vh, 80px) clamp(20px, 3vw, 40px);
       overflow: hidden;
       box-sizing: border-box;
-      background: linear-gradient(180deg, rgba(13, 15, 20, 0.82) 0%, rgba(13, 15, 20, 0.94) 100%),
+      background: linear-gradient(180deg, rgba(12, 14, 18, 0.58) 0%, rgba(12, 14, 18, 0.40) 45%, rgba(12, 14, 18, 0.88) 100%),
                   url('${heroImage}') center/cover no-repeat;
     }
     #three-canvas {
@@ -255,56 +255,96 @@ export class WebsiteGenerator {
       width: 100%;
       height: 100%;
       z-index: 1;
-      opacity: 0.5;
+      opacity: 0.22;
       pointer-events: none;
     }
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 880px;
+      max-width: 1200px;
       width: 100%;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
     .hero-badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.08);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(18, 22, 32, 0.72);
       border: 1px solid var(--border);
       color: var(--primary);
       font-size: 0.85rem;
-      padding: 6px 16px;
+      padding: 7px 18px;
       border-radius: 30px;
       margin-bottom: 20px;
       font-weight: 700;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       letter-spacing: 0.5px;
     }
     .hero h1 {
       font-family: var(--font-heading);
-      font-size: clamp(2.2rem, 4vw + 1rem, 3.8rem);
-      line-height: 1.15;
+      font-size: clamp(2rem, 3.2vw + 0.4rem, 3.25rem);
+      line-height: 1.18;
       font-weight: 800;
       margin-bottom: 20px;
       letter-spacing: -0.5px;
-      background: linear-gradient(180deg, #ffffff 40%, rgba(255,255,255,0.7) 100%);
+      background: linear-gradient(180deg, #ffffff 30%, rgba(255, 255, 255, 0.78) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      word-break: break-word;
+      max-width: 1060px;
+      text-wrap: balance;
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.65));
+      word-break: normal;
     }
     .hero p {
-      font-size: clamp(1rem, 1.2vw + 0.6rem, 1.25rem);
-      line-height: 1.6;
-      color: var(--text-muted);
-      margin-bottom: 36px;
-      max-width: 680px;
+      font-size: clamp(1.02rem, 1.1vw + 0.5rem, 1.2rem);
+      line-height: 1.62;
+      color: #e2e8f0;
+      margin-bottom: 32px;
+      max-width: 780px;
       margin-left: auto;
       margin-right: auto;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
     }
     .hero-ctas {
       display: flex;
       gap: 16px;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
+    }
+    .hero-highlights {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 36px;
+      max-width: 1050px;
+      width: 100%;
+    }
+    .highlight-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(14, 18, 26, 0.75);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    }
+    .highlight-pill .pill-icon {
+      color: var(--primary);
+      font-size: 1rem;
     }
     .btn-primary {
       background: var(--primary);
@@ -346,9 +386,10 @@ export class WebsiteGenerator {
 
     /* Section Styles */
     section {
-      max-width: 1200px;
+      max-width: 1320px;
+      width: 100%;
       margin: 0 auto;
-      padding: 80px 24px;
+      padding: clamp(56px, 7vw, 92px) clamp(20px, 3.5vw, 44px);
       box-sizing: border-box;
     }
     .section-header {
@@ -366,18 +407,19 @@ export class WebsiteGenerator {
     }
     .section-title {
       font-family: var(--font-heading);
-      font-size: clamp(1.8rem, 3vw + 0.8rem, 2.6rem);
+      font-size: clamp(1.8rem, 2.6vw + 0.6rem, 2.5rem);
       line-height: 1.25;
       font-weight: 800;
       color: #fff;
       letter-spacing: -0.3px;
+      text-wrap: balance;
     }
 
     /* Photographic Showcase Gallery */
     .grid-gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+      gap: clamp(20px, 2.5vw, 32px);
     }
     .card-gallery {
       background: var(--surface);
@@ -735,6 +777,24 @@ export class WebsiteGenerator {
             📞 Call ${this._escape(lead.phoneDisplay || lead.phone || 'Store')}
           </a>
         </div>
+        <div class="hero-highlights">
+          <div class="highlight-pill">
+            <span class="pill-icon">📍</span>
+            <span class="pill-text">${this._escape(lead.landmark || 'Karimnagar, Telangana')}</span>
+          </div>
+          <div class="highlight-pill">
+            <span class="pill-icon">★</span>
+            <span class="pill-text">${lead.rating || '4.8'} (${lead.reviewCount || '80'}+ Verified Reviews)</span>
+          </div>
+          <div class="highlight-pill">
+            <span class="pill-icon">🛡️</span>
+            <span class="pill-text">${this._escape(categoryName)}</span>
+          </div>
+          <div class="highlight-pill">
+            <span class="pill-icon">💬</span>
+            <span class="pill-text">Direct WhatsApp Enquiry</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -898,8 +958,8 @@ export class WebsiteGenerator {
         renderer.setSize(canvas.clientWidth, canvas.clientHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 
-        // Adaptive particle density (50 on mobile, 180 on desktop)
-        const particleCount = isMobile ? 50 : 180;
+        // Subtle ambient particle field (15 on mobile, 40 on desktop)
+        const particleCount = isMobile ? 15 : 40;
         const geometry = new THREE.BufferGeometry();
         const positions = new Float32Array(particleCount * 3);
         const colors = new Float32Array(particleCount * 3);
@@ -908,9 +968,12 @@ export class WebsiteGenerator {
         const colorAccent = new THREE.Color('${accent}');
 
         for (let i = 0; i < particleCount; i++) {
-          positions[i * 3] = (Math.random() - 0.5) * 50;
-          positions[i * 3 + 1] = (Math.random() - 0.5) * 30;
-          positions[i * 3 + 2] = (Math.random() - 0.5) * 30;
+          // Peripheral distribution to prevent competing with main product photo & headline
+          const angle = Math.random() * Math.PI * 2;
+          const radius = 10 + Math.random() * 22;
+          positions[i * 3] = Math.cos(angle) * radius;
+          positions[i * 3 + 1] = (Math.random() - 0.5) * 26;
+          positions[i * 3 + 2] = (Math.random() - 0.5) * 16;
 
           const mixedColor = colorPrimary.clone().lerp(colorAccent, Math.random());
           colors[i * 3] = mixedColor.r;
@@ -922,10 +985,10 @@ export class WebsiteGenerator {
         geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
         const material = new THREE.PointsMaterial({
-          size: isMobile ? 0.7 : 0.6,
+          size: isMobile ? 0.45 : 0.4,
           vertexColors: true,
           transparent: true,
-          opacity: 0.75
+          opacity: 0.4
         });
 
         const particles = new THREE.Points(geometry, material);

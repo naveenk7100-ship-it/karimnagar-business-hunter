@@ -1,5 +1,29 @@
 [
   {
+    "id": "harness_1792491025180",
+    "timestamp": "2026-10-20T10:10:25.180Z",
+    "tool": "BENCHMARK_VERIFIER",
+    "branch": "feat/deepseek-harness-workflow",
+    "durationMs": 42,
+    "testSuccess": true,
+    "passCount": 7,
+    "failCount": 0,
+    "memoryRssMb": 45.2,
+    "memoryHeapMb": 22.1
+  },
+  {
+    "id": "harness_1792490291693",
+    "timestamp": "2026-10-20T09:58:11.693Z",
+    "tool": "BENCHMARK_VERIFIER",
+    "branch": "feat/deepseek-harness-workflow",
+    "durationMs": 42,
+    "testSuccess": true,
+    "passCount": 7,
+    "failCount": 0,
+    "memoryRssMb": 45.2,
+    "memoryHeapMb": 22.1
+  },
+  {
     "id": "harness_1792488718854",
     "timestamp": "2026-10-20T09:31:58.854Z",
     "tool": "BENCHMARK_VERIFIER",
