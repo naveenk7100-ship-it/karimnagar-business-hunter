@@ -1,5 +1,17 @@
 [
   {
+    "id": "harness_1793001740063",
+    "timestamp": "2026-10-26T08:02:20.063Z",
+    "tool": "BENCHMARK_VERIFIER",
+    "branch": "feat/deepseek-harness-workflow",
+    "durationMs": 42,
+    "testSuccess": true,
+    "passCount": 7,
+    "failCount": 0,
+    "memoryRssMb": 45.2,
+    "memoryHeapMb": 22.1
+  },
+  {
     "id": "harness_1792914347492",
     "timestamp": "2026-10-25T07:45:47.492Z",
     "tool": "BENCHMARK_VERIFIER",

@@ -1,5 +1,17 @@
 [
   {
+    "id": "run_1793001741534",
+    "timestamp": "2026-10-26T08:02:21.534Z",
+    "timestampIST": "26/10/2026, 1:32:21 pm",
+    "durationMs": 1378,
+    "totalDiscovered": 0,
+    "processedCount": 0,
+    "errorCount": 0,
+    "telegramDelivered": true,
+    "leads": [],
+    "errors": []
+  },
+  {
     "id": "run_1792914348287",
     "timestamp": "2026-10-25T07:45:48.287Z",
     "timestampIST": "25/10/2026, 1:15:48 pm",
